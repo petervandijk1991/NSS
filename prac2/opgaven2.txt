@@ -1,0 +1,52 @@
+2.1
+	Frequentieband van de radio= 2.4-2.4835 GHz
+	datasnelheid van de radio= 1Mbps or 2 Mbps
+	clockfrequency= 16MHz
+	How many channels does this radio support=126 RF 		channels
+	modulation technology= GFSK =>Gaussian frequency shift 		key
+	 Enhanced ShockBurst is a packet based data link layer.
+	(zie blz 24 datasheet)
+	belangrijkste features:
+		-automatische packet assembling
+		-auto packet transaction handling
+		- 6 data pipe multiceiver
+
+	packet format:
+		address-address for the receiver
+		PID-The 2 bit PID field is used to detect if 			the received packet is new or 			retransmitted
+		no acknowledgement-This flag is only used when 		the auto acknowledgement feature is used. 		Setting the flag high, tells the 
+		receiver that the packet is not to be auto 		acknowledged.
+		CRC-The CRC is the error detection mechanism in 		the packet. It may either be 1 or 2 bytes and 			is calculated over the address, Packet Control 		Field, and Payload. 	
+	Automatic validation-
+		Enhanced ShockBurst™ features automatic packet 		validation. In receive mode the nRF24L01 is 		constanly searching for a valid address (given 		in the RX_ADDR registers.) If a valid address 		is detected the Enhanched ShockBurst™ will 		start to validate the packet. 
+
+	ART stops listening when-
+		• Auto Retransmit Delay (ARD) elapsed or
+		• No address match within 250µs or
+		• After received packet (CRC correct or not) if 		address match within 250µs>> later nog naar 		kijken
+
+	5 addresses- see figure 11 page 36
+
+
+(http://maniacbug.github.io/RF24/classRF24.html)
+		
+void RF24::setChannel	(uint8_t channel)	
+
+bool 	setDataRate (rf24_datarate_e speed)
+
+void RF24::setRetries	(uint8_t delay, uint8_t count )	
+
+void 	openWritingPipe (uint64_t address)
+
+void 	openReadingPipe (uint8_t number, uint64_t address)
+
+
+2.2.1 
+	data rate heeft drie opties
+		-RF24_1MBPS
+		-RF24_2MBPS
+		-RF24_250KBPS
+	channel heeft 2^8 mogelijkheden uint8_t(is byte)
+	  output power van het zenden van pakketten= 	RF24_PA_MIN = 0, RF24_PA_LOW, RF24_PA_HIGH, 	RF24_PA_MAX, RF24_PA_ERROR 
+ 
+	

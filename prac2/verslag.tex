@@ -1,0 +1,43 @@
+\documentclass{article}
+
+\usepackage[dutch]{babel}
+\author{Peter van Dijk \& Elizabeth Schermerhorn}
+\date{\today}
+\title{Practicum 2 Networked Smart Systems}
+\begin{document}
+\maketitle
+\newpage
+\tableofcontents
+\clearpage
+\appendix
+\section{De radio en de RF24-library}
+In dit onderzoek wordt gebruik gemaakt van de rf24 radio. Deze radio heeft de volgende eigenschappen:
+	\begin{itemize}	
+	\item\textbf{Frequentieband: }2.4000-2.4835 GHz
+	\item\textbf{Datasnelheid: }1 of 2 Mb/s
+	\item\textbf{Aantal kanalen: }126 RF-kanalen
+	\item\textbf{Modulatietechniek: }Gaussian Frequency Shift Key(GFSK)
+	\end{itemize}
+\begin{tabular}{l||l}
+\textbf{Modus}  & \textbf{Energieverbruik in Amp\`ere}     \\
+\hline
+Standby-I   & 22 $\mu$A    \\
+Standby-II  & 320 $\mu$A     \\
+Power down  & 900 nA 
+\end{tabular}\\
+\begin{tabular}{l||l}
+\textbf{Zendmodus in dBm}  & \textbf{Energieverbruik in Amp\`ere}     \\
+\hline
+0   & 11.3 mA    \\
+-6  & 9 mA     \\
+-12  & 7.5 mA  \\
+-8  & 7 mA
+\end{tabular}\\
+\begin{tabular}{l||l}
+\textbf{Ontvangstmodus}  & \textbf{Energieverbruik in Amp\`ere}     \\
+\hline
+2 Mbps   & 12.3 mA    \\
+1Mbps & 11.8 mA     
+\end{tabular}
+
+\end{document}
