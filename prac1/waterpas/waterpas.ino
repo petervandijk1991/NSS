@@ -30,11 +30,11 @@ void loop() {
   
   int x = 0, y = 0, z = 0;
   mma.getAccXYZ(&x, &y, &z);
-  if(x<-25){
+  if(x>25){
     digitalWrite(blue, HIGH);   
     digitalWrite(green, LOW); 
     digitalWrite(lblue, LOW); 
-  }else if(x>25){
+  }else if(x<-25){
     digitalWrite(green, HIGH);   
     digitalWrite(blue, LOW); 
     digitalWrite(lblue, LOW); 
