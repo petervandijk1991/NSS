@@ -50,3 +50,18 @@ void 	openReadingPipe (uint8_t number, uint64_t address)
 	  output power van het zenden van pakketten= 	RF24_PA_MIN = 0, RF24_PA_LOW, RF24_PA_HIGH, 	RF24_PA_MAX, RF24_PA_ERROR 
  
 	
+\documentclass{article}
+
+\usepackage[dutch]{babel}
+\author{Peter van Dijk \& Elizabeth Schermerhorn}
+\title{Practicum 2 Networked Smart Systems}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section
+
+2.2.1
+	afstand=2.70m
