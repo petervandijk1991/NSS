@@ -1,36 +1,9 @@
-/*
- Copyright (C) 2011 J. Coliz <maniacbug@ymail.com>
-
- This program is free software; you can redistribute it and/or
- modify it under the terms of the GNU General Public License
- version 2 as published by the Free Software Foundation.
- */
-
-/**
- * Example RF Radio Ping Pair
- *
- * This is an example of how to use the RF24 class.  Write this sketch to two different nodes,
- * connect the role_pin to ground on one.  The ping node sends the current time to the pong node,
- * which responds by sending the value back.  The ping node can then see how long the whole cycle
- * took.
- */
-
 #include <SPI.h>
 #include "nRF24L01.h"
 #include "RF24.h"
 #include "printf.h"
 
-//
-// Hardware configuration
-//
-
-// Set up nRF24L01 radio on SPI bus plus pins 9 & 10
-// (MV:) Adapted to work with the configuration of the shield. Original: RF24 radio(9,10);
-
 RF24 radio(3, 9);
-
-// sets the role of this unit in hardware.  Connect to GND to be the 'pong' receiver
-// Leave open to be the 'ping' transmitter
 const int role_pin = 7;
 int messages_sent = 0;
 
@@ -93,46 +66,21 @@ void setup(void)
   radio.begin();
 
   // optionally, increase the delay between retries & # of retries
-  radio.setRetries(15,15);
-
-  // optionally, reduce the payload size.  seems to
-  // improve reliability
+  radio.setRetries(0,0);
   radio.setPayloadSize(255);
-
-  //
-  // Open pipes to other nodes for communication
-  //
   radio.setChannel(43);
-  // This simple sketch opens two pipes for these two nodes to communicate
-  // back and forth.
-  // Open 'our' pipe for writing
-  // Open the 'other' pipe for reading, in position #1 (we can have up to 5 pipes open for reading)
-
   if ( role == role_ping_out )
   {
     radio.openWritingPipe(pipes[0]);
   }
-  
-
-  //
-  // Start listening
-  //
 
   radio.startListening();
-
-  //
-  // Dump the configuration of the rf unit for debugging
-  //
 
   radio.printDetails();
 }
 
 void loop(void)
 {
-  //
-  // Ping out role.  Repeatedly send the current time
-  //
-
   if (role == role_ping_out)
   {
     // First, stop listening so we can talk.
@@ -161,24 +109,9 @@ void loop(void)
     while ( ! radio.available() && ! timeout )
       if (millis() - started_waiting_at > 200 )
         timeout = true;
-
-    // Describe the results
-    if ( timeout )
-    {
-      printf("Failed, response timed out.\n\r");
-    }
-    else
-    {
-      // Grab the response, compare, and send to debugging spew
-      unsigned long got_time;
-      radio.read( &got_time, sizeof(unsigned long) );
-
-      // Spew it
-      printf("Got response %lu, round-trip delay: %lu\n\r",got_time,millis()-got_time);
-    }
-
+        
     // Try again 1s later
-    delay(1000);
+    delay(100);
   }
 
   //
