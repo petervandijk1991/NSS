@@ -64,11 +64,11 @@ void setup(void)
   //
 
   radio.begin();
-
+  radio.setPALevel(RF24_PA_MAX);
   // optionally, increase the delay between retries & # of retries
   radio.setRetries(0,0);
   radio.setPayloadSize(255);
-  radio.setChannel(43);
+  radio.setChannel(42);
   if ( role == role_ping_out )
   {
     radio.openWritingPipe(pipes[0]);
@@ -78,9 +78,11 @@ void setup(void)
 
   radio.printDetails();
 }
+bool run = true;
+void loop(void){
+   
+if (run){
 
-void loop(void)
-{
   if (role == role_ping_out)
   {
     // First, stop listening so we can talk.
@@ -89,11 +91,12 @@ void loop(void)
     // Take the time, and send it.  This will block until complete
     unsigned long time = millis();
     printf("Now sending %lu...",time);
-    bool ok = radio.write( &time, sizeof(unsigned long) );
+    bool ok = radio.write( &messages_sent, sizeof(unsigned int) );
     messages_sent++;
-    
-      printf("number of messages sent: %u",messages_sent);
-    
+    printf("number of messages sent: %u",messages_sent);
+    if(messages_sent>300){
+      run = false;
+    }
     
     if (ok)
       printf("ok...");
@@ -111,9 +114,9 @@ void loop(void)
         timeout = true;
         
     // Try again 1s later
-    delay(100);
+    delay(25);
   }
-
+}
   //
   // Pong back role.  Receive each packet, dump it out, and send it back
   //
