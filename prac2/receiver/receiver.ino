@@ -3,38 +3,13 @@
 #include "RF24.h"
 #include "printf.h"
 
-//
-// Hardware configuration
-//
-
-// Set up nRF24L01 radio on SPI bus plus pins 9 & 10
-// (MV:) Adapted to work with the configuration of the shield. Original: RF24 radio(9,10);
-
 RF24 radio(3, 9);
 
-// sets the role of this unit in hardware.  Connect to GND to be the 'pong' receiver
-// Leave open to be the 'ping' transmitter
 const int role_pin = 7;
 int received = 0;
 
-//
-// Topology
-//
-
-// Radio pipe addresses for the 2 nodes to communicate.
 const uint64_t pipes[2] = { 0xF0F0F0F0E1LL, 0xF0F0F0F0D2LL };
 
-//
-// Role management
-//
-// Set up role.  This sketch uses the same software for all the nodes
-// in this system.  Doing so greatly simplifies testing.  The hardware itself specifies
-// which node it is.
-//
-// This is done through the role_pin
-//
-
-// The various roles supported by this sketch
 typedef enum { role_ping_out = 1, role_pong_back } role_e;
 
 // The debug-friendly names of those roles
@@ -45,11 +20,7 @@ role_e role;
 
 void setup(void)
 {
-  //
-  // Role
-  //
  
-  // set up the role pin
   pinMode(role_pin, INPUT);
   digitalWrite(role_pin,HIGH);
   delay(20); // Just to get a solid reading on the role pin
@@ -59,10 +30,6 @@ void setup(void)
     role = role_ping_out;
   else
     role = role_pong_back;
-
-  //
-  // Print preamble
-  //
 
   Serial.begin(57600);
   printf_begin();
@@ -75,27 +42,17 @@ void setup(void)
   //
 
   radio.begin();
-  radio.setChannel(43);
-  // optionally, increase the delay between retries & # of retries
+  radio.setChannel(42);
   radio.setRetries(0,0);
-
-  // optionally, reduce the payload size.  seems to
-  // improve reliability
   radio.setPayloadSize(255);
   radio.openReadingPipe(1,pipes[0]);
-
-  //
-  // Start listening
-  //
-
   radio.startListening();
-
-  //
-  // Dump the configuration of the rf unit for debugging
-  //
-
   radio.printDetails();
+  
 }
+
+
+bool started = false;
 
 void loop(void)
 {
@@ -103,18 +60,22 @@ void loop(void)
   if ( radio.available() )
   {
     // Dump the payloads until we've gotten everything
-    unsigned long got_time;
     bool done = false;
     while (!done)
     {
       // Fetch the payload, and see if this was the last one.
-      done = radio.read( &got_time, sizeof(unsigned long) );
-
-      // Spew it
-      received = received+1;
-      printf("Got packet: %u", received);
-      printf(" payload: %s\r\n", done);
-
+     unsigned long sent;
+      done = radio.read( &sent, sizeof(unsigned long) );
+      // Spew it   
+       if(sent == 1){
+          started = true; 
+        }
+      if(started){
+        received = received+1;
+        printf("Got packet: %u", received);
+        printf(" payload: %u\r\n", sent);
+      }else{    
+      }
 	// Delay just a little bit to let the other unit
 	// make the transition to receiver
 	delay(20);
