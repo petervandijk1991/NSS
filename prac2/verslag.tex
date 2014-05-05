@@ -1,13 +1,174 @@
 \documentclass{article}
+% (1) choose a font that is available as T1
+% for example:
+\usepackage{lmodern}
 
+% (2) specify encoding
+\usepackage[T1]{fontenc}
+
+% (3) load symbol definitions
+\usepackage{textcomp}
 \usepackage[dutch]{babel}
 \author{Peter van Dijk \& Elizabeth Schermerhorn}
 \date{\today}
-\title{Practicum 2 Networked Smart Systems}
+\title{Practicum 2 Betrouwbare communicatie}
 \begin{document}
 \maketitle
 \newpage
 \tableofcontents
+\clearpage
+\section{Packet Error Rate-metingen}
+\subsection{Inleiding}
+	\hspace{6ex}  Met dit onderzoek wordt onderzocht wat de PER(Packet Error Rate) is bij verschillende waarden voor het frequentiekanaal, de transmissiesnelheid en de outputpower. Dit onderzoek wordt uitgevoerd om te bepalen hoe betrouwbaar de radiocommunicatie is van de RF24-radio. Eerst zal de probleemstelling besproken worden samen met vastgestelde hypothesen, vervolgens zal de methodologie aan bod komen en als laatste zullen de resultaten besproken en geanalyseerd worden. 
+\subsection{Probleemstelling}
+\hspace{4ex} De onderzoeksvraag welke hier beantwoord zal worden is: \textit{"Voor welke waarden voor de outputpower, transmissiesnelheid en frequentiekanaal is de PER het laagst."} Hierbij horen de volgende hypothesen: 
+\begin{itemize}
+  \item Op het moment dat er meerdere mensen op hetzelfde frequentiekanaal zitten zal dit voor veel pakket verlies zorgen.
+  \item Bij een hogere outputpower zal het pakket verlies kleiner zijn.
+  \item Bij een hogere transmissiesnelheid zal er meer pakket verlies optreden. 
+\end{itemize}
+In het volgende onderzoek zullen deze hypothesen getoetst worden.
+\subsection{Methodologie}
+\hspace{4ex} Om deze hypothesen te toetsen moeten er metingen gedaan worden. Hier zijn verschillende zaken van belang. 
+\begin{itemize}
+	\item De gebruikte hardware
+	\item De gebruikte software
+	\item De instellingen/vastgestelde constanten
+	\item De onderzoeksopstelling
+\end{itemize}
+
+%De gebruikte hardware
+\textbf{De hardware}\\*
+\setlength{\parskip}{10pt plus 1pt minus 1pt}
+De Hardware die gebruikt is bij de metingen is een Arduino UNO en een radio RF24. -- hiertussen zat nog een iets, naam vragen!!!!
+
+%de gebruikte software
+\textbf{ De software}\\*
+Om de hardware te gebruiken wordt gebruik gemaakt van de open source software die bij de Arduino UNO hoort. Met deze software kan de radio aangestuurd worden en kunnen pakketjes worden verzonden en ontvangen. De radio luistert en verstuurt pakketten over een bepaald frequentiekanaal, opdat de twee radio's kunnen communiceren is het van belang dat ze allebei op hetzelfde kanaal functioneren. Dit kanaal kan liggen tussen 0 en 125. Om de metingen uit te voeren en onze hypothese te testen is er gebruik gemaakt van \'{e}\'{e}n Sender en \'{e}\'{e}n Receiver. Het gebruik van meerdere nodes in deze opstelling zou het onnodig lastig maken terwijl dit voor de hypothese niet van belang is. Zoals de naam al aangeeft is er \'{e}\'{e}n radio die de berichten verstuurt over een vooraf bepaald frequentiekanaal en \'{e}\'{e}n radio die de berichten ontvangt op een bepaald frequentiekanaal. Op het moment dat er een tweede radio berichten verstuurt op dezelfde frequentie dan zal de Receiver dit ook opvangen en zal dit voor veel onoverzichtelijke data zorgen. In de software van de Sender en Receiver wordt er bijgehouden hoeveel pakketten er in totaal verstuurd zijn, hoeveel verloren zijn en hoeveel er zijn aangekomen bij de Receiver. Er is gebruik gemaakt van de volgende drie methoden in de software om de verschillende waarden aan te kunnen passen. 
+\begin{itemize}
+	\item setChannel(uint\char`_8 i)  0 < i < 126
+	\item setPALevel(PALevel level) level = RF24\char`_PA\char`_MAX, RF24\char`_PA\char`_MIN, RF24\char`_PA\char`_LOW 
+	\item setDataRate(Rate rate) rate = RF24\char`_1MBPS, RF24\char`_2MBPS
+\end{itemize}
+De methoden kunnen als argument de waarde meekrijgen die rechts naast de methode staat. Een ander argument dan wat hier staat wordt door de methode niet geaccepteerd. 
+Door met deze drie methoden de waarden aan te passen verkrijgen we de gewilde meetresultaten. Deze zullen in 1.4 besproken worden.
+
+
+\textbf{De instellingen/vastgestelde constanten}\\*
+\setlength{\parskip}{10pt plus 1pt minus 1pt}
+Om deze metingen bruikbaar te houden moeten er een paar constanten gedefinieerd worden.
+\begin{itemize}
+	\item De grootte van de payload
+	\item Het aantal te versturen berichten
+\end{itemize}
+Het aantal keer dat er een pakket opnieuw verstuurd wordt is niet van belang in deze implementatie omdat het zo ge\"{i}mplementeerd is dat het aantal ontvangen berichten wordt bijgehouden en het aantal verzonden berichten wordt bijgehouden. 
+Voor de grootte van de payload is er gekozen voor de grootst mogelijke waarde die deze kan aannemen, dit is 255 bytes. Deze waarde is gekozen omdat de onderzoeksvraag is wanneer is de radio communicatie het meest betrouwbaar en dit moet getest worden voor re\"{e}le waarden. 
+Het aantal te versturen berichten is op 1000 gezet. Hier is voor gekozen vanwege het idee omdat meer waarden betekent nauwkeurigere resultaten.
+\newline
+\newline
+De meetopstelling bestaat uit twee radio's welke 270cm uit elkaar geplaatst zijn. Om de resultaten consistent te houden moet bij elke meting deze afstand aangehouden worden. 
+Er worden geen bericht opnieuw verzonden als er geen acknowledgement volgt. Want dit betekent pakket verlies en dit moet gemeten worden. 
+
+\subsection{Resultaten en analyse}
+Hier zullen de resultaten weergegeven en geanalyseerd worden. \\*
+  De constanten zoals ze standaard gebruikt zullen worden. Als ze gewijzigd worden voor de test dan wordt dit aangegeven. 
+  \begin{itemize}
+  	\item afstand tussen radio's: 270 cm
+  	\item Geen hertransmissie van pakketten als er geen ack volgt
+  	\item payload: 255 bytes
+  \end{itemize}
+  
+\textbf {Metingen en resultaten}  \\*
+Tijdens de metingen waren er geen andere radio's aan het sturen wat voor interferentie kan zorgen.
+\begin{center}
+    \begin{tabular}{ | l | l | l | p{5cm} |}
+    \hline
+    Waarden & PER & gemiddelde PER\\ \hline
+    outputpower: MAX & 1/1000 & 1/1000\\ \hline
+    Transmissiesnelheid: 2MBps & 1/1000 &  \\ \hline
+    Delay: 25 ms & 0/1000&  \\
+    \hline
+    \end{tabular}
+\end{center} 
+\begin{center}
+    \begin{tabular}{ | l | l | l | p{5cm} |}
+    \hline
+    Waarden & PER & gemiddelde PER\\ \hline
+    outputpower: MAX & 0/1000 & 0/1000\\ \hline
+    Transmissiesnelheid: 1MBps & 0/1000 &  \\ \hline
+    Delay: 50 ms & 0/1000 &   \\
+    \hline
+    \end{tabular}
+\end{center} 
+\begin{center}
+    \begin{tabular}{ | l | l | l | p{5cm} |}
+    \hline
+    Waarden & PER & gemiddelde PER\\ \hline
+    outputpower: MAX & 0/1000 & 0/1000\\ \hline
+    Transmissiesnelheid: 2MBps & 0/1000 &  \\ \hline
+    Delay: 50 ms & 0/1000&  \\
+    \hline
+    \end{tabular}
+\end{center} 
+\begin{center}
+    \begin{tabular}{ | l | l | l | p{5cm} |}
+    \hline
+    Waarden & PER & gemiddelde PER\\ \hline
+    outputpower: MIN & 85/1000 & 425/1000\\ \hline
+    Transmissiesnelheid: 2MBps & 669/1000  &  \\ \hline
+    Delay: 50 ms & 519/1000 &  \\
+    \hline
+    \end{tabular}
+\end{center} 
+\begin{center}
+    \begin{tabular}{ | l | l | l | p{5cm} |}
+    \hline
+    Waarden & PER & gemiddelde PER\\ \hline
+    outputpower: LOW & 0/1000 & 3/1000\\ \hline
+    Transmissiesnelheid: 2MBps & 2/1000 &   \\ \hline
+    Delay: 50 ms & 6/1000 &  \\
+    \hline
+    \end{tabular}
+\end{center} 
+\begin{center}
+    \begin{tabular}{ | l | l | l | p{5cm} |}
+    \hline
+    Waarden & PER & gemiddelde PER\\ \hline
+    outputpower: MAX & 0/1000 &  0/1000\\ \hline
+    Transmissiesnelheid: 2MBps & 0/1000 &   \\ \hline
+    Delay: 50 ms & 0/1000 &  \\
+    \hline
+    channel: 0 &  &  \\ \hline
+    \end{tabular}
+\end{center} 
+\begin{center}
+    \begin{tabular}{ | l | l | l | p{5cm} |}
+    \hline
+    Waarden & PER & gemiddelde PER\\ \hline
+    outputpower: MAX & 0/1000 & 1/1000\\ \hline
+    Transmissiesnelheid: 2MBps & 1/1000 &  \\ \hline
+    Delay: 50 ms & 0/1000 &  \\
+    \hline
+    channel: 64 &  &  \\ \hline
+    \end{tabular}
+\end{center} 
+
+Om het resultaat nauwkeuriger en accurater te kunnen weergeven is ervoor gekozen om alle tests in drievoud uit te voeren zodat vreemde gebeurtenissen opgemerkt worden. Een voorbeeld is een 100\% error rate.
+\newline 
+De gemiddelde PER is berekend door het gemiddelde te berekenen van de drie waargenomen waardes en naar boven af te ronden. Aangezien een halve PER niet kan bestaan. 
+
+\textbf {conclusie}  \\*
+Als er naar de gevonden waarden gekeken wordt, is de PER onacceptabel wanneer de outputpower op MIN is gezet. Een gemiddelde PER van 425/1000 pakketten zorgt op den duur voor veel hertransmissies dus veel vertraging op het netwerk. Dit is een situatie die niet gewenst is. Wanneer naar de overige instellingen gekeken wordt en de daarbij behorende gemiddelde PER dan zijn ze perfect of een PER <1\%. Hier moet bij vermeld worden dat op het moment dat er meer zenders aan het zenden zijn en een ontvanger wil dit ontvangen dat de PER omhoog schiet door de interferentie op het netwerk. Dit experiment heeft plaats gevonden in een interferentie vrije ruimte.
+De Onderzoeksvraag welke gesteld was: \textit{"Voor welke waarden voor de outputpower, transmissiesnelheid en frequentiekanaal is de PER het laagst."} Het antwoord wat hierbij hoort is dat voor elke waarde van de transmissiesnelheid en het frequentiekanaal de PER niet boven de 1\% uitkomt. In tegenstelling tot deze bevindingen geldt dit niet voor de outputpower. Op het moment dat de outputpower op minimaal gezet wordt bedraagt de gemiddelde PER 425/1000 pakketten. Hieruit wordt geconcludeerd dat de outputpower minimaal op laag of maximaal gezet moet worden om PER tot een minimum te beperken. 
+
+\newpage
+
+\clearpage
+\section{Betrouwbare end-to-end-communicatie}
+\subsection{Inleiding}
+\subsection{Probleemstelling}
+\subsection{Methodologie}
+\subsection{Resultaten en analyse}
 \clearpage
 \appendix
 \section{De radio en de RF24-library}
