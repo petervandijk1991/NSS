@@ -69,7 +69,7 @@ void setup(void)
   // optionally, increase the delay between retries & # of retries
   radio.setRetries(0,0);
   radio.setPayloadSize(255);
-  radio.setChannel(125);
+  radio.setChannel(42);
   if ( role == role_ping_out )
   {
     radio.openWritingPipe(pipes[0]);

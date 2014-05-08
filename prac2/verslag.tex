@@ -19,17 +19,18 @@
 \clearpage
 \section{Packet Error Rate-metingen}
 \subsection{Inleiding}
-	\hspace{6ex}  Met dit onderzoek wordt onderzocht wat de PER(Packet Error Rate) is bij verschillende waarden voor het frequentiekanaal, de transmissiesnelheid en de outputpower. Dit onderzoek wordt uitgevoerd om te bepalen hoe betrouwbaar de radiocommunicatie is van de RF24-radio. Eerst zal de probleemstelling besproken worden samen met vastgestelde hypothesen, vervolgens zal de methodologie aan bod komen en als laatste zullen de resultaten besproken en geanalyseerd worden. 
+De Nordic RF24 is een radiozender en -ontvanger voor de 2.4GHz band. De RF24 heeft echter veel verschillende instellingen voor de kanalen, zendkracht en datasnelheid. Het doel van dit onderzoek is bepalen wat de optimale instellingen zijn om de Packet Error Rate (PER) zo laag mogelijk te krijgen.
+
 \subsection{Probleemstelling}
-\hspace{4ex} De onderzoeksvraag welke hier beantwoord zal worden is: \textit{"Voor welke waarden voor de outputpower, transmissiesnelheid en frequentiekanaal is de PER het laagst."} Hierbij horen de volgende hypothesen: 
-\begin{itemize}
+De onderzoeksvraag die hier beantwoord zal worden is: \textit{"Voor welke waarden voor de outputpower, transmissiesnelheid en frequentiekanaal is de PER het laagst."} Hierbij horen de volgende hypothesen: 
+\begin{enumerate}
   \item Op het moment dat er meerdere mensen op hetzelfde frequentiekanaal zitten zal dit voor veel pakket verlies zorgen.
-  \item Bij een hogere outputpower zal het pakket verlies kleiner zijn.
-  \item Bij een hogere transmissiesnelheid zal er meer pakket verlies optreden. 
-\end{itemize}
+  \item Bij een hogere outputpower zal het pakketverlies kleiner zijn.
+  \item Bij een hogere transmissiesnelheid zal er meer pakketverlies optreden. 
+\end{enumerate}
 In het volgende onderzoek zullen deze hypothesen getoetst worden.
 \subsection{Methodologie}
-\hspace{4ex} Om deze hypothesen te toetsen moeten er metingen gedaan worden. Hier zijn verschillende zaken van belang. 
+Om deze hypothesen te toetsen moeten er metingen gedaan worden. Hier zijn verschillende zaken van belang. 
 \begin{itemize}
 	\item De gebruikte hardware
 	\item De gebruikte software
@@ -38,13 +39,20 @@ In het volgende onderzoek zullen deze hypothesen getoetst worden.
 \end{itemize}
 
 %De gebruikte hardware
-\textbf{De hardware}\\*
-\setlength{\parskip}{10pt plus 1pt minus 1pt}
-De Hardware die gebruikt is bij de metingen is een Arduino UNO en een radio RF24. -- hiertussen zat nog een iets, naam vragen!!!!
+\textbf{De hardware}\\
+De Hardware die gebruikt is bij de metingen is een Arduino UNO en een radio RF24. -- hiertussen zat nog een iets, naam vragen!!!!\\
 
 %de gebruikte software
-\textbf{ De software}\\*
-Om de hardware te gebruiken wordt gebruik gemaakt van de open source software die bij de Arduino UNO hoort. Met deze software kan de radio aangestuurd worden en kunnen pakketjes worden verzonden en ontvangen. De radio luistert en verstuurt pakketten over een bepaald frequentiekanaal, opdat de twee radio's kunnen communiceren is het van belang dat ze allebei op hetzelfde kanaal functioneren. Dit kanaal kan liggen tussen 0 en 125. Om de metingen uit te voeren en onze hypothese te testen is er gebruik gemaakt van \'{e}\'{e}n Sender en \'{e}\'{e}n Receiver. Het gebruik van meerdere nodes in deze opstelling zou het onnodig lastig maken terwijl dit voor de hypothese niet van belang is. Zoals de naam al aangeeft is er \'{e}\'{e}n radio die de berichten verstuurt over een vooraf bepaald frequentiekanaal en \'{e}\'{e}n radio die de berichten ontvangt op een bepaald frequentiekanaal. Op het moment dat er een tweede radio berichten verstuurt op dezelfde frequentie dan zal de Receiver dit ook opvangen en zal dit voor veel onoverzichtelijke data zorgen. In de software van de Sender en Receiver wordt er bijgehouden hoeveel pakketten er in totaal verstuurd zijn, hoeveel verloren zijn en hoeveel er zijn aangekomen bij de Receiver. Er is gebruik gemaakt van de volgende drie methoden in de software om de verschillende waarden aan te kunnen passen. 
+\textbf{ De software}\\
+Om de hardware te gebruiken wordt gebruik gemaakt van de opensourcesoftwarebibliotheek voor de Arduino, die te vinden is op: \begin{verbatim}
+http://maniacbug.github.io/RF24/
+\end{verbatim} 
+
+Met deze software kan de radio aangestuurd worden en kunnen pakketjes worden verzonden en ontvangen. De radio luistert en verstuurt pakketten over een bepaald kanaal. Het is van belang dat de radio's hetzelfde kanaal gebruiken, zodat ze met elkaar kunnen communiceren. De kanalen hebben een nummer van 0 tot en met 125. 
+
+Om de metingen uit te voeren en onze hypotheses te testen is er gebruik gemaakt van \'{e}\'{e}n zender en \'{e}\'{e}n ontvanger. De zender gebruikt \texttt{sender.ino} en de ontvanger gebruikt \texttt{receiver.ino}. Deze programma's zijn te vinden in de appendix.
+
+In de software van de Sender en Receiver wordt er bijgehouden hoeveel pakketten er in totaal verstuurd zijn, hoeveel verloren zijn en hoeveel er zijn aangekomen bij de Receiver. Er is gebruik gemaakt van de volgende drie methoden in de software om de verschillende waarden aan te kunnen passen. 
 \begin{itemize}
 	\item setChannel(uint\char`_8 i)  0 < i < 126
 	\item setPALevel(PALevel level) level = RF24\char`_PA\char`_MAX, RF24\char`_PA\char`_MIN, RF24\char`_PA\char`_LOW 
@@ -62,7 +70,7 @@ Om deze metingen bruikbaar te houden moeten er een paar constanten gedefinieerd 
 	\item Het aantal te versturen berichten
 \end{itemize}
 Het aantal keer dat er een pakket opnieuw verstuurd wordt is niet van belang in deze implementatie omdat het zo ge\"{i}mplementeerd is dat het aantal ontvangen berichten wordt bijgehouden en het aantal verzonden berichten wordt bijgehouden. 
-Voor de grootte van de payload is er gekozen voor de grootst mogelijke waarde die deze kan aannemen, dit is 255 bytes. Deze waarde is gekozen omdat de onderzoeksvraag is wanneer is de radio communicatie het meest betrouwbaar en dit moet getest worden voor re\"{e}le waarden. 
+Voor de grootte van de payload is er gekozen voor de grootst mogelijke waarde die deze kan aannemen, namelijk 255 bytes. Deze waarde is gekozen omdat de onderzoeksvraag is wanneer is de radio communicatie het meest betrouwbaar en dit moet getest worden voor re\"{e}le waarden. 
 Het aantal te versturen berichten is op 1000 gezet. Hier is voor gekozen vanwege het idee omdat meer waarden betekent nauwkeurigere resultaten.
 \newline
 \newline
@@ -74,13 +82,13 @@ Hier zullen de resultaten weergegeven en geanalyseerd worden. \\*
   De constanten zoals ze standaard gebruikt zullen worden. Als ze gewijzigd worden voor de test dan wordt dit aangegeven. 
   \begin{itemize}
   	\item afstand tussen radio's: 270 cm
-  	\item Geen hertransmissie van pakketten als er geen ack volgt
+  	\item Geen hertransmissie van pakketten
   	\item payload: 255 bytes
   \end{itemize}
   
 \textbf {Metingen en resultaten}  \\*
 Tijdens de metingen waren er geen andere radio's aan het sturen wat voor interferentie kan zorgen.
-\begin{center}
+
     \begin{tabular}{ | l | l | l | p{5cm} |}
     \hline
     Waarden & PER & gemiddelde PER\\ \hline
@@ -89,8 +97,8 @@ Tijdens de metingen waren er geen andere radio's aan het sturen wat voor interfe
     Delay: 25 ms & 0/1000&  \\
     \hline
     \end{tabular}
-\end{center} 
-\begin{center}
+    
+    
     \begin{tabular}{ | l | l | l | p{5cm} |}
     \hline
     Waarden & PER & gemiddelde PER\\ \hline
@@ -99,8 +107,8 @@ Tijdens de metingen waren er geen andere radio's aan het sturen wat voor interfe
     Delay: 50 ms & 0/1000 &   \\
     \hline
     \end{tabular}
-\end{center} 
-\begin{center}
+    
+    
     \begin{tabular}{ | l | l | l | p{5cm} |}
     \hline
     Waarden & PER & gemiddelde PER\\ \hline
@@ -109,8 +117,8 @@ Tijdens de metingen waren er geen andere radio's aan het sturen wat voor interfe
     Delay: 50 ms & 0/1000&  \\
     \hline
     \end{tabular}
-\end{center} 
-\begin{center}
+    
+    
     \begin{tabular}{ | l | l | l | p{5cm} |}
     \hline
     Waarden & PER & gemiddelde PER\\ \hline
@@ -119,8 +127,8 @@ Tijdens de metingen waren er geen andere radio's aan het sturen wat voor interfe
     Delay: 50 ms & 519/1000 &  \\
     \hline
     \end{tabular}
-\end{center} 
-\begin{center}
+    
+    
     \begin{tabular}{ | l | l | l | p{5cm} |}
     \hline
     Waarden & PER & gemiddelde PER\\ \hline
@@ -129,8 +137,8 @@ Tijdens de metingen waren er geen andere radio's aan het sturen wat voor interfe
     Delay: 50 ms & 6/1000 &  \\
     \hline
     \end{tabular}
-\end{center} 
-\begin{center}
+    
+    
     \begin{tabular}{ | l | l | l | p{5cm} |}
     \hline
     Waarden & PER & gemiddelde PER\\ \hline
@@ -140,8 +148,8 @@ Tijdens de metingen waren er geen andere radio's aan het sturen wat voor interfe
     \hline
     channel: 0 &  &  \\ \hline
     \end{tabular}
-\end{center} 
-\begin{center}
+    
+    
     \begin{tabular}{ | l | l | l | p{5cm} |}
     \hline
     Waarden & PER & gemiddelde PER\\ \hline
@@ -151,7 +159,7 @@ Tijdens de metingen waren er geen andere radio's aan het sturen wat voor interfe
     \hline
     channel: 64 &  &  \\ \hline
     \end{tabular}
-\end{center} 
+    
 
 Om het resultaat nauwkeuriger en accurater te kunnen weergeven is ervoor gekozen om alle tests in drievoud uit te voeren zodat vreemde gebeurtenissen opgemerkt worden. Een voorbeeld is een 100\% error rate.
 \newline 
@@ -180,7 +188,7 @@ In dit onderzoek wordt gebruik gemaakt van de rf24 radio. Deze radio heeft de vo
 	\item\textbf{Modulatietechniek: }Gaussian Frequency Shift Key(GFSK)
 	\end{itemize}
 \begin{tabular}{c||c}
-\textbf{Modus}  & \textbf{Energieverbruik in Amp\`ere}     \\
+\textbf{Energiemodus}  & \textbf{Energieverbruik in Amp\`ere}     \\
 \hline
 Standby-I   & 22 $\mu$A    \\
 Standby-II  & 320 $\mu$A     \\
