@@ -39,13 +39,18 @@ Om de hardware te gebruiken wordt gebruik gemaakt van de opensourcesoftwarebibli
 
 Met deze software kan de radio aangestuurd worden en kunnen pakketjes worden verzonden en ontvangen. De radio luistert en verstuurt pakketten over een bepaald kanaal. Het is van belang dat de radio's hetzelfde kanaal gebruiken, zodat ze met elkaar kunnen communiceren. De kanalen hebben een nummer van 0 tot en met 125. 
 
-Om de metingen uit te voeren en onze hypotheses te testen is er gebruik gemaakt van \'{e}\'{e}n zender en \'{e}\'{e}n ontvanger. De zender gebruikt \texttt{sender.ino} en de ontvanger gebruikt \texttt{receiver.ino}. Deze programma's zijn te vinden in de appendix.
-
-In de software van de Sender en Receiver wordt er bijgehouden hoeveel pakketten er in totaal verstuurd zijn, hoeveel verloren zijn en hoeveel er zijn aangekomen bij de Receiver. Er is gebruik gemaakt van de volgende drie methoden in de software om de verschillende waarden aan te kunnen passen. 
+Om de metingen uit te voeren en onze hypotheses te testen is er gebruik gemaakt van \'{e}\'{e}n zender en \'{e}\'{e}n ontvanger. De zender gebruikt \texttt{sender.ino} en de ontvanger gebruikt \texttt{receiver.ino}. Deze programma's zijn te vinden in de appendix. De zender zend pakketjes met daarin het pakketnummer. De ontvanger begint met luisteren en onthoudt het nummer van het eerste pakketje dat hij heeft ontvangen. Vervolgens zal de ontvanger blijven luisteren totdat deze 1000 pakketten heeft ontvangen. Uit de inhoud van het laatste pakket kan worden opgemaakt hoeveel pakketten er verloren zijn gegaan voor de duizend die er ontvangen zijn. De PER wordt berekend met de formule:\\
+\\
+\indent	1-(1000/([laatste pakketnummer]-[eerste pakketnummer]))\\
+\\
+In de software van de Sender en Receiver is gebruik gemaakt van de volgende drie methoden om de verschillende waarden aan te kunnen passen. 
 \begin{itemize}
-	\item setChannel(uint\char`_8 i)  0 < i < 126
-	\item setPALevel(PALevel level) level = RF24\char`_PA\char`_MAX, RF24\char`_PA\char`_MIN, RF24\char`_PA\char`_LOW 
-	\item setDataRate(Rate rate) rate = RF24\char`_1MBPS, RF24\char`_2MBPS
+	\item setChannel(uint\char`_8 i) \\
+	met 0 $\leq$ i $\leq$ 125
+	\item setPALevel(PALevel level) \\
+	met level $\in \{$  RF24\_PA\_MAX, RF24\_PA\_MIN, RF24\_PA\_LOW $\}$
+	\item setDataRate(Rate rate) \\
+	met rate $\in \{$ RF24\_1MBPS, RF24\_2MBPS$\}$
 \end{itemize}
 De methoden kunnen als argument de waarde meekrijgen die rechts naast de methode staat. Een ander argument dan wat hier staat wordt door de methode niet geaccepteerd. 
 Door met deze drie methoden de waarden aan te passen verkrijgen we de gewilde meetresultaten. Deze zullen in 1.4 besproken worden.\\

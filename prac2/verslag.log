@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.5.20)  8 MAY 2014 11:12
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.5.20)  8 MAY 2014 11:49
 entering extended mode
 **verslag.tex
 (C:\Users\Peter\Desktop\School\NSS\prac2\verslag.tex
@@ -94,109 +94,113 @@ Underfull \hbox (badness 10000) in paragraph at lines 34--35
 [3
 
 ]
-Overfull \hbox (35.61177pt too wide) in paragraph at lines 47--48
-[]\OT1/cmr/m/n/10 setPALevel(PALevel le-vel) le-vel = RF24_PA_MAX, RF24_PA_MIN,
- RF24_PA_LOW 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 50--52
+Underfull \hbox (badness 10000) in paragraph at lines 42--47
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 60--67
+Underfull \hbox (badness 10000) in paragraph at lines 42--47
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--57
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 65--72
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 78--79
+Underfull \hbox (badness 10000) in paragraph at lines 83--84
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 80--89
+Underfull \hbox (badness 10000) in paragraph at lines 85--93
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 80--89
+Underfull \hbox (badness 10000) in paragraph at lines 85--93
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 90--99
+Underfull \hbox (badness 10000) in paragraph at lines 94--102
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 90--99
+Underfull \hbox (badness 10000) in paragraph at lines 94--102
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 100--109
+Underfull \hbox (badness 10000) in paragraph at lines 103--111
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 100--109
+Underfull \hbox (badness 10000) in paragraph at lines 103--111
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 110--119
+Underfull \hbox (badness 10000) in paragraph at lines 112--120
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 110--119
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 120--129
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 120--129
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 130--140
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 130--140
+Underfull \hbox (badness 10000) in paragraph at lines 112--120
 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 141--151
+Underfull \hbox (badness 10000) in paragraph at lines 121--129
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 141--151
+Underfull \hbox (badness 10000) in paragraph at lines 121--129
 
  []
 
-[6] [7
 
-] [8
+Underfull \hbox (badness 10000) in paragraph at lines 130--139
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 130--139
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--149
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--149
+
+ []
+
+[6] [7] [8
+
+] [9
 
 ] (C:\Users\Peter\Desktop\School\NSS\prac2\verslag.aux) ) 
 Here is how much of TeX's memory you used:
- 607 strings out of 493921
- 7480 string characters out of 3144876
+ 608 strings out of 493921
+ 7498 string characters out of 3144876
  66232 words of memory out of 3000000
- 3954 multiletter control sequences out of 15000+200000
+ 3955 multiletter control sequences out of 15000+200000
  8409 words of font info for 30 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 24i,7n,24p,671b,185s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 24i,7n,24p,722b,185s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86
 )/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files (x86)/
 MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/Mi
@@ -207,9 +211,9 @@ eX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX
 nts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/font
 s/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/
 type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on verslag.pdf (8 pages, 135780 bytes).
+Output written on verslag.pdf (9 pages, 138231 bytes).
 PDF statistics:
- 65 PDF objects out of 1000 (max. 8388607)
+ 68 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
