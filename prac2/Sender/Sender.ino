@@ -65,10 +65,11 @@ void setup(void)
 
   radio.begin();
   radio.setPALevel(RF24_PA_MAX);
+  radio.setDataRate(RF24_2MBPS);
   // optionally, increase the delay between retries & # of retries
   radio.setRetries(0,0);
   radio.setPayloadSize(255);
-  radio.setChannel(42);
+  radio.setChannel(125);
   if ( role == role_ping_out )
   {
     radio.openWritingPipe(pipes[0]);
@@ -94,9 +95,7 @@ if (run){
     bool ok = radio.write( &messages_sent, sizeof(unsigned int) );
     messages_sent++;
     printf("number of messages sent: %u",messages_sent);
-    if(messages_sent>300){
-      run = false;
-    }
+   
     
     if (ok)
       printf("ok...");
