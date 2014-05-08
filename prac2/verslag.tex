@@ -1,13 +1,4 @@
 \documentclass{article}
-% (1) choose a font that is available as T1
-% for example:
-\usepackage{lmodern}
-
-% (2) specify encoding
-\usepackage[T1]{fontenc}
-
-% (3) load symbol definitions
-\usepackage{textcomp}
 \usepackage[dutch]{babel}
 \author{Peter van Dijk \& Elizabeth Schermerhorn}
 \date{\today}
@@ -19,13 +10,13 @@
 \clearpage
 \section{Packet Error Rate-metingen}
 \subsection{Inleiding}
-De Nordic RF24 is een radiozender en -ontvanger voor de 2.4GHz band. De RF24 heeft echter veel verschillende instellingen voor de kanalen, zendkracht en datasnelheid. Het doel van dit onderzoek is bepalen wat de optimale instellingen zijn om de Packet Error Rate (PER) zo laag mogelijk te krijgen.
+De Nordic RF24 is een radiozender en -ontvanger voor de 2.4GHz band. De RF24 heeft echter een aantal verschillende instellingen voor de kanalen, zendkracht en datasnelheid. Het doel van dit onderzoek is bepalen wat de optimale instellingen zijn om de Packet Error Rate (PER) zo laag mogelijk te krijgen.
 
 \subsection{Probleemstelling}
 De onderzoeksvraag die hier beantwoord zal worden is: \textit{"Voor welke waarden voor de outputpower, transmissiesnelheid en frequentiekanaal is de PER het laagst."} Hierbij horen de volgende hypothesen: 
 \begin{enumerate}
   \item Op het moment dat er meerdere mensen op hetzelfde frequentiekanaal zitten zal dit voor veel pakket verlies zorgen.
-  \item Bij een hogere outputpower zal het pakketverlies kleiner zijn.
+  \item Bij een hogere zendkracht zal het pakketverlies kleiner zijn.
   \item Bij een hogere transmissiesnelheid zal er meer pakketverlies optreden. 
 \end{enumerate}
 In het volgende onderzoek zullen deze hypothesen getoetst worden.
@@ -39,14 +30,12 @@ Om deze hypothesen te toetsen moeten er metingen gedaan worden. Hier zijn versch
 \end{itemize}
 
 %De gebruikte hardware
-\textbf{De hardware}\\
-De Hardware die gebruikt is bij de metingen is een Arduino UNO en een radio RF24. -- hiertussen zat nog een iets, naam vragen!!!!\\
+\subsubsection{De hardware}
+De Hardware die gebruikt is bij de metingen is een Arduino UNO en een Nordic nRF24L01 draadloze transceiver.\\
 
 %de gebruikte software
-\textbf{ De software}\\
-Om de hardware te gebruiken wordt gebruik gemaakt van de opensourcesoftwarebibliotheek voor de Arduino, die te vinden is op: \begin{verbatim}
-http://maniacbug.github.io/RF24/
-\end{verbatim} 
+\subsubsection{De software}
+Om de hardware te gebruiken wordt gebruik gemaakt van de opensourcesoftwarebibliotheek voor de Arduino, die te vinden is op: \begin{verbatim}http://maniacbug.github.io/RF24/ \end{verbatim} 
 
 Met deze software kan de radio aangestuurd worden en kunnen pakketjes worden verzonden en ontvangen. De radio luistert en verstuurt pakketten over een bepaald kanaal. Het is van belang dat de radio's hetzelfde kanaal gebruiken, zodat ze met elkaar kunnen communiceren. De kanalen hebben een nummer van 0 tot en met 125. 
 
@@ -59,11 +48,10 @@ In de software van de Sender en Receiver wordt er bijgehouden hoeveel pakketten 
 	\item setDataRate(Rate rate) rate = RF24\char`_1MBPS, RF24\char`_2MBPS
 \end{itemize}
 De methoden kunnen als argument de waarde meekrijgen die rechts naast de methode staat. Een ander argument dan wat hier staat wordt door de methode niet geaccepteerd. 
-Door met deze drie methoden de waarden aan te passen verkrijgen we de gewilde meetresultaten. Deze zullen in 1.4 besproken worden.
+Door met deze drie methoden de waarden aan te passen verkrijgen we de gewilde meetresultaten. Deze zullen in 1.4 besproken worden.\\
 
 
-\textbf{De instellingen/vastgestelde constanten}\\*
-\setlength{\parskip}{10pt plus 1pt minus 1pt}
+\subsubsection{De instellingen/vastgestelde constanten}
 Om deze metingen bruikbaar te houden moeten er een paar constanten gedefinieerd worden.
 \begin{itemize}
 	\item De grootte van de payload
@@ -72,8 +60,8 @@ Om deze metingen bruikbaar te houden moeten er een paar constanten gedefinieerd 
 Het aantal keer dat er een pakket opnieuw verstuurd wordt is niet van belang in deze implementatie omdat het zo ge\"{i}mplementeerd is dat het aantal ontvangen berichten wordt bijgehouden en het aantal verzonden berichten wordt bijgehouden. 
 Voor de grootte van de payload is er gekozen voor de grootst mogelijke waarde die deze kan aannemen, namelijk 255 bytes. Deze waarde is gekozen omdat de onderzoeksvraag is wanneer is de radio communicatie het meest betrouwbaar en dit moet getest worden voor re\"{e}le waarden. 
 Het aantal te versturen berichten is op 1000 gezet. Hier is voor gekozen vanwege het idee omdat meer waarden betekent nauwkeurigere resultaten.
-\newline
-\newline
+\\
+\\
 De meetopstelling bestaat uit twee radio's welke 270cm uit elkaar geplaatst zijn. Om de resultaten consistent te houden moet bij elke meting deze afstand aangehouden worden. 
 Er worden geen bericht opnieuw verzonden als er geen acknowledgement volgt. Want dit betekent pakket verlies en dit moet gemeten worden. 
 
@@ -86,8 +74,8 @@ Hier zullen de resultaten weergegeven en geanalyseerd worden. \\*
   	\item payload: 255 bytes
   \end{itemize}
   
-\textbf {Metingen en resultaten}  \\*
-Tijdens de metingen waren er geen andere radio's aan het sturen wat voor interferentie kan zorgen.
+\subsubsection{Metingen en resultaten}
+Tijdens de metingen waren er geen andere radio's aan het sturen wat voor interferentie kan zorgen.\\
 
     \begin{tabular}{ | l | l | l | p{5cm} |}
     \hline
@@ -96,8 +84,8 @@ Tijdens de metingen waren er geen andere radio's aan het sturen wat voor interfe
     Transmissiesnelheid: 2MBps & 1/1000 &  \\ \hline
     Delay: 25 ms & 0/1000&  \\
     \hline
-    \end{tabular}
-    
+    \end{tabular}\\
+    \\
     
     \begin{tabular}{ | l | l | l | p{5cm} |}
     \hline
@@ -106,8 +94,8 @@ Tijdens de metingen waren er geen andere radio's aan het sturen wat voor interfe
     Transmissiesnelheid: 1MBps & 0/1000 &  \\ \hline
     Delay: 50 ms & 0/1000 &   \\
     \hline
-    \end{tabular}
-    
+    \end{tabular}\\
+    \\
     
     \begin{tabular}{ | l | l | l | p{5cm} |}
     \hline
@@ -116,8 +104,8 @@ Tijdens de metingen waren er geen andere radio's aan het sturen wat voor interfe
     Transmissiesnelheid: 2MBps & 0/1000 &  \\ \hline
     Delay: 50 ms & 0/1000&  \\
     \hline
-    \end{tabular}
-    
+    \end{tabular}\\
+    \\
     
     \begin{tabular}{ | l | l | l | p{5cm} |}
     \hline
@@ -126,8 +114,8 @@ Tijdens de metingen waren er geen andere radio's aan het sturen wat voor interfe
     Transmissiesnelheid: 2MBps & 669/1000  &  \\ \hline
     Delay: 50 ms & 519/1000 &  \\
     \hline
-    \end{tabular}
-    
+    \end{tabular}\\
+    \\
     
     \begin{tabular}{ | l | l | l | p{5cm} |}
     \hline
@@ -136,8 +124,8 @@ Tijdens de metingen waren er geen andere radio's aan het sturen wat voor interfe
     Transmissiesnelheid: 2MBps & 2/1000 &   \\ \hline
     Delay: 50 ms & 6/1000 &  \\
     \hline
-    \end{tabular}
-    
+    \end{tabular}\\
+    \\
     
     \begin{tabular}{ | l | l | l | p{5cm} |}
     \hline
@@ -147,8 +135,8 @@ Tijdens de metingen waren er geen andere radio's aan het sturen wat voor interfe
     Delay: 50 ms & 0/1000 &  \\
     \hline
     channel: 0 &  &  \\ \hline
-    \end{tabular}
-    
+    \end{tabular}\\
+    \\
     
     \begin{tabular}{ | l | l | l | p{5cm} |}
     \hline
@@ -158,14 +146,14 @@ Tijdens de metingen waren er geen andere radio's aan het sturen wat voor interfe
     Delay: 50 ms & 0/1000 &  \\
     \hline
     channel: 64 &  &  \\ \hline
-    \end{tabular}
-    
+    \end{tabular}\\
+    \\
 
 Om het resultaat nauwkeuriger en accurater te kunnen weergeven is ervoor gekozen om alle tests in drievoud uit te voeren zodat vreemde gebeurtenissen opgemerkt worden. Een voorbeeld is een 100\% error rate.
 \newline 
 De gemiddelde PER is berekend door het gemiddelde te berekenen van de drie waargenomen waardes en naar boven af te ronden. Aangezien een halve PER niet kan bestaan. 
 
-\textbf {conclusie}  \\*
+\subsection{Conclusie}
 Als er naar de gevonden waarden gekeken wordt, is de PER onacceptabel wanneer de outputpower op MIN is gezet. Een gemiddelde PER van 425/1000 pakketten zorgt op den duur voor veel hertransmissies dus veel vertraging op het netwerk. Dit is een situatie die niet gewenst is. Wanneer naar de overige instellingen gekeken wordt en de daarbij behorende gemiddelde PER dan zijn ze perfect of een PER <1\%. Hier moet bij vermeld worden dat op het moment dat er meer zenders aan het zenden zijn en een ontvanger wil dit ontvangen dat de PER omhoog schiet door de interferentie op het netwerk. Dit experiment heeft plaats gevonden in een interferentie vrije ruimte.
 De Onderzoeksvraag welke gesteld was: \textit{"Voor welke waarden voor de outputpower, transmissiesnelheid en frequentiekanaal is de PER het laagst."} Het antwoord wat hierbij hoort is dat voor elke waarde van de transmissiesnelheid en het frequentiekanaal de PER niet boven de 1\% uitkomt. In tegenstelling tot deze bevindingen geldt dit niet voor de outputpower. Op het moment dat de outputpower op minimaal gezet wordt bedraagt de gemiddelde PER 425/1000 pakketten. Hieruit wordt geconcludeerd dat de outputpower minimaal op laag of maximaal gezet moet worden om PER tot een minimum te beperken. 
 
