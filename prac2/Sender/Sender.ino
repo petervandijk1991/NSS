@@ -13,7 +13,6 @@ void setup(void)
   Serial.begin(57600);
   printf_begin();
   printf("\n\rRF24/examples/pingpair/\n\r");
-
   //
   // Setup and configure rf radio
   //
@@ -31,23 +30,14 @@ void loop(void){
     // First, stop listening so we can talk.
     radio.stopListening();
 
-    // Take the time, and send it.  This will block until complete
-    unsigned long time = millis();
-    printf("Now sending %lu...",time);
+    printf("Now sending...");
     bool ok = radio.write( &messages_sent, sizeof(unsigned int) );
     messages_sent++;
     printf("number of messages sent: %u\n\r",messages_sent);
    
     // Now, continue listening
     radio.startListening();
-
-    // Wait here until we get a response, or timeout (250ms)
-    unsigned long started_waiting_at = millis();
-    bool timeout = false;
-    while ( ! radio.available() && ! timeout )
-      if (millis() - started_waiting_at > 200 )
-        timeout = true;
-        
-    // Try again 1s later
+	
+	// Wait before sending next message
     delay(25);
 }

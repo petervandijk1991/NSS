@@ -19,6 +19,12 @@
 \contentsline {subsection}{\numberline {2.5}Resultaten en analyse}{10}
 \contentsline {subsection}{\numberline {2.6}Conclusie}{10}
 \contentsline {section}{\numberline {A}De radio en de RF24-library}{11}
-\contentsline {section}{\numberline {B}Code Sender}{12}
+\contentsline {subsection}{\numberline {A.1}Eigenschappen van de RF24}{11}
+\contentsline {subsection}{\numberline {A.2}Energieverbruik}{11}
+\contentsline {subsection}{\numberline {A.3}Enhanced ShockBurst}{11}
+\contentsline {subsubsection}{\numberline {A.3.1}Automatische hertransmissie}{12}
+\contentsline {subsection}{\numberline {A.4}Adressering}{12}
+\contentsline {subsection}{\numberline {A.5}Functies}{13}
+\contentsline {section}{\numberline {B}Code Sender}{13}
 \contentsline {section}{\numberline {C}Code Receiver}{14}
 \contentsline {section}{\numberline {D}Code Hop}{15}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.5.15)  9 MAY 2014 15:49
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.5.15)  9 MAY 2014 16:12
 entering extended mode
 **verslag.tex
 (C:\Users\Dell\NSS\prac2\verslag.tex
@@ -289,112 +289,108 @@ Package pdftex.def Info: img/hop.png used on input line 202.
 (pdftex.def)             Requested size: 345.0pt x 101.84152pt.
  [8
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 231--235
+] [9 <C:/Users/Dell/NSS/prac2/img/hop.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 240--270
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 231--235
-
- []
-
-[9 <C:/Users/Dell/NSS/prac2/img/hop.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 241--267
+Underfull \hbox (badness 10000) in paragraph at lines 240--270
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 241--267
+Underfull \hbox (badness 10000) in paragraph at lines 240--270
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 240--270
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 240--270
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 240--270
 
  []
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 287--314
+Underfull \hbox (badness 10000) in paragraph at lines 294--325
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 287--314
+Underfull \hbox (badness 10000) in paragraph at lines 294--325
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 287--314
+Underfull \hbox (badness 10000) in paragraph at lines 294--325
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 287--314
+Underfull \hbox (badness 10000) in paragraph at lines 294--325
 
  []
 
 
-Overfull \hbox (6.54347pt too wide) in paragraph at lines 287--314
-[] \OT1/cmr/m/n/10 Het vol-gende as-pect van
- []
-
-
-Overfull \hbox (98.66737pt too wide) in paragraph at lines 319--330
-[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 319--330
+Underfull \hbox (badness 10000) in paragraph at lines 294--325
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 319--330
+Underfull \hbox (badness 10000) in paragraph at lines 294--325
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 294--325
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 335--348
 
  []
 
 [11
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 337--341
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 347--349
-
- []
-
-
-Overfull \hbox (86.00642pt too wide) in paragraph at lines 350--362
+Overfull \hbox (86.00642pt too wide) in paragraph at lines 372--383
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 350--362
+Underfull \hbox (badness 10000) in paragraph at lines 372--383
 
  []
 
-File: ./Sender/Sender.ino  (verbatim)
 [12]
-Overfull \hbox (1.49698pt too wide) in paragraph at lines 365--365
-[]    \OT1/cmtt/m/n/10 // Take the time, and send it.  This will block until co
-mplete[] 
- []
+File: ./Sender/Sender.ino  (verbatim)
 
-
-Overfull \hbox (1.49698pt too wide) in paragraph at lines 365--365
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 386--386
 []    \OT1/cmtt/m/n/10 bool ok = radio.write( &messages_sent, sizeof(unsigned i
 nt) );[] 
  []
 
+[13]
 File: ./receiver/receiver.ino  (verbatim)
-[13] [14]
+ [14]
 File: ./Hopnetwerk/Hop/hop.ino  (verbatim)
 
-Overfull \hbox (137.99579pt too wide) in paragraph at lines 371--371
+Overfull \hbox (137.99579pt too wide) in paragraph at lines 392--392
 []\OT1/cmtt/m/n/10 const uint64_t pipes[4] = { 0xF0F0F0F0E1LL, 0xF0F0F0F0D2LL, 
 0xF0F0F0F0C3LL, 0xF0F0F0F0B4LL};[] 
  []
 
 [15]
-Overfull \hbox (32.9967pt too wide) in paragraph at lines 371--371
+Overfull \hbox (32.9967pt too wide) in paragraph at lines 392--392
 []  \OT1/cmtt/m/n/10 // Pong back role.  Receive each packet, dump it out, and 
 send it back[] 
  []
@@ -417,7 +413,7 @@ ts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr
 :/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Progra
 m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/
 MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on verslag.pdf (17 pages, 179638 bytes).
+Output written on verslag.pdf (17 pages, 178114 bytes).
 PDF statistics:
  96 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
