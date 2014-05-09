@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage[dutch]{babel}
+\usepackage{epsfig}
 \author{Peter van Dijk \& Elizabeth Schermerhorn}
 \date{\today}
 \title{Practicum 2 Betrouwbare communicatie}
@@ -41,7 +42,7 @@ Met deze software kan de radio aangestuurd worden en kunnen pakketjes worden ver
 
 Om de metingen uit te voeren en onze hypotheses te testen is er gebruik gemaakt van \'{e}\'{e}n zender en \'{e}\'{e}n ontvanger. De zender gebruikt \texttt{sender.ino} en de ontvanger gebruikt \texttt{receiver.ino}. Deze programma's zijn te vinden in de appendix. De zender zend pakketjes met daarin het pakketnummer. De ontvanger begint met luisteren en onthoudt het nummer van het eerste pakketje dat hij heeft ontvangen. Vervolgens zal de ontvanger blijven luisteren totdat deze 1000 pakketten heeft ontvangen. Uit de inhoud van het laatste pakket kan worden opgemaakt hoeveel pakketten er verloren zijn gegaan voor de duizend die er ontvangen zijn. De PER wordt berekend met de formule:\\
 \\
-\indent	1-(1000/([laatste pakketnummer]-[eerste pakketnummer]))\\
+\indent	(([laatste pakketnummer]-[eerste pakketnummer])/[aantal ontvangen pakketten])\\
 \\
 In de software van de Sender en Receiver is gebruik gemaakt van de volgende drie methoden om de verschillende waarden aan te kunnen passen. 
 \begin{itemize}
@@ -82,7 +83,7 @@ Hier zullen de resultaten weergegeven en geanalyseerd worden. \\*
   
 \subsubsection{Metingen en resultaten}
 Tijdens de metingen waren er geen andere radio's aan het sturen, waardoor de radio's geen last van interferentie hadden.\\
-
+\\
     \begin{tabular}{ | l | l | l | p{5cm} |}
     \hline
     Instellingen 				& PER 		& gemiddelde PER\\ \hline
@@ -90,8 +91,8 @@ Tijdens de metingen waren er geen andere radio's aan het sturen, waardoor de rad
     transmissiesnelheid: 2MBps 	& 1/1000 	& 				\\
     delay: 25 ms 				& 0/1000	&  				\\ \hline
     \end{tabular}\\
-    \\
-    
+\\
+\\
     \begin{tabular}{ | l | l | l | p{5cm} |}
     \hline
     Instellingen				& PER 		& gemiddelde PER\\ \hline
@@ -99,8 +100,8 @@ Tijdens de metingen waren er geen andere radio's aan het sturen, waardoor de rad
     transmissiesnelheid: 2MBps 	& 0/1000 	&  				\\
     delay: 50 ms 				& 0/1000	&  				\\ \hline
     \end{tabular}\\
-    \\
-    
+\\
+\\
     \begin{tabular}{ | l | l | l | p{5cm} |}
     \hline
     Instellingen 				& PER 		& gemiddelde PER\\ \hline
@@ -108,8 +109,8 @@ Tijdens de metingen waren er geen andere radio's aan het sturen, waardoor de rad
     transmissiesnelheid: 1MBps 	& 0/1000 	&  				\\
     delay: 50 ms 				& 0/1000	&  				\\ \hline
     \end{tabular}\\
-    \\
-    
+\\
+\\
     \begin{tabular}{ | l | l | l | p{5cm} |}
     \hline
     Instellingen				& PER 		& gemiddelde PER\\ \hline
@@ -117,8 +118,8 @@ Tijdens de metingen waren er geen andere radio's aan het sturen, waardoor de rad
     transmissiesnelheid: 2MBps 	& 669/1000  &  				\\ 
     delay: 50 ms 				& 519/1000 	&  				\\ \hline
     \end{tabular}\\
-    \\
-    
+\\
+\\
     \begin{tabular}{ | l | l | l | p{5cm} |}
     \hline
     Instellingen				& PER 		& gemiddelde PER\\ \hline
@@ -126,8 +127,8 @@ Tijdens de metingen waren er geen andere radio's aan het sturen, waardoor de rad
     transmissiesnelheid: 2MBps 	& 2/1000 	&   			\\ 
     delay: 50 ms 				& 6/1000 	&  				\\ \hline
     \end{tabular}\\
-    \\
-    
+\\
+\\
     \begin{tabular}{ | l | l | l | p{5cm} |}
     \hline
     Instellingen				& PER 		& gemiddelde PER\\ \hline
@@ -136,8 +137,8 @@ Tijdens de metingen waren er geen andere radio's aan het sturen, waardoor de rad
     delay: 50 ms 				& 0/1000 	&				\\ 
     channel: 0 					&  			&  				\\ \hline
     \end{tabular}\\
-    \\
-    
+\\
+\\
     \begin{tabular}{ | l | l | l | p{5cm} |}
     \hline
     Instellingen				& PER 		& gemiddelde PER\\ \hline
@@ -145,6 +146,17 @@ Tijdens de metingen waren er geen andere radio's aan het sturen, waardoor de rad
     transmissiesnelheid: 2MBps 	& 1/1000 	&  				\\ 
     delay: 50 ms 				& 0/1000 	&  				\\ 
     channel: 64 				&  			&				\\ \hline
+    \end{tabular}\\
+\\
+\\
+Verder zijn er nog enkele kleinere tests uitgevoerd op een netwerk met interferentie. Dit leverde de volgende resultaten:\\
+\\
+\begin{tabular}{ | l | l | l | p{5cm} |}
+    \hline
+    Instellingen				& PER 		& gemiddelde PER\\ \hline
+    outputpower: MAX 			& 47/300 	& 433/3000		\\ 
+    transmissiesnelheid: 2MBps 	& 77/300 	&  				\\ 
+    delay: 50 ms 				& 9/300 	&  				\\ \hline
     \end{tabular}\\
 \\
 \\
@@ -158,6 +170,13 @@ De Onderzoeksvraag die gesteld was: \textit{"Voor welke waarden voor de outputpo
 
 \clearpage
 \section{Betrouwbare end-to-end-communicatie}
+\begin{figure}
+\centering 
+\epsfig{file=img/hop.png,width=\linewidth} 
+\caption{Opstelling van het netwerk}
+\label{fig:converter} %always place your label after your caption!
+\end{figure}
+
 \subsection{Inleiding}
 \subsection{Probleemstelling}
 \subsection{Methodologie}
