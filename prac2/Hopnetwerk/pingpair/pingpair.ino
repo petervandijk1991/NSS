@@ -59,6 +59,9 @@ const char* role_friendly_name[] = { "invalid", "Ping out", "Pong back"};
 // The role of the current running sketch
 role_e role;
 
+int messages = 0;
+int lost = 0;
+
 void setup(void)
 {
   //
@@ -90,7 +93,7 @@ void setup(void)
   //
 
   radio.begin();
-  radio.setPALevel(RF24_PA_MAX);
+  radio.setPALevel(RF24_PA_MIN);
   radio.setDataRate(RF24_2MBPS);
 
   // optionally, increase the delay between retries & # of retries
@@ -99,7 +102,7 @@ void setup(void)
   radio.setChannel(48);
   // optionally, reduce the payload size.  seems to
   // improve reliability
-  radio.setPayloadSize(8);
+  radio.setPayloadSize(255);
 
   //
   // Open pipes to other nodes for communication
@@ -132,7 +135,9 @@ void setup(void)
   //
 
   radio.printDetails();
+  lost = 0;
 }
+
 
 void loop(void)
 {
@@ -149,10 +154,10 @@ void loop(void)
     unsigned long time = millis();
     printf("Now sending %lu...",time);
     bool ok = radio.write( &time, sizeof(unsigned long) );
-    
-    if (ok)
+    if (ok){
+      messages++;
       printf("ok...");
-    else
+    }    else
       printf("failed.\n\r");
 
     // Now, continue listening
@@ -168,6 +173,7 @@ void loop(void)
     // Describe the results
     if ( timeout )
     {
+      lost++;
       printf("Failed, response timed out.\n\r");
     }
     else
@@ -177,11 +183,12 @@ void loop(void)
       radio.read( &got_time, sizeof(unsigned long) );
 
       // Spew it
-      printf("Got response %lu, round-trip delay: %lu\n\r",got_time,millis()-got_time);
+      printf("Got response %lu, round-trip delay: %u\n\r",got_time,millis()-got_time);
     }
-
+    
+      printf("messages: %u, lost: %u\n\r",messages,lost);
     // Try again 1s later
-    delay(1000);
+    delay(20);
   }
 
   //

@@ -22,8 +22,8 @@ void setup(void)
   radio.begin();
   radio.setRetries(15,15);
   radio.setChannel(48);
-  radio.setPayloadSize(8);
-  radio.setPALevel(RF24_PA_MAX);
+  radio.setPayloadSize(255);
+  radio.setPALevel(RF24_PA_MIN);
   radio.setDataRate(RF24_2MBPS);
 
   radio.openReadingPipe(readingPipeSender,pipes[0]);

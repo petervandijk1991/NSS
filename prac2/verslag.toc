@@ -12,8 +12,13 @@
 \contentsline {section}{\numberline {2}Betrouwbare end-to-end-communicatie}{8}
 \contentsline {subsection}{\numberline {2.1}Inleiding}{8}
 \contentsline {subsection}{\numberline {2.2}Probleemstelling}{8}
-\contentsline {subsection}{\numberline {2.3}Methodologie}{8}
-\contentsline {subsection}{\numberline {2.4}Resultaten en analyse}{8}
-\contentsline {section}{\numberline {A}De radio en de RF24-library}{9}
-\contentsline {section}{\numberline {B}Code Sender}{9}
-\contentsline {section}{\numberline {C}Code Receiver}{10}
+\contentsline {subsection}{\numberline {2.3}Protocol}{8}
+\contentsline {subsection}{\numberline {2.4}Methodologie}{9}
+\contentsline {subsubsection}{\numberline {2.4.1}De software}{9}
+\contentsline {subsubsection}{\numberline {2.4.2}De hardware}{9}
+\contentsline {subsection}{\numberline {2.5}Resultaten en analyse}{10}
+\contentsline {subsection}{\numberline {2.6}Conclusie}{10}
+\contentsline {section}{\numberline {A}De radio en de RF24-library}{11}
+\contentsline {section}{\numberline {B}Code Sender}{12}
+\contentsline {section}{\numberline {C}Code Receiver}{14}
+\contentsline {section}{\numberline {D}Code Hop}{15}
