@@ -1,6 +1,9 @@
 \documentclass{article}
+
 \usepackage[dutch]{babel}
 \usepackage{epsfig}
+\usepackage{verbatim}
+
 \author{Peter van Dijk \& Elizabeth Schermerhorn}
 \date{\today}
 \title{Practicum 2 Betrouwbare communicatie}
@@ -37,9 +40,8 @@ De Hardware die gebruikt is bij de metingen is een Arduino UNO en een Nordic nRF
 %de gebruikte software
 \subsubsection{De software}
 Om de hardware te gebruiken wordt gebruik gemaakt van de opensourcesoftwarebibliotheek voor de Arduino, die te vinden is op: \begin{verbatim}http://maniacbug.github.io/RF24/ \end{verbatim} 
-
-Met deze software kan de radio aangestuurd worden en kunnen pakketjes worden verzonden en ontvangen. De radio luistert en verstuurt pakketten over een bepaald kanaal. Het is van belang dat de radio's hetzelfde kanaal gebruiken, zodat ze met elkaar kunnen communiceren. De kanalen hebben een nummer van 0 tot en met 125. 
-
+Met deze software kan de radio aangestuurd worden en kunnen pakketjes worden verzonden en ontvangen. De radio luistert en verstuurt pakketten over een bepaald kanaal. Het is van belang dat de radio's hetzelfde kanaal gebruiken, zodat ze met elkaar kunnen communiceren. De kanalen hebben een nummer van 0 tot en met 125.\\
+\\
 Om de metingen uit te voeren en onze hypotheses te testen is er gebruik gemaakt van \'{e}\'{e}n zender en \'{e}\'{e}n ontvanger. De zender gebruikt \texttt{sender.ino} en de ontvanger gebruikt \texttt{receiver.ino}. Deze programma's zijn te vinden in de appendix. De zender zend pakketjes met daarin het pakketnummer. De ontvanger begint met luisteren en onthoudt het nummer van het eerste pakketje dat hij heeft ontvangen. Vervolgens zal de ontvanger blijven luisteren totdat deze 1000 pakketten heeft ontvangen. Uit de inhoud van het laatste pakket kan worden opgemaakt hoeveel pakketten er verloren zijn gegaan voor de duizend die er ontvangen zijn. De PER wordt berekend met de formule:\\
 \\
 \indent	(([laatste pakketnummer]-[eerste pakketnummer])/[aantal ontvangen pakketten])\\
@@ -162,8 +164,8 @@ Om het resultaat nauwkeuriger en accurater te kunnen weergeven is ervoor gekozen
 
 \subsection{Conclusie}
 Als er naar de gevonden waarden gekeken wordt, is de PER onacceptabel wanneer de outputpower op MIN staat. Een gemiddelde PER van 1273/3000 pakketten zorgt op den duur voor veel hertransmissies dus veel vertraging op het netwerk. Dit is een situatie die niet gewenst is. Wanneer naar de overige instellingen gekeken wordt en de daarbij behorende gemiddelde PER dan zijn ze perfect of een PER $<$ 0.01. Hier moet bij vermeld worden dat op het moment dat er meer interferentie is op het netwerk de PER omhoog schiet op het netwerk. Op dat moment is het kiezen van een ongebruikt frequentiekanaal van belang. Dit experiment heeft plaats gevonden in een interferentievrije ruimte.\\
-
-De Onderzoeksvraag die gesteld was: \textit{"Voor welke waarden voor de outputpower, transmissiesnelheid en frequentiekanaal is de PER het laagst."} Het antwoord wat hierbij hoort is dat voor elke waarde van de transmissiesnelheid en het frequentiekanaal de PER niet boven de 0.01 uit komt. Dit geldt echter niet voor de outputpower; op het moment dat de outputpower op minimaal gezet wordt bedraagt de gemiddelde PER 1273/3000 pakketten. Hieruit kan geconcludeerd worden dat de outputpower tenminste op laag of maximaal gezet moet worden om PER tot een minimum te beperken. 
+\\
+De onderzoeksvraag is: \textit{"Voor welke waarden voor de outputpower, transmissiesnelheid en frequentiekanaal is de PER het laagst."} Het antwoord dat hierbij hoort is dat voor elke waarde van de transmissiesnelheid en het frequentiekanaal de PER niet boven de 0.01 uit komt. Dit geldt echter niet voor de outputpower; op het moment dat de outputpower op minimaal gezet wordt bedraagt de gemiddelde PER 1273/3000. Hieruit kan geconcludeerd worden dat de outputpower tenminste op laag of maximaal gezet moet worden om de PER tot een minimum te beperken. 
 
 \newpage
 
@@ -181,6 +183,10 @@ De Onderzoeksvraag die gesteld was: \textit{"Voor welke waarden voor de outputpo
 \subsection{Methodologie}
 \subsection{Resultaten en analyse}
 \clearpage
+
+
+
+
 \appendix
 \section{De radio en de RF24-library}
 In dit onderzoek wordt gebruik gemaakt van de rf24 radio. Deze radio heeft de volgende eigenschappen:
@@ -190,26 +196,38 @@ In dit onderzoek wordt gebruik gemaakt van de rf24 radio. Deze radio heeft de vo
 	\item\textbf{Aantal kanalen: }126 RF-kanalen
 	\item\textbf{Modulatietechniek: }Gaussian Frequency Shift Key(GFSK)
 	\end{itemize}
-\begin{tabular}{c||c}
+\begin{tabular}{c|c}
 \textbf{Energiemodus}  & \textbf{Energieverbruik in Amp\`ere}     \\
 \hline
-Standby-I   & 22 $\mu$A    \\
-Standby-II  & 320 $\mu$A     \\
+Standby-I   & 22 $\mu$A    	\\
+Standby-II  & 320 $\mu$A	\\
 Power down  & 900 nA 
 \end{tabular}\\
-\begin{tabular}{c||c}
+\\
+\\
+\begin{tabular}{c|c}
 \textbf{Zendmodus}  & \textbf{Energieverbruik in Amp\`ere}     \\
 \hline
-0 dBm  & 11.3 mA    \\
--6 dBm & 9 mA     \\
--12 dBm & 7.5 mA  \\
--8 dBm & 7 mA
+0 dBm  	& 11.3 mA	\\
+-6 dBm 	& 9 mA    	\\
+-12 dBm & 7.5 mA  	\\
+-8 dBm 	& 7 mA
 \end{tabular}\\
-\begin{tabular}{c||c}
+\\
+\\
+\begin{tabular}{c|c}
 \textbf{Ontvangstmodus}  & \textbf{Energieverbruik in Amp\`ere}     \\
 \hline
-2 Mbps   & 12.3 mA    \\
-1Mbps & 11.8 mA     
+2 Mbps  & 12.3 mA    \\
+1Mbps	& 11.8 mA     
 \end{tabular}
+
+
+\section{Code Sender}
+\verbatiminput{./Sender/Sender.ino}
+
+\section{Code Receiver}
+\verbatiminput{./receiver/receiver.ino}
+
 
 \end{document}
