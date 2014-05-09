@@ -14,11 +14,10 @@ const uint64_t pipes[4] = { 0xF0F0F0F0E1LL, 0xF0F0F0F0D2LL, 0xF0F0F0F0C3LL, 0xF0
 bool listen_receiver = true;
 
 void setup(void)
-{  
+{
   Serial.begin(57600);
   printf_begin();
   printf("\n\rRF24/examples/pingpair/\n\r");
-
   //
   // Setup and configure rf radio
   //
@@ -28,38 +27,26 @@ void setup(void)
   radio.setChannel(48);
   radio.setPayloadSize(8);
 
-  //
-  // Open pipes to other nodes for communication
-  //
-
-  // This simple sketch opens two pipes for these two nodes to communicate
-  // back and forth.
-  // Open 'our' pipe for writing
-  // Open the 'other' pipe for reading, in position #1 (we can have up to 5 pipes open for reading)
   // De bovenste zijn connectie met de receiver, de onderste twee met de sender. 
   
-    //luisteren naar de Sender of deze iets stuurt
-    radio.openReadingPipe(2,pipes[0]);
+  //luisteren naar de Sender of deze iets stuurt
+  radio.openReadingPipe(2,pipes[0]);
     
-    //radio.openWritingPipe(pipes[2]);
-    //radio.openReadingPipe(1,pipes[3]);
+  //radio.openWritingPipe(pipes[2]);
+  //radio.openReadingPipe(1,pipes[3]);
   
-   // radio.openWritingPipe(pipes[1]);
-    
-  
+  //radio.openWritingPipe(pipes[1]);
 
   //
   // Start listening
   //
 
   radio.startListening();
-
-  //
-  // Dump the configuration of the rf unit for debugging
-  //
-
   radio.printDetails();
 }
+
+
+
 void loop(void)
 {
   //
