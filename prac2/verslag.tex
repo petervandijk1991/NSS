@@ -180,11 +180,10 @@ De Onderzoeksvraag die gesteld was: \textit{"Voor welke waarden voor de outputpo
 \subsection{Inleiding}
 Er is onderzoek gedaan naar de error rate in een singlehop-connectie. Nu moet er een betrouwbare end-to-end communicatie opgezet worden in een multihop-netwerk. 
 \subsection{Probleemstelling}
-De probleemstelling waarvan uit zal worden gegaan is "Is het mogelijk een betrouwbaar end-to-end multihop-connectie op te zetten?". De hypothese is dat dit mogelijk is in combinatie met :
+De probleemstelling waarvan uit zal worden gegaan is \textit{"Is het mogelijk een betrouwbaar end-to-end multihop-connectie op te zetten?"}. De hypothese is dat dit mogelijk is in combinatie met :
 \\
 \begin{itemize}
-	\item statische routering
-	\item \'{e}\'{e}n Zender en \'{e}\'{e}n ontvanger
+	\item MIN zal het slechtst presteren en MAX het beste
 	\item alternating bit protocol(ABP)
 	Met deze drie aspecten verwerkt in de implementatie zou het multihop-netwerk moeten werken. 
 \end{itemize}
@@ -224,20 +223,23 @@ Deze bestaat uit drie identieke nodes. Deze nodes zijn allemaal voorzien van een
 \\
 Door pakketten te versturen tussen de zender en de ontvanger met een voorgedefinieerde payload wordt er gecontroleerd dat het echt allemaal goed gaat. De payload bevat de zender van het bericht zodat het zeker is van wie de berichten komen. De experimenten zijn uitgevoerd in een netwerk waar nog meer radio\'s aan het sturen zijn. 
 \subsection{Resultaten en analyse}
-Om de resultaten te verkrijgen die gewenst zijn worden er telkens andere waarden gebruikt voor de transmissie sterkte. De drie waarden die hiervoor gebruikt zijn:\\
+Om de resultaten te verkrijgen die gewenst zijn worden er telkens andere waarden gebruikt voor de transmissie sterkte.
+De transmissiesterkte geldt voor alle drie de nodes(zender, hop en ontvanger). De drie waarden die hiervoor gebruikt zijn:\\
 \begin{itemize}
 	\item RF24\_PA\_MIN
 	\item RF24\_PA\_LOW
 	\item RF24\_PA\_MAX
 \end{itemize}
+
 De waarden die gevonden zijn bij de volgende instellingen volgen hieronder. 
+\\
 \begin{tabular}{c||c || c}
 \textbf{testnummer}   & \textbf{RF\_PA\_MIN}  & \textbf{gemiddelde} \\ \hline
 1. & 1/1000   & 25/3000\\
 2. & 17/1000 & 	\\
 3. & 7/1000  &   
 \end{tabular}
-
+\\
 \\
 \begin{tabular}{c||c || c}
 \textbf{testnummer}   & \textbf{RF\_PA\_LOW}  & \textbf{gemiddelde} \\ \hline
@@ -246,15 +248,19 @@ De waarden die gevonden zijn bij de volgende instellingen volgen hieronder.
 3. & 1/1000  &   
 \end{tabular}
 \\
-
 \begin{tabular}{c||c || c}
 \textbf{testnummer}   & \textbf{RF\_PA\_MAX}  & \textbf{gemiddelde} \\ \hline
 1. & 0/1000   & 1/3000\\
 2. & 0/1000 & 	\\
 3. & 1/1000  &   
 \end{tabular}
+\\
+In de bovenstaande drie grafieken staan de PER samen met de transmissie sterkte waarmee de pakketjes verstuurd zijn. Er moet rekening gehouden worden met de omgeving waarin deze experimenten zijn uitgevoerd. 
 \subsection{Conclusie}
-
+De hypothese die gesteld werd: \textit{"Is het mogelijk een betrouwbaar end-to-end multihop-connectie op te zetten?"}.
+Deze hypothese wordt nu gestaafd door de resultaten die verkregen zijn door de experimenten uit te voeren met veranderende transmissie sterktes. 
+Uit de grafieken bij 2.5 kan opgemaakt worden dat een multi-hop verbinding, welke op deze manier ge\"{i}mplementeerd is, een redelijke implementatie geeft met een lage error rate. Zoals verwacht in de hypothese is zenden op minimum de slechtst scorende, maar zolang je hertransmissies hebt is dit een degelijke implementatie. 
+De hertransmissies komen voort uit het ge\"{i}mplementeerde alternating bit protocol. Door het ABP en de beste transmissie sterkte te kiezen is er een stabiel netwerk opgezet wat in het dagelijks leven toegepast kan worden. 
 \clearpage
 \appendix
 \section{De radio en de RF24-library}
