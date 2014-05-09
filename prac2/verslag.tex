@@ -173,13 +173,13 @@ De onderzoeksvraag is: \textit{"Voor welke waarden voor de outputpower, transmis
 \section{Betrouwbare end-to-end-communicatie}
 
 \subsection{Inleiding}
-Er is onderzoek gedaan naar de error rate in een singlehop-connectie. Nu moet er een betrouwbare end-to-end communicatie opgezet worden in een multihop-netwerk. 
+In het vorige experiment is de betrouwbaarheid van een singlehop-netwerk onderzocht. Nu kan de betrouwbaarheid van een multihop-netwerk getoetst worden en kunnen de waarden vergeleken worden om te bepalen welk netwerk betrouwbaarder is. 
 \subsection{Probleemstelling}
 
 De probleemstelling waarvan uit zal worden gegaan is \textit{"Is het mogelijk een betrouwbaar end-to-end multihop-connectie op te zetten?"}. De hypothese is dat dit mogelijk is in combinatie met :
 \\
 \begin{itemize}
-	\item MIN zal het slechtst presteren en MAX het beste
+	\item MIN zal het slechtst presteren en MAX het beste(transmissie sterkten)
 	\item alternating bit protocol(ABP)
 	Met deze drie aspecten verwerkt in de implementatie zou het multihop-netwerk moeten werken. 
 \end{itemize}
@@ -241,7 +241,7 @@ De transmissiesterkte geldt voor alle drie de nodes(zender, hop en ontvanger). D
 De waarden die gevonden zijn bij de volgende instellingen volgen hieronder.
 \\
 \begin{tabular}{c||c || c}
-\textbf{testnummer}   & \textbf{RF\_PA\_MIN}  & \textbf{gemiddelde} \\ \hline
+\textbf{testnummer}   & \textbf{PER(RF\_PA\_MIN)}  & \textbf{gemiddelde} \\ \hline
 1. & 1/1000   & 25/3000\\
 2. & 17/1000 & 	\\
 3. & 7/1000  &   
@@ -249,7 +249,7 @@ De waarden die gevonden zijn bij de volgende instellingen volgen hieronder.
 \\
 \\
 \begin{tabular}{c||c || c}
-\textbf{testnummer}   & \textbf{RF\_PA\_LOW}  & \textbf{gemiddelde} \\ \hline
+\textbf{testnummer}   & \textbf{PER(RF\_PA\_LOW)}  & \textbf{gemiddelde} \\ \hline
 1. & 0/1000   & 2/3000\\
 2. & 1/1000 & 	\\
 3. & 1/1000  &   
@@ -257,7 +257,7 @@ De waarden die gevonden zijn bij de volgende instellingen volgen hieronder.
 \\
 \\
 \begin{tabular}{c||c || c}
-\textbf{testnummer}   & \textbf{RF\_PA\_MAX}  & \textbf{gemiddelde} \\ \hline
+\textbf{testnummer}   & \textbf{PER(RF\_PA\_MAX)}  & \textbf{gemiddelde} \\ \hline
 1. & 0/1000   & 1/3000\\
 2. & 0/1000 & 	\\
 3. & 1/1000  &   
