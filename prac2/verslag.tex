@@ -53,9 +53,7 @@ In de software van de Sender en Receiver is gebruik gemaakt van de volgende drie
 	\item setDataRate(Rate rate) \\
 	met rate $\in \{$ RF24\_1MBPS, RF24\_2MBPS$\}$
 \end{itemize}
-De methoden kunnen als argument de waarde meekrijgen die rechts naast de methode staat. Een ander argument dan wat hier staat wordt door de methode niet geaccepteerd. 
-Door met deze drie methoden de waarden aan te passen verkrijgen we de gewilde meetresultaten. Deze zullen in 1.4 besproken worden.\\
-
+Door met deze drie methoden de waarden aan te passen verkrijgen we de gewilde meetresultaten. Deze zullen in sectie 1.4 besproken worden.
 
 \subsubsection{De instellingen/vastgestelde constanten}
 Om deze metingen bruikbaar te houden moeten er een paar constanten gedefinieerd worden.
@@ -69,7 +67,7 @@ Het aantal te versturen berichten is op 1000 gezet. Hier is voor gekozen vanwege
 \\
 \\
 De meetopstelling bestaat uit twee radio's welke 270cm uit elkaar geplaatst zijn. Om de resultaten consistent te houden moet bij elke meting deze afstand aangehouden worden. 
-Er worden geen bericht opnieuw verzonden als er geen acknowledgement volgt. Want dit betekent pakket verlies en dit moet gemeten worden. 
+Verder worden bericht niet opnieuw verzonden als er geen acknowledgement volgt, want dit betekent pakket verlies en dat moet gemeten worden. 
 
 \subsection{Resultaten en analyse}
 Hier zullen de resultaten weergegeven en geanalyseerd worden. \\*
@@ -163,7 +161,8 @@ Verder zijn er nog enkele kleinere tests uitgevoerd op een netwerk met interfere
 Om het resultaat nauwkeuriger en accurater te kunnen weergeven is ervoor gekozen om alle tests in drievoud uit te voeren zodat vreemde gebeurtenissen opgemerkt worden. Een voorbeeld is een error rate $>$ 1. Tussen deze resultaten is de instelling HIGH voor outputpower niet weergegeven, aangezien deze voor de gebruikte versie van de radio niet een mogelijke waarde was.
 
 \subsection{Conclusie}
-Als er naar de gevonden waarden gekeken wordt, is de PER onacceptabel wanneer de outputpower op MIN staat. Een gemiddelde PER van 1273/3000 pakketten zorgt op den duur voor veel hertransmissies dus veel vertraging op het netwerk. Dit is een situatie die niet gewenst is. Wanneer naar de overige instellingen gekeken wordt en de daarbij behorende gemiddelde PER dan zijn ze perfect of een PER < 0.01. Hier moet bij vermeld worden dat op het moment dat er meer interferentie is op het netwerk de PER omhoog schiet op het netwerk. Op dat moment is het kiezen van een ongebruikt frequentiekanaal van belang. Dit experiment heeft plaats gevonden in een interferentievrije ruimte.
+Als er naar de gevonden waarden gekeken wordt, is de PER onacceptabel wanneer de outputpower op MIN staat. Een gemiddelde PER van 1273/3000 pakketten zorgt op den duur voor veel hertransmissies dus veel vertraging op het netwerk. Dit is een situatie die niet gewenst is. Wanneer naar de overige instellingen gekeken wordt en de daarbij behorende gemiddelde PER dan zijn ze perfect of een PER $<$ 0.01. Hier moet bij vermeld worden dat op het moment dat er meer interferentie is op het netwerk de PER omhoog schiet op het netwerk. Op dat moment is het kiezen van een ongebruikt frequentiekanaal van belang. Dit experiment heeft plaats gevonden in een interferentievrije ruimte.\\
+
 De Onderzoeksvraag die gesteld was: \textit{"Voor welke waarden voor de outputpower, transmissiesnelheid en frequentiekanaal is de PER het laagst."} Het antwoord wat hierbij hoort is dat voor elke waarde van de transmissiesnelheid en het frequentiekanaal de PER niet boven de 0.01 uit komt. Dit geldt echter niet voor de outputpower; op het moment dat de outputpower op minimaal gezet wordt bedraagt de gemiddelde PER 1273/3000 pakketten. Hieruit kan geconcludeerd worden dat de outputpower tenminste op laag of maximaal gezet moet worden om PER tot een minimum te beperken. 
 
 \newpage
