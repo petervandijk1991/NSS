@@ -41,12 +41,15 @@ void loop(void)
     {
       done = radio.read( &sent, sizeof(unsigned long) );
       stopped = received >= 1000;
-      if(started && !stopped){
+      if(started && !stopped)
+      {
         received = received+1;
         printf("Got packet: %u", received);
         printf(" payload: %u", (sent-initVal));
         printf(" lost: %u\r\n", ((sent-initVal)-received));
-      }else if(!started && sent != -1 ){
+      }
+      else if(!started && sent != -1 )
+      {
         started = true;
         initVal = sent; 
       }
@@ -54,7 +57,6 @@ void loop(void)
       // make the transition to receiver
       delay(20);
     }
-    
     // First, stop listening so we can talk
     radio.stopListening();
 

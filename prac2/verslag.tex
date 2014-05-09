@@ -44,7 +44,7 @@ Met deze software kan de radio aangestuurd worden en kunnen pakketjes worden ver
 \\
 Om de metingen uit te voeren en onze hypotheses te testen is er gebruik gemaakt van \'{e}\'{e}n zender en \'{e}\'{e}n ontvanger. De zender gebruikt \texttt{sender.ino} en de ontvanger gebruikt \texttt{receiver.ino}. Deze programma's zijn te vinden in de appendix. De zender zend pakketjes met daarin het pakketnummer. De ontvanger begint met luisteren en onthoudt het nummer van het eerste pakketje dat hij heeft ontvangen. Vervolgens zal de ontvanger blijven luisteren totdat deze 1000 pakketten heeft ontvangen. Uit de inhoud van het laatste pakket kan worden opgemaakt hoeveel pakketten er verloren zijn gegaan voor de duizend die er ontvangen zijn. De PER wordt berekend met de formule:\\
 \\
-\indent	(([laatste pakketnummer]-[eerste pakketnummer])/[aantal ontvangen pakketten])\\
+\indent	$(([laatste pakketnummer]-[eerste pakketnummer])/[aantal ontvangen pakketten])$\\
 \\
 In de software van de Sender en Receiver is gebruik gemaakt van de volgende drie methoden om de verschillende waarden aan te kunnen passen. 
 \begin{itemize}

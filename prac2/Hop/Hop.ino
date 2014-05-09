@@ -43,7 +43,7 @@ const char* role_friendly_name[] = { "invalid", "Ping out", "Pong back"};
 void setup(void)
 {
    Serial.begin(57600);
-  
+  printf_begin();
 
 
   radio.begin();
@@ -102,7 +102,7 @@ void loop(void)
  
     // if there is data ready
     printf("Is de radio vrij?");
-    printf("\b", radio.available());
+    printf(radio.available()
     if ( radio.available() )
     {
       printf("ik zit in het if-statement");
