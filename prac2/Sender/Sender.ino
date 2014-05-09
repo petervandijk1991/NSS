@@ -27,6 +27,7 @@ void setup(void)
   radio.startListening();
   radio.printDetails();
 }
+
 void loop(void){
     // First, stop listening so we can talk.
     radio.stopListening();
@@ -47,7 +48,20 @@ void loop(void){
     while ( ! radio.available() && ! timeout )
       if (millis() - started_waiting_at > 200 )
         timeout = true;
-        
-    // Try again 1s later
+    
+    // Describe the results
+    if ( timeout )
+    {
+      printf("Failed, response timed out.\n\r");
+    }
+    else
+    {
+      // Grab the response, compare, and send to debugging spew
+      unsigned long got_time;
+      radio.read( &got_time, sizeof(unsigned long) );
+
+      // Spew it
+      printf("Got response %lu, round-trip delay: %lu\n\r",got_time,millis()-got_time);
+    }
     delay(25);
 }
