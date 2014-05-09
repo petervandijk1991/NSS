@@ -159,9 +159,83 @@ De Onderzoeksvraag welke gesteld was: \textit{"Voor welke waarden voor de output
 \clearpage
 \section{Betrouwbare end-to-end-communicatie}
 \subsection{Inleiding}
+Er is onderzoek gedaan naar de error rate in een singlehop-connectie. Nu moet er een betrouwbare end-to-end communicatie opgezet worden in een multihop-netwerk. 
 \subsection{Probleemstelling}
+De probleemstelling waarvan uit zal worden gegaan is "Is het mogelijk een betrouwbaar end-to-end multihop-connectie op te zetten?". De hypothese is dat dit mogelijk is in combinatie met :
+\\
+\begin{itemize}
+	\item statische routering
+	\item \'{e}\'{e}n Zender en \'{e}\'{e}n ontvanger
+	\item alternating bit protocol(ABP)
+	Met deze drie aspecten verwerkt in de implementatie zou het multihop-netwerk moeten werken. 
+\end{itemize}
+\subsection{Protocol}
+Het protocol wat veelal gebruikt wordt in deze implementatie is het ABP. Dit protocol houdt twee zaken in:
+\\
+\begin{itemize}
+	\item hertransmissies sturen
+	\item kijken of er iets binnenkomt
+\end{itemize}
+Het ABP zorgt ervoor dat wanneer er geen acknowledgement ontvangen wordt er een hertransmissie gestuurd wordt. Door een bit op 0 of 1 te zetten kan er gekeken worden of er nieuwe data ontvangen wordt of niet. Dit is de globale werking van het protocol. Dit protocol is gebruikt in de implementatie van het multihop-netwerk, veelal op dezelfde manier maar dit zal toegelicht worden. 
+\\ 
+In de implementatie komt dit protocol terug in alle nodes.
+Alle nodes moeten weten of er berichten binnen komen. Om dit te registreren is er gekozen voor het ABP.
+
+De zender verstuurt de berichten en wacht totdat er een acknowledgement terugkomt voordat een nieuw bericht wordt verstuurd. Op het moment dat er een time-out plaatsvind zal er een hertransmissie plaatsvinden. Op het moment dat er een bericht binnenkomt dan zal dit geregistreerd worden en zal dit bericht verder worden afgehandeld. fig????????
 \subsection{Methodologie}
+Om de onderzoeksvraag te kunnen beantwoorden is er een meetopstelling nodig. De meetopstelling ziet er als volgt uit zoals in figuur?????? met een zender node, een hop node en een ontvangende node.
+De namen geven het al aan, de zender node stuurt de berichten, de hop node forward de berichten en de ontvanger node ontvangt de berichten.  
+\\
+\textbf{De software}
+\\
+De software die gebruikt is voor dit experiment is grotendeels hetzelfde als de software die ontwikkeld is voor het experiment "De Packet Error rate-metingen". De zender en ontvanger zijn hetzelfde en de hop fungeert als een doorstuur node. De hop stuurt de inkomende berichten door naar de ontvanger. De acknowledgements die de ontvanger stuurt naar de hop worden naar de zender doorgestuurd. 
+In de implementatie is ervoor gezorgd dat er hertransmissies gestuurd kunnen worden als er een time-out optreed.
+Er is gebruik gemaakt van een aantal constanten, deze zijn:
+\\
+\begin{itemize}
+	\item payload = 255 bytes
+	\item hertransmissies : 15
+	\item transmissiesnelheid: 2MBps
+\end{itemize}  
+Deze constanten zullen tijdens het testen niet worden veranderd.
+\\
+\textbf{De hardware}
+\\
+Deze bestaat uit drie identieke nodes. Deze nodes zijn allemaal voorzien van een radio waarmee ze de berichten kunnen ontvangen en versturen. De nodes zijn in een driehoek geplaatst met allemaal gelijke afstanden tot elkaar(\'{e}\'{e}n meter).  
+\\
+Door pakketten te versturen tussen de zender en de ontvanger met een voorgedefinieerde payload wordt er gecontroleerd dat het echt allemaal goed gaat. De payload bevat de zender van het bericht zodat het zeker is van wie de berichten komen. De experimenten zijn uitgevoerd in een netwerk waar nog meer radio\'s aan het sturen zijn. 
 \subsection{Resultaten en analyse}
+Om de resultaten te verkrijgen die gewenst zijn worden er telkens andere waarden gebruikt voor de transmissie sterkte. De drie waarden die hiervoor gebruikt zijn:\\
+\begin{itemize}
+	\item RF24\_PA\_MIN
+	\item RF24\_PA\_LOW
+	\item RF24\_PA\_MAX
+\end{itemize}
+De waarden die gevonden zijn bij de volgende instellingen volgen hieronder. 
+\begin{tabular}{c||c || c}
+\textbf{testnummer}   & \textbf{RF\_PA\_MIN}  & \textbf{gemiddelde} \\ \hline
+1. & 1/1000   & 25/3000\\
+2. & 17/1000 & 	\\
+3. & 7/1000  &   
+\end{tabular}
+
+\\
+\begin{tabular}{c||c || c}
+\textbf{testnummer}   & \textbf{RF\_PA\_LOW}  & \textbf{gemiddelde} \\ \hline
+1. & 0/1000   & 2/3000\\
+2. & 1/1000 & 	\\
+3. & 1/1000  &   
+\end{tabular}
+\\
+
+\begin{tabular}{c||c || c}
+\textbf{testnummer}   & \textbf{RF\_PA\_MAX}  & \textbf{gemiddelde} \\ \hline
+1. & 0/1000   & 1/3000\\
+2. & 0/1000 & 	\\
+3. & 1/1000  &   
+\end{tabular}
+\subsection{Conclusie}
+
 \clearpage
 \appendix
 \section{De radio en de RF24-library}
@@ -193,5 +267,55 @@ Power down  & 900 nA
 2 Mbps   & 12.3 mA    \\
 1Mbps & 11.8 mA     
 \end{tabular}
+Het volgende aspect van de RF24 radio is Enhanched ShockBurst. Dit is een pakket gerichte data link layer protocol.
+Belangrijke functies van Enhanched ShockBurst zijn:
+\begin{itemize}
+	\item Automatische pakket samenvoeging
+	\item 6 data pipe multiceivers
+	\item pakket afhandeling
+\end{itemize}
+Het formaat van het datapakket bestaat uit verschillende delen, het adres, pakket identificatie, geen acknowledgement bits en CRC. De velden hebben de volgende functies:
+\\
+\begin{tabular}{ | l | l |}
+    \hline
+    Data veld					& Functie	\\ \hline
+    Adres						& Het adres van de ontvanger	\\ \hline
+    Pakket identificatie		& Om te achterhalen of het pakket een hertransmissie is.	\\\hline
+    geen acknowledgement bit	&  Als deze bit gezet is mag het pakket niet 									automatisch erkend worden.	\\ \hline
+    CRC							&  Error detectie mechanisme voor het pakket			\\ \hline
+    \end{tabular}\\
+\\
+
+Enhanced Shockburst heeft als feature automatisch pakket validatie. In ontvangst modus zoekt de RF24 constant naar valide adressen welke gegeven zijn in het RX\_ADDR registers. Op het moment dat een valide adres gedetecteerd wordt, zal Enhanced Shockburst het pakket gelijk valideren. Enhanced Shockburst is voorzien van een ART(auto retransmission) functie. Door deze functie is Enhanced Shockburst in staat een pakket uit zichzelf opnieuw te versturen als er geen acknowledgement wordt ontvangen. Er zijn drie redenen waarom de ART functie stopt met het luisteren na het versturen van een pakket. De ART stopt met luisteren na:
+\begin{itemize}
+	\item Auto retransmit delay(ARD) is verlopen
+	\item Geen gematcht adres gevonden binnen 250$\mu$ s
+	\item Nadat er een pakket ontvangen is
+\end{itemize}
+De radio is niet in staat om te broadcasten maar om deze functionaliteit wil te krijgen moet er gebruik gemaakt worden van een multiceiver. 
+\\
+De adressen van een multiceiver moeten altijd sterk op elkaar lijken, alleen de least significant byte moet anders zijn. De volgende 4 adressen volgen uit dit principe:
+\\
+\begin{itemize}
+	\item  F0F0A
+	\item  F0F0B
+	\item  F0F0C
+	\item  F0F0D
+\end{itemize}
+Doordat de Least significant byte anders is zijn dit vier geldige adressen.
+\\
+
+Met de volgende functies worden waarden van de RF24 radio ingesteld:
+\\
+\begin{tabular}{ | l | l | p{5cm} |}
+    \hline
+    Functie				& Methode	\\ \hline
+    Kanaal instellen			& void RF24::setChannel	(uint8\_t channel) 	\\ 
+    Zendvermogen 	& void 	setPALevel (rf24\_pa\_dbm\_e level)	\\ 
+    Aantal pogingen van ART instellen				& void RF24::setRetries	(uint8\_t delay, uint8\_t count )				\\ 
+    Adres van de zender instellen 		&  	void 	openWritingPipe (uint64\_t address)	\\
+    Adres van de ontvanger instellen & 
+void 	openReadingPipe (uint8\_t number, uint64\_t address) \\ \hline
+    \end{tabular}\\
 
 \end{document}
