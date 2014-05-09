@@ -20,36 +20,20 @@ void setup(void)
   radio.setChannel(48);
   radio.setPayloadSize(8);
 
-  // De bovenste zijn connectie met de receiver, de onderste twee met de sender. 
-  
-  //luisteren naar de Sender of deze iets stuurt
   radio.openReadingPipe(2,pipes[0]);
-    
-  //radio.openWritingPipe(pipes[2]);
-  //radio.openReadingPipe(1,pipes[3]);
-  
-  //radio.openWritingPipe(pipes[1]);
+  radio.openReadingPipe(1,pipes[3]);
 
   //
   // Start listening
   //
-
   radio.startListening();
   radio.printDetails();
 }
 void loop(void){
      //
   // Pong back role.  Receive each packet, dump it out, and send it back
-  //
-  printf("Ik ben de hop");
-  if(listen_receiver){
-    radio.openReadingPipe(2,pipes[0]);
-  } else {
-    radio.openReadingPipe(1,pipes[3]);
-  }
- 
+  // 
   // if there is data ready
-  printf("Is de radio vrij?");
   if ( radio.available() )
   {
     // Dump the payloads until we've gotten everything
@@ -61,12 +45,11 @@ void loop(void){
       done = radio.read( &message, sizeof(unsigned long) );
       
       // Spew it
-      printf("Wat is de oayload??");
       printf("Got payload %lu...",message);
       
       // Delay just a little bit to let the other unit
       // make the transition to receiver
-      delay(20);
+      delay(5);
     }
     
     // First, stop listening so we can talk
@@ -78,15 +61,20 @@ void loop(void){
     }
     // Send the final one back.
     radio.write( &message, sizeof(unsigned long) );
-    printf("Sent response.\n\r");
-    
+    if(listen_receiver){
+      printf("Relayed message to receiver.\n\r");
+    } else {
+      printf("Relayed message to sender.\n\r");
+    }
     // Now, resume listening so we catch the next packets.
     radio.startListening();
+    
+    if(listen_receiver){
+      listen_receiver = false;
+    }else{ 
+      listen_receiver = true; 
+    }
   }
   
-  if(listen_receiver){
-    listen_receiver = false;
-  }else{ 
-    listen_receiver = true; 
-  }
+  
 }

@@ -94,6 +94,7 @@ void setup(void)
   // optionally, increase the delay between retries & # of retries
   radio.setRetries(15,15);
 
+  radio.setChannel(48);
   // optionally, reduce the payload size.  seems to
   // improve reliability
   radio.setPayloadSize(8);
