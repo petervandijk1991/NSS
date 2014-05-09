@@ -7,6 +7,10 @@ RF24 radio(3, 9);
 int messages_sent = 0;
 
 const uint64_t pipes[4] = { 0xF0F0F0F0E1LL, 0xF0F0F0F0D2LL, 0xF0F0F0F0C3LL, 0xF0F0F0F0B4LL};
+const uint8_t readingPipeSender = 1;
+const uint8_t readingPipeReceiver = 2;
+uint8_t receivedFrom;
+
 bool listen_receiver = true;
 
 void setup(void)
@@ -20,8 +24,8 @@ void setup(void)
   radio.setChannel(48);
   radio.setPayloadSize(8);
 
-  radio.openReadingPipe(2,pipes[0]);
-  radio.openReadingPipe(1,pipes[3]);
+  radio.openReadingPipe(readingPipeSender,pipes[0]);
+  radio.openReadingPipe(readingPipeReceiver,pipes[3]);
 
   //
   // Start listening
@@ -33,48 +37,61 @@ void loop(void){
      //
   // Pong back role.  Receive each packet, dump it out, and send it back
   // 
-  // if there is data ready
-  if ( radio.available() )
+  // Message from sender
+  if ( radio.available( &receivedFrom ) )
   {
-    // Dump the payloads until we've gotten everything
-    unsigned long message;
-    bool done = false;
-    while (!done)
-    {
-      // Fetch the payload, and see if this was the last one.
-      done = radio.read( &message, sizeof(unsigned long) );
+    if(receivedFrom == readingPipeSender){
+      // Dump the payloads until we've gotten everything
+      unsigned long message;
+      bool done = false;
+      while (!done)
+      {
+        // Fetch the payload, and see if this was the last one.
+        done = radio.read( &message, sizeof(unsigned long) );
+        
+        // Spew it
+        printf("Got payload %lu...",message);
+        
+        // Delay just a little bit to let the other unit
+        // make the transition to receiver
+        delay(5);
+      }
       
-      // Spew it
-      printf("Got payload %lu...",message);
-      
-      // Delay just a little bit to let the other unit
-      // make the transition to receiver
-      delay(5);
-    }
-    
-    // First, stop listening so we can talk
-    radio.stopListening();
-    if(listen_receiver){
+      // First, stop listening so we can talk
+      radio.stopListening();
       radio.openWritingPipe(pipes[2]);
-    } else {
-      radio.openWritingPipe(pipes[1]);
-    }
-    // Send the final one back.
-    radio.write( &message, sizeof(unsigned long) );
-    if(listen_receiver){
+      // Send the final one back.
+      radio.write( &message, sizeof(unsigned long) );
       printf("Relayed message to receiver.\n\r");
-    } else {
-      printf("Relayed message to sender.\n\r");
-    }
-    // Now, resume listening so we catch the next packets.
-    radio.startListening();
+      // Now, resume listening so we catch the next packets.
+      radio.startListening();  
+    }else if(receivedFrom == readingPipeReceiver){
     
-    if(listen_receiver){
-      listen_receiver = false;
-    }else{ 
-      listen_receiver = true; 
-    }
+      // Dump the payloads until we've gotten everything
+      unsigned long message;
+      bool done = false;
+      while (!done)
+      {
+        // Fetch the payload, and see if this was the last one.
+        done = radio.read( &message, sizeof(unsigned long) );
+        
+        // Spew it
+        printf("Got payload %lu...",message);
+        
+        // Delay just a little bit to let the other unit
+        // make the transition to receiver
+        delay(5);
+      }
+      
+      // First, stop listening so we can talk
+      radio.stopListening();
+      radio.openWritingPipe(pipes[1]);
+  
+      // Send the final one back.
+      radio.write( &message, sizeof(unsigned long) );
+      printf("Relayed message to sender.\n\r");
+      // Now, resume listening so we catch the next packets.
+      radio.startListening();   
+    } 
   }
-  
-  
 }
