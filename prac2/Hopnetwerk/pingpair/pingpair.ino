@@ -38,7 +38,7 @@ const int role_pin = 7;
 //
 
 // Radio pipe addresses for the 2 nodes to communicate.
-const uint64_t pipes[2] = { 0xF0F0F0F0E1LL, 0xF0F0F0F0D2LL, 0xF0F0F0F0C3LL, 0xF0F0F0F0B4LL};
+const uint64_t pipes[4] = { 0xF0F0F0F0E1LL, 0xF0F0F0F0D2LL, 0xF0F0F0F0C3LL, 0xF0F0F0F0B4LL};
 
 //
 // Role management
@@ -90,10 +90,13 @@ void setup(void)
   //
 
   radio.begin();
+  radio.setPALevel(RF24_PA_MAX);
+  radio.setDataRate(RF24_2MBPS);
 
   // optionally, increase the delay between retries & # of retries
   radio.setRetries(15,15);
 
+  radio.setChannel(48);
   // optionally, reduce the payload size.  seems to
   // improve reliability
   radio.setPayloadSize(8);

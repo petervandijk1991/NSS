@@ -4,11 +4,11 @@
 \contentsline {subsection}{\numberline {1.2}Probleemstelling}{3}
 \contentsline {subsection}{\numberline {1.3}Methodologie}{3}
 \contentsline {subsubsection}{\numberline {1.3.1}De hardware}{3}
-\contentsline {subsubsection}{\numberline {1.3.2}De software}{3}
+\contentsline {subsubsection}{\numberline {1.3.2}De software}{4}
 \contentsline {subsubsection}{\numberline {1.3.3}De instellingen/vastgestelde constanten}{4}
 \contentsline {subsection}{\numberline {1.4}Resultaten en analyse}{5}
 \contentsline {subsubsection}{\numberline {1.4.1}Metingen en resultaten}{5}
-\contentsline {subsection}{\numberline {1.5}Conclusie}{6}
+\contentsline {subsection}{\numberline {1.5}Conclusie}{7}
 \contentsline {section}{\numberline {2}Betrouwbare end-to-end-communicatie}{8}
 \contentsline {subsection}{\numberline {2.1}Inleiding}{8}
 \contentsline {subsection}{\numberline {2.2}Probleemstelling}{8}

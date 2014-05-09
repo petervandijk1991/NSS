@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage[dutch]{babel}
+\usepackage{epsfig}
 \author{Peter van Dijk \& Elizabeth Schermerhorn}
 \date{\today}
 \title{Practicum 2 Betrouwbare communicatie}
@@ -10,13 +11,13 @@
 \clearpage
 \section{Packet Error Rate-metingen}
 \subsection{Inleiding}
-De Nordic RF24 is een radiozender en -ontvanger voor de 2.4GHz band. De RF24 heeft echter een aantal verschillende instellingen voor de kanalen, zendkracht en datasnelheid. Het doel van dit onderzoek is bepalen wat de optimale instellingen zijn om de Packet Error Rate (PER) zo laag mogelijk te krijgen.
+De Nordic RF24 is een radiozender en -ontvanger voor de 2.4GHz band. De RF24 heeft echter een aantal verschillende instellingen voor de kanalen, outputpower en datasnelheid. Het doel van dit onderzoek is bepalen wat de optimale instellingen zijn om de Packet Error Rate (PER) zo laag mogelijk te krijgen. Eerst zal de probleemstelling besproken worden samen met vastgestelde hypothesen, vervolgens zal de methodologie aan bod komen en als laatste zullen de resultaten besproken en geanalyseerd worden. 
 
 \subsection{Probleemstelling}
 De onderzoeksvraag die hier beantwoord zal worden is: \textit{"Voor welke waarden voor de outputpower, transmissiesnelheid en frequentiekanaal is de PER het laagst."} Hierbij horen de volgende hypothesen: 
 \begin{enumerate}
   \item Op het moment dat er meerdere mensen op hetzelfde frequentiekanaal zitten zal dit voor veel pakket verlies zorgen.
-  \item Bij een hogere zendkracht zal het pakketverlies kleiner zijn.
+  \item Bij een hogere outputpower zal het pakketverlies kleiner zijn.
   \item Bij een hogere transmissiesnelheid zal er meer pakketverlies optreden. 
 \end{enumerate}
 In het volgende onderzoek zullen deze hypothesen getoetst worden.
@@ -41,7 +42,7 @@ Met deze software kan de radio aangestuurd worden en kunnen pakketjes worden ver
 
 Om de metingen uit te voeren en onze hypotheses te testen is er gebruik gemaakt van \'{e}\'{e}n zender en \'{e}\'{e}n ontvanger. De zender gebruikt \texttt{sender.ino} en de ontvanger gebruikt \texttt{receiver.ino}. Deze programma's zijn te vinden in de appendix. De zender zend pakketjes met daarin het pakketnummer. De ontvanger begint met luisteren en onthoudt het nummer van het eerste pakketje dat hij heeft ontvangen. Vervolgens zal de ontvanger blijven luisteren totdat deze 1000 pakketten heeft ontvangen. Uit de inhoud van het laatste pakket kan worden opgemaakt hoeveel pakketten er verloren zijn gegaan voor de duizend die er ontvangen zijn. De PER wordt berekend met de formule:\\
 \\
-\indent	1-(1000/([laatste pakketnummer]-[eerste pakketnummer]))\\
+\indent	(([laatste pakketnummer]-[eerste pakketnummer])/[aantal ontvangen pakketten])\\
 \\
 In de software van de Sender en Receiver is gebruik gemaakt van de volgende drie methoden om de verschillende waarden aan te kunnen passen. 
 \begin{itemize}
@@ -82,7 +83,7 @@ Hier zullen de resultaten weergegeven en geanalyseerd worden. \\*
   
 \subsubsection{Metingen en resultaten}
 Tijdens de metingen waren er geen andere radio's aan het sturen, waardoor de radio's geen last van interferentie hadden.\\
-
+\\
     \begin{tabular}{ | l | l | l | p{5cm} |}
     \hline
     Instellingen 				& PER 		& gemiddelde PER\\ \hline
@@ -90,8 +91,8 @@ Tijdens de metingen waren er geen andere radio's aan het sturen, waardoor de rad
     transmissiesnelheid: 2MBps 	& 1/1000 	& 				\\
     delay: 25 ms 				& 0/1000	&  				\\ \hline
     \end{tabular}\\
-    \\
-    
+\\
+\\
     \begin{tabular}{ | l | l | l | p{5cm} |}
     \hline
     Instellingen				& PER 		& gemiddelde PER\\ \hline
@@ -99,8 +100,8 @@ Tijdens de metingen waren er geen andere radio's aan het sturen, waardoor de rad
     transmissiesnelheid: 2MBps 	& 0/1000 	&  				\\
     delay: 50 ms 				& 0/1000	&  				\\ \hline
     \end{tabular}\\
-    \\
-    
+\\
+\\
     \begin{tabular}{ | l | l | l | p{5cm} |}
     \hline
     Instellingen 				& PER 		& gemiddelde PER\\ \hline
@@ -108,8 +109,8 @@ Tijdens de metingen waren er geen andere radio's aan het sturen, waardoor de rad
     transmissiesnelheid: 1MBps 	& 0/1000 	&  				\\
     delay: 50 ms 				& 0/1000	&  				\\ \hline
     \end{tabular}\\
-    \\
-    
+\\
+\\
     \begin{tabular}{ | l | l | l | p{5cm} |}
     \hline
     Instellingen				& PER 		& gemiddelde PER\\ \hline
@@ -117,8 +118,8 @@ Tijdens de metingen waren er geen andere radio's aan het sturen, waardoor de rad
     transmissiesnelheid: 2MBps 	& 669/1000  &  				\\ 
     delay: 50 ms 				& 519/1000 	&  				\\ \hline
     \end{tabular}\\
-    \\
-    
+\\
+\\
     \begin{tabular}{ | l | l | l | p{5cm} |}
     \hline
     Instellingen				& PER 		& gemiddelde PER\\ \hline
@@ -126,8 +127,8 @@ Tijdens de metingen waren er geen andere radio's aan het sturen, waardoor de rad
     transmissiesnelheid: 2MBps 	& 2/1000 	&   			\\ 
     delay: 50 ms 				& 6/1000 	&  				\\ \hline
     \end{tabular}\\
-    \\
-    
+\\
+\\
     \begin{tabular}{ | l | l | l | p{5cm} |}
     \hline
     Instellingen				& PER 		& gemiddelde PER\\ \hline
@@ -136,8 +137,8 @@ Tijdens de metingen waren er geen andere radio's aan het sturen, waardoor de rad
     delay: 50 ms 				& 0/1000 	&				\\ 
     channel: 0 					&  			&  				\\ \hline
     \end{tabular}\\
-    \\
-    
+\\
+\\
     \begin{tabular}{ | l | l | l | p{5cm} |}
     \hline
     Instellingen				& PER 		& gemiddelde PER\\ \hline
@@ -148,16 +149,34 @@ Tijdens de metingen waren er geen andere radio's aan het sturen, waardoor de rad
     \end{tabular}\\
 \\
 \\
+Verder zijn er nog enkele kleinere tests uitgevoerd op een netwerk met interferentie. Dit leverde de volgende resultaten:\\
+\\
+\begin{tabular}{ | l | l | l | p{5cm} |}
+    \hline
+    Instellingen				& PER 		& gemiddelde PER\\ \hline
+    outputpower: MAX 			& 47/300 	& 433/3000		\\ 
+    transmissiesnelheid: 2MBps 	& 77/300 	&  				\\ 
+    delay: 50 ms 				& 9/300 	&  				\\ \hline
+    \end{tabular}\\
+\\
+\\
 Om het resultaat nauwkeuriger en accurater te kunnen weergeven is ervoor gekozen om alle tests in drievoud uit te voeren zodat vreemde gebeurtenissen opgemerkt worden. Een voorbeeld is een error rate $>$ 1. Tussen deze resultaten is de instelling HIGH voor outputpower niet weergegeven, aangezien deze voor de gebruikte versie van de radio niet een mogelijke waarde was.
 
 \subsection{Conclusie}
-Als er naar de gevonden waarden gekeken wordt, is de PER onacceptabel wanneer de outputpower op MIN staat. Een gemiddelde PER van 1273/3000 pakketten zorgt op den duur voor veel hertransmissies dus veel vertraging op het netwerk. Dit is een situatie die niet gewenst is. Wanneer naar de overige instellingen gekeken wordt en de daarbij behorende gemiddelde PER dan zijn ze perfect of een PER <1\%. Hier moet bij vermeld worden dat op het moment dat er meer zenders aan het zenden zijn en een ontvanger wil dit ontvangen dat de PER omhoog schiet door de interferentie op het netwerk. Dit experiment heeft plaats gevonden in een interferentie vrije ruimte.
-De Onderzoeksvraag welke gesteld was: \textit{"Voor welke waarden voor de outputpower, transmissiesnelheid en frequentiekanaal is de PER het laagst."} Het antwoord wat hierbij hoort is dat voor elke waarde van de transmissiesnelheid en het frequentiekanaal de PER niet boven de 1\% uitkomt. In tegenstelling tot deze bevindingen geldt dit niet voor de outputpower. Op het moment dat de outputpower op minimaal gezet wordt bedraagt de gemiddelde PER 425/1000 pakketten. Hieruit wordt geconcludeerd dat de outputpower minimaal op laag of maximaal gezet moet worden om PER tot een minimum te beperken. 
+Als er naar de gevonden waarden gekeken wordt, is de PER onacceptabel wanneer de outputpower op MIN staat. Een gemiddelde PER van 1273/3000 pakketten zorgt op den duur voor veel hertransmissies dus veel vertraging op het netwerk. Dit is een situatie die niet gewenst is. Wanneer naar de overige instellingen gekeken wordt en de daarbij behorende gemiddelde PER dan zijn ze perfect of een PER < 0.01. Hier moet bij vermeld worden dat op het moment dat er meer interferentie is op het netwerk de PER omhoog schiet op het netwerk. Op dat moment is het kiezen van een ongebruikt frequentiekanaal van belang. Dit experiment heeft plaats gevonden in een interferentievrije ruimte.
+De Onderzoeksvraag die gesteld was: \textit{"Voor welke waarden voor de outputpower, transmissiesnelheid en frequentiekanaal is de PER het laagst."} Het antwoord wat hierbij hoort is dat voor elke waarde van de transmissiesnelheid en het frequentiekanaal de PER niet boven de 0.01 uit komt. Dit geldt echter niet voor de outputpower; op het moment dat de outputpower op minimaal gezet wordt bedraagt de gemiddelde PER 1273/3000 pakketten. Hieruit kan geconcludeerd worden dat de outputpower tenminste op laag of maximaal gezet moet worden om PER tot een minimum te beperken. 
 
 \newpage
 
 \clearpage
 \section{Betrouwbare end-to-end-communicatie}
+\begin{figure}
+\centering 
+\epsfig{file=img/hop.png,width=\linewidth} 
+\caption{Opstelling van het netwerk}
+\label{fig:converter} %always place your label after your caption!
+\end{figure}
+
 \subsection{Inleiding}
 Er is onderzoek gedaan naar de error rate in een singlehop-connectie. Nu moet er een betrouwbare end-to-end communicatie opgezet worden in een multihop-netwerk. 
 \subsection{Probleemstelling}
