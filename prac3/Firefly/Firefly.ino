@@ -40,6 +40,7 @@ RF24 radio(3, 9);
   int Highest = 0;
   int sleep = 1000;
   int sync_messages = 5;
+  long  timestamp = 0;
 //
 // Topology
 //
@@ -102,22 +103,37 @@ void setup(void)
 
 //Houdt de hoogste ID node bij en veranderd deze als dat nodig is. 
 
-void declareHighest(char high []){
+void processContent(char* sender, char* high, char * time){
+   //sender processen
+   //highest processen
+   if(&high > Highest){
+      Highest = high;
+   } 
+   //timestamp Hier moet de timestamp opgeslagen worden
+   if(&sender == &high){
+       
+   }
+}
+
+void declareHighest(char* sender [], char*){
   int high = atoi(high);  
   if(Highest < high) {
      Highest = high; 
   }
 }
 
+//verwerkt het bericht en leest de sender, highest en timestamp
+// als dit niet werkt kunnen we een struct gebruiken
+//Het verschil tussen [] en * is dat het eerste echt een array is zoals in java
+//en * is een pointer zoals in C met adres en shizzle
 void processMessage(char read []){
-   char* chars_array = strtok(read, ":");
-   sender_ID =  chars_array;
-   char* chars_array = strtok(read, ":");
-   highest_ID = chars_array;
-   char* chars_array = strtok(read, ":");
-   timestamp = chars_array;
-   char* chars_array = strtok(read, ":");
-   declareHighest(highest ID);
+   char *sender_ID = null;
+   char *highest_ID = null;
+   char *time = null;
+   sender_ID = strtok(read, ":");
+   highest_ID = strtok(null, ":");
+   time = strtok(null, ":");
+   processContent(sender_ID, highest_ID, timestamp);
 }
 
   //
@@ -128,8 +144,10 @@ void listenFor(ul time){
   while(millis()-t < time){
      radio.startListening();
       char read [];
-      radio.read( read, sizeof(char));
-      processMessage(read);
+      if(radio.available()){
+        radio.read( read, sizeof(char));
+        processMessage(read);
+      }
   } 
   radio.stopListening();
 }
