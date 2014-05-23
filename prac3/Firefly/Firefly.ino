@@ -6,9 +6,13 @@
 
 /*****************************************************
  *                                                   *
- *                   CONFIGATION                     *
+ *                   CONFIGURATION                   *
  *                                                   *
  *****************************************************/
+ //ID+DELIM+highestID+DELIM+(millis()-ijkpunt)
+ //Struct
+
+ 
  
   RF24 radio(3, 9);
   const uint64_t pipes[1] = { 0xF0F0F0F0E1LL};
@@ -23,14 +27,27 @@
   int highestID;  //Highest found ID
   int senderID;   //Sender of highest ID
   long  timestamp;//Timestamp of highestID
+  long delta_t;    //verschil tussen ontvangen tijd en onze tijd
+  long ijkpunt;    //begin van de synchronisatie fase
+  boolean light_on = false;
+  int send_max = 5; //aantal pakketten wat verzonden wordt voor een nieuwe synchronisatie ronde plaatsvind
   
   int sleep = 1000; //sleep time in ms
   int sync_messages = 5; //# of Sync messages sent per sync phase
+  
+  //Set up LED
+  int led = 13;
+
+  
+                
+         
+  
 
 void setup(void)
 {
   Serial.begin(57600);
-  
+  // initialize the digital pin as an output.
+    pinMode(led, OUTPUT);
   //create random ID for this device
   randomSeed(analogRead(0));
   ID = random(minID, maxID);
@@ -49,11 +66,11 @@ void setup(void)
 
 //Houdt de hoogste ID node bij en verandert deze als dat nodig is. 
 
-void processContent(char sender [], char high [], char time []){
-   if(atoi(high) >highestID){//If we receive a higher ID than our highest yet received
-      highestID = atoi(high);
-      senderID  = atoi(sender);
-      timestamp = atol(time);
+void processContent(int sender, int high , long time){
+   if(high >highestID){//If we receive a higher ID than our highest yet received
+      highestID = high;
+      senderID  = sender;
+      delta_t = time;  
    } 
 }
 
@@ -61,14 +78,16 @@ void processContent(char sender [], char high [], char time []){
 //als dit niet werkt kunnen we een struct gebruiken
 //Het verschil tussen [] en * is dat het eerste echt een array is zoals in java
 //en * is een pointer zoals in C met adres en shizzle
-void processMessage(char message []){ 
-  char *p;
-  char *sender;
-  char *highest;
-  char *time;
-  sender  = strtok_r(message, ""+DELIM, &p);
-  highest = strtok_r(NULL, ""+DELIM, &p);
-  time    = strtok_r(NULL, ""+DELIM, &p);
+void processMessage(MESSAGE ontvangen){ 
+  printf("De methode process message!");
+  int sender = ontvangen.identity;
+  int highest = ontvangen.high_identity;
+  long time = ontvangen.time_delay;
+ // sender  = strtok_r(message, ""+DELIM, &p);
+  //highest = strtok_r(NULL, ""+DELIM, &p);
+  //time    = strtok_r(NULL, ""+DELIM, &p);
+  printf("de sender heeft ID: %i", sender);
+  printf("ontvangen data:sender:%i HIGH: %i, time %ul \n\r ", sender, highest, time);
   processContent(sender, highest, time);
 }
 
@@ -79,10 +98,10 @@ void listenFor(long time){
   int t = millis();
   while(millis()-t < time){
     radio.startListening();
-    char *read;
+    MESSAGE ontvangen;
     if(radio.available()){
-      radio.read( read, sizeof(char));
-      processMessage(read);
+      radio.read( &ontvangen, sizeof(MESSAGE));
+      processMessage(ontvangen);
     }
   } 
   radio.stopListening();
@@ -90,111 +109,57 @@ void listenFor(long time){
 
   //  
   //
-  //
+  //  
 void sendMessage(){
   radio.openWritingPipe(pipes[0]);
-  messageBuffer = ""+ID+DELIM+highestID+DELIM+millis(); 
-  radio.write(&messageBuffer, sizeof(messageBuffer));
+  
+  MESSAGE bericht = { ID, highestID, (millis()-ijkpunt)};
+
+  radio.write(&bericht, sizeof(MESSAGE));
 }
 
 void synchronize(){
-  int delay = ID/sync_messages;
+  ijkpunt = millis();
+  int delay_time = ID/sync_messages;
   int i = sync_messages;
+  //de eerste nacht
   while( i != 0){
-    listenFor(delay);
+    listenFor(delay_time);
     sendMessage();  
-    listenFor((sleep/sync_messages)-delay);
+    listenFor((sleep/sync_messages)-delay_time);
     i--;
   }
+  //de tweede nacht
+  int temp = sleep-delta_t;
+  delay(temp);
+  sendSignal();
+  
 }
 
+void sendSignal(){
+   //TODO: laat licht knipperen
+  if(light_on){
+     light_on = false; 
+    digitalWrite(led, LOW);   // turn the LED off (LOW is the voltage level)
+    printf("led staat uit en millis = %ul \n\r", millis());
 
+  }else{
+    light_on = true;
+    
+    digitalWrite(led, HIGH);    // turn the LED on by making the voltage HIGH
+    printf("Led staat aan + millis = %ul \n\r", millis());
+  }
+  sendMessage();
+}
 
 void loop(void)
 {
-  //
-  // Ping out role.  Repeatedly send the current time
-  //
-
-  if (highestID == ID)
-  {
-    // First, stop listening so we can talk.
-    radio.stopListening();
-
-    // Take the time, and send it.  This will block until complete
-    unsigned long time = millis();
-    printf("Now sending %lu...",time);
-    bool ok = radio.write( &time, sizeof(unsigned long) );
-    
-    if (ok)
-      printf("ok...");
-    else
-      printf("failed.\n\r");
-
-    // Now, continue listening
-    radio.startListening();
-
-    // Wait here until we get a response, or timeout (250ms)
-    unsigned long started_waiting_at = millis();
-    bool timeout = false;
-    while ( ! radio.available() && ! timeout )
-      if (millis() - started_waiting_at > 200 )
-        timeout = true;
-
-    // Describe the results
-    if ( timeout )
-    {
-      printf("Failed, response timed out.\n\r");
-    }
-    else
-    {
-      // Grab the response, compare, and send to debugging spew
-      unsigned long got_time;
-      radio.read( &got_time, sizeof(unsigned long) );
-
-      // Spew it
-      printf("Got response %lu, round-trip delay: %lu\n\r",got_time,millis()-got_time);
-    }
-
-    // Try again 1s later
-    delay(1000);
-  }
-
-  //
-  // Pong back role.  Receive each packet, dump it out, and send it back
-  //
-
-  if (!(highestID == ID))
-  {
-    // if there is data ready
-    if ( radio.available() )
-    {
-      // Dump the payloads until we've gotten everything
-      unsigned long got_time;
-      bool done = false;
-      while (!done)
-      {
-        // Fetch the payload, and see if this was the last one.
-        done = radio.read( &got_time, sizeof(unsigned long) );
-
-        // Spew it
-        printf("Got payload %lu...",got_time);
-
-	// Delay just a little bit to let the other unit
-	// make the transition to receiver
-	delay(20);
-      }
-
-      // First, stop listening so we can talk
-      radio.stopListening();
-
-      // Send the final one back.
-      radio.write( &got_time, sizeof(unsigned long) );
-      printf("Sent response.\n\r");
-
-      // Now, resume listening so we catch the next packets.
-      radio.startListening();
-    }
-  }
+  synchronize();
+  int i=1;
+  while(i < send_max){
+      delay(sleep);
+      sendSignal();
+      i++;
+  }  
 }
 // vim:cin:ai:sts=2 sw=2 ft=cpp
