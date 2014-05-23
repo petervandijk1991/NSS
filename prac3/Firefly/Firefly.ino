@@ -1,153 +1,89 @@
-/*
- Copyright (C) 2011 J. Coliz <maniacbug@ymail.com>
-
- This program is free software; you can redistribute it and/or
- modify it under the terms of the GNU General Public License
- version 2 as published by the Free Software Foundation.
- */
-
-/**
- * Example RF Radio Ping Pair
- *
- * This is an example of how to use the RF24 class.  Write this sketch to two different nodes,
- * connect the role_pin to ground on one.  The ping node sends the current time to the pong node,
- * which responds by sending the value back.  The ping node can then see how long the whole cycle
- * took.
- */
-
 #include <SPI.h>
 #include "nRF24L01.h"
 #include "RF24.h"
 #include "printf.h"
 
-//
-// Hardware configuration
-//
 
-// Set up nRF24L01 radio on SPI bus plus pins 9 & 10
-// (MV:) Adapted to work with the configuration of the shield. Original: RF24 radio(9,10);
+/*****************************************************
+ *                                                   *
+ *                   CONFIGATION                     *
+ *                                                   *
+ *****************************************************/
+ 
+  RF24 radio(3, 9);
+  const uint64_t pipes[1] = { 0xF0F0F0F0E1LL};
 
-RF24 radio(3, 9);
-
- //
-  // De range waartussen het random nummer moet liggen
-  //
-  int min = 0;
-  int max = 1000;
-  int ID = 0;
-  char Delimiter = ":";
-  boolean master = false;
-  int Highest = 0;
-  int sleep = 1000;
-  int sync_messages = 5;
-  long  timestamp = 0;
-//
-// Topology
-//
-
-// Radio pipe addresses for the 2 nodes to communicate.
-const uint64_t pipes[1] = { 0xF0F0F0F0E1LL};
-
-
+  int minID = 0;
+  int maxID = 1000;
+  int ID;
+  
+  const char DELIM = ':';
+  const char* messageBuffer;
+  
+  int highestID;  //Highest found ID
+  int senderID;   //Sender of highest ID
+  long  timestamp;//Timestamp of highestID
+  
+  int sleep = 1000; //sleep time in ms
+  int sync_messages = 5; //# of Sync messages sent per sync phase
 
 void setup(void)
 {
   Serial.begin(57600);
-  randomSeed(analogRead(0));
-  ID = random(min, max);
-  Highest = ID;
-  printf("DE ID VAN DEZE NODE IS: %i ",ID);
-  printf_begin();
   
-
-  //
-  // Setup and configure rf radio
-  //
+  //create random ID for this device
+  randomSeed(analogRead(0));
+  ID = random(minID, maxID);
+  highestID = ID;
+  
+  printf_begin();
+  printf("DE ID VAN DEZE NODE IS: %i ",ID);
 
   radio.begin();
-
-  // optionally, increase the delay between retries & # of retries
-  //Retries would make synchronization impossible
   radio.setRetries(0,0);
-
-  // optionally, reduce the payload size.  seems to
-  // improve reliability
   radio.setPayloadSize(8);
-
-  //
-  // Open pipes to other nodes for communication
-  //
-
-  // This simple sketch opens two pipes for these two nodes to communicate
-  // back and forth.
-  // Open 'our' pipe for writing
-  // Open the 'other' pipe for reading, in position #1 (we can have up to 5 pipes open for reading)
-    
-    //radio.openWritingPipe(pipes[0]);
-    
-  
-
-  //
-  // Start listening
-  //
-
   radio.openReadingPipe(0,pipes[0]);
   radio.startListening();
-
-  //
-  // Dump the configuration of the rf unit for debugging
-  //
-
   radio.printDetails();
 }
 
-//Houdt de hoogste ID node bij en veranderd deze als dat nodig is. 
+//Houdt de hoogste ID node bij en verandert deze als dat nodig is. 
 
-void processContent(char* sender, char* high, char * time){
-   //sender processen
-   //highest processen
-   if(&high > Highest){
-      Highest = high;
+void processContent(char sender [], char high [], char time []){
+   if(atoi(high) >highestID){//If we receive a higher ID than our highest yet received
+      highestID = atoi(high);
+      senderID  = atoi(sender);
+      timestamp = atol(time);
    } 
-   //timestamp Hier moet de timestamp opgeslagen worden
-   if(&sender == &high){
-       
-   }
-}
-
-void declareHighest(char* sender [], char*){
-  int high = atoi(high);  
-  if(Highest < high) {
-     Highest = high; 
-  }
 }
 
 //verwerkt het bericht en leest de sender, highest en timestamp
-// als dit niet werkt kunnen we een struct gebruiken
+//als dit niet werkt kunnen we een struct gebruiken
 //Het verschil tussen [] en * is dat het eerste echt een array is zoals in java
 //en * is een pointer zoals in C met adres en shizzle
-void processMessage(char read []){
-   char *sender_ID = null;
-   char *highest_ID = null;
-   char *time = null;
-   sender_ID = strtok(read, ":");
-   highest_ID = strtok(null, ":");
-   time = strtok(null, ":");
-   processContent(sender_ID, highest_ID, timestamp);
+void processMessage(char message []){ 
+  char *p;
+  char *sender;
+  char *highest;
+  char *time;
+  sender  = strtok_r(message, ""+DELIM, &p);
+  highest = strtok_r(NULL, ""+DELIM, &p);
+  time    = strtok_r(NULL, ""+DELIM, &p);
+  processContent(sender, highest, time);
 }
 
   //
   //  Luisteren zo lang als de ID is om niet te gaan zenden als anderen al aan het zenden zijn
   //
-void listenFor(ul time){
-   int t = millis();
+void listenFor(long time){
+  int t = millis();
   while(millis()-t < time){
-     radio.startListening();
-      char read [];
-      if(radio.available()){
-        radio.read( read, sizeof(char));
-        processMessage(read);
-      }
+    radio.startListening();
+    char *read;
+    if(radio.available()){
+      radio.read( read, sizeof(char));
+      processMessage(read);
+    }
   } 
   radio.stopListening();
 }
@@ -157,8 +93,8 @@ void listenFor(ul time){
   //
 void sendMessage(){
   radio.openWritingPipe(pipes[0]);
-  char message [] = ""+ID+Delimiter+Highest+Delimiter+millis()+""; 
-  radio.write(&message, sizeof(message));
+  messageBuffer = ""+ID+DELIM+highestID+DELIM+millis(); 
+  radio.write(&messageBuffer, sizeof(messageBuffer));
 }
 
 void synchronize(){
@@ -180,7 +116,7 @@ void loop(void)
   // Ping out role.  Repeatedly send the current time
   //
 
-  if (master)
+  if (highestID == ID)
   {
     // First, stop listening so we can talk.
     radio.stopListening();
@@ -228,7 +164,7 @@ void loop(void)
   // Pong back role.  Receive each packet, dump it out, and send it back
   //
 
-  if (!master)
+  if (!(highestID == ID))
   {
     // if there is data ready
     if ( radio.available() )
