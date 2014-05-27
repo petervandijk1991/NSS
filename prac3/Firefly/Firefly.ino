@@ -28,15 +28,15 @@
   int senderID;   //Sender of highest ID
   long  timestamp;//Timestamp of highestID
   long delta_t;    //verschil tussen ontvangen tijd en onze tijd
-  long ijkpunt;    //begin van de synchronisatie fase
+  unsigned long ijkpunt;    //begin van de synchronisatie fase
   boolean light_on = false;
   int send_max = 5; //aantal pakketten wat verzonden wordt voor een nieuwe synchronisatie ronde plaatsvind
   
-  int sleep = 1000; //sleep time in ms
+  int sleep = 5000; //sleep time in ms
   int sync_messages = 5; //# of Sync messages sent per sync phase
   
   //Set up LED
-  int led = 13;
+  int led = 7;
 
   
                 
@@ -55,13 +55,16 @@ void setup(void)
   
   printf_begin();
   printf("DE ID VAN DEZE NODE IS: %i ",ID);
-
+  
   radio.begin();
+  radio.openWritingPipe(pipes[0]);
+  printf("Pipes openene gaat goed");
+  radio.openReadingPipe(1,pipes[0]);
+  printf("De eerste pipe gaat goed");
   radio.setRetries(0,0);
-  radio.setPayloadSize(8);
-  radio.openReadingPipe(0,pipes[0]);
-  radio.startListening();
+  radio.setPayloadSize(sizeof(MESSAGE));
   radio.printDetails();
+  radio.startListening();
 }
 
 //Houdt de hoogste ID node bij en verandert deze als dat nodig is. 
@@ -87,7 +90,7 @@ void processMessage(MESSAGE ontvangen){
   //highest = strtok_r(NULL, ""+DELIM, &p);
   //time    = strtok_r(NULL, ""+DELIM, &p);
   printf("de sender heeft ID: %i", sender);
-  printf("ontvangen data:sender:%i HIGH: %i, time %ul \n\r ", sender, highest, time);
+  printf("ontvangen data= \n\r sender: %i HIGH: %i, time: %ul \n\r ", sender, highest, time);
   processContent(sender, highest, time);
 }
 
@@ -96,26 +99,24 @@ void processMessage(MESSAGE ontvangen){
   //
 void listenFor(long time){
   int t = millis();
+  //radio.startListening();
+  MESSAGE ontvangen;
   while(millis()-t < time){
-    radio.startListening();
-    MESSAGE ontvangen;
     if(radio.available()){
       radio.read( &ontvangen, sizeof(MESSAGE));
       processMessage(ontvangen);
     }
   } 
-  radio.stopListening();
+  //radio.stopListening(); 
 }
-
-  //  
-  //
-  //  
-void sendMessage(){
-  radio.openWritingPipe(pipes[0]);
-  
-  MESSAGE bericht = { ID, highestID, (millis()-ijkpunt)};
-
+ 
+void sendMessage(){ 
+  radio.stopListening();
+  MESSAGE bericht = { 3, 6, (millis()-ijkpunt)};
+  printf("Op dit moment moet er een bericht gestuurd worden :) \n\r");
+  printf("het bericht is: hihest ID = %i \n\r", highestID );
   radio.write(&bericht, sizeof(MESSAGE));
+  radio.startListening();
 }
 
 void synchronize(){
