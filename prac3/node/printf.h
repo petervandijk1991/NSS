@@ -29,13 +29,11 @@ void printf_begin(void)
 {
   fdevopen( &serial_putc, 0 );
 }
-
- typedef struct MESSAGE {
+typedef struct MESSAGE {
     int identity;
     int high_identity;
     long time_delay;
 } ;
-
 #else
 #error This example is only for use on Arduino.
 #endif // ARDUINO
