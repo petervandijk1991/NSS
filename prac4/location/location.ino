@@ -7,13 +7,18 @@ RF24 radio(3, 9);
 const int audioPin = 1;
 const uint64_t pipes[1] = { 0xdeadbeefa1LL };
 
-uint8_t radio_received = 0;
-unsigned long radio_stopped;
-unsigned long audio_started;
-uint32_t distance;
+unsigned long x[4] = {0,0,0,0}
+unsigned long y[4] = {0,0,0,0}
+
+uint8_t radio_received = 0;    //Received index of beacon
+unsigned long radio_stopped;   //t0
+unsigned long audio_started;   //t1
+uint32_t distance;             //(t1-t0)*speed_of_sound
 unsigned long speed_of_sound = 34421;//344.21 m/s = 34421 / 1000000 cm/us
-int offset = 7;//7 cm
+int offset = 7;                //7 cm
 uint32_t distances[4];
+
+int count = 0;
 
 void setup(void)
 {
@@ -46,7 +51,7 @@ void loop(void)
     bool waiting = true;
     radio_stopped = micros();
     while(waiting){
-      if(analogRead(audioPin)!=0){//radio signal received
+      if(analogRead(audioPin)>0){//radio signal received
         audio_started = micros();
         received = true;
         waiting = false;
@@ -58,14 +63,18 @@ void loop(void)
     
     if(received){
       distance = (audio_started-radio_stopped)*speed_of_sound/1000000;
-      distances[radio_received] = distance-offset;
-      if(radio_received == 3){
-         for(int i=0;i<4;i++){
-           printf("%i : %ld cm", i, distances[i]);
-         } 
-           printf("\r\n");
-       //TODO: x/y coords 
-       }
+      distance = distance -offset;
+      if(distance< 1000){//No false readings
+        distances[radio_received] = distance;
+      }
     }  
+    if(count == 3){
+     for(int i=0;i<4;i++){
+       printf("%i : %ld cm", i, distances[i]);
+     } 
+     printf("\r\n");
+     //TODO: x/y coords 
+    }
+    count = (count +1) % 4;
   }
 }
