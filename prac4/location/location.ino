@@ -7,8 +7,8 @@ RF24 radio(3, 9);
 const int audioPin = 1;
 const uint64_t pipes[1] = { 0xdeadbeefa1LL };
 
-unsigned long x[4] = {0,0,0,0}
-unsigned long y[4] = {0,0,0,0}
+int x[4] = {0,0,0,0};
+int y[4] = {0,0,0,0};
 
 uint8_t radio_received = 0;    //Received index of beacon
 unsigned long radio_stopped;   //t0
@@ -77,4 +77,30 @@ void loop(void)
     }
     count = (count +1) % 4;
   }
+  calculateXY(0,0,0);
+}
+
+void calculateXY(int i, int j, int k){
+  uint32_t r1 = 3;//distances[i];
+  uint32_t r2 = 2;//distances[j];
+  uint32_t r3 = 3;//distances[k];
+  
+  int x1 = 2;//x[i];
+  int x2 = 5;//x[j];
+  int x3 = 8;//x[k];
+  
+  int y1 = 1;//y[i];
+  int y2 = 4;//y[j];
+  int y3 = 2;//y[k];
+  
+  long c1 = 32;//((r1^2-r3^2)-(x1^2-x3^2)-(y1^2-y3^2))/2;
+  long c2 = 11;//((r2^2-r2^2)-(x2^2-x3^2)-(y2^2-y3^2))/2;
+  
+  long n =-(y3-y1)/(x3-x1);
+  long m = c1/(x3-x1);
+  
+  long y = (c2 - m*(x3-x2))/(n*(x3-x2) + (y3-y2));
+  long x = n*y+m; 
+  
+  printf("[%ul, %ul]", x, y);
 }
