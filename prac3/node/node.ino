@@ -23,12 +23,12 @@
   int highestID;  //Highest found ID
   int senderID;   //Sender of highest ID
   long  timestamp;//Timestamp of highestID
-  long delta_t;    //verschil tussen ontvangen tijd en onze tijd
+  long delta_t; 
   unsigned long ijkpunt;    //begin van de synchronisatie fase
   boolean light_on = false;
   int send_max = 5; //aantal pakketten dat verzonden wordt voor een nieuwe synchronisatie ronde plaatsvindt
   
-  int sleep = 5000; //sleep time in ms
+  int sleep = 1000; //sleep time in ms
   int sync_messages = 5; //# of Sync messages sent per sync phase
   
   //Set up LED
@@ -42,7 +42,6 @@ void setup(void)
   //create random ID for this device
   randomSeed(analogRead(0));
   ID = random(minID, maxID);
-  highestID = ID;
   
   printf_begin();
   printf("DE ID VAN DEZE NODE IS: %i \n\r",ID);
@@ -83,6 +82,7 @@ void processContent(int sender, int high , long time){
    printf("RECE: %i, %i, %ul\n\r", sender, high, time);
    if(high >highestID){//If we receive a higher ID than our highest yet received
      printf("NEW HIGHEST!\n\r");
+     timestamp = millis();
      highestID = high;
       senderID  = sender;
       delta_t = time;  
@@ -103,20 +103,17 @@ void sendMessage(){
 }
 
 void synchronize(){
+  highestID = ID;
+  delta_t = 0;
   ijkpunt = millis();
-  int delay_time = random(0, sleep/sync_messages);
-  int i = sync_messages;
+  timestamp = ijkpunt+sleep-1;
   //de eerste nacht
-  while( i != 0){
-    listenFor(delay_time);
-    sendMessage();  
-    listenFor((sleep/sync_messages)-delay_time);
-    i--;
-  }
+  listenFor(sleep);
   sendSignal();
   //de tweede nacht
-  int temp = sleep-delta_t;
-  delay(temp);
+  int temp = (timestamp-ijkpunt)%sleep;
+  printf("SLEEP FOR %ul", temp);
+  sleepFor(temp);
   sendSignal();
   
 }
@@ -137,9 +134,13 @@ void loop(void)
   synchronize();
   int i=1;
   while(i < send_max){
-      delay(sleep);
+      sleepFor(sleep);
       sendSignal();
       i++;
   }  
+}
+
+void sleepFor(long time){
+ delay(time); 
 }
 // vim:cin:ai:sts=2 sw=2 ft=cpp
