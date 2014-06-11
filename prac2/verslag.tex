@@ -3,6 +3,7 @@
 \usepackage[dutch]{babel}
 \usepackage{epsfig}
 \usepackage{verbatim}
+\usepackage{amsmath}
 
 \author{Peter van Dijk \& Elizabeth Schermerhorn}
 \date{\today}
@@ -14,7 +15,13 @@
 \clearpage
 \section{Packet Error Rate-metingen}
 \subsection{Inleiding}
-De Nordic RF24 is een radiozender en -ontvanger voor de 2.4GHz band. De RF24 heeft echter een aantal verschillende instellingen voor de kanalen, outputpower en datasnelheid. Het doel van dit onderzoek is bepalen wat de optimale instellingen zijn om de Packet Error Rate (PER) zo laag mogelijk te krijgen. Eerst zal de probleemstelling besproken worden samen met vastgestelde hypothesen, vervolgens zal de methodologie aan bod komen en als laatste zullen de resultaten besproken en geanalyseerd worden. 
+De Nordic RF24 is een radiozender en -ontvanger voor de 2.4GHz band. De RF24 heeft echter een aantal verschillende instellingen voor de kanalen, outputpower en datasnelheid. Het doel van dit onderzoek is bepalen wat de optimale instellingen zijn om de Packet Error Rate (PER) zo laag mogelijk te krijgen. Door middel van de volgende vergelijking wordt de Packet Error Rate berekend: 
+\setlength{\parskip}{10pt plus 1pt minus 1pt}
+
+$\frac {incorrect-ontvangen}{correct-ontvangen}$
+
+	
+ Eerst zal de probleemstelling besproken worden samen met vastgestelde hypothesen, vervolgens zal de methodologie aan bod komen en als laatste zullen de resultaten besproken en geanalyseerd worden. 
 
 \subsection{Probleemstelling}
 De onderzoeksvraag die hier beantwoord zal worden is: \textit{"Voor welke waarden voor de outputpower, transmissiesnelheid en frequentiekanaal is de PER het laagst."} Hierbij horen de volgende hypothesen: 
