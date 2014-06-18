@@ -15,7 +15,7 @@ unsigned long radio_stopped;   //t0
 unsigned long audio_started;   //t1
 uint32_t distance;             //(t1-t0)*speed_of_sound
 unsigned long speed_of_sound = 34421;//344.21 m/s = 34421 / 1000000 cm/us
-int offset = 7;                //7 cm
+int offset = 17;                //7 cm
 
 uint32_t distances[4];         //calculated distances
 int32_t x_coordinates[8];      //calculated coords
@@ -69,7 +69,7 @@ void loop(void)
     if(received){
       distance = (audio_started-radio_stopped)*speed_of_sound/1000000;
       distance = distance -offset;
-      if(distance< 1000){//No false readings
+      if(distance< 550){//No false readings
         distances[radio_received] = distance;
       }
     }  
@@ -94,28 +94,27 @@ void loop(void)
 }
 
 void calculateXY(int i, int j, int k){
-  uint32_t r1 = distances[i];
-  uint32_t r2 = distances[j];
-  uint32_t r3 = distances[k];
+  long r1 = distances[i];
+  long r2 = distances[j];
+  long r3 = distances[k];
   
-  int32_t x1 = x[i];
-  int32_t x2 = x[j];
-  int32_t x3 = x[k];
+  long x1 = x[i];
+  long x2 = x[j];
+  long x3 = x[k];
   
+  long y1 = y[i];
+  long y2 = y[j];
+  long y3 = y[k];
   
-  int32_t y1 = y[i];
-  int32_t y2 = y[j];
-  int32_t y3 = y[k];
-  
-  uint32_t r1_r1 = r1*r1;
-  uint32_t r2_r2 = r2*r2;
-  uint32_t r3_r3 = r3*r3;
-  uint32_t x1_x1 = x1*x1;
-  uint32_t x2_x2 = x2*x2;
-  uint32_t x3_x3 = x3*x3;
-  uint32_t y1_y1 = y1*y1;
-  uint32_t y2_y2 = y2*y2;
-  uint32_t y3_y3 = y3*y3;
+  long r1_r1 = r1*r1;
+  long r2_r2 = r2*r2;
+  long r3_r3 = r3*r3;
+  long x1_x1 = x1*x1;
+  long x2_x2 = x2*x2;
+  long x3_x3 = x3*x3;
+  long y1_y1 = y1*y1;
+  long y2_y2 = y2*y2;
+  long y3_y3 = y3*y3;
 
   //Beide c1 en c2 berekeningen gaan goed!
   long c1 = (((r1_r1)-(r3_r3))-((x1_x1)-(x3_x3))-((y1_y1)-(y3_y3)))/2;
@@ -125,12 +124,14 @@ void calculateXY(int i, int j, int k){
   long m = ((c1*10000)/(x3-x1));//32/6
 
   long y = ((c2*10000) - m*(x3-x2))/(n*(x3-x2) + (10000*(y3-y2)));
+  //long y = ((c2) - (m*(x3-x2))/10000)/((n*(x3-x2))/10000 + (y3-y2));  
   long x = ((n*y)+m)/10000; 
+ y = ((c2) - (m*(x3-x2))/10000)/((n*(x3-x2))/10000 + (y3-y2));  
   
   printf("[");
-  Serial.print(y);
-  printf(",");
   Serial.print(x);
+  printf(",");
+  Serial.print(y);
   printf("]\n\r");
   
   if(!bereken){
