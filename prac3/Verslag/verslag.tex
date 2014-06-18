@@ -1,0 +1,44 @@
+\documentclass{article}
+
+\usepackage[dutch]{babel}
+\usepackage{epsfig}
+\usepackage{verbatim}
+
+\author{Peter van Dijk \& Elizabeth Schermerhorn}
+\date{\today}
+\title{Practicum 2 Synchronisatie bij vuurvliegjes}
+\begin{document}
+\maketitle
+\newpage
+\tableofcontents
+\clearpage
+\section{Inleiding}
+In de natuur zijn er verschillende vormen van synchronisatie. Aangezien synchronisatie een belangrijk punt is in de werking tussen verschillende nodes in een netwerk is het van belang om een goed algoritme hiervoor te hebben. Een bekende uit de natuur zijn vuurvliegjes die met elkaar synchroniseren wat zich uit in samen knipperen. Dit principe dat vuurvliegjes synchroon kunnen knipperen wordt ge\"{i}mplementeerd in een multihop netwerk. Door een algoritme te ontwikkelen moet het mogelijk zijn om nodes tegelijk te laten knipperen net zoals een groep vuurvliegjes. 
+\section{Probleemstelling}
+De probleemstelling welke hier beantwoord dient te zijn aan het einde van dit experiment is: \textit{"het synchroniseren van nodes in een multihop netwerk met als doel ze tegelijk te laten knipperen"}. 
+Verschillende hypothesen welke gesteld worden:
+\begin{itemize}
+	\item Blijft het netwerk overeind in een master-slave infrastructuur als de master uitvalt? 
+	\item Lukt synchronisatie op basis van de timestamp welke door de master node aan de slave nodes doorgestuurd wordt?
+\end{itemize}
+De verwachte uitkomsten van deze hypothesen zijn:
+\begin{itemize}
+	\item Het netwerk blijft overeind staan wanneer de master node uitvalt aangezien de master node wordt bepaald door de node met het hoogste ID. Dus de een na hoogste zal deze taak overnemen. 
+	\item Door synchronisatie met de timestamp zullen de klokken gelijk gaan lopen waardoor ze tegelijk zullen gaan knipperen. 
+\end{itemize}
+\section{Gerelateerd werk}
+Er zijn verschillende onderzoeken gedaan naar het onderwerp synchronisatie in een multihop netwerk. 
+Een paar papers welke dit onderwerp aansnijden zijn: 
+\begin{itemize}
+	\item Clock synchronization for wireless sensor networks: a survey
+	\item Wireless sensor network survey
+	\item Academic Press Library in Signal Processing, Chapter 2 – Synchronization
+\end{itemize}
+De bovenstaande drie papers gaan over synchronisatie in draadloze netwerken. De eerste paper - Clock synchronization for wireless sensor networks: a survey - evalueert bestaand kloksynchronisatie algoritmen gebasseerd op factoren zoals precisie, complexiteit, nauwkeurigheid en kosten. De tweede paper, Wireless sensor network, geeft een overzicht van bestaande draadloze netwerk implementaties op verschillende niveaus en als laatste geeft het boek Academic Press Library in Signal Processing geeft een kort overzicht van netwerk tijd synchronisatie. 
+
+\section{Ontwerp synchronisatiealgoritme}
+\section{Testopstellingen en resultaten van de tests}
+\section{Conclusie}
+\section{Aanbevelingen}
+\section{Bronnen}
+\end{document}
