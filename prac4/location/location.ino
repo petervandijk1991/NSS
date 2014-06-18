@@ -16,10 +16,13 @@ unsigned long audio_started;   //t1
 uint32_t distance;             //(t1-t0)*speed_of_sound
 unsigned long speed_of_sound = 34421;//344.21 m/s = 34421 / 1000000 cm/us
 int offset = 7;                //7 cm
-uint32_t distances[4];
-int32_t x_coordinates[4];
-int32_t y_coordinates[4];
 
+uint32_t distances[4];         //calculated distances
+int32_t x_coordinates[8];      //calculated coords
+int32_t y_coordinates[8];      //calculated coords
+
+int counter = 0;
+boolean bereken = false;
 int count = 0;
 
 void setup(void)
@@ -75,7 +78,15 @@ void loop(void)
        printf("%i : %ld cm ", i, distances[i]);
      } 
      printf("\n\r");
-     calculateXY(0,1,2); 
+     counter = 0;
+     while(counter < 4){
+       calculateXY((counter%4) , ((counter+1)%4), ((counter+2)%4));
+       counter++;
+     }
+     if(bereken){
+       printGemiddelde();
+     }
+     bereken = !bereken; 
     }
     count = (count +1) % 4;
   }
@@ -90,7 +101,6 @@ void calculateXY(int i, int j, int k){
   int32_t x1 = x[i];
   int32_t x2 = x[j];
   int32_t x3 = x[k];
-  printf("De waarde van x3 = %d \n\r", x3);
   
   
   int32_t y1 = y[i];
@@ -109,54 +119,31 @@ void calculateXY(int i, int j, int k){
 
   //Beide c1 en c2 berekeningen gaan goed!
   long c1 = (((r1_r1)-(r3_r3))-((x1_x1)-(x3_x3))-((y1_y1)-(y3_y3)))/2;
-   printf("De waarde van c1 = ");
-  Serial.print(c1);
-  printf("\n\r");
   long c2 = (((r2_r2)-(r3_r3))-((x2_x2)-(x3_x3))-((y2_y2)-(y3_y3)))/2;
-  printf("De waarde van c2 = ");
-  Serial.print(c2);
-  printf("\n\r");
-  
   
   long n =(-((y3-y1)*10000)/(x3-x1)); // 0.2551020
-  printf("De waarde van n = ");
-  Serial.print(n);
-  printf("\n\r");
-  
   long m = ((c1*10000)/(x3-x1));//32/6
-  printf("De waarde van m = ");
-  Serial.print(m);
-  printf("\n\r");
 
-  
   long y = ((c2*10000) - m*(x3-x2))/(n*(x3-x2) + (10000*(y3-y2)));
-  
-  long c2_10000 = c2*10000;
-  printf("De waarde van c2 * 10000 = ");
-  Serial.print((c2_10000));
-  printf("\n\r");
-  
-  long m_x3_x2 = m*(x3-x2);
-  printf("De waarde van m*(x3-x2) = ");
-  Serial.print(m_x3_x2);
-  printf("\n\r");
-  
-  long n_x3_x2 = n*(x3-x2);
-  printf("De waarde van n*(x3-x2) ");
-  Serial.print(n_x3_x2);
-  printf("\n\r");
-  
-  long y3_y2 = 10000*(y3-y2);
-  printf("De waarde van 10000*(y3-y2) = ");
-  Serial.print(y3_y2);
-  printf("\n\r");
-  printf("De waarde van y = ");
-  Serial.print(y);
-  printf("\n\r");
-  
-  
   long x = ((n*y)+m)/10000; 
-  printf("De waarde van x = ");
+  
+  printf("[");
+  Serial.print(y);
+  printf(",");
   Serial.print(x);
-  printf("\n\r");
+  printf("]\n\r");
+  
+  if(!bereken){
+    x_coordinates[counter] = x;
+    y_coordinates[counter] = y;
+  }else{
+    x_coordinates[counter+4] = x;
+    y_coordinates[counter+4] = y;
+  }
+}
+
+void printGemiddelde(){
+   int x_gemiddelde =  (x_coordinates[0]+x_coordinates[1]+x_coordinates[2]+x_coordinates[3]+x_coordinates[4]+x_coordinates[5]+x_coordinates[6]+x_coordinates[7])/8;
+   int y_gemiddelde =  (y_coordinates[0]+y_coordinates[1]+y_coordinates[2]+y_coordinates[3]+y_coordinates[4]+y_coordinates[5]+y_coordinates[6]+y_coordinates[7])/8;
+   printf("De gemiddelde x:%i  en y: %i waarden \n\r", x_gemiddelde, y_gemiddelde);
 }
