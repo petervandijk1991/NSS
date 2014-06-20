@@ -3,6 +3,7 @@
 \usepackage[dutch]{babel}
 \usepackage{epsfig}
 \usepackage{verbatim}
+\usepackage[font=bf]{caption}
 \usepackage{amsmath}
 
 \author{Peter van Dijk \& Elizabeth Schermerhorn}
@@ -18,15 +19,14 @@
 De Nordic RF24 is een radiozender en -ontvanger voor de 2.4GHz band. De RF24 heeft echter een aantal verschillende instellingen voor de kanalen, outputpower en datasnelheid. Het doel van dit onderzoek is bepalen wat de optimale instellingen zijn om de Packet Error Rate (PER) zo laag mogelijk te krijgen. Door middel van de volgende vergelijking wordt de Packet Error Rate berekend: 
 \setlength{\parskip}{10pt plus 1pt minus 1pt}
 
-$\frac {incorrect-ontvangen}{correct-ontvangen}$
-
-	
- Eerst zal de probleemstelling besproken worden samen met vastgestelde hypothesen, vervolgens zal de methodologie aan bod komen en als laatste zullen de resultaten besproken en geanalyseerd worden. 
+$\dfrac {[aantal\ incorrect\ ontvangen\ pakketten]}{[aantal\ correct\ ontvangen\ pakketten]}$\\
+\\
+Eerst zal de probleemstelling besproken worden samen met vastgestelde hypothesen, vervolgens zal de methodologie aan bod komen en als laatste zullen de resultaten besproken en geanalyseerd worden. 
 
 \subsection{Probleemstelling}
 De onderzoeksvraag die hier beantwoord zal worden is: \textit{"Voor welke waarden voor de outputpower, transmissiesnelheid en frequentiekanaal is de PER het laagst."} Hierbij horen de volgende hypothesen: 
 \begin{enumerate}
-  \item Op het moment dat er meerdere mensen op hetzelfde frequentiekanaal zitten zal dit voor veel pakket verlies zorgen.
+  \item Op het moment dat er meerdere radiosignalen op hetzelfde frequentiekanaal zitten zal dit voor veel pakket verlies zorgen.
   \item Bij een hogere outputpower zal het pakketverlies kleiner zijn.
   \item Bij een hogere transmissiesnelheid zal er meer pakketverlies optreden. 
 \end{enumerate}
@@ -46,23 +46,14 @@ De Hardware die gebruikt is bij de metingen is een Arduino UNO en een Nordic nRF
 
 %de gebruikte software
 \subsubsection{De software}
-Om de hardware te gebruiken wordt gebruik gemaakt van de opensourcesoftwarebibliotheek voor de Arduino, die te vinden is op: \begin{verbatim}http://maniacbug.github.io/RF24/ \end{verbatim} 
-Met deze software kan de radio aangestuurd worden en kunnen pakketjes worden verzonden en ontvangen. De radio luistert en verstuurt pakketten over een bepaald kanaal. Het is van belang dat de radio's hetzelfde kanaal gebruiken, zodat ze met elkaar kunnen communiceren. De kanalen hebben een nummer van 0 tot en met 125.\\
+Om de RF24 te gebruiken wordt gebruik gemaakt van de opensourcesoftwarebibliotheek voor de Arduino \cite{rf24}. Met deze software kan de radio aangestuurd worden en kunnen pakketjes worden verzonden en ontvangen. De radio luistert en verstuurt pakketten over een bepaald kanaal. Het is van belang dat de radio's hetzelfde kanaal gebruiken, zodat ze met elkaar kunnen communiceren. De kanalen hebben een nummer van 0 tot en met 125.\\
 \\
 Om de metingen uit te voeren en onze hypotheses te testen is er gebruik gemaakt van \'{e}\'{e}n zender en \'{e}\'{e}n ontvanger. De zender gebruikt \texttt{sender.ino} en de ontvanger gebruikt \texttt{receiver.ino}. Deze programma's zijn te vinden in de appendix. De zender zend pakketjes met daarin het pakketnummer. De ontvanger begint met luisteren en onthoudt het nummer van het eerste pakketje dat hij heeft ontvangen. Vervolgens zal de ontvanger blijven luisteren totdat deze 1000 pakketten heeft ontvangen. Uit de inhoud van het laatste pakket kan worden opgemaakt hoeveel pakketten er verloren zijn gegaan voor de duizend die er ontvangen zijn. De PER wordt berekend met de formule:\\
-\\
-\indent	$(([laatste pakketnummer]-[eerste pakketnummer])/[aantal ontvangen pakketten])$\\
-\\
-In de software van de Sender en Receiver is gebruik gemaakt van de volgende drie methoden om de verschillende waarden aan te kunnen passen. 
-\begin{itemize}
-	\item setChannel(uint\char`_8 i) \\
-	met 0 $\leq$ i $\leq$ 125
-	\item setPALevel(PALevel level) \\
-	met level $\in \{$  RF24\_PA\_MAX, RF24\_PA\_MIN, RF24\_PA\_LOW $\}$
-	\item setDataRate(Rate rate) \\
-	met rate $\in \{$ RF24\_1MBPS, RF24\_2MBPS$\}$
-\end{itemize}
-Door met deze drie methoden de waarden aan te passen verkrijgen we de gewilde meetresultaten. Deze zullen in sectie 1.4 besproken worden.
+\begin{figure}[h]
+\center
+\indent	$\dfrac{[laatste\ pakketnummer]-[eerste\ pakketnummer]}{[aantal\ ontvangen\ pakketten]}$
+\end{figure}\\
+Hierbij is $[aantal ontvangen pakketten]$ dus $1000$, omdat er altijd wordt gewacht tot er $1000$ pakketten ontvangen zijn.
 
 \subsubsection{De instellingen/vastgestelde constanten}
 Om deze metingen bruikbaar te houden moeten er een paar constanten gedefinieerd worden.
@@ -85,89 +76,63 @@ Hier zullen de resultaten weergegeven en geanalyseerd worden. \\*
   	\item afstand tussen radio's: 270 cm
   	\item Geen hertransmissie van pakketten
   	\item payload: 255 bytes
-  	\item channel: 125
+  	\item kanaal: 125
   \end{itemize}
   
 \subsubsection{Metingen en resultaten}
-Tijdens de metingen waren er geen andere radio's aan het sturen, waardoor de radio's geen last van interferentie hadden.\\
+Tijdens de metingen waren er geen andere radio's aan het sturen, waardoor de radio's geen last van interferentie hadden. De resultaten van deze tests zijn te zien in Tabel \ref{table:interferentieloos}. Verder zijn er nog enkele kleinere tests uitgevoerd op een netwerk met interferentie. De resultaten van de tests met interferentie zijn te zien in Tabel \ref{table:interferentie}. \\
 \\
+Om het resultaat nauwkeuriger en accurater te kunnen weergeven is ervoor gekozen om alle tests in drievoud uit te voeren zodat vreemde gebeurtenissen opgemerkt worden. Een voorbeeld is een error rate $>$ 1. Tussen deze resultaten is de instelling HIGH voor outputpower niet weergegeven, aangezien deze voor de gebruikte versie van de radio niet een mogelijke waarde was.
+
+\begin{table}[h]
+\centering \caption{PER metingen zonder interferentie}
+\label{table:interferentieloos}
     \begin{tabular}{ | l | l | l | p{5cm} |}
     \hline
     Instellingen 				& PER 		& gemiddelde PER\\ \hline
     outputpower: MAX 			& 1/1000 	& 2/3000		\\
     transmissiesnelheid: 2MBps 	& 1/1000 	& 				\\
     delay: 25 ms 				& 0/1000	&  				\\ \hline
-    \end{tabular}\\
-\\
-\\
-    \begin{tabular}{ | l | l | l | p{5cm} |}
-    \hline
-    Instellingen				& PER 		& gemiddelde PER\\ \hline
+
     outputpower: MAX 			& 0/1000 	& 0/3000		\\
     transmissiesnelheid: 2MBps 	& 0/1000 	&  				\\
     delay: 50 ms 				& 0/1000	&  				\\ \hline
-    \end{tabular}\\
-\\
-\\
-    \begin{tabular}{ | l | l | l | p{5cm} |}
-    \hline
-    Instellingen 				& PER 		& gemiddelde PER\\ \hline
+   
     outputpower: MAX 			& 0/1000 	& 0/3000		\\
     transmissiesnelheid: 1MBps 	& 0/1000 	&  				\\
     delay: 50 ms 				& 0/1000	&  				\\ \hline
-    \end{tabular}\\
-\\
-\\
-    \begin{tabular}{ | l | l | l | p{5cm} |}
-    \hline
-    Instellingen				& PER 		& gemiddelde PER\\ \hline
+   
     outputpower: MIN 			& 85/1000 	& 1273/3000		\\ 
     transmissiesnelheid: 2MBps 	& 669/1000  &  				\\ 
     delay: 50 ms 				& 519/1000 	&  				\\ \hline
-    \end{tabular}\\
-\\
-\\
-    \begin{tabular}{ | l | l | l | p{5cm} |}
-    \hline
-    Instellingen				& PER 		& gemiddelde PER\\ \hline
+   
     outputpower: LOW 			& 0/1000 	& 8/3000		\\ 
     transmissiesnelheid: 2MBps 	& 2/1000 	&   			\\ 
     delay: 50 ms 				& 6/1000 	&  				\\ \hline
-    \end{tabular}\\
-\\
-\\
-    \begin{tabular}{ | l | l | l | p{5cm} |}
-    \hline
-    Instellingen				& PER 		& gemiddelde PER\\ \hline
+ 
     outputpower: MAX 			& 0/1000 	&  0/3000		\\ 
     transmissiesnelheid: 2MBps 	& 0/1000 	&   			\\ 
     delay: 50 ms 				& 0/1000 	&				\\ 
     channel: 0 					&  			&  				\\ \hline
-    \end{tabular}\\
-\\
-\\
-    \begin{tabular}{ | l | l | l | p{5cm} |}
-    \hline
-    Instellingen				& PER 		& gemiddelde PER\\ \hline
+  
     outputpower: MAX 			& 0/1000 	& 1/3000		\\ 
     transmissiesnelheid: 2MBps 	& 1/1000 	&  				\\ 
     delay: 50 ms 				& 0/1000 	&  				\\ 
     channel: 64 				&  			&				\\ \hline
-    \end{tabular}\\
-\\
-\\
-Verder zijn er nog enkele kleinere tests uitgevoerd op een netwerk met interferentie. Dit leverde de volgende resultaten:\\
-\\
+\end{tabular}
+\end{table}
+    
+\begin{table}[h]
+\centering \caption{PER metingen zonder interferentie}
+\label{table:interferentie}
 \begin{tabular}{ | l | l | l | p{5cm} |}
     \hline
     Instellingen				& PER 		& gemiddelde PER\\ \hline
     outputpower: MAX 			& 47/300 	& 433/3000		\\ 
     transmissiesnelheid: 2MBps 	& 77/300 	&  				\\ 
     delay: 50 ms 				& 9/300 	&  				\\ \hline
-    \end{tabular}\\
-\\
-\\
-Om het resultaat nauwkeuriger en accurater te kunnen weergeven is ervoor gekozen om alle tests in drievoud uit te voeren zodat vreemde gebeurtenissen opgemerkt worden. Een voorbeeld is een error rate $>$ 1. Tussen deze resultaten is de instelling HIGH voor outputpower niet weergegeven, aangezien deze voor de gebruikte versie van de radio niet een mogelijke waarde was.
+\end{tabular}
+\end{table}
 
 \subsection{Conclusie}
 Als er naar de gevonden waarden gekeken wordt, is de PER onacceptabel wanneer de outputpower op MIN staat. Een gemiddelde PER van 1273/3000 pakketten zorgt op den duur voor veel hertransmissies dus veel vertraging op het netwerk. Dit is een situatie die niet gewenst is. Wanneer naar de overige instellingen gekeken wordt en de daarbij behorende gemiddelde PER dan zijn ze perfect of een PER $<$ 0.01. Hier moet bij vermeld worden dat op het moment dat er meer interferentie is op het netwerk de PER omhoog schiet op het netwerk. Op dat moment is het kiezen van een ongebruikt frequentiekanaal van belang. Dit experiment heeft plaats gevonden in een interferentievrije ruimte.\\
@@ -244,35 +209,26 @@ De transmissiesterkte geldt voor alle drie de nodes(zender, hop en ontvanger). D
 	\item RF24\_PA\_LOW
 	\item RF24\_PA\_MAX
 \end{itemize}
-De waarden die gevonden zijn bij de volgende instellingen volgen hieronder.
-\\
-\\
+De waarden die gevonden zijn bij de volgende instellingen zijn te zien in Tabel \ref{table:hopresults}.
+
+\begin{table}[h]
+\centering \caption{PER metingen zonder interferentie}
+\label{table:hopresults}
     \begin{tabular}{ | l | l | l | p{5cm} |}
     \hline
     Instellingen 				& PER 		& gemiddelde PER\\ \hline
     outputpower: MIN 			& 1/1000 	& 25/3000		\\
     							& 17/1000 	& 				\\
    								& 7/1000	&  				\\ \hline
-    \end{tabular}\\
-\\
-\\
-    \begin{tabular}{ | l | l | l | p{5cm} |}
-    \hline
-    Instellingen 				& PER 		& gemiddelde PER\\ \hline
     outputpower: LOW 			& 0/1000 	& 2/3000		\\
     							& 1/1000 	& 				\\
    								& 1/1000	&  				\\ \hline
-    \end{tabular}\\
-\\
-\\
-    \begin{tabular}{ | l | l | l | p{5cm} |}
-    \hline
-    Instellingen 				& PER 		& gemiddelde PER\\ \hline
     outputpower: MAX 			& 0/1000 	& 1/3000		\\
     							& 0/1000 	& 				\\
    								& 1/1000	&  				\\ \hline
-    \end{tabular}\\
-\\
+    \end{tabular}
+\end{table}
+
 In de bovenstaande drie grafieken staan de PER samen met de transmissie sterkte waarmee de pakketjes verstuurd zijn. Er moet rekening gehouden worden met de omgeving waarin deze experimenten zijn uitgevoerd. 
 
 \subsection{Conclusie}
@@ -284,7 +240,10 @@ De hertransmissies komen voort uit het ge\"{i}mplementeerde alternating bit prot
 \clearpage
 
 
-
+%\section{References}
+%\nocite{*} % Even non-cited BibTeX-Entries will be shown.
+\bibliographystyle{abbrv}
+\bibliography{literature}
 
 \appendix
 \section{De radio en de RF24-library}
