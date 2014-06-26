@@ -93,27 +93,29 @@ void processContent(int sender, int high, int messNumber){
      printf("NEW HIGHEST!\n\r");
      highestID = high;
      senderID  = sender;
+     messageID = messNumber;
    }
 }
 
 void sendMessage(){ 
-  radio.stopListening();
   MESSAGE bericht = { ID, highestID, messageID };
   printf("SEND: %i, %i, %i: ", ID, highestID, messageID);
+  radio.stopListening();
   bool ok = radio.write(&bericht, sizeof(MESSAGE));
+  radio.startListening();
   if(ok){
     printf("SENT CORRECTLY\n\r"); 
   }else{
     printf("SENDING FAILED\n\r");
   }
-  radio.startListening();
+  messageCount++;
 }
 
 void synchronize(){
-  highestID = ID;
+  highestID = ID;           //reset data
   deltaT    = night;
   timestamp = millis();
-  messageID = ID;
+  messageID = messageCount;
        
   listenFor(night);          //first night: find highest
   prevMessageID = messageID; //update prevMessageID
@@ -124,7 +126,7 @@ void synchronize(){
     toggleLED();
   }
   printf("SLEEP FOR %ul", deltaT); 
-  sleepFor(deltaT;);         //second night: synchronise
+  sleepFor(deltaT);         //second night: synchronise
   sendSignal();
 }
 
@@ -147,7 +149,6 @@ void loop(void){
   while((messageCount % sendMax) != 0){
     sleepFor(night);
     sendSignal();
-    messageCount++;
   }  
   synchronize();
 }
