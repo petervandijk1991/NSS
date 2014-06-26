@@ -3,15 +3,13 @@
 #include "RF24.h"
 #include "printf.h"
 
-
-
 /*****************************************************
  *                                                   *
  *                   CONFIGURATION                   *
  *                                                   *
  *****************************************************/
   RF24 radio(3, 9);
-  const uint64_t pipes[1] = { 0xF0F0F0F0E1LL};
+  const uint64_t pipes =  0xF0F0F0F0E1LL;
 
   int minID = 0;
   int maxID = 1000;
@@ -20,22 +18,24 @@
   const char DELIM = ':';
   const char* messageBuffer;
   
+  //Previous synchronisation data needed to detect loops
+  int prevHighestID; //Previous Highest found ID
+  int prevMessageID; //Previous message ID
+  
   int highestID;  //Highest found ID
   int senderID;   //Sender of highest ID
-  long  timestamp;//Timestamp of highestID
-  long delta_t; 
-  unsigned long ijkpunt;    //begin van de synchronisatie fase
-  boolean light_on = false;
-  int send_max = 5; //aantal pakketten dat verzonden wordt voor een nieuwe synchronisatie ronde plaatsvindt
-  
-  int sleep = 1000; //sleep time in ms
-  int sync_messages = 5; //# of Sync messages sent per sync phase
+  int messageID;  //MessageID
+  long timestamp; //Timestamp of highestID
+  long deltaT; 
+  boolean lightOn = false;
+  int sendMax = 5;  //amount of messages sent before synchronisation
+  int messageCount; //amount of sent messages
+  int night = 1000; //sleep time in ms
   
   //Set up LED
   int led = 7;
 
-void setup(void)
-{
+void setup(void){
   Serial.begin(57600);
   // initialize the digital pin as an output.
   pinMode(led, OUTPUT);
@@ -44,25 +44,29 @@ void setup(void)
   ID = random(minID, maxID);
   
   printf_begin();
-  printf("DE ID VAN DEZE NODE IS: %i \n\r",ID);
+  printf("NODE ID: %i \n\r",ID);
   
   radio.begin();
   radio.setRetries(0,0);
   radio.setPayloadSize(sizeof(MESSAGE));
-  radio.openWritingPipe(pipes[0]);
-  radio.openReadingPipe(1,pipes[0]);
+  radio.openWritingPipe(pipes);
+  radio.openReadingPipe(1,pipes);
   radio.startListening();
   radio.printDetails();
+  
+  messageCount = 0;
+  sendMax++;
+  prevHighestID = -1;
+  prevMessageID = -1;
 }
 
 
 
-
-  //
-  //  Luisteren zo lang als de ID is om niet te gaan zenden als anderen al aan het zenden zijn
-  //
+//
+//  Listen for messages and process
+//
 void listenFor(long time){
-  int t = millis();
+  long t = millis();
   MESSAGE ontvangen;
   while(millis()-t < time){
     if(radio.available()){
@@ -73,74 +77,81 @@ void listenFor(long time){
 }
 
 
-void processMessage(MESSAGE ontvangen){ 
-  processContent(ontvangen.identity, ontvangen.high_identity, ontvangen.time_delay);
+void processMessage(MESSAGE received){ 
+  processContent(received.identity, received.high_identity, received.number);
 }
 
-//Houdt de hoogste ID node bij en verandert deze als dat nodig is. 
-void processContent(int sender, int high , long time){
-   printf("RECE: %i, %i, %ul\n\r", sender, high, time);
-   if(high >highestID){//If we receive a higher ID than our highest yet received
+//
+// process message and change highestID if necessary
+//
+void processContent(int sender, int high, int messNumber){
+   printf("RECEIVED: %i, %i, %i\n\r", sender, high, messNumber);
+   if((high >  highestID && !(prevMessageID == messNumber && prevHighestID == high))   //if we receive a higher ID than our highest yet received
+   || (high == highestID && sender == high)                //or if we receive previously received highest from highest node itself
+   ){                                                      //update highest
+     deltaT   = millis()-timestamp;  
      printf("NEW HIGHEST!\n\r");
-     timestamp = millis();
      highestID = high;
-      senderID  = sender;
-      delta_t = time;  
-   } 
+     senderID  = sender;
+   }
 }
 
 void sendMessage(){ 
   radio.stopListening();
-  MESSAGE bericht = { ID, highestID, (millis()-ijkpunt)};
-  printf("SEND: %i, %i, %ul: ", ID, highestID, (millis()-ijkpunt));
+  MESSAGE bericht = { ID, highestID, messageID };
+  printf("SEND: %i, %i, %i: ", ID, highestID, messageID);
   bool ok = radio.write(&bericht, sizeof(MESSAGE));
   if(ok){
-   printf("SENT CORRECTLY\n\r"); 
+    printf("SENT CORRECTLY\n\r"); 
   }else{
-   printf("SENDING FAILED\n\r");
+    printf("SENDING FAILED\n\r");
   }
   radio.startListening();
 }
 
 void synchronize(){
   highestID = ID;
-  delta_t = 0;
-  ijkpunt = millis();
-  timestamp = ijkpunt+sleep-1;
-  //de eerste nacht
-  listenFor(sleep);
+  deltaT    = night;
+  timestamp = millis();
+  messageID = ID;
+       
+  listenFor(night);          //first night: find highest
+  prevMessageID = messageID; //update prevMessageID
+  prevHighestID = highestID; //update prevHighestID
+  if(deltaT == night){       //if no new highest found
+     sendSignal();
+  }else{                     //toggle LED to indicate wake-up
+    toggleLED();
+  }
+  printf("SLEEP FOR %ul", deltaT); 
+  sleepFor(deltaT;);         //second night: synchronise
   sendSignal();
-  //de tweede nacht
-  int temp = (timestamp-ijkpunt)%sleep;
-  printf("SLEEP FOR %ul", temp);
-  sleepFor(temp);
-  sendSignal();
-  
+}
+
+void toggleLED(){
+  if(lightOn){
+     lightOn = false; 
+    digitalWrite(led, LOW);  // turn the LED off (LOW is the voltage level)
+  }else{
+    lightOn = true;
+    digitalWrite(led, HIGH); // turn the LED on by making the voltage HIGH
+  }
 }
 
 void sendSignal(){
-  if(light_on){
-     light_on = false; 
-    digitalWrite(led, LOW);   // turn the LED off (LOW is the voltage level)
-  }else{
-    light_on = true;
-    digitalWrite(led, HIGH);    // turn the LED on by making the voltage HIGH
-  }
+  toggleLED();
   sendMessage();
 }
 
-void loop(void)
-{
-  synchronize();
-  int i=1;
-  while(i < send_max){
-      sleepFor(sleep);
-      sendSignal();
-      i++;
+void loop(void){
+  while((messageCount % sendMax) != 0){
+    sleepFor(night);
+    sendSignal();
+    messageCount++;
   }  
+  synchronize();
 }
 
 void sleepFor(long time){
  delay(time); 
 }
-// vim:cin:ai:sts=2 sw=2 ft=cpp

@@ -32,7 +32,7 @@ void printf_begin(void)
 typedef struct MESSAGE {
     int identity;
     int high_identity;
-    long time_delay;
+    int number;
 } ;
 #else
 #error This example is only for use on Arduino.
