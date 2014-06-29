@@ -18,13 +18,13 @@
 \contentsline {subsubsection}{\numberline {2.4.2}De hardware}{10}
 \contentsline {subsection}{\numberline {2.5}Resultaten en analyse}{10}
 \contentsline {subsection}{\numberline {2.6}Conclusie}{11}
-\contentsline {section}{\numberline {A}De radio en de RF24-library}{12}
-\contentsline {subsection}{\numberline {A.1}Eigenschappen van de RF24}{12}
-\contentsline {subsection}{\numberline {A.2}Energieverbruik}{12}
+\contentsline {section}{\numberline {A}De radio en de RF24-library}{13}
+\contentsline {subsection}{\numberline {A.1}Eigenschappen van de RF24}{13}
+\contentsline {subsection}{\numberline {A.2}Energieverbruik}{13}
 \contentsline {subsection}{\numberline {A.3}Enhanced ShockBurst}{13}
-\contentsline {subsubsection}{\numberline {A.3.1}Automatische hertransmissie}{13}
+\contentsline {subsubsection}{\numberline {A.3.1}Automatische hertransmissie}{14}
 \contentsline {subsection}{\numberline {A.4}Adressering}{14}
-\contentsline {subsection}{\numberline {A.5}Functies}{14}
-\contentsline {section}{\numberline {B}Code Sender}{14}
-\contentsline {section}{\numberline {C}Code Receiver}{15}
-\contentsline {section}{\numberline {D}Code Hop}{17}
+\contentsline {subsection}{\numberline {A.5}Functies}{15}
+\contentsline {section}{\numberline {B}Code Sender}{15}
+\contentsline {section}{\numberline {C}Code Receiver}{16}
+\contentsline {section}{\numberline {D}Code Hop}{18}
