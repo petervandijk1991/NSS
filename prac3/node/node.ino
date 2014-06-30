@@ -89,7 +89,7 @@ void processContent(int sender, int high, int messNumber){
    if((high >  highestID && !(prevMessageID == messNumber && prevHighestID == high))   //if we receive a higher ID than our highest yet received
    || (high == highestID && sender == high)                //or if we receive previously received highest from highest node itself
    ){                                                      //update highest
-     deltaT   = millis()-timestamp;  
+     deltaT   = millis()-timestamp;                        //Tijd die nodig is van luisteren naar het verwerken van het bericht wanneer een bericht is ontvangen
      printf("NEW HIGHEST!\n\r");
      highestID = high;
      senderID  = sender;
