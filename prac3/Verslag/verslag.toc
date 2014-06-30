@@ -2,8 +2,10 @@
 \contentsline {section}{\numberline {1}Inleiding}{3}
 \contentsline {section}{\numberline {2}Probleemstelling}{3}
 \contentsline {section}{\numberline {3}Gerelateerd werk}{3}
-\contentsline {section}{\numberline {4}Ontwerp synchronisatiealgoritme}{4}
-\contentsline {section}{\numberline {5}Testopstellingen en resultaten van de tests}{4}
-\contentsline {section}{\numberline {6}Conclusie}{4}
-\contentsline {section}{\numberline {7}Aanbevelingen}{4}
-\contentsline {section}{\numberline {8}Bronnen}{4}
+\contentsline {section}{\numberline {4}Ontwerp synchronisatiealgoritme}{6}
+\contentsline {subsection}{\numberline {4.1}Het eerste deel, slapen en versturen}{7}
+\contentsline {subsection}{\numberline {4.2}Het tweede deel, synchroniseren}{7}
+\contentsline {section}{\numberline {5}Testopstellingen en resultaten van de tests}{8}
+\contentsline {section}{\numberline {6}Conclusie}{8}
+\contentsline {section}{\numberline {7}Aanbevelingen}{8}
+\contentsline {section}{\numberline {8}Bronnen}{8}
