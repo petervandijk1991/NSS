@@ -24,13 +24,14 @@ $\dfrac {[aantal\ incorrect\ ontvangen\ pakketten]}{[aantal\ correct\ ontvangen\
 Eerst zal de probleemstelling besproken worden samen met vastgestelde hypothesen, vervolgens zal de methodologie aan bod komen en als laatste zullen de resultaten besproken en geanalyseerd worden. 
 
 \subsection{Probleemstelling}
-De onderzoeksvraag die hier beantwoord zal worden is: \textit{"Voor welke waarden voor de outputpower, transmissiesnelheid en frequentiekanaal is de PER het laagst."} Hierbij horen de volgende hypothesen: 
+De onderzoeksvraag die hier beantwoord zal worden is: \textit{"Voor welke omgevingsparameters en instellingen van de radio zal de betrouwbaarheid van de communicatie het beste zijn."} Hierbij omvatten de instellingen de zendkracht, transmissiesnelheid en het frequentiekanaal en zal de betrouwbaarheid worden uitgedrukt met behulp van de PER. We werken met de volgende hypothesen: 
 \begin{enumerate}
-  \item Op het moment dat er meerdere radiosignalen op hetzelfde frequentiekanaal zitten zal dit voor veel pakket verlies zorgen.
+  \item Op het moment dat er meerdere radiosignalen op hetzelfde frequentiekanaal zitten zal dit voor veel pakketverlies zorgen.
   \item Bij een hogere outputpower zal het pakketverlies kleiner zijn.
   \item Bij een hogere transmissiesnelheid zal er meer pakketverlies optreden. 
 \end{enumerate}
-In het volgende onderzoek zullen deze hypothesen getoetst worden.
+In dit onderzoek zijn deze hypothesen getoetst.
+
 \subsection{Methodologie}
 Om deze hypothesen te toetsen moeten er metingen gedaan worden. Hier zijn verschillende zaken van belang. 
 \begin{itemize}
@@ -61,13 +62,12 @@ Om deze metingen bruikbaar te houden moeten er een paar constanten gedefinieerd 
 	\item De grootte van de payload
 	\item Het aantal te versturen berichten
 \end{itemize}
-Het aantal keer dat er een pakket opnieuw verstuurd wordt is niet van belang in deze implementatie omdat het zo ge\"{i}mplementeerd is dat het aantal ontvangen berichten wordt bijgehouden en het aantal verzonden berichten wordt bijgehouden. 
 Voor de grootte van de payload is er gekozen voor de grootst mogelijke waarde die deze kan aannemen, namelijk 255 bytes. Deze waarde is gekozen omdat de onderzoeksvraag is wanneer is de radio communicatie het meest betrouwbaar en dit moet getest worden voor re\"{e}le waarden. 
-Het aantal te versturen berichten is op 1000 gezet. Hier is voor gekozen vanwege het idee omdat meer waarden betekent nauwkeurigere resultaten.
+Het aantal te versturen berichten is op 1000 gezet. Dit aantal is groot genoeg om een consistent resultaat te verkrijgen. Hierbij zijn herzendingen van onontvangen pakketten niet meegeteld, aangezien deze niet gebruikt worden. Herzendingen zouden immers de PER veranderen, aangezien er niet gedetecteerd kan worden of een pakket de eerste keer goed is ontvangen of na een herzending.
 \\
 \\
 De meetopstelling bestaat uit twee radio's welke 270cm uit elkaar geplaatst zijn. Om de resultaten consistent te houden moet bij elke meting deze afstand aangehouden worden. 
-Verder worden bericht niet opnieuw verzonden als er geen acknowledgement volgt, want dit betekent pakket verlies en dat moet gemeten worden. 
+Verder worden bericht niet opnieuw verzonden als er geen acknowledgement volgt, want dit betekent pakketverlies en dat moet gemeten worden. 
 
 \subsection{Resultaten en analyse}
 Hier zullen de resultaten weergegeven en geanalyseerd worden. \\*
@@ -245,6 +245,7 @@ De hertransmissies komen voort uit het ge\"{i}mplementeerde alternating bit prot
 \bibliographystyle{abbrv}
 \bibliography{literature}
 
+\newpage
 \appendix
 \section{De radio en de RF24-library}
 \subsection{Eigenschappen van de RF24}
