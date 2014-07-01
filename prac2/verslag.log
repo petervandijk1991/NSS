@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.5.7)  30 JUN 2014 12:09
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.5.7)  1 JUL 2014 16:14
 entering extended mode
 **verslag.tex
 (C:\Users\User\Desktop\School\NSS\prac2\verslag.tex
@@ -207,127 +207,122 @@ Package caption Info: End \AtBeginDocument code.
 (C:\Users\User\Desktop\School\NSS\prac2\verslag.toc)
 \tf@toc=\write3
  [2]
-Underfull \hbox (badness 10000) in paragraph at lines 23--26
+Underfull \hbox (badness 10000) in paragraph at lines 24--27
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 38.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 39.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 38.
-
-Underfull \hbox (badness 10000) in paragraph at lines 46--47
-
- []
-
-[3
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 39.
+ [3
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 50--58
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 65--71
-
- []
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 83--86
+Underfull \hbox (badness 10000) in paragraph at lines 79--85
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--103
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--103
+
+ []
+
+[5]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 138--141
+Underfull \hbox (badness 10000) in paragraph at lines 155--158
 
  []
 
-[5] [6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 151--153
+[6] [7] [8
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 159--161
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 165--169
-
- []
-
-[8
-
-] <img/hop.png, id=36, 605.26125pt x 178.6675pt>
+] <img/hop.png, id=36, 453.94594pt x 134.00063pt>
 File: img/hop.png Graphic file (type png)
  <use img/hop.png>
-Package pdftex.def Info: img/hop.png used on input line 174.
-(pdftex.def)             Requested size: 345.0pt x 101.84152pt.
- [9 <C:/Users/User/Desktop/School/NSS/prac2/img/hop.png>] [10] [11]
-(C:\Users\User\Desktop\School\NSS\prac2\verslag.bbl) [12
+Package pdftex.def Info: img/hop.png used on input line 187.
+(pdftex.def)             Requested size: 345.0pt x 101.8415pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 197--203
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 197--203
+
+ []
+
+[9 <C:/Users/User/Desktop/School/NSS/prac2/img/hop.png>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[10] [11] (C:\Users\User\Desktop\School\NSS\prac2\verslag.bbl) [12
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 261--292
+Underfull \hbox (badness 10000) in paragraph at lines 266--297
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 261--292
+Underfull \hbox (badness 10000) in paragraph at lines 266--297
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 261--292
+Underfull \hbox (badness 10000) in paragraph at lines 266--297
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 261--292
+Underfull \hbox (badness 10000) in paragraph at lines 266--297
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 261--292
+Underfull \hbox (badness 10000) in paragraph at lines 266--297
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 261--292
+Underfull \hbox (badness 10000) in paragraph at lines 266--297
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 261--292
+Underfull \hbox (badness 10000) in paragraph at lines 266--297
 
  []
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 302--315
+Underfull \hbox (badness 10000) in paragraph at lines 307--320
 
  []
 
 [14]
-Overfull \hbox (86.00642pt too wide) in paragraph at lines 339--350
+Overfull \hbox (86.00642pt too wide) in paragraph at lines 344--355
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 339--350
+Underfull \hbox (badness 10000) in paragraph at lines 344--355
 
  []
 
 File: ./Sender/Sender.ino  (verbatim)
 [15]
-Overfull \hbox (1.49698pt too wide) in paragraph at lines 353--353
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 358--358
 []    \OT1/cmtt/m/n/10 bool ok = radio.write( &messages_sent, sizeof(unsigned i
 nt) );[] 
  []
@@ -336,32 +331,32 @@ File: ./receiver/receiver.ino  (verbatim)
 [16] [17]
 File: ./Hopnetwerk/Hop/hop.ino  (verbatim)
 
-Overfull \hbox (137.99579pt too wide) in paragraph at lines 359--359
+Overfull \hbox (137.99579pt too wide) in paragraph at lines 364--364
 []\OT1/cmtt/m/n/10 const uint64_t pipes[4] = { 0xF0F0F0F0E1LL, 0xF0F0F0F0D2LL, 
 0xF0F0F0F0C3LL, 0xF0F0F0F0B4LL};[] 
  []
 
-[18] [19] (C:\Users\User\Desktop\School\NSS\prac2\verslag.aux) ) 
+[18] [19] [20] (C:\Users\User\Desktop\School\NSS\prac2\verslag.aux) ) 
 Here is how much of TeX's memory you used:
- 3305 strings out of 493921
- 47414 string characters out of 3147286
- 116513 words of memory out of 3000000
- 6575 multiletter control sequences out of 15000+200000
+ 3308 strings out of 493921
+ 47441 string characters out of 3147286
+ 114545 words of memory out of 3000000
+ 6578 multiletter control sequences out of 15000+200000
  9537 words of font info for 35 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 36i,7n,38p,722b,269s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10
-.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on verslag.pdf (19 pages, 183276 bytes).
+ 36i,7n,38p,756b,269s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+msy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on verslag.pdf (20 pages, 183671 bytes).
 PDF statistics:
- 103 PDF objects out of 1000 (max. 8388607)
+ 106 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

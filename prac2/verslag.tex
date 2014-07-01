@@ -16,8 +16,9 @@
 \tableofcontents
 \clearpage
 \section{Packet Error Rate-metingen}
+\label{PER}
 \subsection{Inleiding}
-De Nordic RF24 is een radiozender en -ontvanger voor de 2.4GHz band. De RF24 heeft echter een aantal verschillende instellingen voor de kanalen, outputpower en datasnelheid. Het doel van dit onderzoek is bepalen wat de optimale instellingen zijn om de Packet Error Rate (PER) zo laag mogelijk te krijgen. Door middel van de volgende vergelijking wordt de Packet Error Rate berekend: 
+De Nordic RF24 is een radiozender en -ontvanger voor de 2.4GHz band. De RF24 heeft echter een aantal verschillende instellingen voor de kanalen, outputpower en datatransmissiesnelheid. Het doel van dit onderzoek is bepalen wat de optimale instellingen zijn om de Packet Error Rate (PER) zo laag mogelijk te krijgen. Door middel van de volgende vergelijking wordt de PER berekend: 
 \setlength{\parskip}{10pt plus 1pt minus 1pt}
 
 $\dfrac {[aantal\ incorrect\ ontvangen\ pakketten]}{[aantal\ correct\ ontvangen\ pakketten]}$\\
@@ -25,10 +26,10 @@ $\dfrac {[aantal\ incorrect\ ontvangen\ pakketten]}{[aantal\ correct\ ontvangen\
 Eerst zal de probleemstelling besproken worden samen met vastgestelde hypothesen, vervolgens zal de methodologie aan bod komen en als laatste zullen de resultaten besproken en geanalyseerd worden. 
 
 \subsection{Probleemstelling}
-De onderzoeksvraag die hier beantwoord zal worden is: \textit{"Voor welke omgevingsparameters en instellingen van de radio zal de betrouwbaarheid van de communicatie het beste zijn."} Hierbij omvatten de instellingen de zendkracht, transmissiesnelheid en het frequentiekanaal en zal de betrouwbaarheid worden uitgedrukt met behulp van de PER. We werken met de volgende hypothesen: 
+De onderzoeksvraag die hier beantwoord zal worden is: \textit{"Voor welke omgevingsparameters en instellingen van de radio zal de betrouwbaarheid van de communicatie het beste zijn."} Hierbij omvatten de instellingen de outputpower, datatransmissiesnelheid en het frequentiekanaal en zal de betrouwbaarheid worden uitgedrukt met behulp van de PER. We werken met de volgende hypothesen: 
 \begin{enumerate}
   \item Bij een hogere outputpower zal het pakketverlies kleiner zijn.
-  \item Bij een hogere transmissiesnelheid zal er meer pakketverlies optreden. 
+  \item Bij een hogere datatransmissiesnelheid zal er meer pakketverlies optreden. 
 \end{enumerate}
 In dit onderzoek zijn deze hypothesen getoetst.
 
@@ -43,18 +44,30 @@ Om deze hypothesen te toetsen moeten er metingen gedaan worden. Hier zijn versch
 
 %De gebruikte hardware
 \subsubsection{De hardware}
-De Hardware die gebruikt is bij de metingen is een Arduino UNO en een Nordic nRF24L01 draadloze transceiver.\\
+De hardware die gebruikt is bij de metingen is een Arduino UNO en een Nordic nRF24L01 draadloze transceiver.
 
 %de gebruikte software
 \subsubsection{De software}
-Om de RF24 te gebruiken wordt gebruik gemaakt van de opensourcesoftwarebibliotheek voor de Arduino \cite{rf24}. Met deze software kan de radio aangestuurd worden en kunnen pakketjes worden verzonden en ontvangen. De radio luistert en verstuurt pakketten over een bepaald kanaal. Het is van belang dat de radio's hetzelfde kanaal gebruiken, zodat ze met elkaar kunnen communiceren. De kanalen hebben een nummer van 0 tot en met 125.\\
-\\
+Om de RF24 te gebruiken wordt gebruik gemaakt van de opensourcesoftwarebibliotheek voor de Arduino \cite{rf24}. Met deze software kan de radio aangestuurd worden en kunnen pakketjes worden verzonden en ontvangen. De radio luistert en verstuurt pakketten over een bepaald frequentiekanaal. Het is van belang dat de radio's hetzelfde frequentiekanaal gebruiken, zodat ze met elkaar kunnen communiceren. De kanalen hebben een nummer van 0 tot en met 125. Naast het frequentiekanaal kan ook de outputpower, de datatransmissiesnelheid en de payload worden aangepast. De standaardinstellingen zijn als volgt:
+\begin{itemize}
+	\item frequentiekanaal: 76
+	\item outputpower: MAX
+	\item datatransmissiesnelheid: 1MBps
+	\item payload: 32 bytes
+\end{itemize}
+\label{outputpower}
+Hierbij worden de waardes van de outputpower als volgt gedefini\"eerd:
+\begin{itemize}
+	\item MAX: 0dBm
+	\item LOW: -12dBm
+	\item MIN: -18dBm
+\end{itemize}
 Om de metingen uit te voeren en onze hypotheses te testen is er gebruik gemaakt van \'{e}\'{e}n zender en \'{e}\'{e}n ontvanger. De zender gebruikt \texttt{sender.ino} en de ontvanger gebruikt \texttt{receiver.ino}. Deze programma's zijn te vinden in de appendix. De zender zend pakketjes met daarin het pakketnummer. De ontvanger begint met luisteren en onthoudt het nummer van het eerste pakketje dat hij heeft ontvangen. Vervolgens zal de ontvanger blijven luisteren totdat deze 1000 pakketten heeft ontvangen. Uit de inhoud van het laatste pakket kan worden opgemaakt hoeveel pakketten er verloren zijn gegaan voor de duizend die er ontvangen zijn. De PER wordt berekend met de formule:\\
 \begin{figure}[h]
 \center
 \indent	$\dfrac{[laatste\ pakketnummer]-[eerste\ pakketnummer]}{[aantal\ ontvangen\ pakketten]}$
 \end{figure}\\
-Hierbij is $[aantal ontvangen pakketten]$ dus $1000$, omdat er altijd wordt gewacht tot er $1000$ pakketten ontvangen zijn.
+Hierbij is $[aantal\ ontvangen\ pakketten]$ dus $1000$, omdat er altijd wordt gewacht tot er $1000$ pakketten ontvangen zijn.
 
 \subsubsection{De instellingen/vastgestelde constanten}
 Om deze metingen bruikbaar te houden moeten er een paar constanten gedefinieerd worden.
@@ -62,7 +75,8 @@ Om deze metingen bruikbaar te houden moeten er een paar constanten gedefinieerd 
 	\item De grootte van de payload
 	\item Het aantal te versturen berichten
 \end{itemize}
-Voor de grootte van de payload is er gekozen voor de grootst mogelijke waarde die deze kan aannemen, namelijk 255 bytes. Deze waarde is gekozen omdat de onderzoeksvraag is wanneer is de radio communicatie het meest betrouwbaar en dit moet getest worden voor re\"{e}le waarden. 
+
+Voor de grootte van de payload is er gekozen voor de grootst mogelijke waarde die deze kan aannemen, namelijk 255 bytes. Deze waarde is gekozen omdat de onderzoeksvraag is wanneer is de radiocommunicatie het meest betrouwbaar en dit moet getest worden voor re\"{e}le waarden. 
 Het aantal te versturen berichten is op 1000 gezet. Dit aantal is groot genoeg om een consistent resultaat te verkrijgen. Hierbij zijn herzendingen van onontvangen pakketten niet meegeteld, aangezien deze niet gebruikt worden. Herzendingen zouden immers de PER veranderen, aangezien er niet gedetecteerd kan worden of een pakket de eerste keer goed is ontvangen of na een herzending.
 \\
 \\
@@ -70,19 +84,22 @@ De meetopstelling bestaat uit twee radio's welke 270cm uit elkaar geplaatst zijn
 Verder worden bericht niet opnieuw verzonden als er geen acknowledgement volgt, want dit betekent pakketverlies en dat moet gemeten worden. 
 
 \subsection{Resultaten en analyse}
-Hier zullen de resultaten weergegeven en geanalyseerd worden. \\*
+Hier zullen de resultaten weergegeven en geanalyseerd worden. \\
   De constanten zoals ze standaard gebruikt zullen worden. Als ze gewijzigd worden voor de test dan wordt dit aangegeven. 
   \begin{itemize}
   	\item afstand tussen radio's: 270 cm
-  	\item Geen hertransmissie van pakketten
+  	\item geen hertransmissie van pakketten
   	\item payload: 255 bytes
-  	\item kanaal: 125
+  	\item frequentiekanaal: 125
   \end{itemize}
   
 \subsubsection{Metingen en resultaten}
-Er zijn een aantal tests uitgevoerd in een ruimte waar slechts gebruikt werd gemaakt van Wi-Fi, wat dezelfde frequentieband gebruikt (2.4GHz tot 2.5GHz \cite{wifi}). De resultaten van deze tests zijn te zien in Tabel \ref{table:interferentieloos}. Verder zijn er nog enkele kleinere tests uitgevoerd op een netwerk met niet alleen Wi-Fi, maar ook andere vergelijkbare testopstellingen, wat voor extra interferentie zorgt. De resultaten van de tests met veel interferentie zijn te zien in Tabel \ref{table:interferentie}. \\
+\label{results}
+Er zijn een aantal tests uitgevoerd in een ruimte waar slechts interferentie was van Wi-Fi, wat dezelfde frequentieband gebruikt (2.4GHz tot 2.5GHz \cite{wifi}). De resultaten van deze tests zijn te zien in Tabel \ref{table:interferentieloos}. Verder zijn er nog enkele kleinere tests uitgevoerd op een netwerk met niet alleen Wi-Fi, maar ook andere vergelijkbare testopstellingen, wat voor extra interferentie zorgt. De resultaten van de tests met veel interferentie zijn te zien in Tabel \ref{table:interferentie}. \\
 \\
-Om het resultaat nauwkeuriger en accurater te kunnen weergeven is ervoor gekozen om alle tests in drievoud uit te voeren zodat vreemde gebeurtenissen opgemerkt worden. Een voorbeeld is een error rate $>$ 1. Tussen deze resultaten is de instelling HIGH voor outputpower niet weergegeven, aangezien deze voor de gebruikte versie van de radio niet een mogelijke waarde was.
+Om het resultaat nauwkeuriger en accurater te kunnen weergeven is ervoor gekozen om alle tests in drievoud uit te voeren zodat vreemde gebeurtenissen opgemerkt worden. Een voorbeeld hiervan is een error rate groter dan 1. Tussen deze resultaten is de instelling -6dBm voor outputpower niet weergegeven, aangezien deze voor de gebruikte versie van de radio niet een mogelijke waarde was.\\
+\\
+Wat opvalt aan de meetresultaten is dat de PER bij een outputpower van MIN aanzienlijk hoger is dan bij de rest van de tests. Verder blijkt ook de hoeveelheid interferentie een grote rol te spelen. 
 
 \begin{table}[h]
 \centering \caption{PER metingen}
@@ -91,32 +108,32 @@ Om het resultaat nauwkeuriger en accurater te kunnen weergeven is ervoor gekozen
     \hline
     Instellingen 				& PER 		& gemiddelde PER\\ \hline
     outputpower: MAX 			& 1/1000 	& 2/3000		\\
-    transmissiesnelheid: 2MBps 	& 1/1000 	& 				\\
+    datatransmissiesnelheid: 2MBps 	& 1/1000 	& 				\\
     delay: 25 ms 				& 0/1000	&  				\\ \hline
 
     outputpower: MAX 			& 0/1000 	& 0/3000		\\
-    transmissiesnelheid: 2MBps 	& 0/1000 	&  				\\
+    datatransmissiesnelheid: 2MBps 	& 0/1000 	&  				\\
     delay: 50 ms 				& 0/1000	&  				\\ \hline
    
     outputpower: MAX 			& 0/1000 	& 0/3000		\\
-    transmissiesnelheid: 1MBps 	& 0/1000 	&  				\\
+    datatransmissiesnelheid: 1MBps 	& 0/1000 	&  				\\
     delay: 50 ms 				& 0/1000	&  				\\ \hline
    
     outputpower: MIN 			& 85/1000 	& 1273/3000		\\ 
-    transmissiesnelheid: 2MBps 	& 669/1000  &  				\\ 
+    datatransmissiesnelheid: 2MBps 	& 669/1000  &  				\\ 
     delay: 50 ms 				& 519/1000 	&  				\\ \hline
    
     outputpower: LOW 			& 0/1000 	& 8/3000		\\ 
-    transmissiesnelheid: 2MBps 	& 2/1000 	&   			\\ 
+    datatransmissiesnelheid: 2MBps 	& 2/1000 	&   			\\ 
     delay: 50 ms 				& 6/1000 	&  				\\ \hline
  
     outputpower: MAX 			& 0/1000 	&  0/3000		\\ 
-    transmissiesnelheid: 2MBps 	& 0/1000 	&   			\\ 
+    datatransmissiesnelheid: 2MBps 	& 0/1000 	&   			\\ 
     delay: 50 ms 				& 0/1000 	&				\\ 
     channel: 0 					&  			&  				\\ \hline
   
     outputpower: MAX 			& 0/1000 	& 1/3000		\\ 
-    transmissiesnelheid: 2MBps 	& 1/1000 	&  				\\ 
+    datatransmissiesnelheid: 2MBps 	& 1/1000 	&  				\\ 
     delay: 50 ms 				& 0/1000 	&  				\\ 
     channel: 64 				&  			&				\\ \hline
 \end{tabular}
@@ -129,15 +146,15 @@ Om het resultaat nauwkeuriger en accurater te kunnen weergeven is ervoor gekozen
     \hline
     Instellingen				& PER 		& gemiddelde PER\\ \hline
     outputpower: MAX 			& 47/300 	& 433/3000		\\ 
-    transmissiesnelheid: 2MBps 	& 77/300 	&  				\\ 
+    datatransmissiesnelheid: 2MBps 	& 77/300 	&  				\\ 
     delay: 50 ms 				& 9/300 	&  				\\ \hline
 \end{tabular}
 \end{table}
 
 \subsection{Conclusie}
-Als er naar de gevonden waarden gekeken wordt, is de PER zeer hoog wanneer de outputpower op MIN staat. Een gemiddelde PER van 1273/3000 pakketten zorgt op den duur voor veel hertransmissies dus veel vertraging op het netwerk. Dit is een situatie die niet gewenst is. Wanneer naar de overige instellingen gekeken wordt en de daarbij behorende gemiddelde PER dan zijn ze perfect of een PER $<$ 0.01. Hier moet bij vermeld worden dat op het moment dat er meer interferentie is op het netwerk de PER omhoog schiet. Op dat moment is het kiezen van een ongebruikt frequentiekanaal van belang.\\
+Als er naar de gevonden waarden gekeken wordt, is de PER zeer hoog wanneer de outputpower op MIN staat. Een gemiddelde PER van 1273/3000 pakketten zorgt op den duur voor veel hertransmissies, dus veel vertraging op het netwerk. Dit is een situatie die niet gewenst is. Wanneer naar de overige instellingen gekeken wordt en de daarbij behorende gemiddelde PER dan zijn ze perfect of een PER kleiner dan 0.01. Hier moet bij vermeld worden dat op het moment dat er meer interferentie is op het netwerk de PER toeneemt. Op dat moment is het kiezen van een ongebruikt frequentiekanaal van belang.\\
 \\
-De onderzoeksvraag is: \textit{"Voor welke waarden voor de outputpower, transmissiesnelheid en frequentiekanaal is de PER het laagst."} Het antwoord dat hierbij hoort is dat voor elke waarde van de transmissiesnelheid en het frequentiekanaal de PER niet boven de 0.01 uit komt. Dit geldt echter niet voor de outputpower; op het moment dat de outputpower op minimaal gezet wordt bedraagt de gemiddelde PER 1273/3000. Hieruit kan geconcludeerd worden dat de outputpower tenminste op laag of maximaal gezet moet worden om de PER tot een minimum te beperken. 
+De onderzoeksvraag is: \textit{"Voor welke waarden voor de outputpower, datatransmissiesnelheid en frequentiekanaal is de PER het laagst."} Het antwoord hierop is dat voor elke waarde van de datatransmissiesnelheid en het frequentiekanaal de PER niet boven de 0.01 uit komt op een afstand van 270cm. Dit geldt echter niet voor de outputpower; op het moment dat de outputpower op MIN gezet wordt bedraagt de gemiddelde PER 1273/3000. Hieruit kan geconcludeerd worden dat de outputpower tenminste op LOW of MAX gezet moet worden om de PER tot een minimum te beperken. 
 
 \newpage
 
@@ -148,26 +165,22 @@ De onderzoeksvraag is: \textit{"Voor welke waarden voor de outputpower, transmis
 In het vorige experiment is de betrouwbaarheid van een singlehop-netwerk onderzocht. Nu kan de betrouwbaarheid van een multihop-netwerk getoetst worden en kunnen de waarden vergeleken worden om te bepalen welk netwerk betrouwbaarder is. 
 \subsection{Probleemstelling}
 
-De probleemstelling waarvan uit zal worden gegaan is \textit{"Is het mogelijk een betrouwbaar end-to-end multihop-connectie op te zetten?"}. De hypothese is dat dit mogelijk is in combinatie met :
-\\
+De probleemstelling waarvan uit zal worden gegaan is \textit{"Is het mogelijk een betrouwbare end-to-end multihop-connectie op te zetten?"}. De hypothese is dat dit mogelijk is in combinatie met :
 \begin{itemize}
-	\item MIN zal het slechtst presteren en MAX het beste(transmissie sterkten)
-	\item alternating bit protocol(ABP)
-	Met deze drie aspecten verwerkt in de implementatie zou het multihop-netwerk moeten werken. 
+	\item Het gebruik van hertransmissies
+	\item Het gebruik van routingtabellen
 \end{itemize}
+Met deze aspecten verwerkt in de implementatie zou het multihop-netwerk moeten werken. 
 \subsection{Protocol}
-Het protocol wat veelal gebruikt wordt in deze implementatie is het ABP. Dit protocol houdt twee zaken in:
-\\
+Het gebruikte protocol omvat de volgende zaken:
 \begin{itemize}
-	\item hertransmissies sturen
-	\item kijken of er iets binnenkomt
+	\item gebruik van routing tabel
+	\item zenden van hertransmissies
 \end{itemize}
-Het ABP zorgt ervoor dat wanneer er geen acknowledgement ontvangen wordt er een hertransmissie gestuurd wordt. Door een bit op 0 of 1 te zetten kan er gekeken worden of er nieuwe data ontvangen wordt of niet. Dit is de globale werking van het protocol. Dit protocol is gebruikt in de implementatie van het multihop-netwerk, veelal op dezelfde manier maar dit zal toegelicht worden. 
-\\ 
-In de implementatie komt dit protocol terug in alle nodes.
-Alle nodes moeten weten of er berichten binnen komen. Om dit te registreren is er gekozen voor het ABP.\\
+Het protocol zorgt ervoor dat wanneer er geen acknowledgement ontvangen wordt er een hertransmissie gestuurd wordt. Deze functionaliteit wordt geleverd door de RF24 opensourcesoftwarebibliotheek \cite{rf24}. Ter ondersteuning van deze hertransmissiefunctionaliteit worden er automatisch ACKs gezonden om te bevestigen dat een pakket correct ontvangen is. \emph{Deze ACKs en hertransmissies vinden alleen plaats per hop en niet tussen eindnodes.} Hier is voor gekozen omdat de PER moet worden gemeten van de verbinding tussen zender en ontvanger, waarbij hertransmissies de PER niet zouden veranderen, aangezien we geen onderscheid maken in de telling tussen het zenden van een nieuw pakket en het herzenden van een oud pakket.
 
-De zender verstuurt de berichten en wacht totdat er een acknowledgement terugkomt voordat een nieuw bericht wordt verstuurd. Op het moment dat er een time-out plaatsvind zal er een hertransmissie plaatsvinden. Op het moment dat er een bericht binnenkomt dan zal dit geregistreerd worden en zal dit bericht verder worden afgehandeld.
+\subsubsection{Het netwerk}
+De gebruiktee netwerkopstelling bestaat uit drie nodes: een zender (\texttt{Sender}), een hopnode (\texttt{Hop}) en een ontvanger (\texttt{Receiver}). De zender zendt een bericht naar de hopnode, de hopnode zendt dit bericht naar de ontvanger, de ontvanger zendt een ACK (ontvangstbevestiging) naar de hopnode en de hopnode stuurt deze ACK door naar de zender. In de implementatie komt het protocol terug in alle nodes. Voor iedere verbinding waarover berichten verstuurd worden is er hertransmissiefunctionaliteit. Verder heeft de hopnode een grotere routing tabel, aangezien deze berichten moet doorsturen van zender naar ontvanger en andersom.
 
 \begin{figure}
 \centering 
@@ -177,40 +190,33 @@ De zender verstuurt de berichten en wacht totdat er een acknowledgement terugkom
 \end{figure}
 
 \subsection{Methodologie}
-Om de onderzoeksvraag te kunnen beantwoorden is er een meetopstelling nodig. De meetopstelling is weergegeven in Figuur \ref{fig:hop} met een Sendernode, een Hopnode en een Receivernode.
-De namen geven het al aan, de Sendernode stuurt de berichten (en wacht op bevestiging), de Hopnode stuurt de berichten door en de Receivernode ontvangt de berichten (en bevestigd de ontvangst).  
+Om de onderzoeksvraag te kunnen beantwoorden is er een meetopstelling nodig. De meetopstelling is weergegeven in Figuur \ref{fig:hop} met een zendernode, een hopnode en een ontvangernode. De namen geven het al aan, de zender stuurt de berichten (en wacht op bevestiging), de hopnode stuurt de berichten door en de ontvanger ontvangt de berichten (en bevestigd de ontvangst).  
 
 \subsubsection{De software}
 
 De software die gebruikt is voor dit experiment is voor de 
-\texttt{Sender} en \texttt{Receiver} grotendeels hetzelfde als het voorbeeld pingpair dat wordt meegeleverd bij de RF24 library voor de Arduino \cite{rf24}. Voor de implementatie is slechts de ondersteuning van meerdere adressen van de pipes ingebouwd. Deze addressen zijn te zien in Figuur \ref{fig:hop} en is de pakketgrootte veranderd naar 255 bytes. 
-
-De Hopnode luistert naar de Sendernode en Receivernode en stuurt berichten van de Sendernode door naar de Receivernode en andersom. In de implementatie is ervoor gezorgd dat er hertransmissies gestuurd kunnen worden als er een time-out optreed.
-Er is gebruik gemaakt van een aantal constanten, namelijk:
+\texttt{Sender} en \texttt{Receiver} grotendeels hetzelfde als het voorbeeld pingpair dat wordt meegeleverd bij de RF24 library voor de Arduino \cite{rf24}. Voor de implementatie is slechts de ondersteuning voor meerdere adressen van de verbindingen ingebouwd en is de pakketgrootte veranderd naar 255 bytes. Deze addressen zijn te zien in Figuur \ref{fig:hop}. De zender heeft een uitgaande verbinding op adres 0xF0F0F0E1 en een inkomende verbinding op adres 0xF0F0F0D2 naar de hopnode. De ontvanger heeft een inkomende verbinding op adres 0xF0F0F0C3 en een uitgaande verbinding op adres 0xF0F0F0B4 naar de hopnode.\\
+\\
+De \texttt{Hop} luistert naar de zender en ontvanger en stuurt berichten van de zender door naar de ontvanger en andersom. Hierbij wordt gebruik gemaakt van de eerder \\
+\\
+De RF24 opensourcesoftwarebibliotheek handelt de communicatie verder af en verzorgt de nodige hertransmissies. Voor de instelling van de radioverbinding is gebruik gemaakt van een aantal constanten, namelijk:
 
 \begin{itemize}
-	\item payload = 255 bytes
+	\item payload: 255 bytes
 	\item hertransmissies : 15
 	\item delay: 50ms
-	\item transmissiesnelheid: 2MBps
+	\item datatransmissiesnelheid: 2MBps
 \end{itemize}  
 Deze constanten zullen tijdens het testen niet worden veranderd.
 
 \subsubsection{De hardware}
 
-Deze bestaat uit drie identieke nodes. Deze nodes zijn allemaal voorzien van een radio waarmee ze de berichten kunnen ontvangen en versturen. De nodes zijn in een lijn geplaatst met een meter afstand tussen Sender en Hop en tussen Hop en Receiver. De experimenten zijn uitgevoerd in een netwerk waar nog meer radio\'s aan het sturen zijn.
+Deze bestaat uit drie identieke nodes. Deze nodes zijn allemaal voorzien van een radio waarmee ze de berichten kunnen ontvangen en versturen. De nodes zijn op \'e\'en lijn geplaatst met 100 cm afstand tussen zender en hopnode en tussen hopnode en ontvanger. De experimenten zijn uitgevoerd in een netwerk waar nog meer radio\'s aan het sturen zijn.
  
 \subsection{Resultaten en analyse}
 
 Om de resultaten te verkrijgen die gewenst zijn worden er telkens andere waarden gebruikt voor de transmissie sterkte.
-De transmissiesterkte geldt voor alle drie de nodes(zender, hop en ontvanger). De drie waarden die hiervoor gebruikt zijn:
-
-\begin{itemize}
-	\item RF24\_PA\_MIN
-	\item RF24\_PA\_LOW
-	\item RF24\_PA\_MAX
-\end{itemize}
-De waarden die gevonden zijn bij de volgende instellingen zijn te zien in Tabel \ref{table:hopresults}.
+De outputpower geldt voor alle drie de nodes(zender, hop en ontvanger). De drie waarden die hiervoor gebruikt zijn MIN, LOW en MAX, zoals besproken in sectie \ref{outputpower}. De waarden die gevonden zijn bij de instellingen zijn te zien in Tabel \ref{table:hopresults}. Hierin staan de PER samen met de outputpower waarmee de pakketjes verstuurd zijn. Het opvallende aan deze resultaten is dat de PER voor de outputpower MIN ook zeer laag is in vergelijking met de PER die in sectie \ref{results} gegeven is.
 
 \begin{table}[h]
 \centering \caption{PER metingen}
@@ -229,15 +235,13 @@ De waarden die gevonden zijn bij de volgende instellingen zijn te zien in Tabel 
    								& 1/1000	&  				\\ \hline
     \end{tabular}
 \end{table}
-
-In de bovenstaande drie grafieken staan de PER samen met de transmissie sterkte waarmee de pakketjes verstuurd zijn. Er moet rekening gehouden worden met de omgeving waarin deze experimenten zijn uitgevoerd. 
-
+\newpage
 \subsection{Conclusie}
 
 De hypothese die gesteld werd: \textit{"Is het mogelijk een betrouwbaar end-to-end multihop-connectie op te zetten?"}.
-Deze hypothese wordt nu gestaafd door de resultaten die verkregen zijn door de experimenten uit te voeren met veranderende transmissie sterktes. 
-Uit de grafieken bij 2.5 kan opgemaakt worden dat een multi-hop verbinding, welke op deze manier ge\"{i}mplementeerd is, een redelijke implementatie geeft met een lage error rate. Zoals verwacht in de hypothese is zenden op minimum de slechtst scorende, maar zolang je hertransmissies hebt is dit een degelijke implementatie. 
-De hertransmissies komen voort uit het ge\"{i}mplementeerde alternating bit protocol. Door het ABP en de beste transmissie sterkte te kiezen is er een stabiel netwerk opgezet wat in het dagelijks leven toegepast kan worden. 
+Deze hypothese wordt nu gestaafd door de resultaten die verkregen zijn door de experimenten uit te voeren met veranderende outputpowers. 
+Uit de resultaten kan opgemaakt worden dat een multi-hop verbinding, die op deze manier ge\"{i}mplementeerd is, een redelijke implementatie geeft met een error rate kleiner dan 1\%. Zoals verwacht in de hypothese is zenden met outputpower op MIN de slechtst scorende instelling, maar de PER is nog zeer laag. Dit zou kunnen komen door het gebruik van hertransmissies op de tussenverbindingen.
+
 \clearpage
 
 
@@ -253,13 +257,13 @@ De hertransmissies komen voort uit het ge\"{i}mplementeerde alternating bit prot
 In dit onderzoek wordt gebruik gemaakt van de rf24 radio. Deze radio heeft de volgende eigenschappen:
 	\begin{itemize}	
 	\item\textbf{Frequentieband: }2.4000-2.4835 GHz
-	\item\textbf{Datasnelheid: }1 of 2 Mb/s
+	\item\textbf{Datatransmissiesnelheid: }1 of 2 Mb/s
 	\item\textbf{Aantal kanalen: }126 RF-kanalen
 	\item\textbf{Modulatietechniek: }Gaussian Frequency Shift Key(GFSK)
 	\end{itemize}
 	
 \subsection{Energieverbruik}	
-De radio het volgende energieverbruik in verschillende modi:\\
+De radio heeft het volgende energieverbruik in de verschillende modi:\\
 \\	
 \begin{tabular}{|l|l|}
 \hline
@@ -278,7 +282,7 @@ Power down  & 900 nA \\ \hline
 0 dBm  	& 11.3 mA	\\
 -6 dBm 	& 9 mA    	\\
 -12 dBm & 7.5 mA  	\\
--8 dBm 	& 7 mA		\\ \hline
+-18 dBm & 7 mA		\\ \hline
 \end{tabular}\\
 \\
 \\
@@ -316,7 +320,7 @@ Het formaat van het datapakket bestaat uit verschillende delen, het adres, pakke
     
 \subsubsection{Automatische hertransmissie}
 
-Enhanced Shockburst heeft als eigenschap automatisch pakketvalidatie. In ontvangstmodus zoekt de RF24 constant naar valide adressen welke gegeven zijn in RX\_ADDR registers. Op het moment dat een valide adres gedetecteerd wordt, zal Enhanced Shockburst het pakket gelijk valideren. Enhanced Shockburst is voorzien van een ART(Automatic Retransmission) functie. Door deze functie is Enhanced Shockburst in staat een pakket uit zichzelf opnieuw te versturen als er geen acknowledgement wordt ontvangen. Er zijn drie redenen waarom de ART functie stopt met het luisteren na het versturen van een pakket. De ART stopt met luisteren na:
+Enhanced Shockburst heeft als eigenschap automatische pakketvalidatie. In ontvangstmodus zoekt de RF24 constant naar valide adressen welke gegeven zijn in RX\_ADDR registers. Op het moment dat een valide adres gedetecteerd wordt, zal Enhanced Shockburst het pakket gelijk valideren. Enhanced Shockburst is voorzien van een ART(Automatic Retransmission) functie. Door deze functie is Enhanced Shockburst in staat een pakket uit zichzelf opnieuw te versturen als er geen acknowledgement wordt ontvangen. Er zijn drie redenen waarom de ART functie stopt met het luisteren na het versturen van een pakket. De ART stopt met luisteren na:
 \begin{itemize}
 	\item Auto retransmit delay(ARD) is verlopen
 	\item Geen gematcht adres gevonden binnen 250$\mu$ s
@@ -342,7 +346,7 @@ Met de volgende functies worden waarden van de RF24 radio ingesteld:
 \begin{tabular}{ | l | l | p{5cm} |}
     \hline
     Functie				& Methode	\\ \hline
-    Kanaal instellen	& void RF24::setChannel	(uint8\_t channel) 	\\ 
+    Frequentiekanaal instellen	& void RF24::setChannel	(uint8\_t channel) 	\\ 
     Zendvermogen 		& void 	setPALevel (rf24\_pa\_dbm\_e level)	\\ 
     Aantal pogingen van ART instellen& void RF24::setRetries (uint8\_t delay, uint8\_t count )\\ 
     Adres van de zender instellen 	 & void	openWritingPipe (uint64\_t address)	\\

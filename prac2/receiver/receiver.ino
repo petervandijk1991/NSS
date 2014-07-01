@@ -23,8 +23,15 @@ void setup(void)
   // Setup and configure rf radio
   //
   radio.begin();
+  radio.printDetails();
+  radio.printDetails();
   radio.setChannel(125);
   radio.setRetries(0,0);
+  radio.printDetails();
+  radio.setRetries(15,15);
+  
+  Serial.print();
+  Serial.print(radio.getPALevel());
   radio.setPayloadSize(255);
   radio.setDataRate(RF24_2MBPS);
   radio.openReadingPipe(1,pipes[0]);
