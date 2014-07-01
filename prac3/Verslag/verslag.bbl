@@ -1,0 +1,19 @@
+\begin{thebibliography}{1}
+
+\bibitem{survey}
+B.~Sundararaman, U.~Buy, and A.~D. Kshemkalyani.
+\newblock Clock synchronization for wireless sensor networks: A survey.
+\newblock {\em Ad Hoc Networks (Elsevier}, 3:281--323, 2005.
+
+\bibitem{academic}
+S.~Theodoridis and R.~Chellappa.
+\newblock {\em Academic Press Library in Signal Processing: Signal Processing
+  Theory and Machine Learning}.
+\newblock Academic Press Library in Signal Processing. Elsevier Science, 2013.
+
+\bibitem{survey2}
+J.~Yick, B.~Mukherjee, and D.~Ghosal.
+\newblock Wireless sensor network survey.
+\newblock {\em Comput. Netw.}, 52(12):2292--2330, Aug. 2008.
+
+\end{thebibliography}

@@ -15,33 +15,29 @@
 \tableofcontents
 \clearpage
 \section{Inleiding}
-In de natuur zijn er verschillende vormen van synchronisatie. Aangezien synchronisatie een belangrijk punt is in de werking tussen verschillende nodes in een netwerk is het van belang om een goed algoritme hiervoor te hebben. Een bekende uit de natuur zijn vuurvliegjes die met elkaar synchroniseren wat zich uit in samen knipperen. Dit principe dat vuurvliegjes synchroon kunnen knipperen wordt ge\"{i}mplementeerd in een multihop netwerk. Door een algoritme te ontwikkelen moet het mogelijk zijn om nodes tegelijk te laten knipperen net zoals een groep vuurvliegjes. 
-\newpage
+In de natuur zijn er verschillende vormen van synchronisatie. Aangezien synchronisatie een belangrijk punt is in de werking tussen verschillende nodes in een netwerk is het van belang om een goed algoritme hiervoor te hebben. Een bekend voorbeeld uit de natuur zijn vuurvliegjes die met elkaar synchroniseren, wat zich uit in samen knipperen. Het algoritme dat vuurvliegjes gebruiken om synchroon te knipperen wordt ge\"{i}mplementeerd in een multi-hop netwerk. Door het algoritme te gebruiken moet het mogelijk zijn om nodes tegelijk te laten knipperen net zoals een groep vuurvliegjes. 
 \section{Probleemstelling}
-De probleemstelling die gesteld wordt is: \textit{"het synchroniseren van nodes in een multihop netwerk met als doel ze tegelijk te laten knipperen."}. Om dit netwerk te ontwikkelen moet er gekeken worden naar de eisen wat betreft omgeving en precieze werking. Een aantal eisen waar het netwerk aan moet voldoen:
+Het doel van dit onderzoek is het vinden van een algoritme om Arduino's te synchroniseren met behulp van radio's. Een aantal eisen waar dit algoritme aan moet voldoen zijn:
  \begin{itemize}
  \item Wanneer twee gesynchroniseerde netwerken worden samengevoegd dienen ze te synchroniseren.
  \item Wanneer een node uitvalt dient de synchronisatie nog te werken.
  \item Wanneer nodes toegevoegd worden aan het netwerk gaan deze met dezelfde frequentie knipperen als de andere nodes in het netwerk.
- \item Wanneer nodes uit sync raken moeten ze opnieuw synchroniseren. 
+ \item Wanneer nodes uit synchronisatie raken moeten ze opnieuw synchroniseren. 
  \end{itemize}
+Nu is vastgesteld aan welke eisen het algoritme moet voldoen kan er een hypothese opgesteld worden. Om ervoor te zorgen dat nieuwe nodes met dezelfde frequentie gaan knipperen als nodes die al langer in het netwerk verkeren zal er om de zoveel tijd opnieuw met alle nodes gesynchroniseerd moeten worden. Door dit in de implementatie toe te voegen zou dit ook moeten werken. Dit geldt ook voor de drie resterende bovengenoemde punten. 
 
-Nu is vastgesteld aan welke eisen het netwerk moet voldoen kan er een hypothese opgesteld worden. 
-Om ervoor te zorgen dat nieuwe nodes met dezelfde frequentie gaan knipperen als nodes die al langer in het netwerk verkeren zal er om de zoveel tijd opnieuw met alle nodes gesynchroniseerd moeten worden. Door dit in de implementatie toe te voegen zou dit ook moeten werken. Dit geldt ook voor de drie resterende bovengenoemde punten. 
-\newpage
 \section{Gerelateerd werk}
-Er zijn verschillende onderzoeken gedaan naar het onderwerp synchronisatie in een multihop netwerk. 
+Er zijn verschillende onderzoeken gedaan naar het onderwerp synchronisatie in een multi-hop netwerk. 
 Een paar papers welke dit onderwerp aansnijden zijn: 
 \begin{itemize}
 	\item Clock synchronization for wireless sensor networks: a survey
 	\item Wireless sensor network survey
 	\item Academic Press Library in Signal Processing, Chapter 2 – Synchronization
 \end{itemize}
-De bovenstaande drie papers gaan over synchronisatie in draadloze netwerken. De eerste paper - Clock synchronization for wireless sensor networks: a survey - evalueert bestaande kloksynchronisatie algoritmen gebaseerd op factoren zoals precisie, complexiteit, nauwkeurigheid en kosten. De tweede paper, Wireless sensor network, geeft een overzicht van bestaande draadloze netwerk implementaties op verschillende niveaus en als laatste geeft het boek Academic Press Library in Signal Processing een kort overzicht van tijd synchronisatie in een netwerk. 
-
+De bovenstaande drie papers gaan over synchronisatie in draadloze netwerken. De eerste paper - Clock synchronization for wireless sensor networks: a survey - evalueert bestaande kloksynchronisatie-algoritmen gebaseerd op factoren zoals precisie, complexiteit, nauwkeurigheid en kosten \cite{survey}. De tweede paper, Wireless sensor network survey, geeft een overzicht van bestaande draadloze netwerk implementaties op verschillende niveaus \cite{survey2} en als laatste geeft het boek Academic Press Library in Signal Processing een kort overzicht van tijd synchronisatie in een netwerk \cite{academic}. \\
+\\
 In Sectie 3.3 van de paper "Clock synchronization for wireless sensor networks: a survey" wordt gesproken over de verschillende mogelijkheden bij de implementatie en hoe deze in hun werk gaan. 
 Wanneer er een draadloos sensor netwerk ontwikkeld wordt zijn er een aantal factoren waar rekening mee gehouden moet worden. Hieronder staat een lijst weergegeven met de verschillende design-keuzes die gemaakt moeten worden.
-
 \begin{itemize}
 	\item Master-slave protocol versus peer-to-peer synchronisatie
 	\item Interne synchronisatie versus externe synchronisatie
@@ -49,12 +45,11 @@ Wanneer er een draadloos sensor netwerk ontwikkeld wordt zijn er een aantal fact
 	\item probabilistische versus deterministische synchronisatie
 \end{itemize}
 In Sectie 3.3 van de paper "Clock synchronization for wireless sensor networks: a survey" staan nog meer keuzemogelijkheden, deze zijn niet van belang voor dit experiment en zijn voor het gemak weggelaten. 
-In Appendix \ref{Terminologie} staat kort beschreven wat elke implementatie mogelijkheid inhoudt.
-\newline
-
-Afhankelijk van de eisen die aan het netwerk gesteld worden moet er voor bepaalde onderdelen gekozen worden. Eisen aan het netwerk zouden kunnen zijn: Er is geen server beschikbaar, het moet zo min mogelijk energie verbruiken zodat de nodes lang meegaan of de nodes staan ver uit elkaar. Dit zijn slechts een aantal voorbeelden. 
-
-In de tweede genoemde paper, Wireless sensor network survey, worden in sectie 6.2 meerdere synchronisatie algoritmen uitgelegd. De volgende algoritmen worden beschreven:
+In Appendix \ref{Terminologie} staat kort beschreven wat elke implementatiemogelijkheid inhoudt.\\
+\\
+Afhankelijk van de eisen die aan het netwerk gesteld worden moet er voor bepaalde onderdelen gekozen worden. Eisen aan het netwerk zouden kunnen zijn: Er is geen server beschikbaar, het moet zo min mogelijk energie verbruiken zodat de nodes lang meegaan of de nodes moeten over grotere afstand kunnen communiceren. Dit zijn slechts een aantal voorbeelden. \\
+\\
+In de tweede genoemde paper, Wireless sensor network survey, worden in sectie 6.2 meerdere synchronisatie-algoritmen uitgelegd. De volgende algoritmen worden beschreven:
 \begin{itemize}
 	\item Onzekerheid gedreven benadering
 	\item Lucarelli's algoritme
@@ -65,10 +60,9 @@ In de tweede genoemde paper, Wireless sensor network survey, worden in sectie 6.
 	\item globale synchronisatie
 	synchronisatie 
 \end{itemize}
-
-Het ge\"{i}mplementeerde algoritme wat in deze paper besproken wordt is gebaseerd op het vuurvlieg algoritme. Hoewel het ge\"{i}mplementeerde algoritme erop gebaseerd is, is het op sommige punten aangepast. 
-Het beschreven algoritme in de paper werkt als volgt: 
-Elke node in het netwerk werkt als een oscillator met een vastgestelde tijd T. Elke node heeft een interne tijd t die opgehoogd wordt totdat deze gelijk is aan T. Op tijd T zal de node een signaal sturen en zijn interne tijd t weer op 0 zetten. Buren van deze node die dit signaal ontvangen zullen de tijd tussen t en T verkleinen. Dit wordt bepaald door middel van een functie en een kleine constante. Na verloop van tijd zullen de nodes gelijk hun signaal versturen dus gesynchroniseerd zijn. in figuur \ref{fig: Firefly} is dit algoritme schematisch weergegeven. De bedoeling is dat alle nodes tegelijk een signaal gaan versturen na verloop van tijd.  
+Het ge\"{i}mplementeerde algoritme dat in deze paper besproken wordt is gebaseerd op het vuurvliegalgoritme. Hoewel het ge\"{i}mplementeerde algoritme erop gebaseerd is, is het op sommige punten aangepast. 
+Het vuurvliegalgoritme werkt als volgt: 
+Elke node in het netwerk werkt als een oscillator met een vastgestelde tijd $T$. Elke node heeft een interne tijd $t$ die opgehoogd wordt totdat deze gelijk is aan $T$. Op tijd $T$ zal de node een signaal sturen en zijn interne tijd $t$ weer op 0 zetten. Buren van deze node die dit signaal ontvangen zullen de tijd tussen $t$ en $T$ verkleinen. Dit wordt bepaald door middel van een functie en een kleine constante. Na verloop van tijd zullen de nodes gelijk hun signaal versturen dus gesynchroniseerd zijn. In Figuur \ref{fig: Firefly} is dit algoritme schematisch weergegeven. De bedoeling is dat alle nodes tegelijk een signaal gaan versturen na verloop van tijd.  
 \begin{figure}[h]
 \centering\includegraphics[scale=0.5]{Firefly}
 \caption{Het vuurvliegalgoritme zoals beschreven in de paper}
@@ -79,11 +73,9 @@ Elke node in het netwerk werkt als een oscillator met een vastgestelde tijd T. E
 \caption{Het ge\"{i}mplementeerde algoritme}
 \label{fig: Onze_implementatie}
 \end{figure}
-
 Het grote verschil tussen bovenstaande implementatie en de experimentele implementatie van deze paper is dat de t niet naar 0 wordt gezet maar het verschil tussen het luisteren naar berichten en het uitlezen van de berichten wordt bijgehouden. Op basis van deze tijd wordt er voor een bepaalde tijd geslapen waardoor er een vertraging optreedt. Door dit fenomeen synchroniseren na verloop van tijd de nodes in het netwerk. 
 \ref{fig: Onze_implementatie}
 
-\newpage
 \section{Ontwerp synchronisatiealgoritme}
 Het synchronisatie algoritme is gebaseerd op een master-slave structuur. In afbeelding \ref{fig: Schematisch} staat een schematische weergave van het netwerk zoals deze is gebruikt. Er zijn ID's meegegeven aan de nodes zodat er te zien is dat er \'{e}\'{e}n master is met \'{e}\'{e}n of meerdere slaves. 
 \begin{figure}[h]
@@ -202,9 +194,14 @@ Tijdens dit onderzoek was er slechts de beschikbaarheid over drie nodes. In een 
 	\item De mogelijkheden onderzoeken om in plaats van een gedecentraliseerd netwerk te ontwikkelen een gecentraliseerd netwerk te synchroniseren. Gebruik makende van de code en hier enkele aanpassingen aan te maken. 
 \end{itemize}
 \newpage
-\section{Bronnen}
+%\section{References}
+%\nocite{*} % Even non-cited BibTeX-Entries will be shown.
+\bibliographystyle{abbrv}
+\bibliography{literature}
+
 \newpage
 \appendix
+
 \section{Code Sender}
 \verbatiminput{./code/node.ino}
 \newpage

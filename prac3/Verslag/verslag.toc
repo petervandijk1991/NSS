@@ -1,14 +1,13 @@
 \select@language {dutch}
 \contentsline {section}{\numberline {1}Inleiding}{3}
-\contentsline {section}{\numberline {2}Probleemstelling}{4}
-\contentsline {section}{\numberline {3}Gerelateerd werk}{5}
-\contentsline {section}{\numberline {4}Ontwerp synchronisatiealgoritme}{8}
-\contentsline {subsection}{\numberline {4.1}Gebruikte instellingen}{8}
-\contentsline {subsection}{\numberline {4.2}Het eerste deel, slapen en versturen}{9}
-\contentsline {subsection}{\numberline {4.3}Het tweede deel, synchroniseren}{9}
-\contentsline {section}{\numberline {5}Testopstelling en resultaten van de test}{11}
-\contentsline {section}{\numberline {6}Conclusie en aanbevelingen}{13}
-\contentsline {subsection}{\numberline {6.1}Aanbevelingen}{13}
-\contentsline {section}{\numberline {7}Bronnen}{14}
-\contentsline {section}{\numberline {A}Code Sender}{15}
-\contentsline {section}{\numberline {B}Terminologie}{19}
+\contentsline {section}{\numberline {2}Probleemstelling}{3}
+\contentsline {section}{\numberline {3}Gerelateerd werk}{3}
+\contentsline {section}{\numberline {4}Ontwerp synchronisatiealgoritme}{5}
+\contentsline {subsection}{\numberline {4.1}Gebruikte instellingen}{6}
+\contentsline {subsection}{\numberline {4.2}Het eerste deel, slapen en versturen}{7}
+\contentsline {subsection}{\numberline {4.3}Het tweede deel, synchroniseren}{7}
+\contentsline {section}{\numberline {5}Testopstelling en resultaten van de test}{9}
+\contentsline {section}{\numberline {6}Conclusie en aanbevelingen}{11}
+\contentsline {subsection}{\numberline {6.1}Aanbevelingen}{11}
+\contentsline {section}{\numberline {A}Code Sender}{13}
+\contentsline {section}{\numberline {B}Terminologie}{17}
