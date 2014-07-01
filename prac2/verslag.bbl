@@ -1,6 +1,14 @@
 \begin{thebibliography}{1}
 
+\bibitem{wifi}
+Wireless \uppercase{LAN} \uppercase{M}edium \uppercase{A}ccess
+  \uppercase{C}ontrol (\uppercase{MAC}) and \uppercase{P}hysical
+  \uppercase{L}ayer (\uppercase{PHY}) specifications: Higher-speed physical
+  layer extension in the 2.4 \uppercase{GH}z band.
+\newblock {\em IEEE Std. 802.11b}, 1999.
+
 \bibitem{rf24}
-Rf24 class reference, May 2014.
+\uppercase{RF}24 \uppercase{C}lass \uppercase{R}eference.
+\newblock \url{http://maniacbug.github.io/RF24/classRF24.html}, May 2014.
 
 \end{thebibliography}

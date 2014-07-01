@@ -4,4 +4,6 @@ Database file #1: literature.bib
 Warning--entry type for "rf24" isn't style-file defined
 --line 1 of file literature.bib
 Warning--to sort, need author or key in rf24
-(There were 2 warnings)
+Warning--to sort, need author or key in wifi
+Warning--empty author in wifi
+(There were 4 warnings)

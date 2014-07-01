@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.5.7)  29 JUN 2014 23:29
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.5.7)  30 JUN 2014 12:09
 entering extended mode
 **verslag.tex
 (C:\Users\User\Desktop\School\NSS\prac2\verslag.tex
@@ -87,6 +87,10 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \epsfxsize=\dimen106
 \epsfysize=\dimen107
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\ltxmisc\url.sty"
+\Urlmuskip=\muskip10
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\verbatim.sty"
 Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks15
@@ -146,7 +150,7 @@ LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 \macc@depth=\count95
 \c@MaxMatrixCols=\count96
-\dotsspace@=\muskip10
+\dotsspace@=\muskip11
 \c@parentequation=\count97
 \dspbrk@lvl=\count98
 \tag@help=\toks18
@@ -168,18 +172,18 @@ LaTeX Info: Redefining \[ on input line 2665.
 LaTeX Info: Redefining \] on input line 2666.
 )
 (C:\Users\User\Desktop\School\NSS\prac2\verslag.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
 
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -203,7 +207,7 @@ Package caption Info: End \AtBeginDocument code.
 (C:\Users\User\Desktop\School\NSS\prac2\verslag.toc)
 \tf@toc=\write3
  [2]
-Underfull \hbox (badness 10000) in paragraph at lines 22--25
+Underfull \hbox (badness 10000) in paragraph at lines 23--26
 
  []
 
@@ -339,10 +343,10 @@ Overfull \hbox (137.99579pt too wide) in paragraph at lines 359--359
 
 [18] [19] (C:\Users\User\Desktop\School\NSS\prac2\verslag.aux) ) 
 Here is how much of TeX's memory you used:
- 3230 strings out of 493921
- 46510 string characters out of 3147286
- 115424 words of memory out of 3000000
- 6504 multiletter control sequences out of 15000+200000
+ 3305 strings out of 493921
+ 47414 string characters out of 3147286
+ 116513 words of memory out of 3000000
+ 6575 multiletter control sequences out of 15000+200000
  9537 words of font info for 35 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  36i,7n,38p,722b,269s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -355,7 +359,7 @@ amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
 cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10
 .pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:
 /Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on verslag.pdf (19 pages, 181729 bytes).
+Output written on verslag.pdf (19 pages, 183276 bytes).
 PDF statistics:
  103 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
