@@ -1,0 +1,43 @@
+time nacht    = 1000 ms;
+int ID        = random(0,1000);
+int berichten = 0;
+int hoogsteID, berichtNummer, vorigHoogsteID, vorigBerichtNummer;
+
+while(true){
+    //Eerste deel: synchronisatie
+        hoogsteID   = ID;
+        time deltaT = nacht;
+        timestamp t = nu();
+        vorigHoogsteID = hoogsteID;
+        vorigBerichtNummer = berichtNummer;
+        //eerste nacht
+            for(nacht){
+                if(radio.ontvang(){
+                    if(radio.bericht.hoogsteID > hoogsteID && 
+                        !(radio.bericht.hoogsteID == vorigHoogsteID
+                           && radio.bericht.berichtNummer == vorigBerichtNummer
+                        )
+                    ){
+                        deltaT = t - nu();
+                        hoogsteID = radio.bericht.hoogsteID;
+                        berichtNummer = radio.bericht.berichtNummer;
+                    }
+                }
+            }
+        //tweede nacht
+            //Als node niet master node is
+            if(hoogsteID != ID){
+                slaap(deltaT);
+                zendBericht;
+            }
+    //Tweede deel: slapen
+        for(int i=0;i<5;i++){
+            slaap(nacht);
+            zendBericht();    
+        }
+}
+
+func zendBericht(){
+    radio.zend([ID, hoogsteID, berichten]);
+    berichten++;
+}
