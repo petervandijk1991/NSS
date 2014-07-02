@@ -4,7 +4,12 @@
 \usepackage{epsfig}
 \usepackage{verbatim}
 \usepackage{moreverb}
+\usepackage{float}
 \usepackage{graphicx}
+\usepackage{framed}
+\usepackage{chngcntr}
+\usepackage{enumitem}
+\usepackage[font=bf]{caption}
 
 \author{Peter van Dijk \& Elizabeth Schermerhorn}
 \date{\today}
@@ -62,7 +67,7 @@ In de tweede genoemde paper, Wireless sensor network survey, worden in sectie 6.
 \end{itemize}
 Het ge\"{i}mplementeerde algoritme dat in deze paper besproken wordt is gebaseerd op het vuurvliegalgoritme. Hoewel het ge\"{i}mplementeerde algoritme erop gebaseerd is, is het op sommige punten aangepast. 
 Het vuurvliegalgoritme werkt als volgt: 
-Elke node in het netwerk werkt als een oscillator met een vastgestelde tijd $T$. Elke node heeft een interne tijd $t$ die opgehoogd wordt totdat deze gelijk is aan $T$. Op tijd $T$ zal de node een signaal sturen en zijn interne tijd $t$ weer op 0 zetten. Buren van deze node die dit signaal ontvangen zullen de tijd tussen $t$ en $T$ verkleinen. Dit wordt bepaald door middel van een functie en een kleine constante. Na verloop van tijd zullen de nodes gelijk hun signaal versturen dus gesynchroniseerd zijn. In Figuur \ref{fig: Firefly} is dit algoritme schematisch weergegeven. De bedoeling is dat alle nodes tegelijk een signaal gaan versturen na verloop van tijd.  
+Elke node in het netwerk werkt als een oscillator met een vastgestelde tijd $T$. Elke node heeft een interne tijd $t$ die opgehoogd wordt totdat deze gelijk is aan $T$. Op tijd $T$ zal de node een signaal sturen en zijn interne tijd $t$ weer op $0$ zetten. Buren van deze node die dit signaal ontvangen zullen de tijd tussen $t$ en $T$ verkleinen. Dit wordt bepaald door middel van een functie en een kleine constante. Na verloop van tijd zullen de nodes gelijk hun signaal versturen dus gesynchroniseerd zijn. In Figuur \ref{fig: Firefly} is dit algoritme schematisch weergegeven. De bedoeling is dat alle nodes tegelijk een signaal gaan versturen na verloop van tijd.  
 \begin{figure}[h]
 \centering\includegraphics[scale=0.5]{Firefly}
 \caption{Het vuurvliegalgoritme zoals beschreven in de paper}
@@ -73,19 +78,26 @@ Elke node in het netwerk werkt als een oscillator met een vastgestelde tijd $T$.
 \caption{Het ge\"{i}mplementeerde algoritme}
 \label{fig: Onze_implementatie}
 \end{figure}
-Het grote verschil tussen bovenstaande implementatie en de experimentele implementatie van deze paper is dat de t niet naar 0 wordt gezet maar het verschil tussen het luisteren naar berichten en het uitlezen van de berichten wordt bijgehouden. Op basis van deze tijd wordt er voor een bepaalde tijd geslapen waardoor er een vertraging optreedt. Door dit fenomeen synchroniseren na verloop van tijd de nodes in het netwerk. 
+Het grote verschil tussen bovenstaande implementatie en de experimentele implementatie van deze paper is dat de $t$ niet naar $0$ wordt gezet maar het verschil tussen het luisteren naar berichten en het uitlezen van de berichten wordt bijgehouden. Op basis van deze tijd wordt er voor een bepaalde tijd geslapen waardoor het tijdsverschil afneemt. Door dit fenomeen synchroniseren na verloop van tijd de nodes in het netwerk. 
 \ref{fig: Onze_implementatie}
 
 \section{Ontwerp synchronisatiealgoritme}
-Het synchronisatie algoritme is gebaseerd op een master-slave structuur. In afbeelding \ref{fig: Schematisch} staat een schematische weergave van het netwerk zoals deze is gebruikt. Er zijn ID's meegegeven aan de nodes zodat er te zien is dat er \'{e}\'{e}n master is met \'{e}\'{e}n of meerdere slaves. 
+Het synchronisatie-algoritme is gebaseerd op een master-slave structuur. In Figuur \ref{fig: Schematisch} staat een schematische weergave van het netwerk zoals deze is gebruikt. Er zijn ID's meegegeven aan de nodes zodat er te zien is dat er \'{e}\'{e}n master is met \'{e}\'{e}n of meerdere slaves. 
 \begin{figure}[h]
 \centering\includegraphics[scale=0.5]{testopstelling}
 \caption{Schematische weergave van de testopstelling}
 \label{fig: Schematisch}
 \end{figure}
-De master van het netwerk wordt bepaald aan de hand van een random nummer tussen 0 en 1000. Er is gekozen voor deze structuur aangezien er gesynchroniseerd moet worden. Het doel is om de nodes tegelijk te laten knipperen, om dit te laten werken moet de interne klok van de nodes exact gelijk lopen of in dit geval stuurt de master naar alle andere nodes zijn tijd zodat daarop gecorrigeerd kan worden. Binnen deze master-slave structuur is de implementatie verdeeld in twee alternerende delen.
-In het eerste deel wordt vijf maal achtereen alternerend de methode delay() aangeroepen en vervolgens een bericht verstuurd(De struct die hiervoor gebruikt is staat in de bijlage).
-In het tweede deel wordt er gesynchroniseerd, eerst wordt er voor 1000 milliseconden geluisterd of er berichten zijn ontvangen. Als er berichten zijn ontvangen worden deze verwerkt. Als laatste wordt er voor 1000 milliseconden geslapen en als laatste wordt er een bericht gestuurd. 
+Iedere node in het network krijgt een willekeurig ID tussen de $0$ en de $1000$. De master van het netwerk wordt gekozen aan de hand van het hoogste ID. Er is gekozen voor deze structuur aangezien er gesynchroniseerd moet worden op een gekozen node. Het doel is om de nodes tegelijk te laten knipperen, om dit te laten werken moet de interne klok van de nodes gelijk lopen. In onze implementatie detecteert een node wanneer de master wakker is en zal zijn interne klok corrigeren naar dit moment. Binnen deze master-slave structuur is de implementatie verdeeld in twee alternerende delen.
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+iets over bericht, iets over nacht
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+In het eerste deel wordt een aantal maal achtereen alternerend de Arduino en Radio in slaapstand gezet en vervolgens een bericht verstuurd.
+
+In het tweede deel wordt er gesynchroniseerd, eerst wordt er voor 
+een nacht geluisterd of er berichten zijn ontvangen. Als er berichten zijn ontvangen worden deze verwerkt. Als laatste wordt er voor een nacht geslapen en als laatste wordt er een bericht gestuurd. 
 
 Eerst zullen de gebruikte instellingen samen met het verstuurde signaal besproken worden. Daarna zullen de twee delen waaruit de implementatie bestaat toegelicht worden. 
 
@@ -93,13 +105,13 @@ Eerst zullen de gebruikte instellingen samen met het verstuurde signaal besproke
 Omdat er gebruik wordt gemaakt van de RF24 radio om berichten te versturen zijn hier instellingen voor gebruikt. 
 Instellingen gebruikt voor de RF24 radio:
 \begin{itemize}
-  \item radio.setRetries(0,0);
-  \item radio.setPayloadSize(sizeof(MESSAGE));
-  \item radio.setAutoAck(false);
+  \item hertransmissies: 0
+  \item pakketgrootte: grote van bericht)
+  \item geen automatische bevestiging bij ontvangen bericht
 \end{itemize}
-
-In de radio.setPayloadSize(sizeof(MESSAGE)) methode wordt er gebruik gemaakt van de grootte van MESSAGE. Dit is een zelf gedefinieerd struct wat in de header file is toegevoegd. Door dit struct te versturen kan er bij het ontvangen van een bericht dit snel uitgelezen worden zonder delimiters te moeten gebruiken. Deze struct bevat drie delen: ID van de zendernode, id van de tot dan toe hoogst bekende node en het aantal verstuurde berichten. 
-Er is gekozen om  het aantal berichten bij te houden zodat wanneer er oude berichten worden ontvangen, die bijvoorbeeld een delay hebben opgelopen, niet gebruikt worden om op te synchroniseren. 
+Om de pakketgrootte in te stellen wordt er gebruik gemaakt van de grootte van het bericht. Dit bericht is gedefini\"eerd in een  struct. Door dit struct te versturen kan er bij het ontvangen een bericht snel uitgelezen worden zonder delimiters te hoeven gebruiken. Deze struct bevat drie delen: ID van de zendernode, ID van de tot dan toe hoogst bekende node en het aantal verstuurde berichten. \\
+\\
+Er is gekozen om berichten een uniek nummer te geven per node, zodat verouderde berichten niet gebruikt worden om op te synchroniseren. Dit voorkomt dat nodes een ID van een uitgevallen node blijven versturen.
 De hoogste ID is nodig om te beslissen of een bepaalde node de master node is en of daarnaar geluisterd moet worden. 
 Als laatste is de ID van de Sender toegevoegd omdat dit de hoogste ID zou kunnen zijn in het netwerk. 
 De instelling radio.setAutoAck(false); zorgt ervoor dat er geen acknowledgement wordt verstuurd op het moment dat er een bericht binnen komt. Dit is gedaan omdat er anders niet gesynchroniseerd kan worden, er zou op willekeurige momenten een bericht verstuurd worden. 
@@ -134,13 +146,11 @@ sleepFor(1000 milliseconds);
 toggleLed();
 sendMessage();
 \end{verbatimtab}
-
 In bovenstaande code zal er eerst voor deltaT tijd geluisterd worden of er berichten worden ontvangen.
 De tijd deltaT is de essentie van de synchronisatie en is de tijd die nodig is tussen het luisteren voor berichten en het daadwerkelijk verwerken van de ontvangen berichten. door zo lang te luisteren zullen alle nodes uiteindelijk synchroniseren. De berichten die van de master node komen en een hoger bericht nummer dan het laatst bekende zullen alleen verwerkt worden. 
 Op het moment dat er een bericht is ontvangen zal alleen het LEDje getoggled worden. Anders zal er ook een nieuw bericht uitgezonden worden. Door hierna voor 1000 milliseconden te slapen blijft het LEDje of aan voor 1000 milliseconden of blijft uit voor 1000 milliseconden. Hierna zal opnieuw het LEDje getoggled worden en zal er weer een nieuw bericht verstuurd worden. Na deze synchronisatie periode zal er nu weer 5 maal deel \'{e}\'{e}n herhaald worden voordat deel twee weer herhaald wordt. 
-\newpage
 \section{Testopstelling en resultaten van de test}
-In deze paragraaf wordt het ge\"{i}mplementeerde algoritme onderzocht op hoe snale de synchronisatie plaatsvind bij verschillende afstanden. De hypothese is dat naarmate de afstand groter wordt de tijd om te synchroniseren toenaamt. Er is meer tijd nodig om de berichten te versturen dus zal het langer duren voor het synchroon gaat. De schematische opstelling hiervan is te zien in tabel \ref{tab: testresultaten} en de re\"{e}le opstelling zoals deze was is te zien in figuur \ref{fig: Nodes_tijdens_testen}. 
+In deze paragraaf wordt het ge\"{i}mplementeerde algoritme onderzocht op hoe snale de synchronisatie plaatsvind bij verschillende afstanden. De hypothese is dat naarmate de afstand groter wordt de tijd om te synchroniseren toenaamt. Er is meer tijd nodig om de berichten te versturen dus zal het langer duren voor het synchroon gaat. De schematische opstelling hiervan is te zien in Tabel \ref{tab: testresultaten} en de re\"{e}le opstelling zoals deze was is te zien in Figuur \ref{fig: Nodes_tijdens_testen}. 
 \begin{figure}[h]
 \centering\includegraphics[scale=0.09, angle=90]{Nodes_tijdens_testen}
 \caption{Testopstelling}
@@ -151,30 +161,28 @@ In deze paragraaf wordt het ge\"{i}mplementeerde algoritme onderzocht op hoe sna
 \begin{table}[h]
 	\centering\caption{Testresultaten}
 	\label{tab: testresultaten}
-    \begin{tabular}{ l | l | l | l |  l}
+    \begin{tabular}{| l | l | l | l |  l |}\hline
     \textbf{afstand } & \textbf{10 cm } & \textbf{25 cm} & \textbf{50 cm} & \textbf{100 cm} \\ \hline\hline
    1. & 4,33 seconden & 11,50 seconden& 7,40 seconden& 6,72 seconden\\ \hline
     2. & 4,72 seconden & 5,58 seconden& 17,46 seconden& 6,18 seconden\\ \hline
     3. & 4,07 seconden & 9,0 seconden& 8,84 seconden& 6,40 seconden\\ \hline
     4. & 3,82 seconden & 9,85 seconden& 12,54 seconden& 5,71 seconden\\ \hline
     5. & 7,92 seconden & 4,20 seconden& 8,87 seconden& 4,93 seconden\\ \hline \hline
-   gemiddelde & 4.972 seconden & 8.026 seconden& 11.22 seconden& 5.988 seconden
+   gemiddelde & 4.972 seconden & 8.026 seconden& 11.22 seconden& 5.988 seconden\\\hline
     \end{tabular}
 \end{table}
-
-In tabel 1 is te zien hoe de afstand van de nodes zich verhoudt tot de tijd die het neemt om te synchroniseren. Wat opmerkelijk is aan deze tabel is dat met een afstand van 50 centimeter de synchronisatie tijd soms meer dan twee keer zo lang neemt als wanneer er op een afstand van 100 centimeter wordt gesynchroniseerd. Twee mogelijke verklaringen voor dit fenomeen zijn:
+In Tabel \ref{tab: testresultaten} is te zien hoe de afstand van de nodes zich verhoudt tot de tijd die het neemt om te synchroniseren. Wat opmerkelijk is aan deze tabel is dat met een afstand van 50 centimeter de synchronisatie tijd soms meer dan twee keer zo lang neemt als wanneer er op een afstand van 100 centimeter wordt gesynchroniseerd. Twee mogelijke verklaringen voor dit fenomeen zijn:
 \begin{itemize}
 	\item Door interferentie met wi-fi is er op bepaalde momenten soms meer of minder bereik van de radio's.
 	\item door de gebruikte golflengtes van de radio kan het zijn dat er dode punten ontstaan zoals bij een satelliet. Er zijn bepaalde afstanden waar dit voor gebeurt en dit zou ook kunnen bij bijvoorbeeld 50 centimeter afstand. 
 \end{itemize}
-\newpage
 \section{Conclusie en aanbevelingen}
-De probleemstelling die gesteld werd is: \textit{"het synchroniseren van nodes in een multihop netwerk met als doel ze tegelijk te laten knipperen."}. Na het testen van de implementatie kan er geconcludeerd worden dat het experiment geslaagd is en dus de hypothese waar is. In tabel \ref{tab: Gestelde eisen} staan de eisen waar de implementatie aan voldoet. In het hoofdstuk :\textit{Ontwerp synchronisatie algoritme} en in \textit{Testopstellingen en resultaten} staan de implementatie en de testresultaten. 
+De probleemstelling die gesteld werd is: \textit{"het synchroniseren van nodes in een multihop netwerk met als doel ze tegelijk te laten knipperen."}. Na het testen van de implementatie kan er geconcludeerd worden dat het experiment geslaagd is en dus de hypothese waar is. In Tabel \ref{tab: Gestelde eisen} staan de eisen waar de implementatie aan voldoet. In het hoofdstuk :\textit{Ontwerp synchronisatie-algoritme} en in \textit{Testopstellingen en resultaten} staan de implementatie en de testresultaten. 
 \begin{table}[h]
 	\centering\caption{Gestelde eisen aan het netwerk}
 	\label{tab: Gestelde eisen}
-	\begin{tabular}{l|p{10cm}}
-	\textbf{nummer} & \textbf{eis} \\ \hline\hline
+	\begin{tabular}{|l|p{10cm}|}\hline
+	\textbf{nummer} & \textbf{eis} \\ \hline
 	1. & Wanneer twee gesynchroniseerde netwerken worden samengevoegd 
 	dienen ze te synchroniseren. \\ \hline
 	2. & Wanneer een node uitvalt dient de synchronisatie 
@@ -199,18 +207,23 @@ Tijdens dit onderzoek was er slechts de beschikbaarheid over drie nodes. In een 
 \bibliographystyle{abbrv}
 \bibliography{literature}
 
-\newpage
-\appendix
 
+
+\clearpage
+\appendix
+\counterwithin{figure}{section}
 \section{Code Sender}
 \verbatiminput{./code/node.ino}
 \newpage
+
 \section{Terminologie}
+
 \label{Terminologie}
-\begin{table}
-	\centering\caption{Toelichting op de implementatie mogelijkheden}
+\begin{table}[H]
+	\centering
+	\caption{Toelichting op de implementatie mogelijkheden}
 	\label{tab: implmentatie_mogelijkheden}
-    \begin{tabular}{  l | p{5cm} }
+    \begin{tabular}{ | l | p{5cm} |}\hline
     
     \textbf{Onderdeel} & \textbf{Uitleg} \\ \hline\hline
     Master-slave protocol & Er is een master node in het netwerk waar alle andere nodes naar luisteren, deze bepaald de synchronisatie \\ \hline
@@ -226,7 +239,8 @@ Tijdens dit onderzoek was er slechts de beschikbaarheid over drie nodes. In een 
     probabilistische synchronisatie & Geeft een probabilistische garantie van de maximum offset van de klok. \\
     \hline
     deterministische synchronisatie & Deze algoritme garanderen een bepaalde maximum offset van de klok. \\
-    
+    \hline
     \end{tabular}
 \end{table}
+
 \end{document}
