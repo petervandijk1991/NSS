@@ -6,8 +6,8 @@
 \contentsline {subsection}{\numberline {4.1}Gebruikte instellingen}{6}
 \contentsline {subsection}{\numberline {4.2}Het eerste deel, slapen en versturen}{7}
 \contentsline {subsection}{\numberline {4.3}Het tweede deel, synchroniseren}{7}
-\contentsline {section}{\numberline {5}Testopstelling en resultaten van de test}{9}
-\contentsline {section}{\numberline {6}Conclusie en aanbevelingen}{11}
-\contentsline {subsection}{\numberline {6.1}Aanbevelingen}{11}
-\contentsline {section}{\numberline {A}Code Sender}{13}
-\contentsline {section}{\numberline {B}Terminologie}{17}
+\contentsline {section}{\numberline {5}Testopstelling en resultaten van de test}{8}
+\contentsline {section}{\numberline {6}Conclusie en aanbevelingen}{9}
+\contentsline {subsection}{\numberline {6.1}Aanbevelingen}{10}
+\contentsline {section}{\numberline {A}Code Sender}{12}
+\contentsline {section}{\numberline {B}Terminologie}{16}
