@@ -7,8 +7,8 @@ RF24 radio(3, 9);
 const int audioPin = 1;
 const uint64_t pipes[1] = { 0xdeadbeefa1LL };
 
-int32_t x[4] = {0,72,294,372};
-int32_t y[4] = {75,0,0,136};
+int32_t x[4] = {100,200,300,400};
+int32_t y[4] = {20,0,0,20};
 
 uint8_t radio_received = 0;    //Received index of beacon
 unsigned long radio_stopped;   //t0

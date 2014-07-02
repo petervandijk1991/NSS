@@ -7,7 +7,7 @@
 \usepackage[font=bf]{caption}
 \usepackage{amsmath}
 
-\author{Peter van Dijk \& Elizabeth Schermerhorn}
+\author{Peter van Dijk s1102109 \& Elizabeth Schermerhorn s1223380}
 \date{\today}
 \title{Practicum 2 Betrouwbare communicatie}
 \begin{document}
@@ -44,7 +44,7 @@ Om deze hypothesen te toetsen moeten er metingen gedaan worden. Hier zijn versch
 
 %De gebruikte hardware
 \subsubsection{De hardware}
-De hardware die gebruikt is bij de metingen is een Arduino UNO en een Nordic nRF24L01 draadloze transceiver.
+De gebruikte hardware bestaat uit een Arduino UNO en een Nordic nRF24L01 draadloze transceiver.
 
 %de gebruikte software
 \subsubsection{De software}
@@ -81,7 +81,7 @@ Het aantal te versturen berichten is op 1000 gezet. Dit aantal is groot genoeg o
 \\
 \\
 De meetopstelling bestaat uit twee radio's welke 270cm uit elkaar geplaatst zijn. Om de resultaten consistent te houden moet bij elke meting deze afstand aangehouden worden. 
-Verder worden bericht niet opnieuw verzonden als er geen acknowledgement volgt, want dit betekent pakketverlies en dat moet gemeten worden. 
+Verder worden berichten niet opnieuw verzonden als er geen acknowledgement volgt, want dit betekent pakketverlies en dat moet gemeten worden. 
 
 \subsection{Resultaten en analyse}
 Hier zullen de resultaten weergegeven en geanalyseerd worden. \\
@@ -177,10 +177,12 @@ Het gebruikte protocol omvat de volgende zaken:
 	\item gebruik van routing tabel
 	\item zenden van hertransmissies
 \end{itemize}
-Het protocol zorgt ervoor dat wanneer er geen acknowledgement ontvangen wordt er een hertransmissie gestuurd wordt. Deze functionaliteit wordt geleverd door de RF24 opensourcesoftwarebibliotheek \cite{rf24}. Ter ondersteuning van deze hertransmissiefunctionaliteit worden er automatisch ACKs gezonden om te bevestigen dat een pakket correct ontvangen is. \emph{Deze ACKs en hertransmissies vinden alleen plaats per hop en niet tussen eindnodes.} Hier is voor gekozen omdat de PER moet worden gemeten van de verbinding tussen zender en ontvanger, waarbij hertransmissies de PER niet zouden veranderen, aangezien we geen onderscheid maken in de telling tussen het zenden van een nieuw pakket en het herzenden van een oud pakket.
+Het protocol zorgt ervoor dat wanneer er geen acknowledgement ontvangen wordt er een hertransmissie gestuurd wordt. Deze functionaliteit wordt geleverd door de RF24 opensourcesoftwarebibliotheek \cite{rf24}. Ter ondersteuning van deze hertransmissiefunctionaliteit worden er automatisch ACK's gezonden om te bevestigen dat een pakket correct ontvangen is. Deze ACK's en hertransmissies vinden niet alleen plaats per hop maar ook tussen eindnodes. Hier is voor gekozen omdat de PER moet worden gemeten van de verbinding tussen zender en ontvanger, waarbij hertransmissies de PER niet zouden veranderen, aangezien we geen onderscheid maken in de telling tussen het zenden van een nieuw pakket en het herzenden van een oud pakket.
+
+
 
 \subsubsection{Het netwerk}
-De gebruiktee netwerkopstelling bestaat uit drie nodes: een zender (\texttt{Sender}), een hopnode (\texttt{Hop}) en een ontvanger (\texttt{Receiver}). De zender zendt een bericht naar de hopnode, de hopnode zendt dit bericht naar de ontvanger, de ontvanger zendt een ACK (ontvangstbevestiging) naar de hopnode en de hopnode stuurt deze ACK door naar de zender. In de implementatie komt het protocol terug in alle nodes. Voor iedere verbinding waarover berichten verstuurd worden is er hertransmissiefunctionaliteit. Verder heeft de hopnode een grotere routing tabel, aangezien deze berichten moet doorsturen van zender naar ontvanger en andersom.
+De gebruiktee netwerkopstelling bestaat uit drie nodes: een zender (\texttt{Sender}), een hopnode (\texttt{Hop}) en een ontvanger (\texttt{Receiver}). De zender zendt een bericht naar de hopnode, de hopnode zendt dit bericht naar de ontvanger, de ontvanger zendt een ACK (ontvangstbevestiging) naar de hopnode en de hopnode stuurt deze ACK door naar de zender.  In de implementatie komt het protocol terug in alle nodes. Voor iedere verbinding waarover berichten verstuurd worden is er hertransmissiefunctionaliteit. Verder heeft de hopnode een grotere routing tabel, aangezien deze berichten moet doorsturen van zender naar ontvanger en andersom.
 
 \begin{figure}
 \centering 
@@ -190,7 +192,23 @@ De gebruiktee netwerkopstelling bestaat uit drie nodes: een zender (\texttt{Send
 \end{figure}
 
 \subsection{Methodologie}
-Om de onderzoeksvraag te kunnen beantwoorden is er een meetopstelling nodig. De meetopstelling is weergegeven in Figuur \ref{fig:hop} met een zendernode, een hopnode en een ontvangernode. De namen geven het al aan, de zender stuurt de berichten (en wacht op bevestiging), de hopnode stuurt de berichten door en de ontvanger ontvangt de berichten (en bevestigd de ontvangst).  
+Om de onderzoeksvraag te kunnen beantwoorden is er een meetopstelling nodig. De meetopstelling is weergegeven in Figuur \ref{fig:hop} met een zendernode, een hopnode en een ontvangernode. De namen geven het al aan, de zender stuurt de berichten (en wacht op bevestiging), de hopnode stuurt de berichten door en de ontvanger ontvangt de berichten (en bevestigd de ontvangst). In Figuur \ref{fig:hopstate} is het bijbehorende toestandsdiagram van de hop te zien. Hierin staat aangegeven hoe de hop  reageert op berichten die worden ontvangen van de zender en de ontvanger. In het toestandsdiagram zijn de acknowledgements op hopniveau weggelaten. Na 15 ongeslaagde hertransmissies op hopniveau treedt er een time-out op bij de zender. Deze is weergegeven in het diagram voor de zender. In Figuur \ref{fig:senderstate} staat het toestandsdiagram van de zender weergegeven. In dit diagram staat ook de ontvanger in het diagram aangezien er pakket verlies kan optreden. In Figuur \ref{fig:receiverstate} staat het toestandsdiagram van de ontvanger. In dit figuur zijn alleen de hop en de ontvanger opgenomen omdat voor de ontvanger het niet van belang is waar het bericht vandaan komt maar alleen dat er berichten worden ontvangen. 
+
+\begin{figure}
+\centering\epsfig{file=img/hopstate.png, width=\linewidth} 
+\caption{Toestandsdiagram van de hop}
+\label{fig:hopstate} %always place your label after your caption!
+\end{figure}
+\begin{figure}
+\centering\epsfig{file=img/receiverstate.png, width=\linewidth} 
+\caption{Toestandsdiagram van ontvanger}
+\label{fig:receiverstate} %always place your label after your caption!
+\end{figure}
+\begin{figure}
+\centering\epsfig{file=img/senderstate.png, width=\linewidth} 
+\caption{Toestandsdiagram van de zender}
+\label{fig:senderstate} %always place your label after your caption!
+\end{figure}
 
 \subsubsection{De software}
 
@@ -211,7 +229,7 @@ Deze constanten zullen tijdens het testen niet worden veranderd.
 
 \subsubsection{De hardware}
 
-Deze bestaat uit drie identieke nodes. Deze nodes zijn allemaal voorzien van een radio waarmee ze de berichten kunnen ontvangen en versturen. De nodes zijn op \'e\'en lijn geplaatst met 100 cm afstand tussen zender en hopnode en tussen hopnode en ontvanger. De experimenten zijn uitgevoerd in een netwerk waar nog meer radio\'s aan het sturen zijn.
+Deze bestaat uit drie identieke nodes. Deze nodes zijn allemaal voorzien van een radio waarmee ze de berichten kunnen ontvangen en versturen. De nodes zijn op \'e\'en lijn geplaatst met 100 cm afstand tussen zender en hopnode en tussen hopnode en ontvanger 100 cm. De experimenten zijn uitgevoerd in een netwerk waar nog meer radio\'s aan het sturen zijn.
  
 \subsection{Resultaten en analyse}
 
@@ -320,7 +338,7 @@ Het formaat van het datapakket bestaat uit verschillende delen, het adres, pakke
     
 \subsubsection{Automatische hertransmissie}
 
-Enhanced Shockburst heeft als eigenschap automatische pakketvalidatie. In ontvangstmodus zoekt de RF24 constant naar valide adressen welke gegeven zijn in RX\_ADDR registers. Op het moment dat een valide adres gedetecteerd wordt, zal Enhanced Shockburst het pakket gelijk valideren. Enhanced Shockburst is voorzien van een ART(Automatic Retransmission) functie. Door deze functie is Enhanced Shockburst in staat een pakket uit zichzelf opnieuw te versturen als er geen acknowledgement wordt ontvangen. Er zijn drie redenen waarom de ART functie stopt met het luisteren na het versturen van een pakket. De ART stopt met luisteren na:
+Enhanced Shockburst heeft als eigenschap automatische pakketvalidatie. In ontvangstmodus zoekt de RF24 constant naar valide adressen welke gegeven zijn in RX\_ADDR registers. Op het moment dat een valide adres gedetecteerd wordt, zal Enhanced Shockburst het pakket gelijk valideren. Enhanced Shockburst is voorzien van een ART(Automatic Retransmission) functie. Door deze functie is Enhanced Shockburst in staat een pakket uit zichzelf opnieuw te versturen als er geen acknowledgement wordt ontvangen. Er zijn drie redenen waarom de ART functie stopt met het luisteren na het versturen van een pakket. De ART stopt met luisteren na \'{e}en van de volgende gebeurtenissen:
 \begin{itemize}
 	\item Auto retransmit delay(ARD) is verlopen
 	\item Geen gematcht adres gevonden binnen 250$\mu$ s
