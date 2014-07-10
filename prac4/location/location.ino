@@ -15,7 +15,7 @@ unsigned long radio_stopped;   //t0
 unsigned long audio_started;   //t1
 uint32_t distance;             //(t1-t0)*speed_of_sound
 unsigned long speed_of_sound = 34421;//344.21 m/s = 34421 / 1000000 cm/us
-int offset = 17;                //7 cm
+int offset = 7;                //7 cm
 
 uint32_t distances[4];         //calculated distances
 int32_t x_coordinates[8];      //calculated coords
@@ -69,8 +69,13 @@ void loop(void)
     if(received){
       distance = (audio_started-radio_stopped)*speed_of_sound/1000000;
       distance = distance -offset;
-      if(distance< 550){//No false readings
-        distances[radio_received] = distance;
+      if(distance< 700){//No false readings
+        if(distance >= 0) {
+          distances[radio_received] = distance;
+        }
+        else {
+          distances[radio_received] = 0;
+        }
       }
     }  
     if(count == 3){

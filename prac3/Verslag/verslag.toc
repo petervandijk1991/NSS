@@ -10,5 +10,5 @@
 \contentsline {section}{\numberline {5}Testopstelling en resultaten van de test}{9}
 \contentsline {section}{\numberline {6}Conclusie en aanbevelingen}{10}
 \contentsline {subsection}{\numberline {6.1}Aanbevelingen}{10}
-\contentsline {section}{\numberline {A}Code Sender}{13}
+\contentsline {section}{\numberline {A}Code Node}{13}
 \contentsline {section}{\numberline {B}Terminologie}{17}
