@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.5.15)  10 JUL 2014 13:52
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.5.20)  10 JUL 2014 21:44
 entering extended mode
 **verslag.tex
-(C:\Users\Dell\NSS\prac4\verslag.tex
+(C:\Users\Peter\Desktop\School\NSS\prac4\verslag.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -13,9 +13,9 @@ german-x-2012-05-30, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
 ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
 an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
 ishmax, welsh, loaded.
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\article.cls"
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\size10.clo"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\size10.clo"
 File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -30,53 +30,53 @@ File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\babel.sty"
 Package: babel 2008/07/08 v3.8m The Babel package
 
 *************************************
 * Local config file bblopts.cfg used
 *
-("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\bblopts.cfg"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\bblopts.cfg"
 File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\babel\dutch.ldf"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\dutch.ldf"
 Language: dutch 2005/03/30 v3.8i Dutch support from the babel system
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\babel.def"
 File: babel.def 2008/07/08 v3.8m Babel common definitions
 \babel@savecnt=\count87
 \U@D=\dimen103
 )
 Package babel Info: Making " an active character on input line 132.
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\epsfig.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\epsfig.sty"
 Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\trig.sty"
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count88
@@ -87,30 +87,30 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \epsfxsize=\dimen106
 \epsfysize=\dimen107
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\verbatim.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\verbatim.sty"
 Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks15
 \verbatim@line=\toks16
 \verbatim@in@stream=\read1
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
 Package: amsmath 2013/01/14 v2.14 AMS math features
 \@mathmargin=\skip43
 
 For additional information on amsmath, use the `?' option.
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
 Package: amstext 2000/06/29 v2.01
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks17
 \ex@=\dimen108
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen109
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count89
@@ -151,7 +151,7 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 LaTeX Info: Redefining \[ on input line 2665.
 LaTeX Info: Redefining \] on input line 2666.
 )
-(C:\Users\Dell\NSS\prac4\verslag.aux)
+(C:\Users\Peter\Desktop\School\NSS\prac4\verslag.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
@@ -165,7 +165,7 @@ LaTeX Font Info:    ... okay on input line 11.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
 
-("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count101
 \scratchdimen=\dimen117
@@ -181,7 +181,7 @@ LaTeX Font Info:    ... okay on input line 11.
 ) [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-(C:\Users\Dell\NSS\prac4\verslag.toc)
+(C:\Users\Peter\Desktop\School\NSS\prac4\verslag.toc)
 \tf@toc=\write3
  [2]
 Overfull \hbox (115.79732pt too wide) in paragraph at lines 25--26
@@ -190,7 +190,7 @@ Overfull \hbox (115.79732pt too wide) in paragraph at lines 25--26
  []
 
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 27.
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
@@ -207,265 +207,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 57--58
 
  []
 
-[4] <berichten_bakens.png, id=22, 348.1005pt x 152.9715pt>
-File: berichten_bakens.png Graphic file (type png)
-
-<use berichten_bakens.png>
-Package pdftex.def Info: berichten_bakens.png used on input line 83.
-(pdftex.def)             Requested size: 348.09964pt x 152.9711pt.
-
+[4]
 Underfull \hbox (badness 10000) in paragraph at lines 70--84
 
  []
 
-
-Overfull \hbox (232.56306pt too wide) in paragraph at lines 70--84
-\OT1/cmr/m/n/10 een be-paald pa-troon in-for-ma-tie ver-zen-den. In gra-fiek []
- 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 86--91
-
- []
-
-
-Overfull \hbox (28.383pt too wide) in paragraph at lines 86--91
-[]$\OT1/cmr/m/n/10 (([\OML/cmm/m/it/10 laatstepakketnummer\OT1/cmr/m/n/10 ] \OM
-S/cmsy/m/n/10   \OT1/cmr/m/n/10 [\OML/cmm/m/it/10 eerstepakketnummer\OT1/cmr/m/
-n/10 ])\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 aantalontvangenpakke
-tten\OT1/cmr/m/n/10 ])$ 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 86--91
-
- []
-
-[5 <C:/Users/Dell/NSS/prac4/berichten_bakens.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 107--114
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--205
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--205
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--205
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--205
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--205
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--205
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--205
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--205
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--205
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--205
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--205
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--205
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--205
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--205
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--205
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--205
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--205
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--205
-
- []
-
-[6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 207--210
-
- []
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 220--222
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 228--230
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 234--238
-
- []
-
-[9
-
-] [10]
-Underfull \hbox (badness 10000) in paragraph at lines 281--311
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 281--311
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 281--311
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 281--311
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 281--311
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 281--311
-
- []
-
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 335--366
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 335--366
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 335--366
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 335--366
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 335--366
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 335--366
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 335--366
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 376--389
-
- []
-
-[12
-
-]
-Overfull \hbox (86.00642pt too wide) in paragraph at lines 413--424
-[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 413--424
-
- []
-
-[13]
-No file ./Sender/Sender.ino.
-No file ./receiver/receiver.ino.
-No file ./Hopnetwerk/Hop/hop.ino.
-[14] (C:\Users\Dell\NSS\prac4\verslag.aux) ) 
+[5] [6] (C:\Users\Peter\Desktop\School\NSS\prac4\verslag.aux) ) 
 Here is how much of TeX's memory you used:
- 2179 strings out of 493921
- 27271 string characters out of 3147285
- 96828 words of memory out of 3000000
- 5462 multiletter control sequences out of 15000+200000
- 9537 words of font info for 35 fonts, out of 3000000 for 9000
+ 2162 strings out of 493921
+ 27523 string characters out of 3144876
+ 87821 words of memory out of 3000000
+ 5454 multiletter control sequences out of 15000+200000
+ 10376 words of font info for 38 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 34i,7n,24p,722b,189s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
-/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Pro
-gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on verslag.pdf (14 pages, 210436 bytes).
+ 34i,6n,24p,1188b,188s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program File
+s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files 
+(x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x
+86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86)/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files (x86)/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on verslag.pdf (6 pages, 124407 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
+ 53 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
