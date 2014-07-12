@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.5.15)  12 JUL 2014 15:19
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.5.15)  12 JUL 2014 16:08
 entering extended mode
 **verslag.tex
 (C:\Users\Dell\NSS\prac4\verslag.tex
@@ -345,37 +345,42 @@ Underfull \hbox (badness 10000) in paragraph at lines 123--130
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 134--150
+Underfull \hbox (badness 10000) in paragraph at lines 134--179
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 152--173
+Underfull \hbox (badness 10000) in paragraph at lines 134--179
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 152--173
+Underfull \hbox (badness 10000) in paragraph at lines 134--179
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 152--173
+Underfull \hbox (badness 10000) in paragraph at lines 134--179
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 152--173
+Underfull \hbox (badness 10000) in paragraph at lines 134--179
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 152--173
+Underfull \hbox (badness 10000) in paragraph at lines 134--179
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 152--173
+Underfull \hbox (badness 10000) in paragraph at lines 134--179
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--179
 
  []
 
@@ -383,13 +388,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 152--173
 File: Meetopstelling.png Graphic file (type png)
 
 <use Meetopstelling.png>
-Package pdftex.def Info: Meetopstelling.png used on input line 177.
+Package pdftex.def Info: Meetopstelling.png used on input line 183.
 (pdftex.def)             Requested size: 155.38011pt x 128.27893pt.
  [8 <C:/Users/Dell/NSS/prac4/Meetopstelling.png>]
 [9] [10]
 File: ./location/location.ino  (verbatim)
 
-Overfull \hbox (38.24666pt too wide) in paragraph at lines 212--212
+Overfull \hbox (38.24666pt too wide) in paragraph at lines 218--218
 []\OT1/cmtt/m/n/10 unsigned long speed_of_sound = 34421;//344.21 m/s = 34421 / 
 1000000 cm/us[] 
  []
@@ -397,74 +402,74 @@ Overfull \hbox (38.24666pt too wide) in paragraph at lines 212--212
 [11
 
 ]
-Overfull \hbox (53.99652pt too wide) in paragraph at lines 212--212
+Overfull \hbox (53.99652pt too wide) in paragraph at lines 218--218
 []      \OT1/cmtt/m/n/10 else if(micros()-radio_stopped > 75000){//nothing rece
 ived after radio[] 
  []
 
 
-Overfull \hbox (22.4968pt too wide) in paragraph at lines 212--212
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 218--218
 []      \OT1/cmtt/m/n/10 distance = (audio_started-radio_stopped)*speed_of_soun
 d/1000000;[] 
  []
 
 
-Overfull \hbox (6.74693pt too wide) in paragraph at lines 212--212
+Overfull \hbox (6.74693pt too wide) in paragraph at lines 218--218
 []       \OT1/cmtt/m/n/10 calculateXY((counter%4) , ((counter+1)%4), ((counter+
 2)%4));[] 
  []
 
 [12]
-Overfull \hbox (22.4968pt too wide) in paragraph at lines 212--212
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 218--218
 []  \OT1/cmtt/m/n/10 long c1 = (((r1_r1)-(r3_r3))-((x1_x1)-(x3_x3))-((y1_y1)-(y
 3_y3)))/2;[] 
  []
 
 
-Overfull \hbox (22.4968pt too wide) in paragraph at lines 212--212
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 218--218
 []  \OT1/cmtt/m/n/10 long c2 = (((r2_r2)-(r3_r3))-((x2_x2)-(x3_x3))-((y2_y2)-(y
 3_y3)))/2;[] 
  []
 
 
-Overfull \hbox (1.49698pt too wide) in paragraph at lines 212--212
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 218--218
 []  \OT1/cmtt/m/n/10 long y = ((c2*10000) - m*(x3-x2))/(n*(x3-x2) + (10000*(y3-
 y2)));[] 
  []
 
 
-Overfull \hbox (22.4968pt too wide) in paragraph at lines 212--212
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 218--218
 []  \OT1/cmtt/m/n/10 //long y = ((c2) - (m*(x3-x2))/10000)/((n*(x3-x2))/10000 +
  (y3-y2));[] 
  []
 
 [13]
-Overfull \hbox (510.74254pt too wide) in paragraph at lines 212--212
+Overfull \hbox (510.74254pt too wide) in paragraph at lines 218--218
 []   \OT1/cmtt/m/n/10 int x_gemiddelde =  (x_coordinates[0]+x_coordinates[1]+x_
 coordinates[2]+x_coordinates[3]+x_coordinates[4]+x_coordinates[5]+x_coordinates
 [6]+x_coordinates[7])/8;[] 
  []
 
 
-Overfull \hbox (510.74254pt too wide) in paragraph at lines 212--212
+Overfull \hbox (510.74254pt too wide) in paragraph at lines 218--218
 []   \OT1/cmtt/m/n/10 int y_gemiddelde =  (y_coordinates[0]+y_coordinates[1]+y_
 coordinates[2]+y_coordinates[3]+y_coordinates[4]+y_coordinates[5]+y_coordinates
 [6]+y_coordinates[7])/8;[] 
  []
 
 
-Overfull \hbox (90.7462pt too wide) in paragraph at lines 212--212
+Overfull \hbox (90.7462pt too wide) in paragraph at lines 218--218
 []   \OT1/cmtt/m/n/10 printf("De gemiddelde x:%i  en y: %i waarden \n\r", x_gem
 iddelde, y_gemiddelde);[] 
  []
 
 [14]
-Overfull \hbox (61.61206pt too wide) in paragraph at lines 215--336
+Overfull \hbox (61.61206pt too wide) in paragraph at lines 221--342
 [] [] [] 
  []
 
 
-Overfull \hbox (31.52106pt too wide) in paragraph at lines 215--336
+Overfull \hbox (31.52106pt too wide) in paragraph at lines 221--342
 [] [] [] 
  []
 
@@ -489,7 +494,7 @@ es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX
 /type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
 ublic/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
 sfonts/cm/cmtt10.pfb>
-Output written on verslag.pdf (15 pages, 4243089 bytes).
+Output written on verslag.pdf (15 pages, 4242930 bytes).
 PDF statistics:
  106 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

@@ -121,7 +121,7 @@ Deze twee onderdelen zullen apart besproken worden voor de overzichtelijkheid.
 	
 \subsection{Afstand bepalen tot aan de bakens}
 	Zoals te zien is in Fig.\ref{uitzenden_bakens} wordt er eerst een radio signaal verstuurd gevolgd door een ultrasoon signaal. Het versturen van een ultrasoon bericht wordt door een master-baken bepaald. Als eerste wordt er door de master-baken een radio bericht uitgezonden naar iedereen met het bericht welke baken mag sturen. Omdat dit een radiosignaal is gaat dit met de snelheid van het licht, hierdoor is het verschil tussen de verschillende nodes die het op verschillende momenten ontvangen verwaarloosbaar. Op het moment dat het radio signaal ontvangen wordt, begint de desbetreffende baken direct met een ultrasoon geluid versturen. Doordat bekent is dat dit meteen gebeurt wordt er bijgehouden hoelang het duurt tussen het ontvangen van het radiosignaal en het ontvangen van ultrasoon geluid. Op het moment dat het bericht wordt ontvangen wordt er met behulp van de geluidssnelheid berekend wat de afstand tot het baken is. Met de formule:\newline
-	$ d_b = T_u- T_r * g $
+	$ d_b = (T_u- T_r) * g $
 	\newline\newline
 	$ d_b$ = afstand tot baken\newline
 	$T_u$ = Tijd ontvangen ultrasoon geluid\newline
@@ -147,9 +147,15 @@ $2*\begin{bmatrix}
        (r_2^2 - r_3^2) - (x_2^2 - x_3^2) - (y_2^2 - y_3^2) \\
      \end{bmatrix}$     
 \newline
-
-
-In de berekening staat de kleinste matrix met $x_u$ en $y_u$ voor de x en y co\"{o}rdinaten die berekend moeten worden van de arduino. Het cijfer wat is meegegeven aan de term staat voor de waarde die bij die bepaalde baken hoort. Dus $r_x$ staat voor de afstand tot aan baken x en $x_x$ staat voor voor het x-co"{o}rdinaat van baken x en $y_x$ staat voor de y-co\"{o}rdinaat van baken x. Doordat de te berekenen x en y co\"{o}rdinaten aan de linkerkant genest in de formule staan was het nodig om deze om te schrijven. De volgende hulpberekeningen volgden daaruit: \newline
+\newline
+De argumenten in bovenstaande berekening betekenen: \newline
+$x_u$ = de te berekenen x-co\"{o}rdinaat van de arduino.\newline
+$y_u$ = de te berekenen y-co\"{o}rdinaat van de arduino.\newline
+$x_x$ = het x-co\"{o}rdinaat van baken x.\newline
+$y_x$ = het y-co\"{o}rdinaat van baken x.\newline
+$r_x$ = de afstand van de arduino tot aan baken x.\newline
+\newline
+Doordat de te berekenen x en y co\"{o}rdinaten aan de linkerkant genest in de formule staan was het nodig om deze om te schrijven. De volgende hulpberekeningen volgden daaruit: \newline
 $c_1 = (((r_1*r_1)-(r_3*r_3))-((x_1*x_1)-(x_3*x_3))-((y_1*y_1)-(y_3*y_3)))/2 $
 \newline
 \newline

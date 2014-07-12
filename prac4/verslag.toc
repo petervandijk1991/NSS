@@ -12,6 +12,6 @@
 \contentsline {subsection}{\numberline {5.2}Trilateration}{7}
 \contentsline {section}{\numberline {6}Testopstelling en metingen}{8}
 \contentsline {section}{\numberline {7}Conclusie}{9}
-\contentsline {subsection}{\numberline {7.1}Aanbevelingen}{9}
+\contentsline {subsection}{\numberline {7.1}Aanbevelingen}{10}
 \contentsline {section}{\numberline {A}Code Trilateration}{11}
 \contentsline {section}{\numberline {B}Meetresultaten}{15}
