@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.5.20)  10 JUL 2014 21:44
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.5.20)  13 JUL 2014 00:14
 entering extended mode
 **verslag.tex
 (C:\Users\Peter\Desktop\School\NSS\prac4\verslag.tex
@@ -93,9 +93,64 @@ Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
 \verbatim@line=\toks16
 \verbatim@in@stream=\read1
 )
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\moreverb\moreverb.sty"
+Package: moreverb 2008/06/03 v2.3a `more' verbatim facilities
+\tab@position=\count89
+\tab@size=\count90
+\listing@line=\count91
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\float\float.sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count92
+\float@exts=\toks17
+\float@box=\box26
+\@float@everytoks=\toks18
+\@floatcapt=\box27
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\framed\framed.sty"
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip43
+\fb@frw=\dimen108
+\fb@frh=\dimen109
+\FrameRule=\dimen110
+\FrameSep=\dimen111
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\chngcntr\chngcntr.sty"
+Package: chngcntr 2009/09/02 v1.0a change counter resetting
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\enumitem\enumitem.sty"
+Package: enumitem 2011/09/28 v3.5.2 Customized lists
+\labelindent=\skip44
+\enit@outerparindent=\dimen112
+\enit@toks=\toks19
+\enit@inbox=\box28
+\enitdp@description=\count93
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\verbdef\verbdef.sty"
+Package: verbdef 2000/10/06 v0.2 define verbatim csnames
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\mh\mathtools.sty"
+Package: mathtools 2013/02/12 v1.13 mathematical typesetting tools
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\calc.sty"
+Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count94
+\calc@Bcount=\count95
+\calc@Adimen=\dimen113
+\calc@Bdimen=\dimen114
+\calc@Askip=\skip45
+\calc@Bskip=\skip46
+LaTeX Info: Redefining \setlength on input line 76.
+LaTeX Info: Redefining \addtolength on input line 77.
+\calc@Ccount=\count96
+\calc@Cskip=\skip47
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\mh\mhsetup.sty"
+Package: mhsetup 2010/01/21 v1.2a programming setup (MH)
+)
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
 Package: amsmath 2013/01/14 v2.14 AMS math features
-\@mathmargin=\skip43
+\@mathmargin=\skip48
 
 For additional information on amsmath, use the `?' option.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
@@ -103,136 +158,353 @@ Package: amstext 2000/06/29 v2.01
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0
-\@emptytoks=\toks17
-\ex@=\dimen108
+\@emptytoks=\toks20
+\ex@=\dimen115
 ))
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d
-\pmbraise@=\dimen109
+\pmbraise@=\dimen116
 )
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
 Package: amsopn 1999/12/14 v2.01 operator names
 )
-\inf@bad=\count89
+\inf@bad=\count97
 LaTeX Info: Redefining \frac on input line 210.
-\uproot@=\count90
-\leftroot@=\count91
+\uproot@=\count98
+\leftroot@=\count99
 LaTeX Info: Redefining \overline on input line 306.
-\classnum@=\count92
-\DOTSCASE@=\count93
+\classnum@=\count100
+\DOTSCASE@=\count101
 LaTeX Info: Redefining \ldots on input line 378.
 LaTeX Info: Redefining \dots on input line 381.
 LaTeX Info: Redefining \cdots on input line 466.
-\Mathstrutbox@=\box26
-\strutbox@=\box27
-\big@size=\dimen110
+\Mathstrutbox@=\box29
+\strutbox@=\box30
+\big@size=\dimen117
 LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
-\macc@depth=\count94
-\c@MaxMatrixCols=\count95
+\macc@depth=\count102
+\c@MaxMatrixCols=\count103
 \dotsspace@=\muskip10
-\c@parentequation=\count96
-\dspbrk@lvl=\count97
-\tag@help=\toks18
-\row@=\count98
-\column@=\count99
-\maxfields@=\count100
-\andhelp@=\toks19
-\eqnshift@=\dimen111
-\alignsep@=\dimen112
-\tagshift@=\dimen113
-\tagwidth@=\dimen114
-\totwidth@=\dimen115
-\lineht@=\dimen116
-\@envbody=\toks20
-\multlinegap=\skip44
-\multlinetaggap=\skip45
-\mathdisplay@stack=\toks21
+\c@parentequation=\count104
+\dspbrk@lvl=\count105
+\tag@help=\toks21
+\row@=\count106
+\column@=\count107
+\maxfields@=\count108
+\andhelp@=\toks22
+\eqnshift@=\dimen118
+\alignsep@=\dimen119
+\tagshift@=\dimen120
+\tagwidth@=\dimen121
+\totwidth@=\dimen122
+\lineht@=\dimen123
+\@envbody=\toks23
+\multlinegap=\skip49
+\multlinetaggap=\skip50
+\mathdisplay@stack=\toks24
 LaTeX Info: Redefining \[ on input line 2665.
 LaTeX Info: Redefining \] on input line 2666.
 )
+LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
+\g_MT_multlinerow_int=\count109
+\l_MT_multwidth_dim=\dimen124
+\origjot=\skip51
+\l_MT_shortvdotswithinadjustabove_dim=\dimen125
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen126
+\l_MT_above_intertext_sep=\dimen127
+\l_MT_below_intertext_sep=\dimen128
+\l_MT_above_shortintertext_sep=\dimen129
+\l_MT_below_shortintertext_sep=\dimen130
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\caption\caption.sty"
+Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\caption\caption3.sty"
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
+\captionmargin=\dimen131
+\captionmargin@=\dimen132
+\captionwidth=\dimen133
+\caption@tempdima=\dimen134
+\caption@indent=\dimen135
+\caption@parindent=\dimen136
+\caption@hangindent=\dimen137
+)
+\c@ContinuedFloat=\count110
+Package caption Info: float package is loaded.
+)
 (C:\Users\Peter\Desktop\School\NSS\prac4\verslag.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count101
-\scratchdimen=\dimen117
-\scratchbox=\box28
-\nofMPsegments=\count102
-\nofMParguments=\count103
-\everyMPshowfont=\toks22
-\MPscratchCnt=\count104
-\MPscratchDim=\dimen118
-\MPnumerator=\count105
-\makeMPintoPDFobject=\count106
-\everyMPtoPDFconversion=\toks23
-) [1
+\scratchcounter=\count111
+\scratchdimen=\dimen138
+\scratchbox=\box31
+\nofMPsegments=\count112
+\nofMParguments=\count113
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count114
+\MPscratchDim=\dimen139
+\MPnumerator=\count115
+\makeMPintoPDFobject=\count116
+\everyMPtoPDFconversion=\toks26
+)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+ [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
 (C:\Users\Peter\Desktop\School\NSS\prac4\verslag.toc)
 \tf@toc=\write3
  [2]
-Overfull \hbox (115.79732pt too wide) in paragraph at lines 25--26
-\OT1/cmr/m/n/10 se-ring mo-ge-lijk is. In [http://www.cl.cam.ac.uk/research/dtg
-/www/publications/public/files/tr.97.10.pdf]
+Overfull \hbox (107.40843pt too wide) in paragraph at lines 35--37
+\OT1/cmr/m/n/10 ring mo-ge-lijk is. In [http://www.cl.cam.ac.uk/research/dtg/ww
+w/publications/public/files/tr.97.10.pdf]
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 27.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 37.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 27.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 37.
 
-Underfull \hbox (badness 10000) in paragraph at lines 31--34
+Underfull \hbox (badness 10000) in paragraph at lines 41--44
 
+ []
+
+
+Overfull \hbox (0.7506pt too wide) in paragraph at lines 47--48
+\OT1/cmr/m/n/10 [Lo-ca-li-za-tion and Po-si-ti-o-ning, CH. 9] wor-den er twee m
+a-nie-ren be-spro-ken waarop
  []
 
 [3
 
+] <voorkant.jpg, id=18, 2055.68pt x 1541.76pt>
+File: voorkant.jpg Graphic file (type jpg)
+ <use voorkant.jpg>
+Package pdftex.def Info: voorkant.jpg used on input line 70.
+(pdftex.def)             Requested size: 123.33548pt x 92.5016pt.
+
+<achterkant.jpg, id=19, 2055.68pt x 1541.76pt>
+File: achterkant.jpg Graphic file (type jpg)
+ <use achterkant.jpg>
+Package pdftex.def Info: achterkant.jpg used on input line 75.
+(pdftex.def)             Requested size: 123.33548pt x 92.5016pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Ultrasonic-Range-Finderv2.jpg, id=20, 160.6pt x 329.23pt>
+File: Ultrasonic-Range-Finderv2.jpg Graphic file (type jpg)
+
+<use Ultrasonic-Range-Finderv2.jpg>
+Package pdftex.def Info: Ultrasonic-Range-Finderv2.jpg used on input line 83.
+(pdftex.def)             Requested size: 80.29979pt x 164.6146pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[4] <berichten_bakens.png, id=24, 348.1005pt x 152.9715pt>
+File: berichten_bakens.png Graphic file (type png)
+
+<use berichten_bakens.png>
+Package pdftex.def Info: berichten_bakens.png used on input line 113.
+(pdftex.def)             Requested size: 348.09964pt x 152.9711pt.
+
+Overfull \hbox (3.09964pt too wide) in paragraph at lines 113--114
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--117
+
+ []
+
+[5 <C:/Users/Peter/Desktop/School/NSS/prac4/voorkant.jpg> <C:/Users/Peter/Deskt
+op/School/NSS/prac4/achterkant.jpg>] [6 <C:/Users/Peter/Desktop/School/NSS/prac
+4/Ultrasonic-Range-Finderv2.jpg> <C:/Users/Peter/Desktop/School/NSS/prac4/beric
+hten_bakens.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 123--130
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 123--130
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--179
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--179
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--179
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--179
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--179
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--179
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--179
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--179
+
+ []
+
+[7] <Meetopstelling.png, id=40, 310.761pt x 256.5585pt>
+File: Meetopstelling.png Graphic file (type png)
+
+<use Meetopstelling.png>
+Package pdftex.def Info: Meetopstelling.png used on input line 183.
+(pdftex.def)             Requested size: 155.38011pt x 128.27893pt.
+ [8 <C:/Users/Peter/Desktop/School/NSS/prac4/Meetopstelling.png>] [9] [10]
+File: ./location/location.ino  (verbatim)
+
+Overfull \hbox (38.24666pt too wide) in paragraph at lines 218--218
+[]\OT1/cmtt/m/n/10 unsigned long speed_of_sound = 34421;//344.21 m/s = 34421 / 
+1000000 cm/us[] 
+ []
+
+[11
+
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 57--58
-
+Overfull \hbox (53.99652pt too wide) in paragraph at lines 218--218
+[]      \OT1/cmtt/m/n/10 else if(micros()-radio_stopped > 75000){//nothing rece
+ived after radio[] 
  []
 
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 70--84
 
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 218--218
+[]      \OT1/cmtt/m/n/10 distance = (audio_started-radio_stopped)*speed_of_soun
+d/1000000;[] 
  []
 
-[5] [6] (C:\Users\Peter\Desktop\School\NSS\prac4\verslag.aux) ) 
+
+Overfull \hbox (6.74693pt too wide) in paragraph at lines 218--218
+[]       \OT1/cmtt/m/n/10 calculateXY((counter%4) , ((counter+1)%4), ((counter+
+2)%4));[] 
+ []
+
+[12]
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 218--218
+[]  \OT1/cmtt/m/n/10 long c1 = (((r1_r1)-(r3_r3))-((x1_x1)-(x3_x3))-((y1_y1)-(y
+3_y3)))/2;[] 
+ []
+
+
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 218--218
+[]  \OT1/cmtt/m/n/10 long c2 = (((r2_r2)-(r3_r3))-((x2_x2)-(x3_x3))-((y2_y2)-(y
+3_y3)))/2;[] 
+ []
+
+
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 218--218
+[]  \OT1/cmtt/m/n/10 long y = ((c2*10000) - m*(x3-x2))/(n*(x3-x2) + (10000*(y3-
+y2)));[] 
+ []
+
+
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 218--218
+[]  \OT1/cmtt/m/n/10 //long y = ((c2) - (m*(x3-x2))/10000)/((n*(x3-x2))/10000 +
+ (y3-y2));[] 
+ []
+
+[13]
+Overfull \hbox (510.74254pt too wide) in paragraph at lines 218--218
+[]   \OT1/cmtt/m/n/10 int x_gemiddelde =  (x_coordinates[0]+x_coordinates[1]+x_
+coordinates[2]+x_coordinates[3]+x_coordinates[4]+x_coordinates[5]+x_coordinates
+[6]+x_coordinates[7])/8;[] 
+ []
+
+
+Overfull \hbox (510.74254pt too wide) in paragraph at lines 218--218
+[]   \OT1/cmtt/m/n/10 int y_gemiddelde =  (y_coordinates[0]+y_coordinates[1]+y_
+coordinates[2]+y_coordinates[3]+y_coordinates[4]+y_coordinates[5]+y_coordinates
+[6]+y_coordinates[7])/8;[] 
+ []
+
+
+Overfull \hbox (90.7462pt too wide) in paragraph at lines 218--218
+[]   \OT1/cmtt/m/n/10 printf("De gemiddelde x:%i  en y: %i waarden \n\r", x_gem
+iddelde, y_gemiddelde);[] 
+ []
+
+[14]
+Overfull \hbox (61.61206pt too wide) in paragraph at lines 222--343
+[] [] [] 
+ []
+
+
+Overfull \hbox (31.52106pt too wide) in paragraph at lines 222--343
+[] [] [] 
+ []
+
+[15] (C:\Users\Peter\Desktop\School\NSS\prac4\verslag.aux) ) 
 Here is how much of TeX's memory you used:
- 2162 strings out of 493921
- 27523 string characters out of 3144876
- 87821 words of memory out of 3000000
- 5454 multiletter control sequences out of 15000+200000
+ 4234 strings out of 493921
+ 63895 string characters out of 3144876
+ 145523 words of memory out of 3000000
+ 7476 multiletter control sequences out of 15000+200000
  10376 words of font info for 38 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 34i,6n,24p,1188b,188s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program File
-s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files 
-(x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x
-86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)
-/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86)/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files (x86)/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on verslag.pdf (6 pages, 124407 bytes).
+ 36i,8n,38p,990b,289s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files (
+x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files (x8
+6)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files (x86)/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files (x86)/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files (x86)/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86)/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files (x86)/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmtt10.pfb>
+Output written on verslag.pdf (15 pages, 809064 bytes).
 PDF statistics:
- 53 PDF objects out of 1000 (max. 8388607)
+ 106 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
