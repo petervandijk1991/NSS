@@ -18,20 +18,17 @@ unsigned long speed_of_sound = 34421;//344.21 m/s = 34421 / 1000000 cm/us
 int offset = 7;                //7 cm
 
 uint32_t distances[4];         //calculated distances
-int32_t x_coordinates[8];      //calculated coords
-int32_t y_coordinates[8];      //calculated coords
+int32_t x_crds[8];      	   //calculated coords
+int32_t y_crds[8];      	   //calculated coords
 
 int counter = 0;
+int count   = 0;
 boolean bereken = false;
-int count = 0;
 
 void setup(void)
 {
   Serial.begin(57600);
   printf_begin();
-  //
-  // Setup and configure rf radio
-  //
   radio.begin();
   radio.setChannel(76);
   radio.setRetries(0,0);
@@ -102,55 +99,33 @@ void calculateXY(int i, int j, int k){
   long r1 = distances[i];
   long r2 = distances[j];
   long r3 = distances[k];
-  
   long x1 = x[i];
   long x2 = x[j];
   long x3 = x[k];
-  
   long y1 = y[i];
   long y2 = y[j];
   long y3 = y[k];
-  
-  long r1_r1 = r1*r1;
-  long r2_r2 = r2*r2;
-  long r3_r3 = r3*r3;
-  long x1_x1 = x1*x1;
-  long x2_x2 = x2*x2;
-  long x3_x3 = x3*x3;
-  long y1_y1 = y1*y1;
-  long y2_y2 = y2*y2;
-  long y3_y3 = y3*y3;
 
-  //Beide c1 en c2 berekeningen gaan goed!
-  long c1 = (((r1_r1)-(r3_r3))-((x1_x1)-(x3_x3))-((y1_y1)-(y3_y3)))/2;
-  long c2 = (((r2_r2)-(r3_r3))-((x2_x2)-(x3_x3))-((y2_y2)-(y3_y3)))/2;
+  long c1 = (((r1*r1)-(r3*r3))-((x1*x1)-(x3*x3))-((y1*y1)-(y3*y3)))/2;
+  long c2 = (((r2*r2)-(r3*r3))-((x2*x2)-(x3*x3))-((y2*y2)-(y3*y3)))/2;
   
-  long n =(-((y3-y1)*10000)/(x3-x1)); // 0.2551020
-  long m = ((c1*10000)/(x3-x1));//32/6
+  long n =(-((y3-y1)*10000)/(x3-x1)); 
+  long m = ((c1*10000)/(x3-x1));
 
   long y = ((c2*10000) - m*(x3-x2))/(n*(x3-x2) + (10000*(y3-y2)));
-  //long y = ((c2) - (m*(x3-x2))/10000)/((n*(x3-x2))/10000 + (y3-y2));
   long x = ((n*y)+m)/10000; 
-  y = ((c2) - (m*(x3-x2))/10000)/((n*(x3-x2))/10000 + (y3-y2));  
-
-  
-  printf("[");
-  Serial.print(x);
-  printf(",");
-  Serial.print(y);
-  printf("]\n\r");
   
   if(!bereken){
-    x_coordinates[counter] = x;
-    y_coordinates[counter] = y;
+    x_crds[counter] = x;
+    y_crds[counter] = y;
   }else{
-    x_coordinates[counter+4] = x;
-    y_coordinates[counter+4] = y;
+    x_crds[counter+4] = x;
+    y_crds[counter+4] = y;
   }
 }
 
 void printGemiddelde(){
-   int x_gemiddelde =  (x_coordinates[0]+x_coordinates[1]+x_coordinates[2]+x_coordinates[3]+x_coordinates[4]+x_coordinates[5]+x_coordinates[6]+x_coordinates[7])/8;
-   int y_gemiddelde =  (y_coordinates[0]+y_coordinates[1]+y_coordinates[2]+y_coordinates[3]+y_coordinates[4]+y_coordinates[5]+y_coordinates[6]+y_coordinates[7])/8;
+   int x_gemiddelde =  (x_crds[0]+x_crds[1]+x_crds[2]+x_crds[3]+x_crds[4]+x_crds[5]+x_crds[6]+x_crds[7])/8;
+   int y_gemiddelde =  (y_crds[0]+y_crds[1]+y_crds[2]+y_crds[3]+y_crds[4]+y_crds[5]+y_crds[6]+y_crds[7])/8;
    printf("De gemiddelde x:%i  en y: %i waarden \n\r", x_gemiddelde, y_gemiddelde);
 }

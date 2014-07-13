@@ -1,0 +1,17 @@
+\begin{thebibliography}{1}
+
+\bibitem{rf24}
+\uppercase{RF}24 \uppercase{C}lass \uppercase{R}eference.
+\newblock \url{http://maniacbug.github.io/RF24/classRF24.html}, May 2014.
+
+\bibitem{h9}
+H.~Karl and A.~Willig.
+\newblock {\em Protocols and Architectures for Wireless Sensor Networks}.
+\newblock John Wiley \& Sons, 2005.
+
+\bibitem{ward97}
+A.~Ward, A.~Jones, and A.~Hopper.
+\newblock {A new location technique for the active office}.
+\newblock {\em IEEE Personal Communications}, 4(5):42--47, 1997.
+
+\end{thebibliography}

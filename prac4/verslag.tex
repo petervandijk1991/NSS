@@ -11,47 +11,38 @@
 \usepackage{enumitem}
 \usepackage{verbdef}
 \usepackage{mathtools}
-\usepackage{amsmath}
+\usepackage{url} 
 \usepackage[font=bf]{caption}
+\usepackage{amsmath}
 
 \author{Peter van Dijk \& Elizabeth Schermerhorn}
 \date{\today}
-\title{Localisatie met Arduino$`$s op basis van vier bakens}
+\title{Lokalisatie met Arduino$`$s op basis van vier bakens}
 \begin{document}
 \maketitle
 \newpage
 \tableofcontents
 \clearpage
 \section{Inleiding}
-In deze paper zal een localisatiealgoritme besproken worden. De localisatie zal gedaan worden op basis van vier bakens die een ultrasoon geluid uitzenden en een arduino met een ultrasoon ontvanger. Het doel van dit experiment is om binnen een 5m bij 5m veld de positie zo nauwkeurig mogelijk proberen te bepalen. Aan de hand van het ultrasone geluid in combinatie met een positiebepalings algoritme wordt nauwkeurig bepaald wat de co\"{o}rdinaten zijn. 
+De locatie van een meetinstrument kan van belang zijn bij het verrichtingen van metingen, bijvoorbeeld bij een branddetector in een bos. Er zijn verschillende algoritmes om een locatie te bepalen. In dit paper zal een lokalisatiealgoritme besproken worden. De besproken lokalisatie zal gedaan worden met behulp van vaste referentiepunten. Het doel van dit onderzoek is om binnen een veld van 5 bij 5 meter de positie zo nauwkeurig mogelijk proberen te bepalen. Aan de hand van het ultrasone geluid in combinatie met een positiebepalingsalgoritme wordt nauwkeurig bepaald wat de co\"{o}rdinaten zijn. 
 
 
 \section{Probleemstelling}
-De onderzoeksvraag die hier centraal staat: \textit{"Een algoritme opstellen waarmee met trilateratie de positie bepaald kan worden met 5 \% nauwkeurigheid."}
-De hypothese is dat dit een uitdaging is, er zijn veel factoren die van invloed zijn op de berekening van de trilateratie. Twee belangrijke factoren zullen de geluidssnelheid worden en de overflow(Getallen zijn te groot om te representeren) in arduino zijn. 
+De onderzoeksvraag die hier centraal staat: \textit{"Een algoritme opstellen waarmee met trilateratie de positie bepaald kan worden met enkele centimeters nauwkeurigheid."}
+De hypothese is dat dit een uitdaging is, er zijn veel factoren die van invloed zijn op de berekening van de trilateratie. Twee belangrijke factoren zullen de geluidssnelheid worden en de overflow (Getallen zijn te groot om te representeren) in Arduino zijn. 
 
 
 \section{Gerelateerd werk}
-Op dit gebied is er al veel onderzoek verricht. Hierdoor is er veel werk wat gebruikt kan worden bij het onderzoek. Aangezien dit een onderzoek is wat al vele malen is uitgevoerd is er veel gerelateerd werk wat is gebruikt in dit onderzoek. In deze twee papers worden er globale localisatie systemen beschreven en hoe deze gebruik maken van externe factoren. In de volgende twee papers worden er trilateratiealgoritmen gepresenteerd waarmee de exacte locatie bepaald kan worden. In de eerste twee papers worden twee manieren toegelicht waarop localisering mogelijk is. In [http://www.cl.cam.ac.uk/research/dtg/www/publications/public/files/tr.97.10.pdf] worden twee manieren beschreven, namelijk:
+Op dit gebied is er al veel onderzoek verricht. Hierdoor is er veel werk wat gebruikt kan worden bij het onderzoek. Aangezien dit een onderzoek is wat al vele malen is uitgevoerd is er veel gerelateerd werk dat is gebruikt in dit onderzoek. In deze twee papers worden er globale lokalisatie systemen (GPS) beschreven en hoe deze gebruik maken van externe factoren. In de volgende twee papers worden er trilateratiealgoritmen gepresenteerd waarmee de exacte locatie bepaald kan worden. In de eerste twee papers worden twee manieren toegelicht waarop lokalisering mogelijk is. In \textit{A New Location Technique for the Active Office} worden twee manieren beschreven \cite{ward97}, namelijk:
 \begin{itemize}
 	\item Active badges
 	\item ParcTab
 \end{itemize}
-
-Active Badges is gebasseerd op het periodiek verzenden van informatie naar iedereen. Door -bijvoorbeeld een gebouw - heen zijn er overal sensoren geplaatst die luisteren naar berichten die worden verstuurd door badges. Door vast te stellen welke sensoren het signaal van welke badge hebben ontvangen is het mogelijk een grove schatting te g
-even van de locatie van de badge.
-\newline 
-
-ParcTab is een PDA die gebruik maakt van infrarood voor het netwerk.Wat betreft de localisatie bepaling lijkt deze heel veel op de badges die hierboven staan beschreven. Er worden berichten verstuurd en afhankelijk van welke sensor deze ontvangen wordt de locatie bepaald. Een groot verschil is dat de ParcTab is bedoeld voor veel meer en intensiever gebruik dan alleen de localatie berekenen. 
-
-In de laatste twee papers, [http://en.wikipedia.org/wiki/Trilateration] en [Localization and Positioning, CH. 9] worden er twee manieren besproken waarop de GPS positie bepaald kan worden. 
-
-In hoofdstuk 9 van Localization and Positioning wordt er ook gebruik gemaakt van bakens die een signaal uitzenden. Er moet eerst berekend worden wat de afstand is tot de verschillende bakens. Voor dit algoritme is het van belang dat er minimaal tot drie bakens de locatie bekend is. Wanneer de afstand tot drie bakens bekend is wordt er gebruik gemaakt van matrixberekeningen om de locatie te bepalen. Dit is de implementatie die ook is gebruikt in het experiment wat in deze paper is gemaakt.
-\newline
-Een tweede positiebepaling die gebruikt zou kunnen worden heet triangulation. Ook hier wordt gebruik gemaakt van de afstand tot de bakens die een signaal verzenden. Dit algoritme lijkt veel op het algoritme uit CH9 maar hier wordt gebruik gemaakt van de berekening van cirkels waardoor er geen matrixberekeningen nodig zijn. 
-
-
-
+Active Badges is gebaseerd op het periodiek verzenden van informatie naar iedereen. Door bijvoorbeeld een gebouw heen zijn er overal sensoren geplaatst die luisteren naar berichten die worden verstuurd door badges. Door vast te stellen welke sensoren het signaal van welke badge hebben ontvangen is het mogelijk een grove schatting te geven van de locatie van de badge.\\
+\\
+ParcTab is een zakcomputer die gebruik maakt van een netwerk dat communiceert via infrarood signalen. Wat betreft de lokalisatie lijkt deze heel veel op de badges die hiervoor staan beschreven. Er worden berichten verstuurd en afhankelijk van welke sensor deze ontvangen wordt de locatie bepaald. Een groot verschil is dat de ParcTab is bedoeld voor intensiever gebruik dan alleen het berekenen van de locatie. \\
+\\
+In het algoritme in het hoofdstuk \textit{Localization and positioning} van \textit{Protocols and Architectures for Wireless Sensor Networks} wordt er gebruik gemaakt van bakens die een signaal uitzenden \cite{h9}. Met behulp van deze bakens kan op twee manieren een positie worden berekend: met \emph{triangulatie} en \emph{trilateratie}. Triangulatie maakt gebruik van de invalshoek om de positie te berekenen. Hierbij moeten de hoeken tot tenminste twee bakens en de afstand tussen de bakens bekend zijn. Trilateratie gebruikt de afstand tot de bakens om de positie te bepalen. Voor dit algoritme is het van belang dat er minimaal tot drie bakens de afstand bekend is. Wanneer de afstand tot drie bakens bekend is kan met een simpele matrixmultiplicatie de positie berekend worden. Dit is het algoritme dat ook is gebruikt in de in dit paper besproken oplossing.
 
 \section{Instellingen}
 Om deze hypothesen te toetsen moeten er metingen gedaan worden. Hier zijn verschillende zaken van belang. 
@@ -61,79 +52,68 @@ Om deze hypothesen te toetsen moeten er metingen gedaan worden. Hier zijn versch
 	\item De instellingen/vastgestelde constanten
 	\item De onderzoeksopstelling
 \end{itemize}
-
 %De gebruikte hardware
 \subsection{De hardware}
+
 \subsubsection{Ontvanger}
-De Hardware die gebruikt is bij het ontvangen van de signalen is een Arduino UNO en een Nordic nRF24L01 draadloze transceiver in combinatie met een ultrasoonontvanger. In Fig. \ref{voorkant} en \ref{achterkant} staat de gebruikte arduino vanuit twee posities bekeken.\\ 
+De Hardware die gebruikt is voor het ontvangen van de signalen is een Arduino UNO en een Nordic nRF24L01 draadloze transceiver in combinatie met een ultrasoonontvanger. In Figuur \ref{voorkant} en \ref{achterkant} staat de gebruikte ontvanger vanuit twee posities bekeken.
 \begin{figure}[h]
 \centering\includegraphics[scale=0.06]{voorkant.jpg}
-\caption{De gebruikte arduino(voorkant)}
+\caption{De ontvanger (voorkant)}
 \label{voorkant}
 \end{figure}
 \begin{figure}[h]
 \centering\includegraphics[scale=0.06]{achterkant.jpg}
-\caption{De gebruikte arduino(achterkant)}
+\caption{De ontvanger (achterkant)}
 \label{achterkant}
 \end{figure}
 
 \subsubsection{zender}
-Als zender is er gebruik gemaakt van vier bakens die een ultrasoon geluid uitzenden. Het signaal van deze bakens wordt verstuurd in de richting waarin ze wijzen. In Fig. \ref{baken} staat een schematische weergave van hoe een baken eruitziet. Er is duidelijk te zien dat het ultrasone geluid \'{e}\'{e}n kant uitgezonden wordt.
-\begin{figure}[h]
-\centering\includegraphics[scale=0.5]{Ultrasonic-Range-Finderv2.jpg}
-\caption{schematische baken}
-\label{baken}
-\end{figure}
-%de gebruikte software
+Als zender is er gebruik gemaakt van vier bakens die een ultrasoon geluid uitzenden. Het signaal van deze bakens wordt verstuurd in de richting waarin ze wijzen. Deze bakens bevatten hardware die vergelijkbaar is met die van de ontvanger, met als grote verschil dat er in plaats van een ultrasoonontvanger een ultrasoonzender is gebruikt.
+
 \subsection{De software}
-Om de hardware te gebruiken wordt gebruik gemaakt van de opensourcesoftwarebibliotheek voor de Arduino, die te vinden is op: \begin{verbatim}http://maniacbug.github.io/RF24/ \end{verbatim} 
-Met deze software kunnen de radio en ontvanger aangestuurd worden en kunnen pakketjes worden verzonden en ontvangen. De radio luistert en verstuurt pakketten over een bepaald kanaal. Het is van belang dat de radio's hetzelfde kanaal gebruiken, zodat ze met elkaar kunnen communiceren. De kanalen hebben een nummer van 0 tot en met 125. De radio heeft de volgende instellingen nodig:
+Om de RF24 radio aan te sturen wordt gebruik gemaakt van de opensourcesoftwarebibliotheek voor de Arduino \cite{rf24}. Met deze software kan de radio aangestuurd worden en kunnen pakketjes worden verzonden en ontvangen. De radio luistert en verstuurt pakketten over een bepaald frequentiekanaal. Het is van belang dat de radio's hetzelfde frequentiekanaal gebruiken, zodat ze met elkaar kunnen communiceren. De kanalen hebben een nummer van 0 tot en met 125. De gebruikte instellingen zijn als volgt:
 \begin{itemize}
-	\item Kanaal 76 
-	\item Automatisch herzenden Uit
+	\item Frequentiekanaal: 76 
+	\item Automatisch herzenden: uit
 	\item Transmissiesnelheid: 2 Mbps
-	\item Adres verzendende pipe: 0xdeadbeefa1LL
-	\item Payload-grootte 1 byte
+	\item Adres pipe: 0xdeadbeefa1
+	\item Payload-grootte: 1 byte
 \end{itemize}
-De ultrasoon ontvanger moet op een bepaalde manier aangesloten worden zodat deze geluid kan ontvangen:
-\newline
-\begin{tabular}{l| l}
-\hline
-afkorting & Wijze van aansluiten \\ \hline
-E & Verbinden met GND van Arduino \\
-GN & Verbinden met 5V van Arduino \\
-++ & Verbinden met 5V van Arduino \\
-GND & Verbinden met Ground van Arduino \\
-S & niet aansluiten \\
-\end{tabular}
-\\
-\\
-Om de tests te kunnen uitvoeren is er gebruik gemaakt van vier bakens die met een bepaald patroon informatie verzenden. In fig.  \ref{uitzenden_bakens} is schematisch weergegeven hoe de signaal verzending werkt. In het schema zijn vier dezelfde iteraties te zien. Omdat er gebruik wordt gemaakt van vier bakens staan er vier berichten in het schema weergegeven. 
+De ultrasoonontvanger gebruikt de volgende instellingen:
+\begin{itemize}
+	\item 40 kHz signaal: uit
+	\item Versterking: 50x
+\end{itemize}
+Om de tests te kunnen uitvoeren is er gebruik gemaakt van vier bakens die met een bepaald patroon informatie verzenden. In Figuur \ref{uitzenden_bakens} is schematisch weergegeven hoe de signaalverzending werkt. In het schema zijn vier dezelfde iteraties te zien. Omdat er gebruik wordt gemaakt van vier bakens staan er vier berichten in het schema weergegeven. 
 \begin{figure}[h]
 \centering\includegraphics[]{berichten_bakens.png}
 \caption{Het signaal van de bakens}
 \label{uitzenden_bakens}
 \end{figure}
 
-
 \section{Het algoritme}
-Het algoritme dat ge\"{i}mplementeerd is, bestaat uit twee verschillende onderdelen. Het eerste deel bestaat uit het berekenen van de afstand tot de bakens en het tweede deel uit de berekening van de uiteindelijke positiebepaling. Deze twee onderdelen zullen apart besproken worden voor de overzichtelijkheid.
+Het algoritme dat ge\"{i}mplementeerd is, bestaat uit twee verschillende onderdelen. Het eerste deel bestaat uit het berekenen van de afstand tot de bakens en het tweede deel uit de berekening van de positie. Deze twee onderdelen zullen apart besproken worden voor de overzichtelijkheid.
 	
 \subsection{Afstand bepalen tot aan de bakens}
-	Zoals te zien is in Fig.\ref{uitzenden_bakens} wordt er eerst een radio signaal verstuurd gevolgd door een ultrasoon signaal. Het versturen van een ultrasoon bericht wordt door een master-baken bepaald. Als eerste wordt er door de master-baken een radio bericht uitgezonden naar iedereen met het bericht welke baken mag sturen. Omdat dit een radiosignaal is gaat dit met de snelheid van het licht, hierdoor is het verschil tussen de verschillende nodes die het op verschillende momenten ontvangen verwaarloosbaar. Op het moment dat het radio signaal ontvangen wordt, begint de desbetreffende baken direct met een ultrasoon geluid versturen. Doordat bekent is dat dit meteen gebeurt wordt er bijgehouden hoelang het duurt tussen het ontvangen van het radiosignaal en het ontvangen van ultrasoon geluid. Op het moment dat het bericht wordt ontvangen wordt er met behulp van de geluidssnelheid berekend wat de afstand tot het baken is. Met de formule:\newline
-	$ d_b = (T_u- T_r) * g $
-	\newline\newline
-	$ d_b$ = afstand tot baken\newline
-	$T_u$ = Tijd ontvangen ultrasoon geluid\newline
-	$T_r$ = Tijd ontvangen radio\newline
-	$g$ = geluidssnelheid\newline
+Zoals te zien is in Figuur\ref{uitzenden_bakens} wordt er eerst een radiosignaal verstuurd, gevolgd door een ultrasoon signaal. De bakens gebruiken een master-slave opstelling, waarbij de master aangeeft wanneer elke slave mag sturen. Als eerste wordt er door de master-baken een radio uitzending uitgevoerd met als bericht het ID van de baken die vervolgens mag zenden. Omdat dit een radiosignaal is gaat dit met de snelheid van het licht, hierdoor is het tijdsverschil tussen de verschillende nodes die het op verschillende momenten ontvangen verwaarloosbaar. Op het moment dat het radiosignaal ontvangen wordt, begint de desbetreffende baken direct met het zenden van een ultrasoon geluid. Er is bekend dat dit meteen gebeurt, dus door bij te houden hoeveel tijd verstrijkt tussen het ontvangen van het radiosignaal en het ontvangen van het ultrasoon geluid kan er een schatting gemaakt worden van de afstand tussen baken en ontvanger door de geluidssnelheid te gebruiken. Deze berekening ziet er als volgt uit:\\
+\\
+	\indent$ d_b = (T_u- T_r) * g $\\
+	\\
+	Met:\\
+	\\
+	\indent$ d_b$: afstand tot baken\\
+	\indent$T_u$: tijd ontvangen ultrasoon geluid\\
+	\indent$T_r$: tijd ontvangen radio\\
+	\indent$g$: geluidssnelheid\\
+\\
+Het is van belang om een juiste geluidssnelheid te kiezen bij de omgeving waarin het systeem staat, de afwijkingen kunnen groot zijn. Dit proces van luisteren en berekenen herhaalt zich oneindig lang zodat wanneer de node in beweging is er nog steeds een correcte locatie berekend kan worden. 
 	
-	Het is van belang om een juiste geluidssnelheid te kiezen bij de omgeving waarin het systeem staat, de afwijkingen kunnen groot zijn. Dit proces van luisteren en berekenen herhaalt zich oneindig lang zodat wanneer de node in beweging is er nog steeds een correcte locatie berekend kan worden. 
-	
-\subsection{Trilateration}
-Nu van alle vier de bakens bekend is wat hun afstand is tot de node kan door middel van matrixberekeningen de positie worden bepaald. Hierbij is er gebruik gemaakt van [iets]. 
-De volgende berekening is gebruikt bij het berekenen van de locatie: \newline
-$2*\begin{bmatrix}
+\subsection{Trilateratie}
+Nu van alle vier de bakens bekend is wat hun afstand is tot de node kan door middel van matrixberekeningen de positie worden bepaald. Hierbij is er gebruik gemaakt van [iets]. Afstanden zijn gegeven in centimeter, tevens zijn co\"ordinaten weergegeven in centimeters afstand tot het nulpunt.
+De volgende berekening is gebruikt bij het berekenen van de locatie: \\
+\\
+\indent$2*\begin{bmatrix}
        x_3 - x_1 & y_3 - y_1 \\
        x_3 - x_2 & y_3 - y_2 \\          
                 
@@ -145,61 +125,57 @@ $2*\begin{bmatrix}
 =\begin{bmatrix}
        (r_1^2 - r_3^2) - (x_1^2 - x_3^2) - (y_1^2 - y_3^2) \\
        (r_2^2 - r_3^2) - (x_2^2 - x_3^2) - (y_2^2 - y_3^2) \\
-     \end{bmatrix}$     
-\newline
-\newline
-De argumenten in bovenstaande berekening betekenen: \newline
-$x_u$ = de te berekenen x-co\"{o}rdinaat van de arduino.\newline
-$y_u$ = de te berekenen y-co\"{o}rdinaat van de arduino.\newline
-$x_x$ = het x-co\"{o}rdinaat van baken x.\newline
-$y_x$ = het y-co\"{o}rdinaat van baken x.\newline
-$r_x$ = de afstand van de arduino tot aan baken x.\newline
-\newline
-Doordat de te berekenen x en y co\"{o}rdinaten aan de linkerkant genest in de formule staan was het nodig om deze om te schrijven. De volgende hulpberekeningen volgden daaruit: \newline
-$c_1 = (((r_1*r_1)-(r_3*r_3))-((x_1*x_1)-(x_3*x_3))-((y_1*y_1)-(y_3*y_3)))/2 $
-\newline
-\newline
-$c_2 = (((r_2*r_2)-(r_3*r_3))-((x_2*x_2)-(x_3*x_3))-((y_2*y_2)-(y_3*y_3)))/2 $
-\newline
-\newline
-$n =(-((y_3-y_1)*10000)/(x_3-x_1)) $
-\newline
-\newline
-$m = ((c_1*10000)/(x_3-x_1)) $
-\newline
-\newline
-$y = ((c_2*10000) - m*(x_3-x_2))/(n*(x_3-x_2) + (10000*(y_3-y_2))) $
-\newline
-\newline
-$x = ((n*y)+m)/10000 $
-\newline
-\newline
-Er wordt eerst vermenigvuldigd met 10000 om later weer te delen door 10000. Dit is gedaan omdat arduino's niet goed rekenen met floats, de oplossing hiervoor was de getallen groot houden zodat er geen komma getallen ontstaan. 
-Door de formules in deze volgorde uit te voeren worden de x en y uiteindelijk berekend. Doordat de afstand tot aan de bakens elke 400ms opnieuw wordt berekend geldt dit ook voor de x en y co\"{o}rdinaten. Elke keer als er een nieuwe afstand bekend is worden bovenstaande formules opnieuw berekend. 
+     \end{bmatrix}$ \\
+ \\
+Met: \\
+\\
+\indent$x_u$: de te berekenen x-co\"{o}rdinaat van de Arduino.\\
+\indent$y_u$: de te berekenen y-co\"{o}rdinaat van de Arduino.\\
+\indent$x_i$: het x-co\"{o}rdinaat van baken $i$.\\
+\indent$y_i$: het y-co\"{o}rdinaat van baken $i$.\\
+\indent$r_i$: de afstand van de Arduino tot aan baken $i$.\\
+\\
+Deze matrixmultiplicatie is om te schrijven naar de volgende formules, waarmee de x- en y-co\"ordinaten van de ontvanger te berekenen zijn: \\
+\\
+\indent$c_1 = (((r_1*r_1)-(r_3*r_3))-((x_1*x_1)-(x_3*x_3))-((y_1*y_1)-(y_3*y_3)))/2 $\\
+\\
+\indent$c_2 = (((r_2*r_2)-(r_3*r_3))-((x_2*x_2)-(x_3*x_3))-((y_2*y_2)-(y_3*y_3)))/2 $\\
+\\
+\indent$n =(-((y_3-y_1)*10000)/(x_3-x_1)) $\\
+\\
+\indent$m = ((c_1*10000)/(x_3-x_1)) $\\
+\\
+\indent$y_u = ((c_2*10000) - m*(x_3-x_2))/(n*(x_3-x_2) + (10000*(y_3-y_2))) $\\
+\\
+\indent$x_u = ((n*y)+m)/10000 $\\
+\\
+Wat opvalt aan deze berekening is dat er een aantal maal $10.000$ in staat. Deze factor is ge\"introduceerd om te voorkomen dat afkapping van getallen zorgt voor foute resultaten. Als deze factor niet gebruikt zou worden dan zouden tussenberekeningen een getal kleiner dan $1$ kunnen opleveren, wat afgekapt wordt tot $0$.  Hiermee doorrekenen levert incorrecte resultaten op. De factor wordt aan het einde weer weggedeeld, om het gewenste resultaat te verkrijgen. Een alternatief voor deze oplossing is het gebruik van decimale getallen, maar het rekenen hiermee is erg langzaam, daarom is daar niet voor gekozen.\\
+\\
+Doordat de afstand tot aan de bakens elke 400 milliseconden opnieuw wordt berekend geldt dit ook voor de x- en y-co\"{o}rdinaten. Voor elke vier nieuwe afstandsmetingen worden de x- en y-co\"ordinaten opnieuw berekend. Het algoritme maakt gebruik van alle vier de bakens en niet slechts drie voor de positiebepaling. Dit wordt gedaan als volgt. Voor elke combinatie van drie bakens wordt met behulp van de afstanden tot deze bakens met behulp van het hiervoor genoemde algoritme een set van co\"ordinaten berekend. Vervolgens wordt het gemiddelde genomen van de berekende sets co\"ordinaten. Dit zorgt er voor dat er voor kleine afwijkingen in afstandsberekening tot bakens gecompenseerd kan worden.
 
 \section{Testopstelling en metingen}
-Om de implementatie te testen is er gebruik gemaakt van een testopstelling zoals die in Fig. \ref{Meetopstelling} staat weergegeven.
+Om de implementatie te testen is er gebruik gemaakt van een testopstelling zoals die in Figuur \ref{Meetopstelling} staat weergegeven.
 \begin{figure}[h] 
 \centering\includegraphics[scale=0.5]{Meetopstelling.png}
 \caption{Meetopstelling}
 \label{Meetopstelling}
 \end{figure}
-De unisoonontvangers waarmee de signalen van de bakens worden ontvangen werden na vijf meter zeer onnauwkeurig dus is ervoor gekozen om binnen een veld van 5 bij 5 meter te werken. In het schema staan de vier bakens aangegeven met de oranje stippen samen met hun co\"{o}rdinaten. Met de roze stippen worden de testlocaties bedoeld waarop is getest. De bakens die zijn gebruikt versturen alleen signalen in de richting waarin ze wijzen. Hierdoor is het niet mogelijk correcte gegevens te verkrijgen wanneer er vanachter de bakens wordt gemeten. 
-\newline
-Tijdens het testen wordt een arduino met radio en unisoon ontvanger op een bepaald co\"{o}rdinaat geplaatst. Het is belangrijk dat deze locatie precies is anders ontstaat er een afwijking tussen de meetresultaten en de verwachte waarde. 
-Het is van belang bij het testen dat er gebruik wordt gemaakt van een "schoon" grid. Dit houdt in, geen obstakels die de metingen zouden kunnen verstoren zoals mensen die erdoorheen lopen. Alle tests zijn "schoon" uitgevoerd. 
-Op de volgende locaties zijn de volgende tests uitgevoerd.
-\newline
-Test1: De arduino wordt op het co\"{o}rdinaat (290, 434) geplaatst. \newline
-Test2: De arduino wordt op het co\"{o}rdinaat (60, 155) geplaatst. \newline
-Test3: De arduino wordt op het co\"{o}rdinaat (72, 377) geplaatst. \newline
-Verwacht wordt dat de metingen zeer nauwkeurig zullen zijn < 5\% afwijking. 
-In Appendix Meetresultaten staan alle meetresultaten van de drie tests verwerkt. In de tabellen staat de laatste waarde voor het gemiddelde wat werd berekend door de arduino. de overige waarden zijn 25 gemeten waarden op die positie. Te zien is dat de metingen niet hetzelfde zijn, ze fluctueren binnen een interval. Een paar redenen hiervoor zijn: 
+De unisoonontvangers waarmee de signalen van de bakens worden ontvangen werden op een afstand groter dan vijf meter zeer onnauwkeurig dus is ervoor gekozen om binnen een veld van 5 bij 5 meter te werken. In het schema staan de vier bakens aangegeven met de oranje stippen samen met hun co\"{o}rdinaten. Met de roze stippen worden de testlocaties bedoeld waarop is getest. De bakens die zijn gebruikt versturen alleen signalen in de richting waarin ze wijzen. Hierdoor is het niet mogelijk correcte gegevens te verkrijgen wanneer er vanachter de bakens wordt gemeten. \\
+\\
+Tijdens het testen wordt de ontvanger op een bepaald co\"{o}rdinaat geplaatst. Het is belangrijk dat deze locatie precies is, anders ontstaat er een afwijking tussen de meetresultaten en de verwachte waarde. 
+Het is van belang bij het testen dat er gebruik wordt gemaakt van een "schoon" grid. Dit houdt in, geen obstakels die de metingen zouden kunnen verstoren. Alle tests zijn "schoon" uitgevoerd. 
+Op de volgende locaties zijn de volgende tests uitgevoerd:\\
+\\
+\indent Test 1: De Arduino wordt op het co\"{o}rdinaat (290, 434) geplaatst. \\
+\indent Test 2: De Arduino wordt op het co\"{o}rdinaat (60, 155) geplaatst. \\
+\indent Test 3: De Arduino wordt op het co\"{o}rdinaat (72, 377) geplaatst. \\
+\\
+Verwacht wordt dat de metingen zeer nauwkeurig zullen zijn met slechts enkele centimers afwijking. 
+In Appendix \ref{Meetresultaten} staan alle meetresultaten van de drie tests verwerkt. In de tabellen staat de laatste waarde voor het gemiddelde dat werd berekend door de Arduino. de overige waarden zijn 25 gemeten waarden op die positie. Te zien is dat de metingen niet hetzelfde zijn, ze fluctueren binnen een interval. Een paar redenen hiervoor zijn: 
 \begin{itemize}
-	\item De node zit niet vast, iemand houdt de node vast en hier kan een paar centimeter verschil in zitten.
-	\item De geluidssnelheid is erg belangrijk voor de berekening en het is mogelijk dat voor die omgeving op dat moment de verkeerde geluidssnelheid was ingevoerd. 
-	\item De ultrasoon ontvanger ontvangt ook echo's die weerkaatsen op objecten. Deze foutieve metingen worden meegenomen in de berekening waardoor de waarde niet meer klopt. 
-	\item Hoewel er op gelet is dat er niemand door het grid heen loopt tijdens de metingen is het moeilijk om alles tegelijk in de gaten te houden en zou het kunnen voorkomen dat iemand erdoorheen gelopen is.
+	\item De ontvanger is bewogen tijdens de meting.
+	\item De geluidssnelheid is erg belangrijk voor de berekening en is niet correct afgestemd op de temperatuur en luchtvochtigheid van de ruimte. 
+	\item De ultrasoonontvanger ontvangt ook echo's die weerkaatsen op objecten. Deze foutieve metingen worden meegenomen in de berekening waardoor de waarde niet meer klopt. 
 \end{itemize}
 
 \section{Conclusie}
@@ -207,23 +183,32 @@ De onderzoeksvraag die hier centraal staat: \textit{"Een algoritme opstellen waa
 \subsection{Aanbevelingen} 
  Voor een vervolgonderzoek zou er naar de volgend punten gekeken kunnen worden.
  \begin{itemize}
- 	\item de overflow die ontstaat met het rekenen met integers, op het moment dat de arduino verder staat dan 6 meter bij de bakens vandaan ontstaat er overflow.
+ 	\item de overflow die ontstaat met het rekenen met integers, op het moment dat de Arduino verder staat dan zes meter bij de bakens vandaan ontstaat er overflow.
  	\item betere bakens en ontvangers, de signalen worden minder na 6 meter
  	\item een algoritme ontwerpen wat beter tegen verstoringen in het veld kan. 
  \end{itemize}
-\clearpage
+\newpage
+
+%\section{References}
+%\nocite{*} % Even non-cited BibTeX-Entries will be shown.
+\bibliographystyle{abbrv}
+\bibliography{literature}
+\newpage
 \appendix
 \counterwithin{figure}{section}
 \section{Code Trilateration}
+    \fontsize{8pt}{8pt}\selectfont
 \verbatiminput{./location/location.ino}
+    \fontsize{10pt}{12pt}\selectfont
 \newpage
 
 \section{Meetresultaten}
+\label{Meetresultaten}
 \begin{tabular}{ |l|l| }
   \hline
   \multicolumn{2}{|c|}{(290, 434)} \\
   \hline
-  x-coordinaat & y-coordinaat \\ \hline
+  x-co\"ordinaat & y-co\"ordinaat \\ \hline
      294 & 434\\ \hline
      296 & 445\\ \hline
      296 & 441\\ \hline
@@ -256,7 +241,7 @@ De onderzoeksvraag die hier centraal staat: \textit{"Een algoritme opstellen waa
   \hline
   \multicolumn{2}{|c|}{(60, 155)} \\
   \hline
-  x-coordinaat & y-coordinaat \\ \hline
+  x-co\"ordinaat & y-co\"ordinaat \\ \hline
      59 & 137\\ \hline
      57 & 147\\ \hline
      58 & 154\\ \hline
@@ -289,7 +274,7 @@ De onderzoeksvraag die hier centraal staat: \textit{"Een algoritme opstellen waa
   \hline
   \multicolumn{2}{|c|}{(72, 377)} \\
   \hline
-  x-coordinaat & y-coordinaat \\ \hline
+  x-co\"ordinaat & y-co\"ordinaat \\ \hline
      75 & 378\\ \hline
      77 & 383\\ \hline
      76 & 382\\ \hline
@@ -319,26 +304,29 @@ De onderzoeksvraag die hier centraal staat: \textit{"Een algoritme opstellen waa
      75,6 & 379,5 \\ \hline 
 \end{tabular}
 \newline
-\begin{tabular}{ |l|p{3,33cm}| }
+\begin{tabular}{ |l|p{3,1cm}| }
   \hline
-  \multicolumn{2}{|c|}{\%- afwijking(290, 434)} \\
+  \multicolumn{2}{|c|}{afwijking(290, 434) in cm} \\
   \hline
-  x & 0,34 \\ \hline
-  y & 0,011 \\ \hline
+  x & 2,9 \\ \hline
+  y & 5,1 \\ \hline
+  (x,y) & 5,87 \\ \hline
 \end{tabular}
-\begin{tabular}{ |l|p{3,33cm}| }
+\begin{tabular}{ |l|p{3,1cm}| }
   \hline
-  \multicolumn{2}{|c|}{\%- afwijking (60, 155)} \\
+  \multicolumn{2}{|c|}{afwijking (60, 155) in cm} \\
   \hline
-  x & 0,006 \\ \hline
-  y & 2,581 \\ \hline
+  x & 0,4 \\ \hline
+  y & 3,2 \\ \hline
+  (x,y) & 3,22 \\ \hline
 \end{tabular}
-\begin{tabular}{ |l|p{3,33cm}| }
+\begin{tabular}{ |l|p{3,1cm}| }
   \hline
-  \multicolumn{2}{|c|}{\%- afwijking(72,377)} \\
+  \multicolumn{2}{|c|}{afwijking(72,377) in cm} \\
   \hline
-  x & 5 \\ \hline
-  y & 0,531 \\ \hline
+  x & 3,6 \\ \hline
+  y & 2,5 \\ \hline
+  (x,y) & 4,38 \\ \hline
 \end{tabular}
 
 \end{document}
