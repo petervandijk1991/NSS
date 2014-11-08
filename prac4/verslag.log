@@ -1,11 +1,7 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.5.15)  14 JUL 2014 17:54
-=======
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.5.20)  8 NOV 2014 14:59
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.5.20)  8 NOV 2014 16:03
 entering extended mode
 **verslag.tex
-(C:\Users\Dell\NSS\prac4\verslag.tex
+(C:\Users\Peter\Desktop\School\NSS\prac4\verslag.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -17,9 +13,9 @@ german-x-2012-05-30, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
 ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
 an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
 ishmax, welsh, loaded.
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\article.cls"
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\size10.clo"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\size10.clo"
 File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -34,53 +30,53 @@ File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\babel.sty"
 Package: babel 2008/07/08 v3.8m The Babel package
 
 *************************************
 * Local config file bblopts.cfg used
 *
-("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\bblopts.cfg"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\bblopts.cfg"
 File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\babel\dutch.ldf"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\dutch.ldf"
 Language: dutch 2005/03/30 v3.8i Dutch support from the babel system
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\babel.def"
 File: babel.def 2008/07/08 v3.8m Babel common definitions
 \babel@savecnt=\count87
 \U@D=\dimen103
 )
 Package babel Info: Making " an active character on input line 132.
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\epsfig.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\epsfig.sty"
 Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\trig.sty"
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count88
@@ -91,19 +87,19 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \epsfxsize=\dimen106
 \epsfysize=\dimen107
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\verbatim.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\verbatim.sty"
 Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks15
 \verbatim@line=\toks16
 \verbatim@in@stream=\read1
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\moreverb\moreverb.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\moreverb\moreverb.sty"
 Package: moreverb 2008/06/03 v2.3a `more' verbatim facilities
 \tab@position=\count89
 \tab@size=\count90
 \listing@line=\count91
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\float\float.sty"
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count92
 \float@exts=\toks17
@@ -111,7 +107,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks18
 \@floatcapt=\box27
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\framed\framed.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\framed\framed.sty"
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \OuterFrameSep=\skip43
 \fb@frw=\dimen108
@@ -119,10 +115,10 @@ Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \FrameRule=\dimen110
 \FrameSep=\dimen111
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\chngcntr\chngcntr.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\chngcntr\chngcntr.sty"
 Package: chngcntr 2009/09/02 v1.0a change counter resetting
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\enumitem\enumitem.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\enumitem\enumitem.sty"
 Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \labelindent=\skip44
 \enit@outerparindent=\dimen112
@@ -130,13 +126,13 @@ Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \enit@inbox=\box28
 \enitdp@description=\count93
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\verbdef\verbdef.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\verbdef\verbdef.sty"
 Package: verbdef 2000/10/06 v0.2 define verbatim csnames
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\mh\mathtools.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\mh\mathtools.sty"
 Package: mathtools 2013/02/12 v1.13 mathematical typesetting tools
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\calc.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\calc.sty"
 Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count94
 \calc@Bcount=\count95
@@ -149,27 +145,27 @@ LaTeX Info: Redefining \addtolength on input line 77.
 \calc@Ccount=\count96
 \calc@Cskip=\skip47
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\mh\mhsetup.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\mh\mhsetup.sty"
 Package: mhsetup 2010/01/21 v1.2a programming setup (MH)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
 Package: amsmath 2013/01/14 v2.14 AMS math features
 \@mathmargin=\skip48
 
 For additional information on amsmath, use the `?' option.
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
 Package: amstext 2000/06/29 v2.01
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks20
 \ex@=\dimen115
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen116
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count97
@@ -222,15 +218,16 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 \l_MT_above_shortintertext_sep=\dimen129
 \l_MT_below_shortintertext_sep=\dimen130
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\ltxmisc\url.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ltxmisc\url.sty"
 \Urlmuskip=\muskip11
 Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty"
-Package: caption 2013/04/14 v3.3-73 Customizing captions (AR)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\caption\caption.sty"
+Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty"
-Package: caption3 2013/04/14 v1.5-71 caption3 kernel (AR)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\caption\caption3.sty"
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
 \captionmargin=\dimen131
 \captionmargin@=\dimen132
 \captionwidth=\dimen133
@@ -242,7 +239,7 @@ Package: caption3 2013/04/14 v1.5-71 caption3 kernel (AR)
 \c@ContinuedFloat=\count110
 Package caption Info: float package is loaded.
 )
-(C:\Users\Dell\NSS\prac4\verslag.aux)
+(C:\Users\Peter\Desktop\School\NSS\prac4\verslag.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
 LaTeX Font Info:    ... okay on input line 21.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
@@ -256,7 +253,7 @@ LaTeX Font Info:    ... okay on input line 21.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
 LaTeX Font Info:    ... okay on input line 21.
 
-("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count111
 \scratchdimen=\dimen138
@@ -275,89 +272,65 @@ Package caption Info: End \AtBeginDocument code.
  [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-(C:\Users\Dell\NSS\prac4\verslag.toc)
+(C:\Users\Peter\Desktop\School\NSS\prac4\verslag.toc)
 \tf@toc=\write3
  [2]
 Underfull \hbox (badness 10000) in paragraph at lines 27--30
 
-<<<<<<< HEAD
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
-=======
- []
-
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 39.
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 39.
-
-<<<<<<< HEAD
-<trilateratie.png, id=13, 240.9pt x 179.4705pt>
-File: trilateratie.png Graphic file (type png)
- <use trilateratie.png>
-Package pdftex.def Info: trilateratie.png used on input line 47.
-(pdftex.def)             Requested size: 180.67455pt x 134.60252pt.
-
-<triangulatie.png, id=14, 175.857pt x 126.4725pt>
-File: triangulatie.png Graphic file (type png)
- <use triangulatie.png>
-Package pdftex.def Info: triangulatie.png used on input line 52.
-(pdftex.def)             Requested size: 131.89243pt x 94.85413pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 41--56
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 42--47
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
-
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 41--56
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 42--47
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Underfull \hbox (badness 10000) in paragraph at lines 33--38
 
  []
 
 [3
 
-] [4 <C:/Users/Dell/NSS/prac4/trilateratie.png> <C:/Users/Dell/NSS/prac4/triang
-ulatie.png>] <voorkant.jpg, id=23, 2055.68pt x 1541.76pt>
+]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 43.
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 43.
+
+<trilateratie.png, id=18, 240.9pt x 179.4705pt>
+File: trilateratie.png Graphic file (type png)
+ <use trilateratie.png>
+Package pdftex.def Info: trilateratie.png used on input line 52.
+(pdftex.def)             Requested size: 180.67455pt x 134.60252pt.
+
+<triangulatie.png, id=19, 175.857pt x 126.4725pt>
+File: triangulatie.png Graphic file (type png)
+ <use triangulatie.png>
+Package pdftex.def Info: triangulatie.png used on input line 57.
+(pdftex.def)             Requested size: 131.89243pt x 94.85413pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--61
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--61
+
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[4] <voorkant.jpg, id=24, 2055.68pt x 1541.76pt>
 File: voorkant.jpg Graphic file (type jpg)
  <use voorkant.jpg>
-<<<<<<< HEAD
-Package pdftex.def Info: voorkant.jpg used on input line 71.
-=======
-Package pdftex.def Info: voorkant.jpg used on input line 62.
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Package pdftex.def Info: voorkant.jpg used on input line 76.
 (pdftex.def)             Requested size: 123.33548pt x 92.5016pt.
 
-<achterkant.jpg, id=24, 2055.68pt x 1541.76pt>
+<achterkant.jpg, id=25, 2055.68pt x 1541.76pt>
 File: achterkant.jpg Graphic file (type jpg)
  <use achterkant.jpg>
-<<<<<<< HEAD
-Package pdftex.def Info: achterkant.jpg used on input line 76.
-(pdftex.def)             Requested size: 123.33548pt x 92.5016pt.
- [5 <C:/Users/Dell/NSS/prac4/voorkant.jpg> <C:/Users/Dell/NSS/prac4/achterkant.
-jpg>]
-<berichten_bakens.png, id=28, 348.1005pt x 152.9715pt>
-File: berichten_bakens.png Graphic file (type png)
-
-<use berichten_bakens.png>
-Package pdftex.def Info: berichten_bakens.png used on input line 100.
-(pdftex.def)             Requested size: 348.09964pt x 152.9711pt.
-
-Overfull \hbox (3.09964pt too wide) in paragraph at lines 100--101
- [][] 
- []
-
-[6 <C:/Users/Dell/NSS/prac4/berichten_bakens.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 109--121
-=======
-Package pdftex.def Info: achterkant.jpg used on input line 67.
+Package pdftex.def Info: achterkant.jpg used on input line 81.
 (pdftex.def)             Requested size: 123.33548pt x 92.5016pt.
 
 
@@ -366,284 +339,161 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[4] [5 <C:/Users/Peter/Desktop/School/NSS/prac4/voorkant.jpg> <C:/Users/Peter/D
-esktop/School/NSS/prac4/achterkant.jpg>]
-<berichten_bakens.png, id=26, 348.1005pt x 152.9715pt>
+[5 <C:/Users/Peter/Desktop/School/NSS/prac4/trilateratie.png> <C:/Users/Peter/D
+esktop/School/NSS/prac4/triangulatie.png>]
+<berichten_bakens.png, id=29, 348.1005pt x 152.9715pt>
 File: berichten_bakens.png Graphic file (type png)
 
 <use berichten_bakens.png>
-Package pdftex.def Info: berichten_bakens.png used on input line 91.
+Package pdftex.def Info: berichten_bakens.png used on input line 105.
 (pdftex.def)             Requested size: 348.09964pt x 152.9711pt.
 
-Overfull \hbox (3.09964pt too wide) in paragraph at lines 91--92
+Overfull \hbox (3.09964pt too wide) in paragraph at lines 105--106
  [][] 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 100--112
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
-
- []
-
-
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 109--121
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 100--112
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+[6 <C:/Users/Peter/Desktop/School/NSS/prac4/voorkant.jpg> <C:/Users/Peter/Deskt
+op/School/NSS/prac4/achterkant.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 114--126
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 109--121
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 100--112
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Underfull \hbox (badness 10000) in paragraph at lines 114--126
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 109--121
+Underfull \hbox (badness 10000) in paragraph at lines 114--126
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 123--165
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 100--112
+Underfull \hbox (badness 10000) in paragraph at lines 114--126
 
  []
 
-[6 <C:/Users/Peter/Desktop/School/NSS/prac4/berichten_bakens.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 114--156
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+[7 <C:/Users/Peter/Desktop/School/NSS/prac4/berichten_bakens.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 128--170
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 123--165
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 114--156
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Underfull \hbox (badness 10000) in paragraph at lines 128--170
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 123--165
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 114--156
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Underfull \hbox (badness 10000) in paragraph at lines 128--170
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 123--165
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 114--156
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Underfull \hbox (badness 10000) in paragraph at lines 128--170
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 123--165
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 114--156
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Underfull \hbox (badness 10000) in paragraph at lines 128--170
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 123--165
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 114--156
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Underfull \hbox (badness 10000) in paragraph at lines 128--170
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 123--165
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 114--156
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Underfull \hbox (badness 10000) in paragraph at lines 128--170
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 123--165
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 114--156
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Underfull \hbox (badness 10000) in paragraph at lines 128--170
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 123--165
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 114--156
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Underfull \hbox (badness 10000) in paragraph at lines 128--170
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 123--165
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 114--156
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Underfull \hbox (badness 10000) in paragraph at lines 128--170
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 123--165
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 114--156
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Underfull \hbox (badness 10000) in paragraph at lines 128--170
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 123--165
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 114--156
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Underfull \hbox (badness 10000) in paragraph at lines 128--170
 
  []
 
-[7] <Meetopstelling.png, id=38, 310.761pt x 256.5585pt>
+[8] <Meetopstelling.png, id=44, 310.761pt x 256.5585pt>
 File: Meetopstelling.png Graphic file (type png)
 
 <use Meetopstelling.png>
-<<<<<<< HEAD
-Package pdftex.def Info: Meetopstelling.png used on input line 169.
+Package pdftex.def Info: Meetopstelling.png used on input line 174.
 (pdftex.def)             Requested size: 155.38011pt x 128.27893pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 167--186
-=======
-Package pdftex.def Info: Meetopstelling.png used on input line 160.
-(pdftex.def)             Requested size: 155.38011pt x 128.27893pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 158--177
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Underfull \hbox (badness 10000) in paragraph at lines 172--191
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 167--186
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 158--177
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Underfull \hbox (badness 10000) in paragraph at lines 172--191
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 167--186
+Underfull \hbox (badness 10000) in paragraph at lines 172--191
 
  []
 
-[8] [9 <C:/Users/Dell/NSS/prac4/Meetopstelling.png>] [10]
-(C:\Users\Dell\NSS\prac4\verslag.bbl) [11]
+[9 <C:/Users/Peter/Desktop/School/NSS/prac4/Meetopstelling.png>] [10] [11]
+(C:\Users\Peter\Desktop\School\NSS\prac4\verslag.bbl) [12]
 File: ./location/location.ino  (verbatim)
- [12]
-Overfull \hbox (109.75653pt too wide) in paragraph at lines 212--212
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 158--177
-
- []
-
-[8 <C:/Users/Peter/Desktop/School/NSS/prac4/Meetopstelling.png>] [9] [10]
-(C:\Users\Peter\Desktop\School\NSS\prac4\verslag.bbl) [11]
-File: ./location/location.ino  (verbatim)
- [12]
-Overfull \hbox (109.75653pt too wide) in paragraph at lines 202--202
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+ [13]
+Overfull \hbox (109.75653pt too wide) in paragraph at lines 217--217
 []   \OT1/cmtt/m/n/8 int x_gemiddelde =  (x_crds[0]+x_crds[1]+x_crds[2]+x_crds[
 3]+x_crds[4]+x_crds[5]+x_crds[6]+x_crds[7])/8;[] 
  []
 
 
-<<<<<<< HEAD
-Overfull \hbox (109.75653pt too wide) in paragraph at lines 212--212
-=======
-Overfull \hbox (109.75653pt too wide) in paragraph at lines 202--202
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Overfull \hbox (109.75653pt too wide) in paragraph at lines 217--217
 []   \OT1/cmtt/m/n/8 int y_gemiddelde =  (y_crds[0]+y_crds[1]+y_crds[2]+y_crds[
 3]+y_crds[4]+y_crds[5]+y_crds[6]+y_crds[7])/8;[] 
  []
 
 
-<<<<<<< HEAD
-Overfull \hbox (7.75507pt too wide) in paragraph at lines 212--212
-=======
-Overfull \hbox (7.75507pt too wide) in paragraph at lines 202--202
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Overfull \hbox (7.75507pt too wide) in paragraph at lines 217--217
 []   \OT1/cmtt/m/n/8 printf("De gemiddelde x:%i  en y: %i waarden \n\r", x_gemi
 ddelde, y_gemiddelde);[] 
  []
 
-[13]
-<<<<<<< HEAD
-Overfull \hbox (59.94534pt too wide) in paragraph at lines 218--342
-=======
-Overfull \hbox (59.94534pt too wide) in paragraph at lines 208--332
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+[14]
+Overfull \hbox (59.94534pt too wide) in paragraph at lines 223--347
 [] [] [] 
  []
 
 
-<<<<<<< HEAD
-Overfull \hbox (59.38916pt too wide) in paragraph at lines 218--342
+Overfull \hbox (59.38916pt too wide) in paragraph at lines 223--347
 [] [] [] 
  []
 
-[14] (C:\Users\Dell\NSS\prac4\verslag.aux) ) 
-=======
-Overfull \hbox (59.38916pt too wide) in paragraph at lines 208--332
-[] [] [] 
- []
-
-[14] (C:\Users\Peter\Desktop\School\NSS\prac4\verslag.aux) ) 
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+[15] (C:\Users\Peter\Desktop\School\NSS\prac4\verslag.aux) ) 
 Here is how much of TeX's memory you used:
- 4313 strings out of 493921
- 64143 string characters out of 3147285
- 147457 words of memory out of 3000000
- 7546 multiletter control sequences out of 15000+200000
+ 4325 strings out of 493921
+ 65044 string characters out of 3144876
+ 147608 words of memory out of 3000000
+ 7558 multiletter control sequences out of 15000+200000
  10544 words of font info for 39 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
-<<<<<<< HEAD
  36i,8n,38p,1049b,311s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
-/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.p
-fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmtt8.pfb>
-Output written on verslag.pdf (14 pages, 850442 bytes).
-PDF statistics:
- 108 PDF objects out of 1000 (max. 8388607)
-=======
- 36i,8n,38p,1049b,289s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (
 x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files (x8
 6)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)
@@ -658,10 +508,9 @@ pe1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
 1/public/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/
 public/amsfonts/cm/cmtt10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pu
 blic/amsfonts/cm/cmtt8.pfb>
-Output written on verslag.pdf (14 pages, 814249 bytes).
+Output written on verslag.pdf (15 pages, 853417 bytes).
 PDF statistics:
- 106 PDF objects out of 1000 (max. 8388607)
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+ 111 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
