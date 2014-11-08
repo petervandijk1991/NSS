@@ -33,7 +33,7 @@ In dit paper zal het door ons ge\"{i}mplementeerde lokalisatiealgoritme besproke
 Aan de hand van vier bakens die in een 5 bij 5 meter veld geplaatst worden, moet de positie van de ontvanger bepaald worden. De onderzoeksvraag die hier centraal staat: \textit{"Is het mogelijk om met een afwijking kleiner dan 5 procent de positie van de ontvanger in een 5 bij 5 meter veld te bepalen?"}
 De verwachte uitkomst van dit onderzoek is dat het eindproduct in staat is om met een nauwkeurigheid van 25 centimeter (5 procent) de positie te bepalen binnen het 5 bij 5 meter veld. \\
 \\
-Een limitatie bij deze positiebepaling is onder andere de gebruikte hardware. Er wordt gebruik gemaakt van een Arduino Uno, een computer met beperkte rekenkracht en beperkt werkgeheugen. 
+Een limitatie bij deze positiebepaling is onder andere de gebruikte hardware. Er wordt gebruik gemaakt van een Arduino Uno, een computer met beperkte rekenkracht en beperkt werkgeheugen.\cite{uno}
 Verwachte obstakels hierdoor zijn bit overflows en het beperkte aantal variabelen in de code (in verband met het beperkte werkgeheugen). De overflow wordt als probleem verwacht omdat de Arduino geen grote getallen kan representeren en er waarschijnlijk met grote getallen gerekend moet gaan worden. Een voorbeeld hiervan is bijvoorbeeld de halvering van het bereik van getallen. Zo is een \texttt{long} geen 64, maar 32 bits.\cite{long} Een ander verwacht obstakel is de snelheid van het geluidsignaal dat de bakens zullen gaan uitzenden, omdat de geluidssnelheid varieert naarmate de temperatuur en luchtvochtigheid veranderen. Dit zou gevolgen kunnen hebben voor de te bepalen positie.  
 
 
@@ -180,10 +180,10 @@ Op de volgende locaties zijn de volgende tests uitgevoerd:\\
 \\
 \indent Test 1: De Arduino wordt op het co\"{o}rdinaat (290, 434) geplaatst. \\
 \indent Test 2: De Arduino wordt op het co\"{o}rdinaat (60, 155) geplaatst. \\
-\indent Test 3: De Arduino wordt op het co\"{o}rdinaat (72, 377) geplaatst. \\
-\\
+\indent Test 3: De Arduino wordt op het co\"{o}rdinaat (72, 377) geplaatst. 
+
 \subsection{Meetresultaten}
-In Appendix \ref{Meetresultaten} staan alle meetresultaten van de drie tests verwerkt. In de tabellen staan 25 waarden die zijn gemeten op het aangegeven co\"ordinaat. De gemiddelden hiervan zijn eronder aangegeven. De afwijkingen van deze gemiddelden zijn te vinden in Tabel \ref{table:res1}, \ref{table:res2} en \ref{table:res3}.
+In Tabel \ref{table:res1}, \ref{table:res2} en \ref{table:res3} zijn de meetresultaten te zien. Er zijn  metingen verricht op drie verschillende co\"ordinaten. Voor elk co\"ordinaat is het gemiddelde van de metingen weergegeven en de afwijking ten opzichte van het co\"ordinaat waarop deze meting heeft plaatsgevonden. De volledige metingen inclusief tussenresultaten zijn te vinden in Appendix \ref{Meetresultaten}.
 
 \begin{table}[h!]
 \centering
