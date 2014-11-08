@@ -26,7 +26,7 @@
 \section{Inleiding}
 Dit is het verslag voor de opdracht 'Lokalisatie' van het vak Networked Smart Systems. Voor deze opdracht moest er een lokalisatiealgoritme worden ontwikkeld waarmee binnen een vak van 5 bij 5 meter de positie zo nauwkeurig mogelijk proberen te bepalen. Hierbij wordt gebruik gemaakt van ultrasone signalen vanuit vaste referentiepunten op de hoeken van dit vak. De locatie van een meetinstrument kan van belang zijn bij het verrichtingen van metingen, bijvoorbeeld bij een branddetector in een bos. \\
 \\
-In dit paper zal het door ons geimplementeerde lokalisatiealgoritme besproken worden. Er zal eerst een afweging worden gemaakt tussen bestaande algoritmen. Daarna zal de gebruikte hardware en software voor de lokalisatie besproken worden. Vervolgens wordt er uit deze algoritmen het algoritme gekozen dat het beste aansluit op deze hardware en software en de implementatie hiervan uitgelegd worden. Daaropvolgend zullen de testopstelling en de resultaten worden uitgelicht. Ten slotte zal hieruit een conclusie worden getrokken en zullen er aanbevelingen voor vervolgonderzoek gedaan worden.
+In dit paper zal het door ons ge\"{i}mplementeerde lokalisatiealgoritme besproken worden. Er zal eerst een afweging worden gemaakt tussen bestaande algoritmen. Daarna zal de gebruikte hardware en software voor de lokalisatie besproken worden. Vervolgens wordt er uit deze algoritmen het algoritme gekozen dat het beste aansluit op deze hardware en software en de implementatie hiervan uitgelegd worden. Daaropvolgend zullen de testopstelling en de resultaten worden uitgelicht. Ten slotte zal hieruit een conclusie worden getrokken en zullen er aanbevelingen voor vervolgonderzoek gedaan worden.
 
 
 \section{Probleemstelling}
@@ -35,7 +35,7 @@ De verwachte uitkomst van dit onderzoek is dat het eindproduct in staat is om me
 
 
 \section{Gerelateerd werk}
-Op dit gebied is er al veel onderzoek verricht. Hierdoor is er veel werk wat gebruikt kan worden bij het onderzoek. Aangezien dit een onderzoek is wat al vele malen is uitgevoerd is er veel gerelateerd werk dat is gebruikt in dit onderzoek. In deze twee papers worden er globale lokalisatie systemen (GPS) beschreven en hoe deze gebruik maken van externe factoren. In de volgende twee papers worden er trilateratiealgoritmen gepresenteerd waarmee de exacte locatie bepaald kan worden. In de eerste twee papers worden twee manieren toegelicht waarop lokalisering mogelijk is. In \textit{A New Location Technique for the Active Office} worden twee manieren beschreven \cite{ward97}, namelijk:
+Op dit gebied is er al veel onderzoek verricht. Hierdoor is er veel werk wat gebruikt kan worden bij het onderzoek. Er zullen twee papers worden bekeken waarin globale positie systemen (GPS) beschreven worden. In de twee papers worden er trilateratiealgoritmen gepresenteerd waarmee de exacte locatie bepaald kan worden op twee verschillende manieren. In \textit{A New Location Technique for the Active Office} worden twee manieren beschreven \cite{ward97}, namelijk:
 \begin{itemize}
 	\item Active badges
 	\item ParcTab
@@ -55,6 +55,8 @@ In het algoritme in het hoofdstuk \textit{Localization and positioning} van \tex
 \caption{Triangulatie \cite{h9}}
 \label{triangulatie}
 \end{figure}
+
+De opstelling die hier gebruikt wordt zal als basis principe worden gebruikt voor de implementatie beschreven in deze paper. Aangezien in dit experiment ook gebruik wordt gemaakt van bakens die een signaal versturen en een ontvanger die dit ontvangt en op basis van die gegevens de positie bepaald. 
 
 \section{Instellingen}
 Om deze hypothesen te toetsen moeten er metingen gedaan worden. Hier zijn verschillende zaken van belang. 

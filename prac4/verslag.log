@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.5.15)  14 JUL 2014 17:54
-=======
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.5.20)  8 NOV 2014 14:59
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.5.15)  8 NOV 2014 15:40
 entering extended mode
 **verslag.tex
 (C:\Users\Dell\NSS\prac4\verslag.tex
@@ -280,351 +276,212 @@ Package caption Info: End \AtBeginDocument code.
  [2]
 Underfull \hbox (badness 10000) in paragraph at lines 27--30
 
-<<<<<<< HEAD
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
-=======
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 39.
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 40.
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 39.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 40.
+ [3
 
-<<<<<<< HEAD
-<trilateratie.png, id=13, 240.9pt x 179.4705pt>
+]
+<trilateratie.png, id=18, 240.9pt x 179.4705pt>
 File: trilateratie.png Graphic file (type png)
  <use trilateratie.png>
-Package pdftex.def Info: trilateratie.png used on input line 47.
+Package pdftex.def Info: trilateratie.png used on input line 49.
 (pdftex.def)             Requested size: 180.67455pt x 134.60252pt.
 
-<triangulatie.png, id=14, 175.857pt x 126.4725pt>
+<triangulatie.png, id=19, 175.857pt x 126.4725pt>
 File: triangulatie.png Graphic file (type png)
  <use triangulatie.png>
-Package pdftex.def Info: triangulatie.png used on input line 52.
+Package pdftex.def Info: triangulatie.png used on input line 54.
 (pdftex.def)             Requested size: 131.89243pt x 94.85413pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--56
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 42--47
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Underfull \hbox (badness 10000) in paragraph at lines 43--58
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 41--56
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 42--47
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Underfull \hbox (badness 10000) in paragraph at lines 43--58
 
  []
 
-[3
 
-] [4 <C:/Users/Dell/NSS/prac4/trilateratie.png> <C:/Users/Dell/NSS/prac4/triang
-ulatie.png>] <voorkant.jpg, id=23, 2055.68pt x 1541.76pt>
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[4 <C:/Users/Dell/NSS/prac4/trilateratie.png>]
+<voorkant.jpg, id=23, 2055.68pt x 1541.76pt>
 File: voorkant.jpg Graphic file (type jpg)
  <use voorkant.jpg>
-<<<<<<< HEAD
-Package pdftex.def Info: voorkant.jpg used on input line 71.
-=======
-Package pdftex.def Info: voorkant.jpg used on input line 62.
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Package pdftex.def Info: voorkant.jpg used on input line 75.
 (pdftex.def)             Requested size: 123.33548pt x 92.5016pt.
 
 <achterkant.jpg, id=24, 2055.68pt x 1541.76pt>
 File: achterkant.jpg Graphic file (type jpg)
  <use achterkant.jpg>
-<<<<<<< HEAD
-Package pdftex.def Info: achterkant.jpg used on input line 76.
-(pdftex.def)             Requested size: 123.33548pt x 92.5016pt.
- [5 <C:/Users/Dell/NSS/prac4/voorkant.jpg> <C:/Users/Dell/NSS/prac4/achterkant.
-jpg>]
-<berichten_bakens.png, id=28, 348.1005pt x 152.9715pt>
-File: berichten_bakens.png Graphic file (type png)
-
-<use berichten_bakens.png>
-Package pdftex.def Info: berichten_bakens.png used on input line 100.
-(pdftex.def)             Requested size: 348.09964pt x 152.9711pt.
-
-Overfull \hbox (3.09964pt too wide) in paragraph at lines 100--101
- [][] 
- []
-
-[6 <C:/Users/Dell/NSS/prac4/berichten_bakens.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 109--121
-=======
-Package pdftex.def Info: achterkant.jpg used on input line 67.
+Package pdftex.def Info: achterkant.jpg used on input line 80.
 (pdftex.def)             Requested size: 123.33548pt x 92.5016pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[4] [5 <C:/Users/Peter/Desktop/School/NSS/prac4/voorkant.jpg> <C:/Users/Peter/D
-esktop/School/NSS/prac4/achterkant.jpg>]
-<berichten_bakens.png, id=26, 348.1005pt x 152.9715pt>
+[5 <C:/Users/Dell/NSS/prac4/triangulatie.png> <C:/Users/Dell/NSS/prac4/voorkant
+.jpg>] <berichten_bakens.png, id=28, 348.1005pt x 152.9715pt>
 File: berichten_bakens.png Graphic file (type png)
 
 <use berichten_bakens.png>
-Package pdftex.def Info: berichten_bakens.png used on input line 91.
+Package pdftex.def Info: berichten_bakens.png used on input line 104.
 (pdftex.def)             Requested size: 348.09964pt x 152.9711pt.
 
-Overfull \hbox (3.09964pt too wide) in paragraph at lines 91--92
+Overfull \hbox (3.09964pt too wide) in paragraph at lines 104--105
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 100--112
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[6 <C:/Users/Dell/NSS/prac4/achterkant.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 113--125
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 109--121
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 100--112
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Underfull \hbox (badness 10000) in paragraph at lines 113--125
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 109--121
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 100--112
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Underfull \hbox (badness 10000) in paragraph at lines 113--125
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 109--121
+Underfull \hbox (badness 10000) in paragraph at lines 113--125
+
+ []
+
+[7 <C:/Users/Dell/NSS/prac4/berichten_bakens.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 127--169
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 123--165
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 100--112
-
- []
-
-[6 <C:/Users/Peter/Desktop/School/NSS/prac4/berichten_bakens.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 114--156
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Underfull \hbox (badness 10000) in paragraph at lines 127--169
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 123--165
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 114--156
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Underfull \hbox (badness 10000) in paragraph at lines 127--169
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 123--165
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 114--156
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Underfull \hbox (badness 10000) in paragraph at lines 127--169
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 123--165
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 114--156
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Underfull \hbox (badness 10000) in paragraph at lines 127--169
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 123--165
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 114--156
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Underfull \hbox (badness 10000) in paragraph at lines 127--169
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 123--165
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 114--156
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Underfull \hbox (badness 10000) in paragraph at lines 127--169
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 123--165
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 114--156
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Underfull \hbox (badness 10000) in paragraph at lines 127--169
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 123--165
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 114--156
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Underfull \hbox (badness 10000) in paragraph at lines 127--169
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 123--165
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 114--156
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Underfull \hbox (badness 10000) in paragraph at lines 127--169
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 123--165
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 114--156
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Underfull \hbox (badness 10000) in paragraph at lines 127--169
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 123--165
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 114--156
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Underfull \hbox (badness 10000) in paragraph at lines 127--169
 
  []
 
-
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 123--165
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 114--156
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
-
- []
-
-[7] <Meetopstelling.png, id=38, 310.761pt x 256.5585pt>
+[8] <Meetopstelling.png, id=43, 310.761pt x 256.5585pt>
 File: Meetopstelling.png Graphic file (type png)
 
 <use Meetopstelling.png>
-<<<<<<< HEAD
-Package pdftex.def Info: Meetopstelling.png used on input line 169.
+Package pdftex.def Info: Meetopstelling.png used on input line 173.
 (pdftex.def)             Requested size: 155.38011pt x 128.27893pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 167--186
-=======
-Package pdftex.def Info: Meetopstelling.png used on input line 160.
-(pdftex.def)             Requested size: 155.38011pt x 128.27893pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 158--177
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Underfull \hbox (badness 10000) in paragraph at lines 171--190
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 167--186
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 158--177
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Underfull \hbox (badness 10000) in paragraph at lines 171--190
 
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 167--186
+Underfull \hbox (badness 10000) in paragraph at lines 171--190
 
  []
 
-[8] [9 <C:/Users/Dell/NSS/prac4/Meetopstelling.png>] [10]
+[9 <C:/Users/Dell/NSS/prac4/Meetopstelling.png>] [10]
 (C:\Users\Dell\NSS\prac4\verslag.bbl) [11]
 File: ./location/location.ino  (verbatim)
  [12]
-Overfull \hbox (109.75653pt too wide) in paragraph at lines 212--212
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 158--177
-
- []
-
-[8 <C:/Users/Peter/Desktop/School/NSS/prac4/Meetopstelling.png>] [9] [10]
-(C:\Users\Peter\Desktop\School\NSS\prac4\verslag.bbl) [11]
-File: ./location/location.ino  (verbatim)
- [12]
-Overfull \hbox (109.75653pt too wide) in paragraph at lines 202--202
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Overfull \hbox (109.75653pt too wide) in paragraph at lines 216--216
 []   \OT1/cmtt/m/n/8 int x_gemiddelde =  (x_crds[0]+x_crds[1]+x_crds[2]+x_crds[
 3]+x_crds[4]+x_crds[5]+x_crds[6]+x_crds[7])/8;[] 
  []
 
 
-<<<<<<< HEAD
-Overfull \hbox (109.75653pt too wide) in paragraph at lines 212--212
-=======
-Overfull \hbox (109.75653pt too wide) in paragraph at lines 202--202
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Overfull \hbox (109.75653pt too wide) in paragraph at lines 216--216
 []   \OT1/cmtt/m/n/8 int y_gemiddelde =  (y_crds[0]+y_crds[1]+y_crds[2]+y_crds[
 3]+y_crds[4]+y_crds[5]+y_crds[6]+y_crds[7])/8;[] 
  []
 
 
-<<<<<<< HEAD
-Overfull \hbox (7.75507pt too wide) in paragraph at lines 212--212
-=======
-Overfull \hbox (7.75507pt too wide) in paragraph at lines 202--202
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Overfull \hbox (7.75507pt too wide) in paragraph at lines 216--216
 []   \OT1/cmtt/m/n/8 printf("De gemiddelde x:%i  en y: %i waarden \n\r", x_gemi
 ddelde, y_gemiddelde);[] 
  []
 
 [13]
-<<<<<<< HEAD
-Overfull \hbox (59.94534pt too wide) in paragraph at lines 218--342
-=======
-Overfull \hbox (59.94534pt too wide) in paragraph at lines 208--332
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
+Overfull \hbox (59.94534pt too wide) in paragraph at lines 222--346
 [] [] [] 
  []
 
 
-<<<<<<< HEAD
-Overfull \hbox (59.38916pt too wide) in paragraph at lines 218--342
+Overfull \hbox (59.38916pt too wide) in paragraph at lines 222--346
 [] [] [] 
  []
 
 [14] (C:\Users\Dell\NSS\prac4\verslag.aux) ) 
-=======
-Overfull \hbox (59.38916pt too wide) in paragraph at lines 208--332
-[] [] [] 
- []
-
-[14] (C:\Users\Peter\Desktop\School\NSS\prac4\verslag.aux) ) 
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
 Here is how much of TeX's memory you used:
- 4313 strings out of 493921
- 64143 string characters out of 3147285
+ 4314 strings out of 493921
+ 64156 string characters out of 3147285
  147457 words of memory out of 3000000
- 7546 multiletter control sequences out of 15000+200000
+ 7547 multiletter control sequences out of 15000+200000
  10544 words of font info for 39 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
-<<<<<<< HEAD
  36i,8n,38p,1049b,311s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/
 type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
@@ -639,29 +496,9 @@ es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX
 ublic/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
 sfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
 m/cmtt8.pfb>
-Output written on verslag.pdf (14 pages, 850442 bytes).
+Output written on verslag.pdf (14 pages, 852232 bytes).
 PDF statistics:
  108 PDF objects out of 1000 (max. 8388607)
-=======
- 36i,8n,38p,1049b,289s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files (
-x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files (x8
-6)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)
-/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files (x86)/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files (x86)/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files (x86)/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86)/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files (x86)/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
-1/public/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmtt10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmtt8.pfb>
-Output written on verslag.pdf (14 pages, 814249 bytes).
-PDF statistics:
- 106 PDF objects out of 1000 (max. 8388607)
->>>>>>> a57d6da5b9d11a7ae7be501b59994e34dc4b5b96
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
