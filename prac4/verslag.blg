@@ -3,5 +3,12 @@ The style file: abbrv.bst
 Database file #1: literature.bib
 Warning--entry type for "rf24" isn't style-file defined
 --line 1 of file literature.bib
+Warning--entry type for "long" isn't style-file defined
+--line 38 of file literature.bib
+Repeated entry---line 44 of file literature.bib
+ : @online{long
+ :             ,
+I'm skipping whatever remains of this entry
+Warning--to sort, need author or key in long
 Warning--to sort, need author or key in rf24
-(There were 2 warnings)
+(There was 1 error message)

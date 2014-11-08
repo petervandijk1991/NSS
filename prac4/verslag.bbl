@@ -1,5 +1,9 @@
 \begin{thebibliography}{1}
 
+\bibitem{long}
+\uppercase{A}rduino \uppercase{R}eference: long.
+\newblock \url{http://arduino.cc/en/Reference/long}, Nov. 2014.
+
 \bibitem{rf24}
 \uppercase{RF}24 \uppercase{C}lass \uppercase{R}eference.
 \newblock \url{http://maniacbug.github.io/RF24/classRF24.html}, May 2014.
