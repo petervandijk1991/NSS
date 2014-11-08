@@ -58,11 +58,9 @@ In het algoritme in het hoofdstuk \textit{Localization and positioning} van \tex
 
 De opstelling die hier gebruikt wordt zal als basis principe worden gebruikt voor de implementatie beschreven in deze paper. Aangezien in dit experiment ook gebruik wordt gemaakt van bakens die een signaal versturen en een ontvanger die dit ontvangt en op basis van die gegevens de positie bepaald. 
 
-\section{Instellingen}
-Om deze hypothesen te toetsen moeten er metingen gedaan worden. Hier zijn verschillende zaken van belang. 
+\section{Ontwerp synchronisatiealgoritme}
+Om deze hypothesen te toetsen moet er een synchronisatie algoritme opgesteld worden en vervolgens getest worden. Als eerste zal het ontwerp van het algoritme besproken worden en in hoofdstuk 6 zal er verder ingegaan worden op de testopstelling en de gebruikte hardware. Er zijn twee zaken van belang bij het ontwerp: 
 \begin{itemize}
-	\item De gebruikte hardware
-	\item De gebruikte software
 	\item De instellingen/vastgestelde constanten
 	\item De onderzoeksopstelling
 \end{itemize}
@@ -174,7 +172,7 @@ Om de implementatie te testen is er gebruik gemaakt van een testopstelling zoals
 \caption{Meetopstelling}
 \label{Meetopstelling}
 \end{figure}
-De unisoonontvangers waarmee de signalen van de bakens worden ontvangen werden op een afstand groter dan vijf meter zeer onnauwkeurig dus is ervoor gekozen om binnen een veld van vijf bij vijf meter te werken. In het schema staan de vier bakens aangegeven met de oranje stippen samen met hun co\"{o}rdinaten. Met de roze stippen worden de testlocaties bedoeld waarop is getest. De bakens die zijn gebruikt versturen alleen signalen in de richting waarin ze wijzen. Hierdoor is het niet mogelijk correcte gegevens te verkrijgen wanneer er vanachter de bakens wordt gemeten. \\
+De ultrasoonontvangers waarmee de signalen van de bakens worden ontvangen werden op een afstand groter dan vijf meter zeer onnauwkeurig dus is ervoor gekozen om binnen een veld van vijf bij vijf meter te werken. In het schema staan de vier bakens aangegeven met de oranje stippen samen met hun co\"{o}rdinaten. Met de roze stippen worden de testlocaties bedoeld waarop is getest. De bakens die zijn gebruikt versturen alleen signalen in de richting waarin ze wijzen. Hierdoor is het niet mogelijk correcte gegevens te verkrijgen wanneer er vanachter de bakens wordt gemeten. \\
 \\
 Tijdens het testen wordt de ontvanger op een bepaald co\"{o}rdinaat geplaatst. Het is belangrijk dat deze locatie precies is, anders ontstaat er een afwijking tussen de meetresultaten en de verwachte waarde. 
 Het is van belang bij het testen dat er gebruik wordt gemaakt van een "schoon" grid. Dit houdt in, geen obstakels die de metingen zouden kunnen verstoren. Alle tests zijn "schoon"  bepaald. 
