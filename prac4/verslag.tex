@@ -30,8 +30,7 @@ In dit paper zal het door ons ge\"{i}mplementeerde lokalisatiealgoritme besproke
 
 
 \section{Probleemstelling}
-Aan de hand van vier bakens die in een 5 bij 5 meter veld geplaatst worden, moet de positie van de ontvanger bepaald worden. De onderzoeksvraag die hier centraal staat: \textit{"Is het mogelijk om met een afwijking kleiner dan tien centimeter de positie van de ontvanger in een 5 bij 5 meter veld te bepalen?"}
-De verwachte uitkomst van dit onderzoek is dat het eindproduct in staat is om met een nauwkeurigheid van 10 centimeter de positie te bepalen binnen het 5 bij 5 meter veld. \\
+Aan de hand van vier bakens die in een 5 bij 5 meter veld geplaatst worden, moet de positie van de ontvanger bepaald worden. De onderzoeksvraag die hier centraal staat: \textit{"Is het mogelijk om met een afwijking kleiner dan tien centimeter de positie van de ontvanger in een 500 bij 500 centimeter veld te bepalen?"}. De verwachte uitkomst van dit onderzoek is dat het eindproduct in staat is om met een nauwkeurigheid van 10 centimeter de positie te bepalen binnen het 5 bij 5 meter veld. \\
 \\
 Een limitatie bij deze positiebepaling is onder andere de gebruikte hardware. Er wordt gebruik gemaakt van een Arduino Uno, een computer met beperkte rekenkracht en beperkt werkgeheugen.\cite{uno}
 Verwachte obstakels hierdoor zijn bit overflows en het beperkte aantal variabelen in de code (in verband met het beperkte werkgeheugen). De overflow wordt als probleem verwacht omdat de Arduino geen grote getallen kan representeren en er waarschijnlijk met grote getallen gerekend moet gaan worden. Een voorbeeld hiervan is bijvoorbeeld de halvering van het bereik van getallen. Zo is een \texttt{long} geen 64, maar 32 bits.\cite{long} Een ander verwacht obstakel is de snelheid van het geluidsignaal dat de bakens zullen gaan uitzenden, omdat de geluidssnelheid varieert naarmate de temperatuur en luchtvochtigheid veranderen. Dit zou gevolgen kunnen hebben voor de te bepalen positie.  
@@ -85,8 +84,7 @@ Zoals te zien is in Figuur \ref{uitzenden_bakens} wordt er eerst een radiosignaa
 De geluidssnelheid is afhankelijk van temperatuur en luchtvochtigheid. Het is van belang om een juiste (constante) waarde voor de geluidssnelheid te kiezen die rekening houdt met de omgeving waarin het systeem zich bevindt, om afwijkingen in de meetresultaten te minimaliseren. Het proces van luisteren en berekenen herhaalt zich oneindig lang zodat wanneer de node in beweging is er nog steeds een correcte locatie berekend kan worden. 
 	
 \subsection{Trilateratie}
-Wanneer van alle vier de bakens bekend is wat hun afstand is tot de node, kan door middel van matrixberekeningen de positie worden bepaald. Hierbij is er gebruik gemaakt van het hoofdstuk \textit{Localization and positioning} van \textit{Protocols and Architectures for Wireless Sensor Networks}\cite{h9}. Alle afstanden en berekende uitkomsten worden weergegeven in centimeters om de nauwkeurigheid te kunnen bepalen. \\
-De volgende berekening is gebruikt bij het berekenen van de locatie: \\
+Wanneer van alle vier de bakens bekend is wat hun afstand is tot de node, kan door middel van matrixberekeningen de positie worden bepaald. Hierbij is er gebruik gemaakt van het hoofdstuk \textit{Localization and positioning} van \textit{Protocols and Architectures for Wireless Sensor Networks}\cite{h9}. Alle afstanden en berekende uitkomsten worden weergegeven in centimeters om de nauwkeurigheid te kunnen bepalen. De volgende berekening is gebruikt bij het berekenen van de locatie: \\
 \\
 \indent$2*\begin{bmatrix}
        x_3 - x_1 & y_3 - y_1 \\
@@ -111,6 +109,7 @@ Met: \\
 \indent$r_i$: de afstand van de Arduino tot aan baken $i$.
 
 \subsection{Implementatie}
+\label{implementatie}
 De matrixvermenigvuldiging voor de trilateratie is om te schrijven naar de volgende formules, waarmee de x- en y-co\"ordinaten van de ontvanger te berekenen zijn: \\
 \\
 \indent$c_1 = (((r_1*r_1)-(r_3*r_3))-((x_1*x_1)-(x_3*x_3))-((y_1*y_1)-(y_3*y_3)))/2 $\\
@@ -183,7 +182,9 @@ Op de volgende locaties zijn de volgende tests uitgevoerd:\\
 \\
 \indent Test 1: De Arduino wordt op het co\"{o}rdinaat (290, 434) geplaatst. \\
 \indent Test 2: De Arduino wordt op het co\"{o}rdinaat (60, 155) geplaatst. \\
-\indent Test 3: De Arduino wordt op het co\"{o}rdinaat (72, 377) geplaatst. 
+\indent Test 3: De Arduino wordt op het co\"{o}rdinaat (72, 377) geplaatst. \\
+\\
+N.B. co\"ordinaten in het 500 bij 500 centimeter veld worden uitgedrukt in $(x,y)$, waarbij $x$ en $y$ de afstanden in centimeters op de x- en y-as zijn vanaf de oorsprong $(0,0)$.
 
 \subsection{Uitgevoerde tests}
 Om de afwijking van de co\"ordinaten te kunnen berekenen zijn er drie tests uitgevoerd. Deze tests zijn alle drie op exact dezelfde manier uitgevoerd, maar dan op verschillende co\"{o}rdinaten. Om ervoor te zorgen dat er een goed beeld gevormd kon worden en er voldoende resultaten zijn, is ervoor gekozen om van elke positie 26 meetresultaten te nemen en hier het gemiddelde van te nemen om het zo representatief mogelijk te maken. 
@@ -241,7 +242,9 @@ het ontvangen van echo's die weerkaatsen op objecten door de ultrasoonontvanger 
 Verder is voor het algoritme de geluidssnelheid van belang, omdat deze \'{e}\'{e}n keer gekozen is en niet elke keer wordt aangepast aan de temperatuur en luchtvochtigheid zou deze een fluctuatie kunnen veroorzaken. Echter zijn de metingen opeenvolgend uitgevoerd en is de temperatuur niet dusdanig veranderd tijdens deze metingen dat de ingestelde geluidssnelheid de fluctuaties verschillen in waarde tussen de resultaten kan veroorzaken.
 
 \section{Conclusie}
- De onderzoeksvraag die hier centraal staat: \textit{"Is het mogelijk om met een afwijking kleiner dan tien centimeter de positie van de ontvanger in een 5 bij 5 meter veld te bepalen?"}. Uit Sectie \ref{gemiddeldes} blijkt van alle drie de gemiddelde afwijkingen dat dit minder dan 10 centimeter is, nu kan geconcludeerd worden dat de nauwkeurigheid bereikt wordt binnen een veld van vijf bij vijf meter. Hieronder volgen een aantal aanbevelingen voor vervolgonderzoeken die uitgevoerd kunnen worden. 
+ De onderzoeksvraag die hier centraal staat: \textit{"Is het mogelijk om met een afwijking kleiner dan tien centimeter de positie van de ontvanger in een 500 bij 500 centimeter veld te bepalen?"} Uit Sectie \ref{gemiddeldes} blijkt van alle drie de gemiddelde afwijkingen dat dit minder dan 10 centimeter is, nu kan geconcludeerd worden dat de nauwkeurigheid bereikt wordt binnen een veld van vijf bij vijf meter. \\
+ \\
+ Verder werden er tijdens de ontwikkeling van het lokalisatiealgoritme twee problemen verwacht: bit overflows en de geluidssnelheid die veranderd afhankelijk van de temperatuur en luchtvochtigheid. Uiteindelijk bleek de overflow een probleem te zijn en is de formule zoals deze in Sectie \ref{implementatie} staat hierop aangepast. Op deze manier werd de bit overflow tegengegaan en werkte de code verder zonder last te hebben van overflow. Het tweede verwachtte probleem was de waarde voor de geluidssnelheid. Omdat er een standaardwaarde ingesteld is en deze niet mee veranderd met de temperatuur en luchtvochtigheid werd er verwacht dat de waarden onnauwkeuriger zouden zijn. In de praktijk zijn er hier geen meetbare afwijkingen door ontstaan.
 
 \subsection{Aanbevelingen} 
  Voor een vervolgonderzoek zou er naar de volgend punten gekeken kunnen worden.

@@ -1,20 +1,20 @@
 \select@language {dutch}
 \contentsline {section}{\numberline {1}Inleiding}{3}
 \contentsline {section}{\numberline {2}Probleemstelling}{3}
-\contentsline {section}{\numberline {3}Gerelateerd werk}{3}
-\contentsline {section}{\numberline {4}Het algoritme}{4}
+\contentsline {section}{\numberline {3}Gerelateerd werk}{4}
+\contentsline {section}{\numberline {4}Het algoritme}{5}
 \contentsline {subsection}{\numberline {4.1}Afstand bepalen tot aan de bakens}{5}
 \contentsline {subsection}{\numberline {4.2}Trilateratie}{6}
 \contentsline {subsection}{\numberline {4.3}Implementatie}{7}
-\contentsline {section}{\numberline {5}Testopstelling en metingen}{7}
+\contentsline {section}{\numberline {5}Testopstelling en metingen}{8}
 \contentsline {subsection}{\numberline {5.1}De hardware}{8}
 \contentsline {subsubsection}{\numberline {5.1.1}Ontvanger}{8}
-\contentsline {subsubsection}{\numberline {5.1.2}Zender}{9}
+\contentsline {subsubsection}{\numberline {5.1.2}Zender}{8}
 \contentsline {subsection}{\numberline {5.2}De software}{9}
 \contentsline {subsection}{\numberline {5.3}Uitgevoerde tests}{10}
-\contentsline {subsection}{\numberline {5.4}Meetresultaten}{10}
-\contentsline {subsection}{\numberline {5.5}Analyse}{11}
+\contentsline {subsection}{\numberline {5.4}Meetresultaten}{11}
+\contentsline {subsection}{\numberline {5.5}Analyse}{12}
 \contentsline {section}{\numberline {6}Conclusie}{12}
 \contentsline {subsection}{\numberline {6.1}Aanbevelingen}{12}
-\contentsline {section}{\numberline {A}Code Trilateration}{14}
-\contentsline {section}{\numberline {B}Meetresultaten}{16}
+\contentsline {section}{\numberline {A}Code Trilateration}{15}
+\contentsline {section}{\numberline {B}Meetresultaten}{17}
