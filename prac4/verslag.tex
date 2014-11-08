@@ -59,13 +59,19 @@ In het algoritme in het hoofdstuk \textit{Localization and positioning} van \tex
 \label{triangulatie}
 \end{figure}\\
 \\
-De opstelling die hier gebruikt wordt zal als basisprincipe worden gebruikt voor de implementatie beschreven in dit paper. Aangezien in dit experiment ook gebruik wordt gemaakt van bakens die een signaal versturen en een ontvanger die dit ontvangt en op basis van die gegevens de positie bepaald. 
+De opstelling die hier gebruikt wordt zal als basisprincipe worden gebruikt voor de implementatie beschreven in deze paper. Aangezien in dit experiment ook gebruik wordt gemaakt van bakens die een signaal versturen en een ontvanger die dit ontvangt en op basis van die gegevens de positie bepaald. 
 
 \section{Het algoritme}
 Het algoritme dat ge\"{i}mplementeerd is, bestaat uit twee verschillende onderdelen. Het eerste deel bestaat uit het berekenen van de afstand tot de bakens en het tweede deel uit de berekening van de positie. Deze twee onderdelen zullen apart besproken worden voor de overzichtelijkheid.
 	
+\begin{figure}[h]
+\centering\includegraphics[]{berichten_bakens.png}
+\caption{Het signaal van de bakens}
+\label{uitzenden_bakens}
+\end{figure}
+	
 \subsection{Afstand bepalen tot aan de bakens}
-Zoals te zien is in Figuur\ref{uitzenden_bakens} wordt er eerst een radiosignaal verstuurd, gevolgd door een ultrasoon signaal. De bakens gebruiken een master-slave opstelling, waarbij de master aangeeft wanneer elke slave mag sturen. Als eerste wordt er door de master-baken een radio uitzending uitgevoerd met als bericht het ID van de baken die vervolgens mag zenden. Omdat dit een radiosignaal is gaat dit met de snelheid van het licht, hierdoor is het tijdsverschil tussen de verschillende nodes die het op verschillende momenten ontvangen verwaarloosbaar. Op het moment dat het radiosignaal ontvangen wordt, begint de desbetreffende baken direct met het zenden van een ultrasoon geluid. Er is bekend dat dit meteen gebeurt, dus door bij te houden hoeveel tijd verstrijkt tussen het ontvangen van het radiosignaal en het ontvangen van het ultrasoon geluid kan er een schatting gemaakt worden van de afstand tussen baken en ontvanger door de geluidssnelheid te gebruiken. Deze berekening ziet er als volgt uit:\\
+Zoals te zien is in Figuur \ref{uitzenden_bakens} wordt er eerst een radiosignaal verstuurd, gevolgd door een ultrasoon signaal. De bakens gebruiken een master-slave opstelling, waarbij de master aangeeft wanneer elke slave mag sturen. Als eerste wordt er door de master-baken een radio uitzending uitgevoerd met als bericht het ID van de baken die vervolgens mag zenden. Omdat dit een radiosignaal is gaat dit met de snelheid van het licht, hierdoor is het tijdsverschil tussen de verschillende nodes die het op verschillende momenten ontvangen verwaarloosbaar. Op het moment dat het radiosignaal ontvangen wordt, begint de desbetreffende baken direct met het zenden van een ultrasoon geluid. Er is bekend dat dit meteen gebeurt, dus door bij te houden hoeveel tijd verstrijkt tussen het ontvangen van het radiosignaal en het ontvangen van het ultrasoon geluid kan er een schatting gemaakt worden van de afstand tussen baken en ontvanger door de geluidssnelheid te gebruiken. Deze berekening ziet er als volgt uit:\\
 \\
 	\indent$ d_b = (T_u- T_r) * g $\\
 	\\
@@ -79,7 +85,7 @@ Zoals te zien is in Figuur\ref{uitzenden_bakens} wordt er eerst een radiosignaal
 Het is van belang om een juiste geluidssnelheid te kiezen bij de omgeving waarin het systeem staat, de afwijkingen kunnen groot zijn. Dit proces van luisteren en berekenen herhaalt zich oneindig lang zodat wanneer de node in beweging is er nog steeds een correcte locatie berekend kan worden. 
 	
 \subsection{Trilateratie}
-Nu van alle vier de bakens bekend is wat hun afstand is tot de node kan door middel van matrixberekeningen de positie worden bepaald. Hierbij is er gebruik gemaakt van [iets]. Afstanden zijn gegeven in centimeter, tevens zijn co\"ordinaten weergegeven in centimeters afstand tot het nulpunt.
+Wanneer van alle vier de bakens bekend is wat hun afstand is tot de node, kan door middel van matrixberekeningen de positie worden bepaald. Hierbij is er gebruik gemaakt van het hoofdstuk \textit{Localization and positioning} van \textit{Protocols and Architectures for Wireless Sensor Networks}\cite{h9}. Alle afstanden en berekende uitkomsten worden weergegeven in centimeters om de nauwkeurigheid te kunnen bepalen. \\
 De volgende berekening is gebruikt bij het berekenen van de locatie: \\
 \\
 \indent$2*\begin{bmatrix}
@@ -121,7 +127,7 @@ De matrixvermenigvuldiging voor de trilateratie is om te schrijven naar de volge
 \\
 Wat opvalt aan deze berekening is dat er een aantal maal $10.000$ in staat. Deze factor is ge\"introduceerd om te voorkomen dat afkapping van getallen zorgt voor foute resultaten. Als deze factor niet gebruikt zou worden dan zouden tussenberekeningen een getal kleiner dan $1$ kunnen opleveren, wat afgekapt wordt tot $0$.  Hiermee doorrekenen levert incorrecte resultaten op. De factor wordt aan het einde weer weggedeeld, om het gewenste resultaat te verkrijgen. Een alternatief voor deze oplossing is het gebruik van decimale getallen, maar het rekenen hiermee is erg langzaam, daarom is daar niet voor gekozen.\\
 \\
-Doordat de afstand tot aan de bakens elke 400 milliseconden opnieuw wordt berekend geldt dit ook voor de x- en y-co\"{o}rdinaten. Voor elke vier nieuwe afstandsmetingen worden de x- en y-co\"ordinaten opnieuw berekend. Het algoritme maakt gebruik van alle vier de bakens en niet slechts drie voor de positiebepaling. Dit wordt gedaan als volgt. Voor elke combinatie van drie bakens wordt met behulp van de afstanden tot deze bakens met behulp van het hiervoor genoemde algoritme een set van co\"ordinaten berekend. Vervolgens wordt het gemiddelde genomen van de berekende sets co\"ordinaten. Dit zorgt er voor dat er voor kleine afwijkingen in afstandsberekening tot bakens gecompenseerd kan worden.
+Doordat de afstand tot aan de bakens elke 400 milliseconden opnieuw wordt berekend geldt dit ook voor de x- en y-co\"{o}rdinaten. Voor elke vier nieuwe afstandsmetingen worden de x- en y-co\"ordinaten opnieuw berekend. Het algoritme maakt gebruik van alle vier de bakens en niet slechts drie voor de positiebepaling. Dit wordt gedaan als volgt. Voor elke combinatie van drie bakens wordt met behulp van de afstanden tot deze bakens met behulp van het hiervoor genoemde algoritme een set van co\"ordinaten berekend. Vervolgens wordt het gemiddelde genomen van de berekende sets co\"ordinaten. Dit zorgt er voor dat er voor kleine afwijkingen in afstandsberekening tot bakens gecompenseerd kan worden. In Appendix \ref{code} staat de code die de berekeningen implementeert.
 
 \section{Testopstelling en metingen}
 Om de implementatie te testen is er gebruik gemaakt van een testopstelling zoals die in Figuur \ref{Meetopstelling} staat weergegeven. De gebruikte hardware bestaat uit een Arduino UNO in combinatie met een ultrasoonontvanger. Daarnaast zal de software kort toegelicht worden en de daarbij horende constanten die zijn gebruikt.
@@ -166,11 +172,6 @@ De ultrasoonontvanger gebruikt de volgende instellingen:
 	\item Versterking: 50x
 \end{itemize}
 Om de tests te kunnen uitvoeren is er gebruik gemaakt van vier bakens die met een bepaald patroon informatie verzenden. In Figuur \ref{uitzenden_bakens} is schematisch weergegeven hoe de signaalverzending werkt. In het schema zijn vier dezelfde iteraties te zien. Omdat er gebruik wordt gemaakt van vier bakens staan er vier berichten in het schema weergegeven. 
-\begin{figure}[h]
-\centering\includegraphics[]{berichten_bakens.png}
-\caption{Het signaal van de bakens}
-\label{uitzenden_bakens}
-\end{figure}
 
 De ultrasoonontvangers waarmee de signalen van de bakens worden ontvangen werden op een afstand groter dan vijf meter zeer onnauwkeurig dus is ervoor gekozen om binnen een veld van vijf bij vijf meter te werken. In Figuur \ref{Meetopstelling} staan de vier bakens aangegeven met de oranje stippen samen met hun co\"{o}rdinaten. Met de roze stippen worden de testlocaties bedoeld waarop is getest. De bakens die zijn gebruikt versturen alleen signalen in de richting waarin ze wijzen. Hierdoor is het niet mogelijk correcte gegevens te verkrijgen wanneer er vanachter de bakens wordt gemeten. \\
 \\
@@ -249,6 +250,7 @@ De onderzoeksvraag die aan het begin gesteld werd: \textit{"Een algoritme opstel
 \appendix
 \counterwithin{figure}{section}
 \section{Code Trilateration}
+\label{code}
     \fontsize{8pt}{8pt}\selectfont
 \verbatiminput{./location/location.ino}
     \fontsize{10pt}{12pt}\selectfont

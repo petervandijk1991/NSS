@@ -5,11 +5,11 @@
 \contentsline {section}{\numberline {4}Het algoritme}{5}
 \contentsline {subsection}{\numberline {4.1}Afstand bepalen tot aan de bakens}{5}
 \contentsline {subsection}{\numberline {4.2}Trilateratie}{6}
-\contentsline {subsection}{\numberline {4.3}Implementatie}{6}
-\contentsline {section}{\numberline {5}Testopstelling en metingen}{7}
-\contentsline {subsection}{\numberline {5.1}De hardware}{7}
-\contentsline {subsubsection}{\numberline {5.1.1}Ontvanger}{7}
-\contentsline {subsubsection}{\numberline {5.1.2}Zender}{8}
+\contentsline {subsection}{\numberline {4.3}Implementatie}{7}
+\contentsline {section}{\numberline {5}Testopstelling en metingen}{8}
+\contentsline {subsection}{\numberline {5.1}De hardware}{8}
+\contentsline {subsubsection}{\numberline {5.1.1}Ontvanger}{8}
+\contentsline {subsubsection}{\numberline {5.1.2}Zender}{9}
 \contentsline {subsection}{\numberline {5.2}De software}{9}
 \contentsline {subsection}{\numberline {5.3}Meetresultaten}{10}
 \contentsline {subsection}{\numberline {5.4}Analyse}{11}
