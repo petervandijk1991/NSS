@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.5.15)  8 NOV 2014 19:22
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.5.15)  8 NOV 2014 19:31
 entering extended mode
 **verslag.tex
 (C:\Users\Dell\NSS\prac4\verslag.tex
@@ -325,7 +325,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[4] <berichten_bakens.png, id=24, 348.1005pt x 152.9715pt>
+<berichten_bakens.png, id=20, 348.1005pt x 152.9715pt>
 File: berichten_bakens.png Graphic file (type png)
 
 <use berichten_bakens.png>
@@ -359,8 +359,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 74--86
 
  []
 
-[5 <C:/Users/Dell/NSS/prac4/trilateratie.png> <C:/Users/Dell/NSS/prac4/triangul
-atie.png>]
+[4] [5 <C:/Users/Dell/NSS/prac4/trilateratie.png> <C:/Users/Dell/NSS/prac4/tria
+ngulatie.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 88--112
 
  []
@@ -438,15 +438,12 @@ Package pdftex.def Info: achterkant.jpg used on input line 152.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 157--159
 
  []
 
-[8 <C:/Users/Dell/NSS/prac4/Meetopstelling.png>] [9 <C:/Users/Dell/NSS/prac4/vo
-orkant.jpg> <C:/Users/Dell/NSS/prac4/achterkant.jpg>]
+[8 <C:/Users/Dell/NSS/prac4/Meetopstelling.png> <C:/Users/Dell/NSS/prac4/voorka
+nt.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 174--187
 
  []
@@ -466,14 +463,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 174--187
 
  []
 
-[10] [11]
+[9 <C:/Users/Dell/NSS/prac4/achterkant.jpg>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[10]
 Underfull \hbox (badness 10000) in paragraph at lines 238--242
 
  []
 
-[12] [13] (C:\Users\Dell\NSS\prac4\verslag.bbl) [14]
+[11] [12] (C:\Users\Dell\NSS\prac4\verslag.bbl) [13]
 File: ./location/location.ino  (verbatim)
- [15]
+ [14]
 Overfull \hbox (109.75653pt too wide) in paragraph at lines 265--265
 []   \OT1/cmtt/m/n/8 int x_gemiddelde =  (x_crds[0]+x_crds[1]+x_crds[2]+x_crds[
 3]+x_crds[4]+x_crds[5]+x_crds[6]+x_crds[7])/8;[] 
@@ -491,7 +498,7 @@ Overfull \hbox (7.75507pt too wide) in paragraph at lines 265--265
 ddelde, y_gemiddelde);[] 
  []
 
-[16]
+[15]
 Overfull \hbox (59.94534pt too wide) in paragraph at lines 271--398
 [] [] [] 
  []
@@ -501,7 +508,11 @@ Overfull \hbox (59.38916pt too wide) in paragraph at lines 271--398
 [] [] [] 
  []
 
-[17] (C:\Users\Dell\NSS\prac4\verslag.aux) ) 
+[16] (C:\Users\Dell\NSS\prac4\verslag.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
  4321 strings out of 493921
  64226 string characters out of 3147285
@@ -510,23 +521,22 @@ Here is how much of TeX's memory you used:
  10544 words of font info for 39 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  36i,8n,38p,1054b,311s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
-/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.p
-fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
-/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt8.p
-fb>
-Output written on verslag.pdf (17 pages, 866786 bytes).
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.p
+fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmtt8.pfb>
+Output written on verslag.pdf (16 pages, 866442 bytes).
 PDF statistics:
- 121 PDF objects out of 1000 (max. 8388607)
+ 118 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

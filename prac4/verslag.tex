@@ -111,6 +111,7 @@ Met: \\
 \indent$r_i$: de afstand van de Arduino tot aan baken $i$.
 
 \subsection{Implementatie}
+\label{implementatie}
 De matrixvermenigvuldiging voor de trilateratie is om te schrijven naar de volgende formules, waarmee de x- en y-co\"ordinaten van de ontvanger te berekenen zijn: \\
 \\
 \indent$c_1 = (((r_1*r_1)-(r_3*r_3))-((x_1*x_1)-(x_3*x_3))-((y_1*y_1)-(y_3*y_3)))/2 $\\
@@ -241,7 +242,7 @@ het ontvangen van echo's die weerkaatsen op objecten door de ultrasoonontvanger 
 Verder is voor het algoritme de geluidssnelheid van belang, omdat deze \'{e}\'{e}n keer gekozen is en niet elke keer wordt aangepast aan de temperatuur en luchtvochtigheid zou deze een fluctuatie kunnen veroorzaken. Echter zijn de metingen opeenvolgend uitgevoerd en is de temperatuur niet dusdanig veranderd tijdens deze metingen dat de ingestelde geluidssnelheid de fluctuaties verschillen in waarde tussen de resultaten kan veroorzaken.
 
 \section{Conclusie}
- De onderzoeksvraag die hier centraal staat: \textit{"Is het mogelijk om met een afwijking kleiner dan tien centimeter de positie van de ontvanger in een 5 bij 5 meter veld te bepalen?"} Uit Sectie \ref{gemiddeldes} blijkt van alle drie de gemiddelde afwijkingen dat dit minder dan 10 centimeter is, nu kan geconcludeerd worden dat de nauwkeurigheid bereikt wordt binnen een veld van vijf bij vijf meter. Hieronder volgen een aantal aanbevelingen voor vervolgonderzoeken die uitgevoerd kunnen worden. 
+ De onderzoeksvraag die hier centraal staat: \textit{"Is het mogelijk om met een afwijking kleiner dan tien centimeter de positie van de ontvanger in een 500 bij 500 centimeter veld te bepalen?"} Uit Sectie \ref{gemiddeldes} blijkt van alle drie de gemiddelde afwijkingen dat dit minder dan 10 centimeter is, nu kan geconcludeerd worden dat de nauwkeurigheid bereikt wordt binnen een veld van vijf bij vijf meter. Er werden voor het testen twee problemen verwacht, een bit overflow en de geluidssnelheid die veranderd afhankelijk van de temperatuur en luchtvochtigheid. Uiteindelijk bleek de overflow een probleem te zijn en is de formule zoals deze in Sectie \ref{implementatie} staat uitgeschreven. Op deze manier werd de bitoverflow tegengegaan en werkte de code verder zonder last te hebben van overflow. Het tweede verwachtte probleem was de waarde voor de geluidssnelheid, omdat er een standaard waarde ingesteld is en deze niet mee veranderd met de temperatuur en luchtvochtigheid werd er verwacht dat de waarden onnauwkeuriger zouden zijn. In de praktijk was er bijna niks van te merken en zijn er hier geen meetbare afwijkingen door ontstaan.    
 
 \subsection{Aanbevelingen} 
  Voor een vervolgonderzoek zou er naar de volgend punten gekeken kunnen worden.
