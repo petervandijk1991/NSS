@@ -30,7 +30,7 @@ In dit paper zal het door ons ge\"{i}mplementeerde lokalisatiealgoritme besproke
 
 
 \section{Probleemstelling}
-Aan de hand van vier bakens die in een 5 bij 5 meter veld geplaatst worden, moet de positie van de ontvanger bepaald worden. De onderzoeksvraag die hier centraal staat: \textit{``Is het mogelijk om met een afwijking kleiner dan 5 procent de positie van de ontvanger in een 5 bij 5 meter veld te bepalen?"}
+Aan de hand van vier bakens die in een 5 bij 5 meter veld geplaatst worden, moet de positie van de ontvanger bepaald worden. De onderzoeksvraag die hier centraal staat: \textit{"Is het mogelijk om met een afwijking kleiner dan 5 procent de positie van de ontvanger in een 5 bij 5 meter veld te bepalen?"}
 De verwachte uitkomst van dit onderzoek is dat het eindproduct in staat is om met een nauwkeurigheid van 25 centimeter (5 procent) de positie te bepalen binnen het 5 bij 5 meter veld. \\
 \\
 Een limitatie bij deze positiebepaling is onder andere de gebruikte hardware. Er wordt gebruik gemaakt van een Arduino Uno, een computer met beperkte rekenkracht en beperkt werkgeheugen. 
@@ -60,52 +60,6 @@ In het algoritme in het hoofdstuk \textit{Localization and positioning} van \tex
 \end{figure}
 
 De opstelling die hier gebruikt wordt zal als basis principe worden gebruikt voor de implementatie beschreven in deze paper. Aangezien in dit experiment ook gebruik wordt gemaakt van bakens die een signaal versturen en een ontvanger die dit ontvangt en op basis van die gegevens de positie bepaald. 
-
-\section{Ontwerp synchronisatiealgoritme}
-Om deze hypothesen te toetsen moet er een synchronisatie algoritme opgesteld worden en vervolgens getest worden. Als eerste zal het ontwerp van het algoritme besproken worden en in hoofdstuk 6 zal er verder ingegaan worden op de testopstelling en de gebruikte hardware. Er zijn twee zaken van belang bij het ontwerp: 
-\begin{itemize}
-	\item De instellingen/vastgestelde constanten
-	\item De onderzoeksopstelling
-\end{itemize}
-%De gebruikte hardware
-\subsection{De hardware}
-
-\subsubsection{Ontvanger}
-De Hardware die gebruikt is voor het ontvangen van de signalen is een Arduino UNO en een Nordic nRF24L01 draadloze transceiver in combinatie met een ultrasoonontvanger. In Figuur \ref{voorkant} en \ref{achterkant} staat de gebruikte ontvanger vanuit twee posities bekeken.
-\begin{figure}[h]
-\centering\includegraphics[scale=0.06]{voorkant.jpg}
-\caption{De ontvanger (voorkant)}
-\label{voorkant}
-\end{figure}
-\begin{figure}[h]
-\centering\includegraphics[scale=0.06]{achterkant.jpg}
-\caption{De ontvanger (achterkant)}
-\label{achterkant}
-\end{figure}
-
-\subsubsection{zender}
-Als zender is er gebruik gemaakt van vier bakens die een ultrasoon geluid uitzenden. Het signaal van deze bakens wordt verstuurd in de richting waarin ze wijzen. Deze bakens bevatten hardware die vergelijkbaar is met die van de ontvanger, met als grote verschil dat er in plaats van een ultrasoonontvanger een ultrasoonzender is gebruikt.
-
-\subsection{De software}
-Om de RF24 radio aan te sturen wordt gebruik gemaakt van de opensourcesoftwarebibliotheek voor de Arduino \cite{rf24}. Met deze software kan de radio aangestuurd worden en kunnen pakketjes worden verzonden en ontvangen. De radio luistert en verstuurt pakketten over een bepaald frequentiekanaal. Het is van belang dat de radio's hetzelfde frequentiekanaal gebruiken, zodat ze met elkaar kunnen communiceren. De kanalen hebben een nummer van 0 tot en met 125. De gebruikte instellingen zijn als volgt:
-\begin{itemize}
-	\item Frequentiekanaal: 76 
-	\item Automatisch herzenden: uit
-	\item Transmissiesnelheid: 2 Mbps
-	\item Adres pipe: 0xdeadbeefa1
-	\item Payload-grootte: 1 byte
-\end{itemize}
-De ultrasoonontvanger gebruikt de volgende instellingen:
-\begin{itemize}
-	\item 40 kHz signaal: uit
-	\item Versterking: 50x
-\end{itemize}
-Om de tests te kunnen uitvoeren is er gebruik gemaakt van vier bakens die met een bepaald patroon informatie verzenden. In Figuur \ref{uitzenden_bakens} is schematisch weergegeven hoe de signaalverzending werkt. In het schema zijn vier dezelfde iteraties te zien. Omdat er gebruik wordt gemaakt van vier bakens staan er vier berichten in het schema weergegeven. 
-\begin{figure}[h]
-\centering\includegraphics[]{berichten_bakens.png}
-\caption{Het signaal van de bakens}
-\label{uitzenden_bakens}
-\end{figure}
 
 \section{Het algoritme}
 Het algoritme dat ge\"{i}mplementeerd is, bestaat uit twee verschillende onderdelen. Het eerste deel bestaat uit het berekenen van de afstand tot de bakens en het tweede deel uit de berekening van de positie. Deze twee onderdelen zullen apart besproken worden voor de overzichtelijkheid.
@@ -169,13 +123,54 @@ Wat opvalt aan deze berekening is dat er een aantal maal $10.000$ in staat. Deze
 Doordat de afstand tot aan de bakens elke 400 milliseconden opnieuw wordt berekend geldt dit ook voor de x- en y-co\"{o}rdinaten. Voor elke vier nieuwe afstandsmetingen worden de x- en y-co\"ordinaten opnieuw berekend. Het algoritme maakt gebruik van alle vier de bakens en niet slechts drie voor de positiebepaling. Dit wordt gedaan als volgt. Voor elke combinatie van drie bakens wordt met behulp van de afstanden tot deze bakens met behulp van het hiervoor genoemde algoritme een set van co\"ordinaten berekend. Vervolgens wordt het gemiddelde genomen van de berekende sets co\"ordinaten. Dit zorgt er voor dat er voor kleine afwijkingen in afstandsberekening tot bakens gecompenseerd kan worden.
 
 \section{Testopstelling en metingen}
-Om de implementatie te testen is er gebruik gemaakt van een testopstelling zoals die in Figuur \ref{Meetopstelling} staat weergegeven.
+Om de implementatie te testen is er gebruik gemaakt van een testopstelling zoals die in Figuur \ref{Meetopstelling} staat weergegeven. De gebruikte hardware bestaat uit een Arduino UNO in combinatie met een ultrasoon ontvanger. Daarna zal de software kort toegelicht worden en de daarbijhorende constanten die zijn gebruikt.
 \begin{figure}[h] 
 \centering\includegraphics[scale=0.5]{Meetopstelling.png}
 \caption{Meetopstelling}
 \label{Meetopstelling}
 \end{figure}
-De ultrasoonontvangers waarmee de signalen van de bakens worden ontvangen werden op een afstand groter dan vijf meter zeer onnauwkeurig dus is ervoor gekozen om binnen een veld van vijf bij vijf meter te werken. In het schema staan de vier bakens aangegeven met de oranje stippen samen met hun co\"{o}rdinaten. Met de roze stippen worden de testlocaties bedoeld waarop is getest. De bakens die zijn gebruikt versturen alleen signalen in de richting waarin ze wijzen. Hierdoor is het niet mogelijk correcte gegevens te verkrijgen wanneer er vanachter de bakens wordt gemeten. \\
+
+%De gebruikte hardware
+\subsection{De hardware}
+De hardware bestaat uit twee delen, er is een ontvanger die de geluidsgolven opvangt. Deze ontvanger bevindt zich op de Arduino. Er zijn tevens vier zenders, deze staan voor de vier bakens die worden gebruikt om het ultrasoongeluid uit te zenden. 
+\subsubsection{Ontvanger}
+De Hardware die gebruikt is voor het ontvangen van de signalen is een Arduino UNO en een Nordic nRF24L01 draadloze transceiver(kan ontvangen en zenden) in combinatie met een ultrasoonontvanger. In Figuur \ref{voorkant} en \ref{achterkant} staat de gebruikte ontvanger vanuit twee posities bekeken.
+\begin{figure}[h]
+\centering\includegraphics[scale=0.06]{voorkant.jpg}
+\caption{De ontvanger (voorkant)}
+\label{voorkant}
+\end{figure}
+\begin{figure}[h]
+\centering\includegraphics[scale=0.06]{achterkant.jpg}
+\caption{De ontvanger (achterkant)}
+\label{achterkant}
+\end{figure}
+\subsubsection{zender}
+Als zender is er gebruik gemaakt van vier bakens die een ultrasoon geluid uitzenden. Het signaal van deze bakens wordt verstuurd in de richting waarin ze wijzen. Deze bakens bevatten hardware die vergelijkbaar is met die van de ontvanger, met als grote verschil dat er in plaats van een ultrasoonontvanger een ultrasoonzender is gebruikt.
+\\
+
+\subsection{De software}
+Om de RF24 radio aan te sturen wordt gebruik gemaakt van de opensourcesoftwarebibliotheek voor de Arduino \cite{rf24}. Met deze software kan de radio aangestuurd worden en kunnen pakketjes worden verzonden en ontvangen. De radio luistert en verstuurt pakketten over een bepaald frequentiekanaal. Het is van belang dat de radio's hetzelfde frequentiekanaal gebruiken, zodat ze met elkaar kunnen communiceren. De kanalen hebben een nummer van 0 tot en met 125. De gebruikte instellingen zijn als volgt:
+\begin{itemize}
+	\item Frequentiekanaal: 76 
+	\item Automatisch herzenden: uit
+	\item Transmissiesnelheid: 2 Mbps
+	\item Adres pipe: 0xdeadbeefa1
+	\item Payload-grootte: 1 byte
+\end{itemize}
+De ultrasoonontvanger gebruikt de volgende instellingen:
+\begin{itemize}
+	\item 40 kHz signaal: uit
+	\item Versterking: 50x
+\end{itemize}
+Om de tests te kunnen uitvoeren is er gebruik gemaakt van vier bakens die met een bepaald patroon informatie verzenden. In Figuur \ref{uitzenden_bakens} is schematisch weergegeven hoe de signaalverzending werkt. In het schema zijn vier dezelfde iteraties te zien. Omdat er gebruik wordt gemaakt van vier bakens staan er vier berichten in het schema weergegeven. 
+\begin{figure}[h]
+\centering\includegraphics[]{berichten_bakens.png}
+\caption{Het signaal van de bakens}
+\label{uitzenden_bakens}
+\end{figure}
+
+De ultrasoonontvangers waarmee de signalen van de bakens worden ontvangen werden op een afstand groter dan vijf meter zeer onnauwkeurig dus is ervoor gekozen om binnen een veld van vijf bij vijf meter te werken. In Figuur \ref{Meetopstelling} staan de vier bakens aangegeven met de oranje stippen samen met hun co\"{o}rdinaten. Met de roze stippen worden de testlocaties bedoeld waarop is getest. De bakens die zijn gebruikt versturen alleen signalen in de richting waarin ze wijzen. Hierdoor is het niet mogelijk correcte gegevens te verkrijgen wanneer er vanachter de bakens wordt gemeten. \\
 \\
 Tijdens het testen wordt de ontvanger op een bepaald co\"{o}rdinaat geplaatst. Het is belangrijk dat deze locatie precies is, anders ontstaat er een afwijking tussen de meetresultaten en de verwachte waarde. 
 Het is van belang bij het testen dat er gebruik wordt gemaakt van een "schoon" grid. Dit houdt in, geen obstakels die de metingen zouden kunnen verstoren. Alle tests zijn "schoon"  bepaald. 
