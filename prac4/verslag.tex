@@ -130,7 +130,7 @@ Wat opvalt aan deze berekening is dat er een aantal maal $10.000$ in staat. Deze
 Doordat de afstand tot aan de bakens elke 400 milliseconden opnieuw wordt berekend geldt dit ook voor de x- en y-co\"{o}rdinaten. Voor elke vier nieuwe afstandsmetingen worden de x- en y-co\"ordinaten opnieuw berekend. Het algoritme maakt gebruik van alle vier de bakens en niet slechts drie voor de positiebepaling. Dit wordt gedaan als volgt. Voor elke combinatie van drie bakens wordt met behulp van de afstanden tot deze bakens met behulp van het hiervoor genoemde algoritme een set van co\"ordinaten berekend. Vervolgens wordt het gemiddelde genomen van de berekende sets co\"ordinaten. Dit zorgt er voor dat er voor kleine afwijkingen in afstandsberekening tot bakens gecompenseerd kan worden. In Appendix \ref{code} staat de code die de berekeningen implementeert.
 
 \section{Testopstelling en metingen}
-Om de implementatie te testen is er gebruik gemaakt van een testopstelling zoals die in Figuur \ref{Meetopstelling} staat weergegeven. De gebruikte hardware bestaat uit een Arduino UNO in combinatie met een ultrasoonontvanger. Daarnaast zal de software kort toegelicht worden en de daarbij horende constanten die zijn gebruikt.
+Om de implementatie te testen is er gebruik gemaakt van een testopstelling zoals die in Figuur \ref{Meetopstelling} staat weergegeven. In dit figuur staan de oranje co\"{o}rdinaten voor de bakens die het geluid uitzenden en de roze co\"{o}rdinaten staan voor de drie testposities die zijn gebruikt in dit experiment. Voor deze tests is er gebruik gemaakt van hardware en software waarbij de software bestaat uit een aantal gebruikte constanten. Eerst zal de hardware toegelicht worden, daarna de software en zal het testen samen met resultaten gegeven worden.  
 
 \begin{figure}[h] 
 \centering\includegraphics[scale=0.5]{Meetopstelling.png}
@@ -183,7 +183,11 @@ Op de volgende locaties zijn de volgende tests uitgevoerd:\\
 \indent Test 2: De Arduino wordt op het co\"{o}rdinaat (60, 155) geplaatst. \\
 \indent Test 3: De Arduino wordt op het co\"{o}rdinaat (72, 377) geplaatst. \\
 \\
+\subsection{Uitgevoerde tests}
+Om de waarden te kunnen berekenen zijn er drie tests uitgevoerd. De drie tests zijn alle drie op exact dezelfde manier uitgevoerd maar dan op drie verschillende co\"{o}rdinaten. Met deze tests moest ook gekeken kunnen worden of er een verschil is tussen de ontvanger dichtbij de bakens plaatsen of verder weg. Om ervoor te zorgen dat er een goed beeld gevormd kon worden en er voldoende resultaten waren, is ervoor gekozen om van elke positie 20 meetresultaten te nemen en hier het gemiddelde van te nemen om het zo representatief mogelijk te maken. In Appendix \ref{Meetresultaten} staan voor elke positie de berekende waarden en de gemiddeldes. In Sectie \ref{gemiddeldes} staan de drie tabellen met hierin de gemiddelde afwijking per co\"{o}rdinaat weergegeven.
+
 \subsection{Meetresultaten}
+\label{gemiddeldes}
 In Appendix \ref{Meetresultaten} staan alle meetresultaten van de drie tests verwerkt. In de tabellen staan 25 waarden die zijn gemeten op het aangegeven co\"ordinaat. De gemiddelden hiervan zijn eronder aangegeven. De afwijkingen van deze gemiddelden zijn te vinden in Tabel \ref{table:res1}, \ref{table:res2} en \ref{table:res3}.
 
 \begin{table}[h!]
