@@ -4,10 +4,6 @@
 \uppercase{A}rduino \uppercase{R}eference: long.
 \newblock \url{http://arduino.cc/en/Reference/long}, Nov. 2014.
 
-\bibitem{uno}
-\uppercase{A}rduino \uppercase{U}no.
-\newblock \url{http://arduino.cc/en/Main/arduinoBoardUno}, Nov. 2014.
-
 \bibitem{rf24}
 \uppercase{RF}24 \uppercase{C}lass \uppercase{R}eference.
 \newblock \url{http://maniacbug.github.io/RF24/classRF24.html}, May 2014.
