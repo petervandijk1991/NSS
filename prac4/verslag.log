@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.5.20)  13 JUL 2014 23:44
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.5.20)  8 NOV 2014 14:59
 entering extended mode
 **verslag.tex
 (C:\Users\Peter\Desktop\School\NSS\prac4\verslag.tex
@@ -275,20 +275,23 @@ Package caption Info: End \AtBeginDocument code.
 (C:\Users\Peter\Desktop\School\NSS\prac4\verslag.toc)
 \tf@toc=\write3
  [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 38.
+Underfull \hbox (badness 10000) in paragraph at lines 27--30
 
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 39.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 38.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 39.
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--46
+Underfull \hbox (badness 10000) in paragraph at lines 42--47
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--46
+Underfull \hbox (badness 10000) in paragraph at lines 42--47
 
  []
 
@@ -297,110 +300,111 @@ Underfull \hbox (badness 10000) in paragraph at lines 41--46
 ] <voorkant.jpg, id=18, 2055.68pt x 1541.76pt>
 File: voorkant.jpg Graphic file (type jpg)
  <use voorkant.jpg>
-Package pdftex.def Info: voorkant.jpg used on input line 61.
+Package pdftex.def Info: voorkant.jpg used on input line 62.
 (pdftex.def)             Requested size: 123.33548pt x 92.5016pt.
 
 <achterkant.jpg, id=19, 2055.68pt x 1541.76pt>
 File: achterkant.jpg Graphic file (type jpg)
  <use achterkant.jpg>
-Package pdftex.def Info: achterkant.jpg used on input line 66.
+Package pdftex.def Info: achterkant.jpg used on input line 67.
 (pdftex.def)             Requested size: 123.33548pt x 92.5016pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[4 <C:/Users/Peter/Desktop/School/NSS/prac4/voorkant.jpg>]
-<berichten_bakens.png, id=23, 348.1005pt x 152.9715pt>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[4] [5 <C:/Users/Peter/Desktop/School/NSS/prac4/voorkant.jpg> <C:/Users/Peter/D
+esktop/School/NSS/prac4/achterkant.jpg>]
+<berichten_bakens.png, id=26, 348.1005pt x 152.9715pt>
 File: berichten_bakens.png Graphic file (type png)
 
 <use berichten_bakens.png>
-Package pdftex.def Info: berichten_bakens.png used on input line 90.
+Package pdftex.def Info: berichten_bakens.png used on input line 91.
 (pdftex.def)             Requested size: 348.09964pt x 152.9711pt.
 
-Overfull \hbox (3.09964pt too wide) in paragraph at lines 90--91
+Overfull \hbox (3.09964pt too wide) in paragraph at lines 91--92
  [][] 
  []
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[5 <C:/Users/Peter/Desktop/School/NSS/prac4/achterkant.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 99--111
+Underfull \hbox (badness 10000) in paragraph at lines 100--112
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 99--111
+Underfull \hbox (badness 10000) in paragraph at lines 100--112
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 99--111
+Underfull \hbox (badness 10000) in paragraph at lines 100--112
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 99--111
+Underfull \hbox (badness 10000) in paragraph at lines 100--112
 
  []
 
 [6 <C:/Users/Peter/Desktop/School/NSS/prac4/berichten_bakens.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 113--155
+Underfull \hbox (badness 10000) in paragraph at lines 114--156
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--155
+Underfull \hbox (badness 10000) in paragraph at lines 114--156
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--155
+Underfull \hbox (badness 10000) in paragraph at lines 114--156
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--155
+Underfull \hbox (badness 10000) in paragraph at lines 114--156
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--155
+Underfull \hbox (badness 10000) in paragraph at lines 114--156
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--155
+Underfull \hbox (badness 10000) in paragraph at lines 114--156
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--155
+Underfull \hbox (badness 10000) in paragraph at lines 114--156
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--155
+Underfull \hbox (badness 10000) in paragraph at lines 114--156
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--155
+Underfull \hbox (badness 10000) in paragraph at lines 114--156
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--155
+Underfull \hbox (badness 10000) in paragraph at lines 114--156
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--155
+Underfull \hbox (badness 10000) in paragraph at lines 114--156
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--155
+Underfull \hbox (badness 10000) in paragraph at lines 114--156
 
  []
 
@@ -408,55 +412,55 @@ Underfull \hbox (badness 10000) in paragraph at lines 113--155
 File: Meetopstelling.png Graphic file (type png)
 
 <use Meetopstelling.png>
-Package pdftex.def Info: Meetopstelling.png used on input line 159.
+Package pdftex.def Info: Meetopstelling.png used on input line 160.
 (pdftex.def)             Requested size: 155.38011pt x 128.27893pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 157--176
+Underfull \hbox (badness 10000) in paragraph at lines 158--177
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 157--176
+Underfull \hbox (badness 10000) in paragraph at lines 158--177
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 157--176
+Underfull \hbox (badness 10000) in paragraph at lines 158--177
 
  []
 
-[8 <C:/Users/Peter/Desktop/School/NSS/prac4/Meetopstelling.png>] [9]
-(C:\Users\Peter\Desktop\School\NSS\prac4\verslag.bbl) [10]
+[8 <C:/Users/Peter/Desktop/School/NSS/prac4/Meetopstelling.png>] [9] [10]
+(C:\Users\Peter\Desktop\School\NSS\prac4\verslag.bbl) [11]
 File: ./location/location.ino  (verbatim)
- [11]
-Overfull \hbox (109.75653pt too wide) in paragraph at lines 201--201
+ [12]
+Overfull \hbox (109.75653pt too wide) in paragraph at lines 202--202
 []   \OT1/cmtt/m/n/8 int x_gemiddelde =  (x_crds[0]+x_crds[1]+x_crds[2]+x_crds[
 3]+x_crds[4]+x_crds[5]+x_crds[6]+x_crds[7])/8;[] 
  []
 
 
-Overfull \hbox (109.75653pt too wide) in paragraph at lines 201--201
+Overfull \hbox (109.75653pt too wide) in paragraph at lines 202--202
 []   \OT1/cmtt/m/n/8 int y_gemiddelde =  (y_crds[0]+y_crds[1]+y_crds[2]+y_crds[
 3]+y_crds[4]+y_crds[5]+y_crds[6]+y_crds[7])/8;[] 
  []
 
 
-Overfull \hbox (7.75507pt too wide) in paragraph at lines 201--201
+Overfull \hbox (7.75507pt too wide) in paragraph at lines 202--202
 []   \OT1/cmtt/m/n/8 printf("De gemiddelde x:%i  en y: %i waarden \n\r", x_gemi
 ddelde, y_gemiddelde);[] 
  []
 
-[12]
-Overfull \hbox (59.94534pt too wide) in paragraph at lines 207--331
+[13]
+Overfull \hbox (59.94534pt too wide) in paragraph at lines 208--332
 [] [] [] 
  []
 
 
-Overfull \hbox (59.38916pt too wide) in paragraph at lines 207--331
+Overfull \hbox (59.38916pt too wide) in paragraph at lines 208--332
 [] [] [] 
  []
 
-[13] (C:\Users\Peter\Desktop\School\NSS\prac4\verslag.aux) ) 
+[14] (C:\Users\Peter\Desktop\School\NSS\prac4\verslag.aux) ) 
 Here is how much of TeX's memory you used:
  4310 strings out of 493921
  64791 string characters out of 3144876
@@ -479,9 +483,9 @@ pe1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
 1/public/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/
 public/amsfonts/cm/cmtt10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pu
 blic/amsfonts/cm/cmtt8.pfb>
-Output written on verslag.pdf (13 pages, 813512 bytes).
+Output written on verslag.pdf (14 pages, 814249 bytes).
 PDF statistics:
- 103 PDF objects out of 1000 (max. 8388607)
+ 106 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
