@@ -38,16 +38,16 @@ Verwachte obstakels hierdoor zijn bit overflows en het beperkte aantal variabele
 
 
 \section{Gerelateerd werk}
-Op dit gebied is er al veel onderzoek verricht. Hierdoor is er veel werk wat gebruikt kan worden bij het onderzoek. Er zullen twee papers worden bekeken waarin globale positie systemen (GPS) beschreven worden. In de twee papers worden er trilateratiealgoritmen gepresenteerd waarmee de exacte locatie bepaald kan worden op twee verschillende manieren. In \textit{A New Location Technique for the Active Office} worden twee manieren beschreven \cite{ward97}, namelijk:
+Op het gebied van lokalisatie-algoritmen is er al veel onderzoek verricht. Hierdoor is er veel werk wat gebruikt kan worden bij het onderzoek. Er zullen twee papers worden bekeken waarin globale positie systemen (GPS) beschreven worden. In de twee papers worden er trilateratie-algoritmen gepresenteerd waarmee de exacte locatie bepaald kan worden op twee verschillende manieren. In \textit{A New Location Technique for the Active Office} worden twee manieren beschreven \cite{ward97}, namelijk:
 \begin{itemize}
 	\item Active badges
 	\item ParcTab
 \end{itemize}
 Active Badges is gebaseerd op het periodiek verzenden van informatie naar iedereen. Door bijvoorbeeld een gebouw heen zijn er overal sensoren geplaatst die luisteren naar berichten die worden verstuurd door badges. Door vast te stellen welke sensoren het signaal van welke badge hebben ontvangen is het mogelijk een grove schatting te geven van de locatie van de badge.\\
 \\
-ParcTab is een zakcomputer die gebruik maakt van een netwerk dat communiceert via infrarood signalen. Wat betreft de lokalisatie lijkt deze heel veel op de badges die hiervoor staan beschreven. Er worden berichten verstuurd en afhankelijk van welke sensor deze ontvangen wordt de locatie bepaald. Een groot verschil is dat de ParcTab is bedoeld voor intensiever gebruik dan alleen het berekenen van de locatie. \\
+ParcTab is een zakcomputer die gebruik maakt van een netwerk dat communiceert via infraroodsignalen. Wat betreft de lokalisatie lijkt deze heel veel op de badges die hiervoor zijn beschreven. Er worden berichten verstuurd en afhankelijk van welke sensor deze ontvangen wordt de locatie bepaald. Een groot verschil is dat de ParcTab is bedoeld voor intensiever gebruik dan alleen het berekenen van de locatie. \\
 \\
-In het algoritme in het hoofdstuk \textit{Localization and positioning} van \textit{Protocols and Architectures for Wireless Sensor Networks} wordt er gebruik gemaakt van bakens die een signaal uitzenden \cite{h9}. Met behulp van deze bakens kan op twee manieren een positie worden berekend: met \emph{triangulatie} (Figuur \ref{triangulatie}) en \emph{trilateratie} (Figuur \ref{trilateratie}). Triangulatie maakt gebruik van de invalshoek om de positie te berekenen. Hierbij moeten de hoeken tot tenminste twee bakens en de afstand tussen de bakens bekend zijn. Trilateratie gebruikt de afstand tot de bakens om de positie te bepalen. Voor dit algoritme is het van belang dat er minimaal tot drie bakens de afstand bekend is. Wanneer de afstand tot drie bakens bekend is kan met een simpele matrixmultiplicatie de positie berekend worden. Dit is het algoritme dat ook is gebruikt in de in dit paper besproken oplossing.
+In het algoritme in het hoofdstuk \textit{Localization and positioning} van \textit{Protocols and Architectures for Wireless Sensor Networks} wordt er gebruik gemaakt van bakens die een signaal uitzenden \cite{h9}. Met behulp van deze bakens kan op twee manieren een positie worden berekend: met \emph{triangulatie} (Figuur \ref{triangulatie}) en \emph{trilateratie} (Figuur \ref{trilateratie}). Triangulatie maakt gebruik van de invalshoek om de positie te berekenen. Hierbij moeten de hoeken tot tenminste twee bakens en de afstand tussen de bakens bekend zijn. Trilateratie gebruikt de afstand tot de bakens om de positie te bepalen. Voor dit algoritme is het van belang dat er minimaal tot drie bakens de afstand bekend is. Wanneer de afstand tot drie bakens bekend is kan met een simpele matrixvermenigvuldiging de positie berekend worden. Dit is het algoritme dat ook is gebruikt in de in dit paper besproken oplossing.
 \begin{figure}[h]
 \centering\includegraphics[scale=0.75]{trilateratie.png}
 \caption{Trilateratie \cite{h9}}
@@ -57,9 +57,9 @@ In het algoritme in het hoofdstuk \textit{Localization and positioning} van \tex
 \centering\includegraphics[scale=0.75]{triangulatie.png}
 \caption{Triangulatie \cite{h9}}
 \label{triangulatie}
-\end{figure}
-
-De opstelling die hier gebruikt wordt zal als basis principe worden gebruikt voor de implementatie beschreven in deze paper. Aangezien in dit experiment ook gebruik wordt gemaakt van bakens die een signaal versturen en een ontvanger die dit ontvangt en op basis van die gegevens de positie bepaald. 
+\end{figure}\\
+\\
+De opstelling die hier gebruikt wordt zal als basisprincipe worden gebruikt voor de implementatie beschreven in dit paper. Aangezien in dit experiment ook gebruik wordt gemaakt van bakens die een signaal versturen en een ontvanger die dit ontvangt en op basis van die gegevens de positie bepaald. 
 
 \section{Het algoritme}
 Het algoritme dat ge\"{i}mplementeerd is, bestaat uit twee verschillende onderdelen. Het eerste deel bestaat uit het berekenen van de afstand tot de bakens en het tweede deel uit de berekening van de positie. Deze twee onderdelen zullen apart besproken worden voor de overzichtelijkheid.
@@ -102,9 +102,10 @@ Met: \\
 \indent$y_u$: de te berekenen y-co\"{o}rdinaat van de Arduino.\\
 \indent$x_i$: het x-co\"{o}rdinaat van baken $i$.\\
 \indent$y_i$: het y-co\"{o}rdinaat van baken $i$.\\
-\indent$r_i$: de afstand van de Arduino tot aan baken $i$.\\
-\\
-Deze matrixmultiplicatie is om te schrijven naar de volgende formules, waarmee de x- en y-co\"ordinaten van de ontvanger te berekenen zijn: \\
+\indent$r_i$: de afstand van de Arduino tot aan baken $i$.
+
+\subsection{Implementatie}
+De matrixvermenigvuldiging voor de trilateratie is om te schrijven naar de volgende formules, waarmee de x- en y-co\"ordinaten van de ontvanger te berekenen zijn: \\
 \\
 \indent$c_1 = (((r_1*r_1)-(r_3*r_3))-((x_1*x_1)-(x_3*x_3))-((y_1*y_1)-(y_3*y_3)))/2 $\\
 \\
@@ -123,7 +124,8 @@ Wat opvalt aan deze berekening is dat er een aantal maal $10.000$ in staat. Deze
 Doordat de afstand tot aan de bakens elke 400 milliseconden opnieuw wordt berekend geldt dit ook voor de x- en y-co\"{o}rdinaten. Voor elke vier nieuwe afstandsmetingen worden de x- en y-co\"ordinaten opnieuw berekend. Het algoritme maakt gebruik van alle vier de bakens en niet slechts drie voor de positiebepaling. Dit wordt gedaan als volgt. Voor elke combinatie van drie bakens wordt met behulp van de afstanden tot deze bakens met behulp van het hiervoor genoemde algoritme een set van co\"ordinaten berekend. Vervolgens wordt het gemiddelde genomen van de berekende sets co\"ordinaten. Dit zorgt er voor dat er voor kleine afwijkingen in afstandsberekening tot bakens gecompenseerd kan worden.
 
 \section{Testopstelling en metingen}
-Om de implementatie te testen is er gebruik gemaakt van een testopstelling zoals die in Figuur \ref{Meetopstelling} staat weergegeven. De gebruikte hardware wordt hieronder uitgelegd, daarna zal de software kort toegelicht worden en de daarbij behorende constanten die zijn gebruikt.
+Om de implementatie te testen is er gebruik gemaakt van een testopstelling zoals die in Figuur \ref{Meetopstelling} staat weergegeven. De gebruikte hardware bestaat uit een Arduino UNO in combinatie met een ultrasoonontvanger. Daarnaast zal de software kort toegelicht worden en de daarbij horende constanten die zijn gebruikt.
+
 \begin{figure}[h] 
 \centering\includegraphics[scale=0.5]{Meetopstelling.png}
 \caption{Meetopstelling}
