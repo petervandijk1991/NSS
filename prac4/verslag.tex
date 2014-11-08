@@ -24,12 +24,12 @@
 \tableofcontents
 \clearpage
 \section{Inleiding}
-De locatie van een meetinstrument kan van belang zijn bij het verrichtingen van metingen, bijvoorbeeld bij een branddetector in een bos. Er zijn verschillende algoritmes om een locatie te bepalen. In dit paper zal een lokalisatiealgoritme besproken worden. De besproken lokalisatie zal gedaan worden met behulp van vaste referentiepunten. Het doel van dit onderzoek is om binnen een veld van 5 bij 5 meter de positie zo nauwkeurig mogelijk proberen te bepalen. Aan de hand van het ultrasone geluid in combinatie met een positiebepalingsalgoritme wordt nauwkeurig bepaald wat de co\"{o}rdinaten zijn. 
+De locatie van een meetinstrument kan van belang zijn bij het verrichtingen van metingen, bijvoorbeeld bij een branddetector in een bos. Er zijn verschillende algoritmes om een locatie te bepalen. In dit paper zal een lokalisatiealgoritme besproken worden. De besproken lokalisatie zal gedaan worden met behulp van vaste referentiepunten. Het doel van dit onderzoek is om binnen een veld van vijf bij vijf meter de positie zo nauwkeurig mogelijk proberen te bepalen. Aan de hand van het ultrasone geluid in combinatie met een positiebepalingsalgoritme wordt nauwkeurig bepaald wat de co\"{o}rdinaten zijn. 
 
 
 \section{Probleemstelling}
-De onderzoeksvraag die hier centraal staat: \textit{"Een algoritme opstellen waarmee met trilateratie de positie bepaald kan worden met enkele centimeters nauwkeurigheid."}
-De hypothese is dat dit een uitdaging is, er zijn veel factoren die van invloed zijn op de berekening van de trilateratie. Twee belangrijke factoren zullen de geluidssnelheid worden en de overflow (Getallen zijn te groot om te representeren) in Arduino zijn. 
+Aan de hand van vier bakens die in een 5x5 meter veld geplaatst worden, moet de positie van de ontvanger bepaald worden. De onderzoeksvraag die hier centraal staat: \textit{"Is het mogelijk om met een afwijking kleiner dan 5 procent de positie van de ontvanger in een 5x5 meter veld te bepalen?"}
+De verwachte uitkomst van dit onderzoek is dat het eindproduct in staat is om met een nauwkeurigheid van 25 centimeter de positie te bepalen binnen een 5x5 meter veld. Een verwacht obstakel is de overflow van bitjes en de geluidssnelheid die gehanteerd moet worden. De overflow wordt als probleem verwacht omdat de arduino geen grote getallen kan representeren en er waarschijnlijk met grote getallen gerekend moet gaan worden. Een ander verwacht obstakel is de geluidssnelheid van het geluid wat de bakens zullen gaan uitzenden, omdat deze grootheid varieert naarmate de temperatuur en luchtvochtigheid veranderen kan dit al snel gevolgen voor de te bepalen positie hebben.  
 
 
 \section{Gerelateerd werk}
@@ -42,7 +42,17 @@ Active Badges is gebaseerd op het periodiek verzenden van informatie naar iedere
 \\
 ParcTab is een zakcomputer die gebruik maakt van een netwerk dat communiceert via infrarood signalen. Wat betreft de lokalisatie lijkt deze heel veel op de badges die hiervoor staan beschreven. Er worden berichten verstuurd en afhankelijk van welke sensor deze ontvangen wordt de locatie bepaald. Een groot verschil is dat de ParcTab is bedoeld voor intensiever gebruik dan alleen het berekenen van de locatie. \\
 \\
-In het algoritme in het hoofdstuk \textit{Localization and positioning} van \textit{Protocols and Architectures for Wireless Sensor Networks} wordt er gebruik gemaakt van bakens die een signaal uitzenden \cite{h9}. Met behulp van deze bakens kan op twee manieren een positie worden berekend: met \emph{triangulatie} en \emph{trilateratie}. Triangulatie maakt gebruik van de invalshoek om de positie te berekenen. Hierbij moeten de hoeken tot tenminste twee bakens en de afstand tussen de bakens bekend zijn. Trilateratie gebruikt de afstand tot de bakens om de positie te bepalen. Voor dit algoritme is het van belang dat er minimaal tot drie bakens de afstand bekend is. Wanneer de afstand tot drie bakens bekend is kan met een simpele matrixmultiplicatie de positie berekend worden. Dit is het algoritme dat ook is gebruikt in de in dit paper besproken oplossing.
+In het algoritme in het hoofdstuk \textit{Localization and positioning} van \textit{Protocols and Architectures for Wireless Sensor Networks} wordt er gebruik gemaakt van bakens die een signaal uitzenden \cite{h9}. Met behulp van deze bakens kan op twee manieren een positie worden berekend: met \emph{triangulatie} (Figuur \ref{triangulatie}) en \emph{trilateratie} (Figuur \ref{trilateratie}). Triangulatie maakt gebruik van de invalshoek om de positie te berekenen. Hierbij moeten de hoeken tot tenminste twee bakens en de afstand tussen de bakens bekend zijn. Trilateratie gebruikt de afstand tot de bakens om de positie te bepalen. Voor dit algoritme is het van belang dat er minimaal tot drie bakens de afstand bekend is. Wanneer de afstand tot drie bakens bekend is kan met een simpele matrixmultiplicatie de positie berekend worden. Dit is het algoritme dat ook is gebruikt in de in dit paper besproken oplossing.
+\begin{figure}[h]
+\centering\includegraphics[scale=0.75]{trilateratie.png}
+\caption{Trilateratie \cite{h9}}
+\label{trilateratie}
+\end{figure}
+\begin{figure}[h]
+\centering\includegraphics[scale=0.75]{triangulatie.png}
+\caption{Triangulatie \cite{h9}}
+\label{triangulatie}
+\end{figure}
 
 \section{Instellingen}
 Om deze hypothesen te toetsen moeten er metingen gedaan worden. Hier zijn verschillende zaken van belang. 
@@ -160,26 +170,27 @@ Om de implementatie te testen is er gebruik gemaakt van een testopstelling zoals
 \caption{Meetopstelling}
 \label{Meetopstelling}
 \end{figure}
-De unisoonontvangers waarmee de signalen van de bakens worden ontvangen werden op een afstand groter dan vijf meter zeer onnauwkeurig dus is ervoor gekozen om binnen een veld van 5 bij 5 meter te werken. In het schema staan de vier bakens aangegeven met de oranje stippen samen met hun co\"{o}rdinaten. Met de roze stippen worden de testlocaties bedoeld waarop is getest. De bakens die zijn gebruikt versturen alleen signalen in de richting waarin ze wijzen. Hierdoor is het niet mogelijk correcte gegevens te verkrijgen wanneer er vanachter de bakens wordt gemeten. \\
+De unisoonontvangers waarmee de signalen van de bakens worden ontvangen werden op een afstand groter dan vijf meter zeer onnauwkeurig dus is ervoor gekozen om binnen een veld van vijf bij vijf meter te werken. In het schema staan de vier bakens aangegeven met de oranje stippen samen met hun co\"{o}rdinaten. Met de roze stippen worden de testlocaties bedoeld waarop is getest. De bakens die zijn gebruikt versturen alleen signalen in de richting waarin ze wijzen. Hierdoor is het niet mogelijk correcte gegevens te verkrijgen wanneer er vanachter de bakens wordt gemeten. \\
 \\
 Tijdens het testen wordt de ontvanger op een bepaald co\"{o}rdinaat geplaatst. Het is belangrijk dat deze locatie precies is, anders ontstaat er een afwijking tussen de meetresultaten en de verwachte waarde. 
-Het is van belang bij het testen dat er gebruik wordt gemaakt van een "schoon" grid. Dit houdt in, geen obstakels die de metingen zouden kunnen verstoren. Alle tests zijn "schoon" uitgevoerd. 
+Het is van belang bij het testen dat er gebruik wordt gemaakt van een "schoon" grid. Dit houdt in, geen obstakels die de metingen zouden kunnen verstoren. Alle tests zijn "schoon"  bepaald. 
 Op de volgende locaties zijn de volgende tests uitgevoerd:\\
 \\
 \indent Test 1: De Arduino wordt op het co\"{o}rdinaat (290, 434) geplaatst. \\
 \indent Test 2: De Arduino wordt op het co\"{o}rdinaat (60, 155) geplaatst. \\
 \indent Test 3: De Arduino wordt op het co\"{o}rdinaat (72, 377) geplaatst. \\
 \\
-Verwacht wordt dat de metingen zeer nauwkeurig zullen zijn met slechts enkele centimers afwijking. 
+Verwacht wordt dat de metingen zeer nauwkeurig zullen zijn met een afwijking kleiner dan tien centimeter. 
 In Appendix \ref{Meetresultaten} staan alle meetresultaten van de drie tests verwerkt. In de tabellen staat de laatste waarde voor het gemiddelde dat werd berekend door de Arduino. de overige waarden zijn 25 gemeten waarden op die positie. Te zien is dat de metingen niet hetzelfde zijn, ze fluctueren binnen een interval. Een paar redenen hiervoor zijn: 
 \begin{itemize}
 	\item De ontvanger is bewogen tijdens de meting.
 	\item De geluidssnelheid is erg belangrijk voor de berekening en is niet correct afgestemd op de temperatuur en luchtvochtigheid van de ruimte. 
-	\item De ultrasoonontvanger ontvangt ook echo's die weerkaatsen op objecten. Deze foutieve metingen worden meegenomen in de berekening waardoor de waarde niet meer klopt. 
+	\item De ultrasoonontvanger ontvangt echo's die weerkaatsen op objecten. Deze foutieve metingen worden meegenomen in de berekening waardoor de waarde niet meer klopt. 
 \end{itemize}
 
 \section{Conclusie}
-De onderzoeksvraag die hier centraal staat: \textit{"Een algoritme opstellen waarmee met trilateratie de positie bepaald kan worden met 5 \% nauwkeurigheid."} Dit experiment is een succes, het is gelukt om een algoritme te ontwikkelen en implementeren waarmee de marge <=5\% is. Hiermee is het experiment een succes.
+De onderzoeksvraag die aan het begin gesteld werd: \textit{"Een algoritme opstellen waarmee de positie bepaald kan worden met een afwijking van minder dan tien centimeter."} Met dit experiment is het gelukt een lokalisatiealgoritme te ontwerpen en te implementeren met een afwijking kleiner dan tien centimeter. Uit de onderzoeksresultaten die weergegeven staan in Appendix B kan dit geconcludeerd worden. In Appendix B staat in de onderste tabel van elke grafiek de gemiddelde afwijking in centimeters. Voor bovenstaande hypothese geldt wel dat de ontvanger zich v\'{o}\'{o}r de bakens moet bevinden en binnen een veld van vijf bij vijf meter. Anders kan er niet gegarandeerd worden dat de afwijking kleiner dan tien centimeter is. 
+
 \subsection{Aanbevelingen} 
  Voor een vervolgonderzoek zou er naar de volgend punten gekeken kunnen worden.
  \begin{itemize}

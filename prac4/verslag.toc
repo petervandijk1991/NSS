@@ -3,15 +3,15 @@
 \contentsline {section}{\numberline {2}Probleemstelling}{3}
 \contentsline {section}{\numberline {3}Gerelateerd werk}{3}
 \contentsline {section}{\numberline {4}Instellingen}{4}
-\contentsline {subsection}{\numberline {4.1}De hardware}{4}
-\contentsline {subsubsection}{\numberline {4.1.1}Ontvanger}{4}
+\contentsline {subsection}{\numberline {4.1}De hardware}{5}
+\contentsline {subsubsection}{\numberline {4.1.1}Ontvanger}{5}
 \contentsline {subsubsection}{\numberline {4.1.2}zender}{5}
-\contentsline {subsection}{\numberline {4.2}De software}{5}
-\contentsline {section}{\numberline {5}Het algoritme}{6}
-\contentsline {subsection}{\numberline {5.1}Afstand bepalen tot aan de bakens}{6}
+\contentsline {subsection}{\numberline {4.2}De software}{6}
+\contentsline {section}{\numberline {5}Het algoritme}{7}
+\contentsline {subsection}{\numberline {5.1}Afstand bepalen tot aan de bakens}{7}
 \contentsline {subsection}{\numberline {5.2}Trilateratie}{7}
-\contentsline {section}{\numberline {6}Testopstelling en metingen}{8}
-\contentsline {section}{\numberline {7}Conclusie}{9}
-\contentsline {subsection}{\numberline {7.1}Aanbevelingen}{9}
-\contentsline {section}{\numberline {A}Code Trilateration}{11}
-\contentsline {section}{\numberline {B}Meetresultaten}{13}
+\contentsline {section}{\numberline {6}Testopstelling en metingen}{9}
+\contentsline {section}{\numberline {7}Conclusie}{10}
+\contentsline {subsection}{\numberline {7.1}Aanbevelingen}{10}
+\contentsline {section}{\numberline {A}Code Trilateration}{12}
+\contentsline {section}{\numberline {B}Meetresultaten}{14}
